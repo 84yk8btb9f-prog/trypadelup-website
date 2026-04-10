@@ -1,54 +1,37 @@
-"use client";
+'use client';
 
-import { useEffect, useRef } from "react";
-import { Star, Quote } from "lucide-react";
+import { Star } from 'lucide-react';
+import { MotionDiv } from '@/components/ui/motion-wrapper';
 
 const featured = {
   quote:
-    "The AI analysis is like having a personal coach in your pocket. I've improved more in a month than I did in a year of lessons.",
-  name: "Sofia K.",
-  location: "Athens, Greece",
-  initials: "SK",
+    'The AI analysis is like having a personal coach in your pocket. I improved more in one month than I did in a year of lessons.',
+  name: 'Carlos M.',
+  location: 'Madrid, Spain',
+  initials: 'CM',
 };
 
 const sideTestimonials = [
   {
     quote:
-      "PadelUp helped me fix my bandeja in just 2 weeks! The AI video analysis is incredibly accurate.",
-    name: "Carlos M.",
-    location: "Madrid, Spain",
-    initials: "CM",
+      'PadelUp helped me fix my bandeja in just 2 weeks. The AI video analysis is incredibly accurate.',
+    name: 'Sofia K.',
+    location: 'Athens, Greece',
+    initials: 'SK',
   },
   {
     quote:
-      "I was skeptical about AI coaching but the frame-by-frame breakdown of my smash completely changed my game.",
-    name: "Marco R.",
-    location: "Milan, Italy",
-    initials: "MR",
-  },
-];
-
-const bottomTestimonials = [
-  {
-    quote:
-      "Best padel app out there. The nutrition tracking is a game changer — I finally understand my macros.",
-    name: "Alex P.",
-    location: "London, UK",
-    initials: "AP",
+      'I was skeptical about AI coaching but the frame-by-frame breakdown of my smash completely changed my game.',
+    name: 'Marco R.',
+    location: 'Milan, Italy',
+    initials: 'MR',
   },
   {
     quote:
-      "The training plans are perfectly tailored. I went from beginner to winning club tournaments in 4 months.",
-    name: "Laura B.",
-    location: "Barcelona, Spain",
-    initials: "LB",
-  },
-  {
-    quote:
-      "Love the court finder feature. Found 3 new padel courts near me that I didn't even know existed!",
-    name: "David H.",
-    location: "Dubai, UAE",
-    initials: "DH",
+      'The training plans are perfectly tailored. I went from beginner to winning club tournaments in 4 months.',
+    name: 'Laura B.',
+    location: 'Barcelona, Spain',
+    initials: 'LB',
   },
 ];
 
@@ -57,52 +40,29 @@ function SmallCard({
   name,
   location,
   initials,
-  delay,
 }: {
   quote: string;
   name: string;
   location: string;
   initials: string;
-  delay: number;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => el.classList.add("visible"), delay);
-          observer.unobserve(el);
-        }
-      },
-      { threshold: 0.1 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [delay]);
-
   return (
-    <div
-      ref={ref}
-      className="scroll-reveal p-5 rounded-2xl bg-white/[0.04] border border-white/[0.08] backdrop-blur-lg flex flex-col gap-3"
-    >
+    <div className="p-6 rounded-2xl bg-white/[0.04] border border-white/[0.08] backdrop-blur-xl flex flex-col gap-4">
       <div className="flex gap-1">
         {[...Array(5)].map((_, i) => (
           <Star key={i} size={12} fill="#00E676" color="#00E676" />
         ))}
       </div>
-      <p className="text-sm leading-relaxed text-white/80 flex-1">
+      <p className="text-sm leading-relaxed text-white/70 flex-1">
         &ldquo;{quote}&rdquo;
       </p>
       <div className="flex items-center gap-3 mt-1">
-        <div className="w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-bold bg-white/[0.08] border border-white/10 text-white/60">
+        <div className="w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-bold bg-white/[0.06] border border-white/[0.08] text-white/50">
           {initials}
         </div>
         <div>
           <p className="text-sm font-semibold text-white">{name}</p>
-          <p className="text-xs text-white/45">{location}</p>
+          <p className="text-xs text-white/40">{location}</p>
         </div>
       </div>
     </div>
@@ -110,85 +70,60 @@ function SmallCard({
 }
 
 export default function SocialProofSection() {
-  const headingRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = headingRef.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.classList.add("visible");
-          observer.unobserve(el);
-        }
-      },
-      { threshold: 0.1 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section id="testimonials" className="py-28 px-4 bg-[#0A0A0A] relative">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
+    <section id="testimonials" className="py-32 px-4 bg-[#0A0A0A] relative overflow-hidden">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
-      <div className="max-w-6xl mx-auto">
-        <div ref={headingRef} className="scroll-reveal mb-12 max-w-lg">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] mb-3 text-magenta">
-            Testimonials
-          </p>
-          <h2
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
+      <div className="max-w-5xl mx-auto">
+        {/* Featured testimonial */}
+        <MotionDiv className="text-center mb-20">
+          {/* Large green quote mark */}
+          <div className="mb-8">
+            <span
+              className="text-[120px] sm:text-[160px] leading-none font-bold text-[#00E676]/15 select-none"
+              style={{ fontFamily: "'Clash Display', sans-serif" }}
+              aria-hidden="true"
+            >
+              &ldquo;
+            </span>
+          </div>
+
+          <blockquote
+            className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-medium text-white leading-snug max-w-4xl mx-auto -mt-24"
             style={{ fontFamily: "'Clash Display', sans-serif" }}
           >
-            Loved by 8,000+ padel players worldwide
-          </h2>
-          <div className="flex items-center gap-3">
-            <div className="flex gap-1">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} size={16} fill="#00E676" color="#00E676" />
-              ))}
-            </div>
-            <span className="text-base font-semibold text-white/80">4.9 rating on the App Store</span>
-          </div>
-        </div>
+            {featured.quote}
+          </blockquote>
 
-        {/* Editorial layout: featured left, stacked right */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-6">
-          {/* Featured large quote — 3 cols */}
-          <div className="lg:col-span-3 p-8 sm:p-10 rounded-2xl bg-white/[0.04] border border-teal/20 backdrop-blur-lg flex flex-col justify-between relative overflow-hidden">
-            <Quote size={64} className="text-teal/20 absolute top-6 left-6" />
-            <div className="relative z-10">
-              <p
-                className="text-xl sm:text-2xl lg:text-3xl font-medium text-white leading-relaxed mb-8"
-                style={{ fontFamily: "'Clash Display', sans-serif" }}
-              >
-                &ldquo;{featured.quote}&rdquo;
-              </p>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold bg-gradient-to-br from-teal/30 to-magenta/20 border-2 border-white/10 text-teal">
-                  {featured.initials}
-                </div>
-                <div>
-                  <p className="text-base font-semibold text-white">{featured.name}</p>
-                  <p className="text-sm text-white/45">{featured.location}</p>
-                </div>
-              </div>
+          <div className="flex items-center justify-center gap-3 mt-10">
+            <div className="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold bg-[#00E676]/15 border border-[#00E676]/20 text-[#00E676]">
+              {featured.initials}
+            </div>
+            <div className="text-left">
+              <p className="text-sm font-semibold text-white">{featured.name}</p>
+              <p className="text-xs text-white/40">{featured.location}</p>
             </div>
           </div>
+        </MotionDiv>
 
-          {/* Two stacked cards — 2 cols */}
-          <div className="lg:col-span-2 flex flex-col gap-6">
-            {sideTestimonials.map((t, i) => (
-              <SmallCard key={t.name} {...t} delay={i * 100} />
+        {/* Trust badge */}
+        <MotionDiv delay={0.1} className="flex items-center justify-center gap-4 mb-14">
+          <div className="flex gap-0.5">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} size={14} fill="#00E676" color="#00E676" />
             ))}
           </div>
-        </div>
+          <span className="text-sm font-medium text-white/60">
+            4.9 &middot; 8,000+ players
+          </span>
+        </MotionDiv>
 
-        {/* Bottom row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {bottomTestimonials.map((t, i) => (
-            <SmallCard key={t.name} {...t} delay={i * 80} />
+        {/* Smaller testimonial cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {sideTestimonials.map((t, i) => (
+            <MotionDiv key={t.name} delay={0.15 + i * 0.1}>
+              <SmallCard {...t} />
+            </MotionDiv>
           ))}
         </div>
       </div>

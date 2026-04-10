@@ -1,36 +1,57 @@
-const APP_STORE_URL = "https://apps.apple.com/app/padelup/id0000000000";
+'use client';
+
+import { motion } from 'framer-motion';
+import { MotionDiv } from '@/components/ui/motion-wrapper';
+
+const APP_STORE_URL = 'https://apps.apple.com/app/padelup/id0000000000';
 
 export default function FinalCta() {
   return (
-    <section className="relative py-32 px-4 text-center overflow-hidden bg-[#0A0A0A] noise-bg">
+    <section className="relative py-32 sm:py-40 px-4 text-center overflow-hidden bg-[#0A0A0A] noise-bg">
       {/* Gradient orbs */}
-      <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none bg-[radial-gradient(circle,rgba(0,245,212,0.08)_0%,transparent_70%)]" />
-      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[400px] h-[400px] rounded-full pointer-events-none bg-[radial-gradient(circle,rgba(255,77,148,0.06)_0%,transparent_70%)]" />
+      <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none bg-[radial-gradient(circle,rgba(0,230,118,0.06)_0%,transparent_70%)]" />
+      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none bg-[radial-gradient(circle,rgba(0,230,118,0.03)_0%,transparent_70%)]" />
 
-      <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center gap-6">
-        <h2
-          className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight"
-          style={{ fontFamily: "'Clash Display', sans-serif" }}
-        >
-          Ready to level up
-          <br />
-          <span className="gradient-text-ai">your padel game?</span>
-        </h2>
-        <p className="text-lg text-white/60 max-w-lg">
-          Join thousands of padel players using AI to improve faster.
-        </p>
-        <a
-          href={APP_STORE_URL}
-          className="flex items-center gap-3 px-10 py-4 rounded-full font-semibold text-lg bg-teal text-[#0A0A0A] animate-pulse-glow hover:scale-[1.02] transition-transform mt-4"
-        >
-          <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
-          </svg>
-          Download on the App Store
-        </a>
-        <p className="text-sm text-white/40">
-          Available on iOS &middot; Free to download &middot; 3-day free trial
-        </p>
+      <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center gap-8">
+        <MotionDiv className="flex flex-col items-center gap-8">
+          <h2
+            className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[0.95]"
+            style={{ fontFamily: "'Clash Display', sans-serif" }}
+          >
+            Ready to play
+            <br />
+            <span className="bg-gradient-to-r from-[#00E676] to-[#00E676]/60 bg-clip-text text-transparent">
+              smarter?
+            </span>
+          </h2>
+
+          <p className="text-lg text-white/40 max-w-lg">
+            Start your free trial today — cancel anytime.
+          </p>
+
+          <motion.a
+            href={APP_STORE_URL}
+            className="flex items-center gap-3 px-10 py-4 rounded-full font-semibold text-lg bg-[#00E676] text-[#0A0A0A] shadow-[0_0_30px_rgba(0,230,118,0.15)] hover:shadow-[0_0_60px_rgba(0,230,118,0.3)] transition-shadow"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            animate={{
+              boxShadow: [
+                '0 0 30px rgba(0,230,118,0.15)',
+                '0 0 50px rgba(0,230,118,0.25)',
+                '0 0 30px rgba(0,230,118,0.15)',
+              ],
+            }}
+            transition={{
+              boxShadow: { duration: 2.5, repeat: Infinity, ease: 'easeInOut' },
+            }}
+          >
+            Start Free Trial
+          </motion.a>
+
+          <p className="text-sm text-white/30">
+            Available on iOS &middot; Free to download &middot; 3-day free trial
+          </p>
+        </MotionDiv>
       </div>
     </section>
   );
