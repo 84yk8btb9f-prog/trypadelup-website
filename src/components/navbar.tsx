@@ -8,7 +8,7 @@ const APP_STORE_URL = "https://apps.apple.com/app/padelup/id0000000000";
 const navLinks = [
   { href: "#features", label: "Features" },
   { href: "#pricing", label: "Pricing" },
-  { href: "#testimonials", label: "Testimonials" },
+  { href: "#testimonials", label: "Reviews" },
 ];
 
 export default function Navbar() {
@@ -88,7 +88,7 @@ export default function Navbar() {
             href={APP_STORE_URL}
             className="rounded-full bg-[#00E676] px-5 py-2 text-sm font-semibold text-[#050505] transition-all hover:-translate-y-px hover:shadow-[0_0_24px_rgba(0,230,118,0.2)]"
           >
-            Download
+            Download Free
           </a>
         </div>
 

@@ -109,10 +109,11 @@ export default function SocialProofSection() {
         transition={{ duration: 0.6, delay: 0.1 }}
       >
         <h2 className="mb-3 text-4xl font-bold text-white sm:text-5xl lg:text-6xl font-heading">
-          Trusted by 8,000+ players
+          Players who see their mistakes{" "}
+          <span className="gradient-text">fix them faster.</span>
         </h2>
         <p className="text-base text-white/30">
-          Join players across 40+ countries improving their game every day.
+          Join 8,000+ players improving their game with real feedback.
         </p>
       </motion.div>
 

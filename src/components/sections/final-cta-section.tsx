@@ -22,8 +22,13 @@ export default function FinalCta() {
           transition={{ duration: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
         >
           <h2 className="text-5xl font-bold text-white sm:text-6xl lg:text-7xl font-heading leading-tight">
-            Ready to level up?
+            Your next level starts
+            <br />
+            <span className="gradient-text">with your next shot.</span>
           </h2>
+          <p className="mx-auto mt-5 max-w-md text-lg text-white/35">
+            Upload a clip. See what you&apos;ve been missing. Improve where it counts.
+          </p>
           <div className="mt-10">
             <a href={APP_STORE_URL}>
               <ShimmerButton
@@ -31,7 +36,7 @@ export default function FinalCta() {
                 background="rgba(0, 230, 118, 0.1)"
                 className="px-8 py-4 text-base font-semibold"
               >
-                <span className="text-white">Start free trial</span>
+                <span className="text-white">Start your free trial</span>
               </ShimmerButton>
             </a>
           </div>

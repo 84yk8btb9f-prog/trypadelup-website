@@ -18,8 +18,12 @@ export default function PricingSection() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl font-heading">
-            Simple pricing
+            One app. Everything you need to improve.
           </h2>
+          <p className="mt-4 text-base text-white/35">
+            Video analysis, training plans, nutrition tracking, AI coaching,
+            match scoring, court finder, and social features — all in one place.
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -101,7 +105,7 @@ export default function PricingSection() {
             Unlimited analysis / AI training / Nutrition / Courts / AI coach
           </p>
           <p className="mt-3 text-sm text-white/30">
-            3-day free trial. Cancel anytime.
+            3-day free trial. Cancel anytime. No credit card until you&apos;re sure.
           </p>
         </motion.div>
       </div>

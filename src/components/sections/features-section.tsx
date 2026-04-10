@@ -104,47 +104,47 @@ function FeatureBlock({
 
 const features = [
   {
-    title: "Frame-by-frame technique analysis",
+    title: "Upload a shot. See exactly what to fix.",
     description:
-      "Our AI watches every frame of your shot and scores your technique across five dimensions. See exactly where you lose points and get actionable tips to fix it.",
+      "Record your bandeja, vibora, smash, or any of 8 shot types. Our AI extracts key frames, scores your technique across 5 dimensions, and gives you 3\u20135 specific tips you can apply in your next session. No vague advice \u2014 just \u201Cyour elbow drops 15\u00B0 on contact, here\u2019s the drill to fix it.\u201D",
     bullets: [
-      "Grip, stance, swing path scoring",
-      "Personalized coaching tips",
-      "Track progress over time",
+      "8 shot types analyzed frame-by-frame",
+      "0\u201310 score across stance, grip, swing, position, racket angle",
+      "Actionable tips with matched drills",
     ],
     mockup: <MockupAnalysis />,
   },
   {
-    title: "Nutrition tracking, simplified",
+    title: "Your weak spots become your training plan.",
     description:
-      "Snap a photo of your meal and get instant calorie and macro estimates. No more manual logging or guessing portions.",
+      "Every analysis feeds your personalized 7-day training plan. Bad footwork? You\u2019ll get split-step drills. Weak volleys? Wall return sessions. Each drill has a timer, instructions, and difficulty rating \u2014 so you improve what matters most, not what\u2019s easiest.",
     bullets: [
-      "Instant calorie and macro estimates",
-      "Daily and weekly tracking",
-      "Meal calendar history",
+      "Plans adapt to your analysis scores",
+      "Technique, footwork, positioning, fitness, tactics",
+      "Streak tracking and XP to keep you consistent",
     ],
-    mockup: <MockupNutrition />,
+    mockup: <MockupTraining />,
     reversed: true,
   },
   {
-    title: "Training plans that adapt to you",
+    title: "Snap your meal. Know your macros.",
     description:
-      "Get daily drills tailored to your weak spots. Each plan adjusts based on your analysis scores and completed sessions.",
+      "Take a photo of your plate \u2014 our AI estimates calories, protein, carbs, and fat instantly. No searching databases or weighing food. Track daily intake, monitor weekly trends, and fuel your body for match day.",
     bullets: [
-      "Based on your analysis scores",
-      "Daily drills with timers",
-      "Streak tracking and XP",
+      "Photo-to-macros in seconds",
+      "Daily targets and weekly trend charts",
+      "Hydration tracking built in",
     ],
-    mockup: <MockupTraining />,
+    mockup: <MockupNutrition />,
   },
   {
-    title: "Your personal padel coach",
+    title: "Ask anything about padel. Get a real answer.",
     description:
-      "Ask any padel question and get expert-level answers instantly. From technique tweaks to strategy for your next tournament.",
+      "\u201CHow do I return a deep lob?\u201D \u201CWhat\u2019s the best formation for mixed doubles?\u201D \u201CShould I use a continental grip for my vibora?\u201D Get expert-level answers instantly \u2014 not generic fitness chatbot responses, but padel-specific coaching from an AI trained on the sport.",
     bullets: [
-      "Technique advice on demand",
-      "Strategy and rules",
-      "Equipment recommendations",
+      "Technique, strategy, rules, equipment advice",
+      "Remembers your conversation history",
+      "Available 24/7 \u2014 no booking required",
     ],
     mockup: <MockupChat />,
     reversed: true,
@@ -154,6 +154,13 @@ const features = [
 export default function FeaturesSection() {
   return (
     <section id="features" className="bg-[#050505]">
+      {/* Section label */}
+      <div className="mx-auto max-w-7xl px-6 pt-8 text-center sm:px-10 lg:px-16">
+        <span className="text-xs font-medium uppercase tracking-[0.2em] text-[#00E676]/60">
+          How it works
+        </span>
+      </div>
+
       {features.map((feature, i) => (
         <FeatureBlock
           key={feature.title}
