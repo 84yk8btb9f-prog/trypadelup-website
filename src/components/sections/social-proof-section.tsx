@@ -7,22 +7,49 @@ const testimonials = [
     quote:
       "PadelUp helped me fix my bandeja in just 2 weeks! The AI video analysis is incredibly accurate.",
     name: "Carlos M.",
-    location: "Madrid",
+    location: "Madrid, Spain",
     initials: "CM",
+    hue: 140,
   },
   {
     quote:
       "The AI analysis is like having a personal coach in your pocket. I've improved more in a month than I did in a year.",
     name: "Sofia K.",
-    location: "Athens",
+    location: "Athens, Greece",
     initials: "SK",
+    hue: 200,
   },
   {
     quote:
       "Best padel app out there. The nutrition tracking is a game changer — I finally understand my macros.",
     name: "Alex P.",
-    location: "London",
+    location: "London, UK",
     initials: "AP",
+    hue: 260,
+  },
+  {
+    quote:
+      "I was skeptical about AI coaching but the frame-by-frame breakdown of my smash completely changed my game.",
+    name: "Marco R.",
+    location: "Milan, Italy",
+    initials: "MR",
+    hue: 320,
+  },
+  {
+    quote:
+      "The training plans are perfectly tailored. I went from beginner to winning club tournaments in 4 months.",
+    name: "Laura B.",
+    location: "Barcelona, Spain",
+    initials: "LB",
+    hue: 40,
+  },
+  {
+    quote:
+      "Love the court finder feature. Found 3 new padel courts near me that I didn't even know existed!",
+    name: "David H.",
+    location: "Dubai, UAE",
+    initials: "DH",
+    hue: 100,
   },
 ];
 
@@ -31,12 +58,14 @@ function TestimonialCard({
   name,
   location,
   initials,
+  hue,
   delay,
 }: {
   quote: string;
   name: string;
   location: string;
   initials: string;
+  hue: number;
   delay: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -91,9 +120,14 @@ function TestimonialCard({
       </p>
 
       <div className="flex items-center gap-3 mt-2">
+        {/* Avatar with gradient */}
         <div
-          className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold"
-          style={{ backgroundColor: "rgba(57, 255, 125, 0.15)", color: "#39ff7d" }}
+          className="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
+          style={{
+            background: `linear-gradient(135deg, hsl(${hue}, 60%, 30%), hsl(${hue + 40}, 50%, 20%))`,
+            border: "2px solid rgba(255,255,255,0.1)",
+            color: `hsl(${hue}, 70%, 75%)`,
+          }}
         >
           {initials}
         </div>
@@ -144,7 +178,7 @@ export default function SocialProofSection() {
             className="text-sm font-semibold uppercase tracking-widest mb-3"
             style={{ color: "#39ff7d" }}
           >
-            Social proof
+            Testimonials
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             Loved by 8,000+ padel players worldwide
@@ -168,14 +202,14 @@ export default function SocialProofSection() {
               className="text-base font-semibold"
               style={{ color: "rgba(240, 244, 248, 0.8)" }}
             >
-              4.9 rating
+              4.9 rating on the App Store
             </span>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {testimonials.map((t, i) => (
-            <TestimonialCard key={t.name} {...t} delay={i * 100} />
+            <TestimonialCard key={t.name} {...t} delay={i * 80} />
           ))}
         </div>
       </div>

@@ -54,6 +54,19 @@ export default function Navbar() {
           >
             Pricing
           </a>
+          <a
+            href="#faq"
+            className="text-sm font-medium transition-colors"
+            style={{ color: "rgba(240, 244, 248, 0.65)" }}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.color = "rgba(240, 244, 248, 1)")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.color = "rgba(240, 244, 248, 0.65)")
+            }
+          >
+            FAQ
+          </a>
         </div>
 
         {/* Desktop CTA */}
@@ -132,6 +145,14 @@ export default function Navbar() {
             onClick={() => setMenuOpen(false)}
           >
             Pricing
+          </a>
+          <a
+            href="#faq"
+            className="text-sm font-medium py-2"
+            style={{ color: "rgba(240, 244, 248, 0.8)" }}
+            onClick={() => setMenuOpen(false)}
+          >
+            FAQ
           </a>
           <a
             href="#"
