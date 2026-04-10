@@ -1,114 +1,148 @@
-'use client';
+import PhoneFrame from "@/components/mockups/phone-frame";
+import MockupAnalysis from "@/components/mockups/analysis-mockup";
+import MockupNutrition from "@/components/mockups/nutrition-mockup";
+import MockupTraining from "@/components/mockups/training-mockup";
+import MockupChat from "@/components/mockups/chat-mockup";
 
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-
-const features = [
-  {
-    num: '01',
-    title: 'Video Analysis',
-    description: 'Upload any clip and get frame-by-frame technique scoring in seconds.',
-    top: 80,
-  },
-  {
-    num: '02',
-    title: 'Nutrition',
-    description: 'Snap your meal, get instant macros. No manual logging.',
-    top: 100,
-  },
-  {
-    num: '03',
-    title: 'Training',
-    description: 'Daily drills built around your weak spots. Adapts as you improve.',
-    top: 120,
-  },
-  {
-    num: '04',
-    title: 'AI Coach',
-    description: 'Ask anything about padel. Get answers from an expert, instantly.',
-    top: 140,
-  },
-];
-
-function FeatureCard({
-  feature,
-  index,
-  total,
-}: {
-  feature: (typeof features)[number];
-  index: number;
-  total: number;
-}) {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: cardRef,
-    offset: ['start end', 'start start'],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [100, 0]);
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 1], [0, 1, 1]);
-  const scale = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0.92, 1 - (total - 1 - index) * 0.015]
-  );
-
+function CheckIcon() {
   return (
-    <motion.div
-      ref={cardRef}
-      className="sticky w-full"
-      style={{
-        top: feature.top,
-        y,
-        opacity,
-        scale,
-        zIndex: index + 1,
-      }}
-    >
-      <div className="relative rounded-2xl p-8 sm:p-10 bg-white/[0.03] border border-white/[0.07]">
-        <div className="flex items-start gap-6 sm:gap-10">
-          {/* Big number */}
-          <span className="text-6xl sm:text-7xl lg:text-8xl font-bold text-white/[0.05] font-heading leading-none select-none shrink-0">
-            {feature.num}
-          </span>
-          {/* Text */}
-          <div className="pt-2 sm:pt-4">
-            <h3 className="text-xl sm:text-2xl font-semibold text-white mb-2 font-heading">
-              {feature.title}
-            </h3>
-            <p className="text-base text-white/45 leading-relaxed max-w-lg">
-              {feature.description}
-            </p>
+    <div className="w-5 h-5 rounded-full bg-[#00E676]/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+      <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+        <path
+          d="M2.5 6L5 8.5L9.5 3.5"
+          stroke="#00E676"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </div>
+  );
+}
+
+interface FeatureBlockProps {
+  title: string;
+  description: string;
+  bullets: string[];
+  mockup: React.ReactNode;
+  reversed?: boolean;
+  padding: string;
+  delay: string;
+}
+
+function FeatureBlock({
+  title,
+  description,
+  bullets,
+  mockup,
+  reversed,
+  padding,
+  delay,
+}: FeatureBlockProps) {
+  return (
+    <div className={`${padding}`}>
+      <div
+        className={`max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 flex flex-col ${
+          reversed ? "lg:flex-row-reverse" : "lg:flex-row"
+        } items-center gap-12 lg:gap-20`}
+      >
+        {/* Text */}
+        <div className="flex-1 max-w-lg">
+          <h3
+            className="text-3xl sm:text-4xl font-bold text-white font-heading mb-4 opacity-0 animate-[fadeInUp_0.6s_ease-out_forwards]"
+            style={{ animationDelay: delay }}
+          >
+            {title}
+          </h3>
+          <p
+            className="text-base sm:text-lg text-white/45 leading-relaxed mb-6 opacity-0 animate-[fadeInUp_0.6s_ease-out_forwards]"
+            style={{ animationDelay: `calc(${delay} + 0.08s)` }}
+          >
+            {description}
+          </p>
+          <ul className="space-y-3">
+            {bullets.map((bullet, i) => (
+              <li
+                key={bullet}
+                className="flex items-start gap-3 opacity-0 animate-[fadeInUp_0.6s_ease-out_forwards]"
+                style={{ animationDelay: `calc(${delay} + ${0.16 + i * 0.06}s)` }}
+              >
+                <CheckIcon />
+                <span className="text-sm sm:text-base text-white/55">
+                  {bullet}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Mockup */}
+        <div className="flex-shrink-0">
+          <div className="rotate-2 drop-shadow-[0_20px_50px_rgba(0,230,118,0.12)]">
+            <PhoneFrame>{mockup}</PhoneFrame>
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
 export default function FeaturesSection() {
   return (
-    <section id="features" className="relative bg-[#0A0A0A]">
-      <div className="max-w-4xl mx-auto px-6 sm:px-10">
-        {/* Header - left-aligned, no uppercase label */}
-        <div className="pt-28 pb-14 sticky top-0 z-10 bg-[#0A0A0A]">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-heading">
-            Everything in one app.
-          </h2>
-        </div>
+    <section id="features" className="bg-[#0A0A0A]">
+      <FeatureBlock
+        title="Frame-by-frame technique analysis"
+        description="Our AI watches every frame of your shot and scores your technique across five dimensions. See exactly where you lose points and get actionable tips to fix it."
+        bullets={[
+          "Grip, stance, swing path scoring",
+          "Personalized coaching tips",
+          "Track progress over time",
+        ]}
+        mockup={<MockupAnalysis />}
+        padding="py-24"
+        delay="0.1s"
+      />
 
-        {/* Stacking cards */}
-        <div className="relative pb-28 flex flex-col gap-6">
-          {features.map((feature, i) => (
-            <FeatureCard
-              key={feature.title}
-              feature={feature}
-              index={i}
-              total={features.length}
-            />
-          ))}
-        </div>
-      </div>
+      <FeatureBlock
+        title="Nutrition tracking, simplified"
+        description="Snap a photo of your meal and get instant calorie and macro estimates. No more manual logging or guessing portions."
+        bullets={[
+          "Instant calorie and macro estimates",
+          "Daily and weekly tracking",
+          "Meal calendar history",
+        ]}
+        mockup={<MockupNutrition />}
+        reversed
+        padding="py-20"
+        delay="0.1s"
+      />
+
+      <FeatureBlock
+        title="Training plans that adapt to you"
+        description="Get daily drills tailored to your weak spots. Each plan adjusts based on your analysis scores and completed sessions."
+        bullets={[
+          "Based on your analysis scores",
+          "Daily drills with timers",
+          "Streak tracking and XP",
+        ]}
+        mockup={<MockupTraining />}
+        padding="py-16"
+        delay="0.1s"
+      />
+
+      <FeatureBlock
+        title="Your personal padel coach"
+        description="Ask any padel question and get expert-level answers instantly. From technique tweaks to strategy for your next tournament."
+        bullets={[
+          "Technique advice on demand",
+          "Strategy and rules",
+          "Equipment recommendations",
+        ]}
+        mockup={<MockupChat />}
+        reversed
+        padding="py-24"
+        delay="0.1s"
+      />
     </section>
   );
 }
