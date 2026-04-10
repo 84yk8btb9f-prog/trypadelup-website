@@ -1,24 +1,11 @@
+"use client";
+
+import { motion } from "motion/react";
 import PhoneFrame from "@/components/mockups/phone-frame";
 import MockupAnalysis from "@/components/mockups/analysis-mockup";
 import MockupNutrition from "@/components/mockups/nutrition-mockup";
 import MockupTraining from "@/components/mockups/training-mockup";
 import MockupChat from "@/components/mockups/chat-mockup";
-
-function CheckIcon() {
-  return (
-    <div className="w-5 h-5 rounded-full bg-[#00E676]/15 flex items-center justify-center flex-shrink-0 mt-0.5">
-      <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-        <path
-          d="M2.5 6L5 8.5L9.5 3.5"
-          stroke="#00E676"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    </div>
-  );
-}
 
 interface FeatureBlockProps {
   title: string;
@@ -26,8 +13,7 @@ interface FeatureBlockProps {
   bullets: string[];
   mockup: React.ReactNode;
   reversed?: boolean;
-  padding: string;
-  delay: string;
+  index: number;
 }
 
 function FeatureBlock({
@@ -36,113 +22,145 @@ function FeatureBlock({
   bullets,
   mockup,
   reversed,
-  padding,
-  delay,
+  index,
 }: FeatureBlockProps) {
   return (
-    <div className={`${padding}`}>
+    <div className={index === 0 ? "py-32" : "py-24"}>
+      {/* Divider */}
+      {index > 0 && (
+        <div className="mx-auto mb-24 h-px max-w-md bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+      )}
+
       <div
-        className={`max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 flex flex-col ${
+        className={`mx-auto flex max-w-7xl flex-col items-center gap-16 px-6 sm:px-10 lg:gap-24 lg:px-16 ${
           reversed ? "lg:flex-row-reverse" : "lg:flex-row"
-        } items-center gap-12 lg:gap-20`}
+        }`}
       >
         {/* Text */}
         <div className="flex-1 max-w-lg">
-          <h3
-            className="text-3xl sm:text-4xl font-bold text-white font-heading mb-4 opacity-0 animate-[fadeInUp_0.6s_ease-out_forwards]"
-            style={{ animationDelay: delay }}
+          <motion.h3
+            className="mb-5 text-4xl font-bold text-white sm:text-5xl font-heading"
+            initial={{ opacity: 0, x: reversed ? 40 : -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
           >
             {title}
-          </h3>
-          <p
-            className="text-base sm:text-lg text-white/45 leading-relaxed mb-6 opacity-0 animate-[fadeInUp_0.6s_ease-out_forwards]"
-            style={{ animationDelay: `calc(${delay} + 0.08s)` }}
+          </motion.h3>
+
+          <motion.p
+            className="mb-8 text-lg leading-relaxed text-white/45"
+            initial={{ opacity: 0, x: reversed ? 30 : -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
           >
             {description}
-          </p>
-          <ul className="space-y-3">
+          </motion.p>
+
+          <ul className="space-y-4">
             {bullets.map((bullet, i) => (
-              <li
+              <motion.li
                 key={bullet}
-                className="flex items-start gap-3 opacity-0 animate-[fadeInUp_0.6s_ease-out_forwards]"
-                style={{ animationDelay: `calc(${delay} + ${0.16 + i * 0.06}s)` }}
+                className="flex items-start gap-3"
+                initial={{ opacity: 0, x: reversed ? 20 : -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.2 + i * 0.08,
+                  ease: "easeOut",
+                }}
               >
-                <CheckIcon />
-                <span className="text-sm sm:text-base text-white/55">
-                  {bullet}
-                </span>
-              </li>
+                <div className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#00E676]" />
+                <span className="text-base text-white/55">{bullet}</span>
+              </motion.li>
             ))}
           </ul>
         </div>
 
-        {/* Mockup */}
-        <div className="flex-shrink-0">
-          <div className="rotate-2 drop-shadow-[0_20px_50px_rgba(0,230,118,0.12)]">
+        {/* Phone mockup */}
+        <motion.div
+          className="flex-shrink-0"
+          initial={{ opacity: 0, x: reversed ? -60 : 60, scale: 0.95 }}
+          whileInView={{ opacity: 1, x: 0, scale: 1 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.8, delay: 0.15, ease: [0.25, 0.4, 0.25, 1] }}
+          style={{ perspective: "1000px" }}
+        >
+          <div
+            style={{
+              transform: `rotateY(${reversed ? 4 : -4}deg)`,
+              transformStyle: "preserve-3d",
+            }}
+          >
             <PhoneFrame>{mockup}</PhoneFrame>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
 }
 
+const features = [
+  {
+    title: "Frame-by-frame technique analysis",
+    description:
+      "Our AI watches every frame of your shot and scores your technique across five dimensions. See exactly where you lose points and get actionable tips to fix it.",
+    bullets: [
+      "Grip, stance, swing path scoring",
+      "Personalized coaching tips",
+      "Track progress over time",
+    ],
+    mockup: <MockupAnalysis />,
+  },
+  {
+    title: "Nutrition tracking, simplified",
+    description:
+      "Snap a photo of your meal and get instant calorie and macro estimates. No more manual logging or guessing portions.",
+    bullets: [
+      "Instant calorie and macro estimates",
+      "Daily and weekly tracking",
+      "Meal calendar history",
+    ],
+    mockup: <MockupNutrition />,
+    reversed: true,
+  },
+  {
+    title: "Training plans that adapt to you",
+    description:
+      "Get daily drills tailored to your weak spots. Each plan adjusts based on your analysis scores and completed sessions.",
+    bullets: [
+      "Based on your analysis scores",
+      "Daily drills with timers",
+      "Streak tracking and XP",
+    ],
+    mockup: <MockupTraining />,
+  },
+  {
+    title: "Your personal padel coach",
+    description:
+      "Ask any padel question and get expert-level answers instantly. From technique tweaks to strategy for your next tournament.",
+    bullets: [
+      "Technique advice on demand",
+      "Strategy and rules",
+      "Equipment recommendations",
+    ],
+    mockup: <MockupChat />,
+    reversed: true,
+  },
+];
+
 export default function FeaturesSection() {
   return (
-    <section id="features" className="bg-[#0A0A0A]">
-      <FeatureBlock
-        title="Frame-by-frame technique analysis"
-        description="Our AI watches every frame of your shot and scores your technique across five dimensions. See exactly where you lose points and get actionable tips to fix it."
-        bullets={[
-          "Grip, stance, swing path scoring",
-          "Personalized coaching tips",
-          "Track progress over time",
-        ]}
-        mockup={<MockupAnalysis />}
-        padding="py-24"
-        delay="0.1s"
-      />
-
-      <FeatureBlock
-        title="Nutrition tracking, simplified"
-        description="Snap a photo of your meal and get instant calorie and macro estimates. No more manual logging or guessing portions."
-        bullets={[
-          "Instant calorie and macro estimates",
-          "Daily and weekly tracking",
-          "Meal calendar history",
-        ]}
-        mockup={<MockupNutrition />}
-        reversed
-        padding="py-20"
-        delay="0.1s"
-      />
-
-      <FeatureBlock
-        title="Training plans that adapt to you"
-        description="Get daily drills tailored to your weak spots. Each plan adjusts based on your analysis scores and completed sessions."
-        bullets={[
-          "Based on your analysis scores",
-          "Daily drills with timers",
-          "Streak tracking and XP",
-        ]}
-        mockup={<MockupTraining />}
-        padding="py-16"
-        delay="0.1s"
-      />
-
-      <FeatureBlock
-        title="Your personal padel coach"
-        description="Ask any padel question and get expert-level answers instantly. From technique tweaks to strategy for your next tournament."
-        bullets={[
-          "Technique advice on demand",
-          "Strategy and rules",
-          "Equipment recommendations",
-        ]}
-        mockup={<MockupChat />}
-        reversed
-        padding="py-24"
-        delay="0.1s"
-      />
+    <section id="features" className="bg-[#050505]">
+      {features.map((feature, i) => (
+        <FeatureBlock
+          key={feature.title}
+          {...feature}
+          index={i}
+        />
+      ))}
     </section>
   );
 }

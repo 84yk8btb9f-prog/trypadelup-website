@@ -1,6 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { motion } from "motion/react";
+import { Particles } from "@/components/ui/particles";
+import { ShimmerButton } from "@/components/ui/shimmer-button";
 import PhoneFrame from "@/components/mockups/phone-frame";
 import MockupAnalysis from "@/components/mockups/analysis-mockup";
 
@@ -14,72 +16,115 @@ function StarIcon() {
   );
 }
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 30, filter: "blur(10px)" },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+};
+
 export default function HeroSection() {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-
   return (
-    <section className="relative min-h-screen flex items-center px-6 sm:px-10 lg:px-16 pt-24 pb-20 overflow-hidden bg-[#0A0A0A]">
-      {/* Subtle gradient blob */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none bg-[radial-gradient(circle,rgba(0,230,118,0.04)_0%,transparent_70%)]" />
+    <section className="relative flex min-h-screen items-center overflow-hidden bg-[#050505] px-6 pb-20 pt-24 sm:px-10 lg:px-16">
+      {/* Particles background */}
+      <Particles
+        className="absolute inset-0"
+        quantity={80}
+        color="#00E676"
+        size={0.4}
+        staticity={30}
+        ease={80}
+      />
 
-      <div className="relative z-10 max-w-6xl mx-auto w-full flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
+      {/* Gradient blob */}
+      <div className="pointer-events-none absolute -right-40 -top-40 h-[800px] w-[800px] rounded-full bg-[radial-gradient(circle,rgba(0,230,118,0.06)_0%,transparent_60%)]" />
+      <div className="pointer-events-none absolute -bottom-60 -left-40 h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle,rgba(0,230,118,0.03)_0%,transparent_60%)]" />
+
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center gap-16 lg:flex-row lg:gap-24">
         {/* Left: Copy */}
-        <div className="flex-1 max-w-xl">
-          <h1
-            className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[0.92] tracking-tight font-heading text-white opacity-0 animate-[fadeInUp_0.6s_ease-out_forwards]"
+        <div className="flex-1 max-w-2xl">
+          <motion.h1
+            className="text-5xl font-bold leading-[0.92] tracking-tight text-white sm:text-6xl lg:text-7xl xl:text-8xl font-heading"
+            initial="hidden"
+            animate="visible"
+            transition={{ staggerChildren: 0.12 }}
           >
-            Your padel.
-            <br />
-            <span className="text-[#00E676]">Analyzed by AI.</span>
-          </h1>
+            <motion.span
+              className="block"
+              variants={fadeUp}
+              transition={{ duration: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
+            >
+              Your padel.
+            </motion.span>
+            <motion.span
+              className="block gradient-text"
+              variants={fadeUp}
+              transition={{ duration: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
+            >
+              Analyzed by AI.
+            </motion.span>
+          </motion.h1>
 
-          <p
-            className="mt-6 text-lg sm:text-xl text-white/50 max-w-md leading-relaxed opacity-0 animate-[fadeInUp_0.6s_ease-out_0.08s_forwards]"
+          <motion.p
+            className="mt-8 max-w-lg text-lg leading-relaxed text-white/45 sm:text-xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35, ease: "easeOut" }}
           >
             Upload a clip of your shot. Get frame-by-frame technique analysis
             with a score, personalized tips, and drills to improve.
-          </p>
+          </motion.p>
 
-          <div
-            className="mt-8 opacity-0 animate-[fadeInUp_0.6s_ease-out_0.16s_forwards]"
+          <motion.div
+            className="mt-10"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
           >
-            <a
-              href={APP_STORE_URL}
-              className="inline-flex px-8 py-4 rounded-full font-semibold text-base bg-[#00E676] text-[#0A0A0A] hover:brightness-110 transition-all"
-            >
-              Start free trial
+            <a href={APP_STORE_URL}>
+              <ShimmerButton
+                shimmerColor="#00E676"
+                background="rgba(0, 230, 118, 0.1)"
+                className="px-8 py-4 text-base font-semibold"
+              >
+                <span className="text-white">Start free trial</span>
+              </ShimmerButton>
             </a>
-          </div>
+          </motion.div>
 
-          <div
-            className="mt-6 flex items-center gap-3 opacity-0 animate-[fadeInUp_0.6s_ease-out_0.24s_forwards]"
+          <motion.div
+            className="mt-8 flex items-center gap-3"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.65 }}
           >
-            <p className="text-sm text-white/35">
-              Trusted by 8,000+ padel players
-            </p>
             <div className="flex gap-0.5">
               {Array.from({ length: 5 }).map((_, i) => (
                 <StarIcon key={i} />
               ))}
             </div>
-          </div>
+            <p className="text-sm text-white/30">
+              Trusted by 8,000+ padel players
+            </p>
+          </motion.div>
         </div>
 
-        {/* Right: Phone mockup */}
-        <div className="flex-shrink-0 relative">
-          <div
-            className={`
-              rotate-3 transition-all duration-700
-              drop-shadow-[0_20px_50px_rgba(0,230,118,0.12)]
-              ${mounted ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}
-            `}
+        {/* Right: Phone mockup with 3D tilt */}
+        <motion.div
+          className="flex-shrink-0"
+          initial={{ opacity: 0, y: 40, rotateY: -8 }}
+          animate={{ opacity: 1, y: 0, rotateY: 0 }}
+          transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
+          style={{ perspective: "1200px" }}
+        >
+          <motion.div
+            whileHover={{ rotateY: -5, rotateX: 3, scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 200, damping: 20 }}
+            style={{ transformStyle: "preserve-3d" }}
           >
             <PhoneFrame>
               <MockupAnalysis />
             </PhoneFrame>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

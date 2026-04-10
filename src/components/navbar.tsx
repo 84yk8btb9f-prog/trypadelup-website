@@ -14,6 +14,7 @@ const navLinks = [
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const sectionIds = navLinks.map((l) => l.href.slice(1));
@@ -36,29 +37,44 @@ export default function Navbar() {
     return () => observer.disconnect();
   }, []);
 
-  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [menuOpen]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0A0A0A]/85 backdrop-blur-xl border-b border-white/[0.06]">
-      <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 group">
-          <span className="text-xl font-bold tracking-tight gradient-text-logo font-heading">
+    <header
+      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-[#050505]/90 backdrop-blur-2xl border-b border-white/[0.06]"
+          : "bg-transparent"
+      }`}
+    >
+      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Link href="/" className="group flex items-center gap-2">
+          <span className="gradient-text text-xl font-bold tracking-tight font-heading">
             PadelUp
           </span>
         </Link>
 
         {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className={`nav-link text-sm font-medium text-white/65 hover:text-white/100 transition-colors ${
-                activeSection === link.href.slice(1) ? "active" : ""
+              className={`nav-link text-sm font-medium transition-colors ${
+                activeSection === link.href.slice(1)
+                  ? "active text-white"
+                  : "text-white/45 hover:text-white/70"
               }`}
             >
               {link.label}
@@ -67,10 +83,10 @@ export default function Navbar() {
         </div>
 
         {/* Desktop CTA */}
-        <div className="hidden md:flex items-center">
+        <div className="hidden items-center md:flex">
           <a
             href={APP_STORE_URL}
-            className="text-sm font-semibold px-5 py-2 rounded-full bg-[#00E676] text-[#0A0A0A] shadow-[0_0_20px_rgba(0,230,118,0.08)] hover:shadow-[0_0_30px_rgba(0,230,118,0.15)] hover:-translate-y-px transition-all"
+            className="rounded-full bg-[#00E676] px-5 py-2 text-sm font-semibold text-[#050505] transition-all hover:-translate-y-px hover:shadow-[0_0_24px_rgba(0,230,118,0.2)]"
           >
             Download
           </a>
@@ -78,22 +94,22 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2 relative z-[60]"
+          className="relative z-[60] flex flex-col gap-1.5 p-2 md:hidden"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
           <span
-            className={`block w-5 h-0.5 bg-[#f0f4f8] transition-all duration-200 ${
+            className={`block h-0.5 w-5 bg-white transition-all duration-200 ${
               menuOpen ? "translate-y-2 rotate-45" : ""
             }`}
           />
           <span
-            className={`block w-5 h-0.5 bg-[#f0f4f8] transition-all duration-200 ${
+            className={`block h-0.5 w-5 bg-white transition-all duration-200 ${
               menuOpen ? "opacity-0" : "opacity-100"
             }`}
           />
           <span
-            className={`block w-5 h-0.5 bg-[#f0f4f8] transition-all duration-200 ${
+            className={`block h-0.5 w-5 bg-white transition-all duration-200 ${
               menuOpen ? "-translate-y-2 -rotate-45" : ""
             }`}
           />
@@ -102,15 +118,17 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div
-        className={`md:hidden fixed inset-0 z-50 flex flex-col items-center justify-center gap-8 bg-[#0A0A0A]/95 backdrop-blur-2xl transition-all duration-300 ${
-          menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        className={`fixed inset-0 z-50 flex flex-col items-center justify-center gap-8 bg-[#050505]/98 backdrop-blur-3xl transition-all duration-300 md:hidden ${
+          menuOpen
+            ? "pointer-events-auto opacity-100"
+            : "pointer-events-none opacity-0"
         }`}
       >
         {navLinks.map((link) => (
           <a
             key={link.href}
             href={link.href}
-            className="text-2xl font-semibold text-white/80 hover:text-white transition-colors font-heading"
+            className="text-2xl font-semibold text-white/80 transition-colors hover:text-white font-heading"
             onClick={() => setMenuOpen(false)}
           >
             {link.label}
@@ -118,7 +136,7 @@ export default function Navbar() {
         ))}
         <a
           href={APP_STORE_URL}
-          className="mt-4 text-base font-semibold px-8 py-3.5 rounded-full bg-[#00E676] text-[#0A0A0A] shadow-[0_0_20px_rgba(0,230,118,0.08)]"
+          className="mt-4 rounded-full bg-[#00E676] px-8 py-3.5 text-base font-semibold text-[#050505]"
           onClick={() => setMenuOpen(false)}
         >
           Download on the App Store
