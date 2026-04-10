@@ -2,12 +2,13 @@
 
 import { motion } from "motion/react";
 import PhoneFrame from "@/components/mockups/phone-frame";
-import MockupAnalysis from "@/components/mockups/analysis-mockup";
+import MockupAnalysisHistory from "@/components/mockups/analysis-history-mockup";
 import MockupNutrition from "@/components/mockups/nutrition-mockup";
 import MockupTraining from "@/components/mockups/training-mockup";
 import MockupChat from "@/components/mockups/chat-mockup";
 
 interface FeatureBlockProps {
+  label: string;
   title: string;
   description: string;
   bullets: string[];
@@ -17,6 +18,7 @@ interface FeatureBlockProps {
 }
 
 function FeatureBlock({
+  label,
   title,
   description,
   bullets,
@@ -26,7 +28,6 @@ function FeatureBlock({
 }: FeatureBlockProps) {
   return (
     <div className={index === 0 ? "py-32" : "py-24"}>
-      {/* Divider */}
       {index > 0 && (
         <div className="mx-auto mb-24 h-px max-w-md bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
       )}
@@ -38,8 +39,18 @@ function FeatureBlock({
       >
         {/* Text */}
         <div className="flex-1 max-w-lg">
+          <motion.span
+            className="mb-3 block text-xs font-semibold uppercase tracking-[0.2em] text-[#00E676]"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
+            {label}
+          </motion.span>
+
           <motion.h3
-            className="mb-5 text-4xl font-bold text-white sm:text-5xl font-heading"
+            className="mb-5 text-3xl font-bold text-white sm:text-4xl lg:text-5xl font-heading"
             initial={{ opacity: 0, x: reversed ? 40 : -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
@@ -49,7 +60,7 @@ function FeatureBlock({
           </motion.h3>
 
           <motion.p
-            className="mb-8 text-lg leading-relaxed text-white/45"
+            className="mb-8 text-base leading-relaxed text-white/40"
             initial={{ opacity: 0, x: reversed ? 30 : -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
@@ -58,11 +69,11 @@ function FeatureBlock({
             {description}
           </motion.p>
 
-          <ul className="space-y-4">
+          <ul className="space-y-3">
             {bullets.map((bullet, i) => (
               <motion.li
                 key={bullet}
-                className="flex items-start gap-3"
+                className="flex items-center gap-3"
                 initial={{ opacity: 0, x: reversed ? 20 : -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
@@ -72,8 +83,8 @@ function FeatureBlock({
                   ease: "easeOut",
                 }}
               >
-                <div className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#00E676]" />
-                <span className="text-base text-white/55">{bullet}</span>
+                <div className="h-2 w-2 flex-shrink-0 rounded-full bg-[#00E676]" />
+                <span className="text-sm text-white/50">{bullet}</span>
               </motion.li>
             ))}
           </ul>
@@ -104,20 +115,22 @@ function FeatureBlock({
 
 const features = [
   {
+    label: "AI Video Analysis",
     title: "Upload a shot. See exactly what to fix.",
     description:
-      "Record your bandeja, vibora, smash, or any of 8 shot types. Our AI extracts key frames, scores your technique across 5 dimensions, and gives you 3\u20135 specific tips you can apply in your next session. No vague advice \u2014 just \u201Cyour elbow drops 15\u00B0 on contact, here\u2019s the drill to fix it.\u201D",
+      "Don\u2019t guess what went wrong with that smash. Upload a quick clip and let our vision AI break it down frame-by-frame, just like a pro coach would.",
     bullets: [
       "8 shot types analyzed frame-by-frame",
       "0\u201310 score across stance, grip, swing, position, racket angle",
       "Actionable tips with matched drills",
     ],
-    mockup: <MockupAnalysis />,
+    mockup: <MockupAnalysisHistory />,
   },
   {
+    label: "Personalized Plans",
     title: "Your weak spots become your training plan.",
     description:
-      "Every analysis feeds your personalized 7-day training plan. Bad footwork? You\u2019ll get split-step drills. Weak volleys? Wall return sessions. Each drill has a timer, instructions, and difficulty rating \u2014 so you improve what matters most, not what\u2019s easiest.",
+      "Stop doing generic drills. Based on your video analysis, PadelUp generates a structured 7-day curriculum designed specifically to fix your flaws.",
     bullets: [
       "Plans adapt to your analysis scores",
       "Technique, footwork, positioning, fitness, tactics",
@@ -127,9 +140,10 @@ const features = [
     reversed: true,
   },
   {
+    label: "AI Nutrition",
     title: "Snap your meal. Know your macros.",
     description:
-      "Take a photo of your plate \u2014 our AI estimates calories, protein, carbs, and fat instantly. No searching databases or weighing food. Track daily intake, monitor weekly trends, and fuel your body for match day.",
+      "Fueling for a 3-set match shouldn\u2019t require a spreadsheet. Take a photo of your plate, and our AI calculates calories, protein, carbs, and fats instantly.",
     bullets: [
       "Photo-to-macros in seconds",
       "Daily targets and weekly trend charts",
@@ -138,9 +152,10 @@ const features = [
     mockup: <MockupNutrition />,
   },
   {
+    label: "24/7 Expert Chat",
     title: "Ask anything about padel. Get a real answer.",
     description:
-      "\u201CHow do I return a deep lob?\u201D \u201CWhat\u2019s the best formation for mixed doubles?\u201D \u201CShould I use a continental grip for my vibora?\u201D Get expert-level answers instantly \u2014 not generic fitness chatbot responses, but padel-specific coaching from an AI trained on the sport.",
+      "Tired of generic fitness AI? Our model is trained exclusively on professional padel matches, coaching manuals, and equipment specs.",
     bullets: [
       "Technique, strategy, rules, equipment advice",
       "Remembers your conversation history",
@@ -154,19 +169,8 @@ const features = [
 export default function FeaturesSection() {
   return (
     <section id="features" className="bg-[#050505]">
-      {/* Section label */}
-      <div className="mx-auto max-w-7xl px-6 pt-8 text-center sm:px-10 lg:px-16">
-        <span className="text-xs font-medium uppercase tracking-[0.2em] text-[#00E676]/60">
-          How it works
-        </span>
-      </div>
-
       {features.map((feature, i) => (
-        <FeatureBlock
-          key={feature.title}
-          {...feature}
-          index={i}
-        />
+        <FeatureBlock key={feature.title} {...feature} index={i} />
       ))}
     </section>
   );

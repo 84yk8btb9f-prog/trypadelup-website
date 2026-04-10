@@ -96,14 +96,33 @@ export default function HeroSection() {
             </a>
           </motion.div>
 
-          <motion.p
-            className="mt-8 text-sm text-white/25"
+          <motion.div
+            className="mt-8 flex items-center gap-3"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.65 }}
           >
-            Loved by 8,000+ players across 40+ countries
-          </motion.p>
+            <div className="flex -space-x-2">
+              {[
+                { initial: "C", color: "bg-blue-500" },
+                { initial: "S", color: "bg-purple-500" },
+                { initial: "L", color: "bg-emerald-500" },
+                { initial: "A", color: "bg-amber-500" },
+              ].map((a) => (
+                <div
+                  key={a.initial}
+                  className={`flex h-7 w-7 items-center justify-center rounded-full border-2 border-[#050505] ${a.color} text-[10px] font-bold text-white`}
+                >
+                  {a.initial}
+                </div>
+              ))}
+            </div>
+            <span className="text-sm text-white/30">
+              Loved by <span className="text-white/50">8,000+ players</span>
+              <br />
+              across 40+ countries
+            </span>
+          </motion.div>
         </div>
 
         {/* Right: Phone mockup with 3D tilt */}
