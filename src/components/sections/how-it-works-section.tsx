@@ -57,7 +57,7 @@ export default function HowItWorksSection() {
   return (
     <section
       id="how-it-works"
-      className="py-28 px-4 bg-[#050505] relative overflow-hidden"
+      className="py-28 px-4 bg-[#0A0A0A] relative overflow-hidden"
     >
       {/* Diagonal top border */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
@@ -101,7 +101,7 @@ export default function HowItWorksSection() {
                   {/* Icon circle on the timeline */}
                   <div className="relative z-10 w-[52px] h-[52px] rounded-xl flex items-center justify-center bg-white/[0.06] border border-white/[0.1]">
                     <Icon size={24} className="text-teal" strokeWidth={1.5} />
-                    <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full text-[10px] font-bold flex items-center justify-center bg-teal text-[#050505]">
+                    <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full text-[10px] font-bold flex items-center justify-center bg-teal text-[#0A0A0A]">
                       {step.number}
                     </span>
                   </div>
@@ -136,7 +136,7 @@ export default function HowItWorksSection() {
                   <div className="w-14 h-14 rounded-xl flex items-center justify-center bg-white/[0.06] border border-white/[0.1]">
                     <Icon size={24} className="text-teal" strokeWidth={1.5} />
                   </div>
-                  <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full text-[10px] font-bold flex items-center justify-center bg-teal text-[#050505]">
+                  <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full text-[10px] font-bold flex items-center justify-center bg-teal text-[#0A0A0A]">
                     {step.number}
                   </span>
                   {/* Vertical connector */}

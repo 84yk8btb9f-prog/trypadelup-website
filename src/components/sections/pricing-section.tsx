@@ -98,7 +98,7 @@ function PricingCard({
         href={APP_STORE_URL}
         className={`w-full py-3.5 rounded-full font-semibold text-center text-sm transition-all ${
           highlight
-            ? "bg-teal text-[#050505] shadow-[0_0_25px_rgba(0,245,212,0.3)] hover:shadow-[0_0_40px_rgba(0,245,212,0.5)]"
+            ? "bg-teal text-[#0A0A0A] shadow-[0_0_25px_rgba(0,245,212,0.3)] hover:shadow-[0_0_40px_rgba(0,245,212,0.5)]"
             : "bg-white/[0.08] text-[#f0f4f8] border border-white/12 hover:bg-white/12"
         }`}
       >
@@ -128,7 +128,7 @@ export default function PricingSection() {
   }, []);
 
   return (
-    <section id="pricing" className="py-28 px-4 bg-[#050505] relative">
+    <section id="pricing" className="py-28 px-4 bg-[#0A0A0A] relative">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
 
       <div className="max-w-3xl mx-auto">

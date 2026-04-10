@@ -61,7 +61,7 @@ export default function FaqSection() {
   }, []);
 
   return (
-    <section id="faq" className="py-28 px-4 bg-[#050505] relative">
+    <section id="faq" className="py-28 px-4 bg-[#0A0A0A] relative">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
 
       <div className="max-w-2xl mx-auto">

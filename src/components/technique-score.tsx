@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import { Lightbulb } from "lucide-react";
 
 const techniques = [
-  { label: "Grip", score: 8, color: "#00f5d4" },
-  { label: "Stance", score: 6, color: "#ff4d94" },
-  { label: "Swing", score: 7, color: "#00f5d4" },
-  { label: "Position", score: 9, color: "#00f5d4" },
+  { label: "Grip", score: 8, color: "#00E676" },
+  { label: "Stance", score: 6, color: "#00E676" },
+  { label: "Swing", score: 7, color: "#00E676" },
+  { label: "Position", score: 9, color: "#00E676" },
 ];
 
 const tips = [
@@ -118,8 +118,8 @@ export default function TechniqueScore({ className = "" }: { className?: string 
               />
               <defs>
                 <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#00f5d4" />
-                  <stop offset="100%" stopColor="#ff4d94" />
+                  <stop offset="0%" stopColor="#00E676" />
+                  <stop offset="100%" stopColor="#00E676" />
                 </linearGradient>
               </defs>
             </svg>

@@ -64,7 +64,7 @@ function FeatureCard({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const isMagenta = accent === "magenta";
-  const accentColor = isMagenta ? "#ff4d94" : "#00f5d4";
+  const accentColor = isMagenta ? "#00E676" : "#00E676";
 
   useEffect(() => {
     const el = ref.current;
@@ -129,7 +129,7 @@ export default function FeaturesSection() {
   }, []);
 
   return (
-    <section id="features" className="py-28 px-4 bg-[#050505] relative">
+    <section id="features" className="py-28 px-4 bg-[#0A0A0A] relative">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
 
       <div className="max-w-6xl mx-auto">

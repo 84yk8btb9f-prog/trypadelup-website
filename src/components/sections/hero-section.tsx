@@ -7,7 +7,7 @@ const APP_STORE_URL = "https://apps.apple.com/app/padelup/id0000000000";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center px-4 pt-20 pb-16 overflow-hidden bg-[#050505]">
+    <section className="relative min-h-screen flex items-center px-4 pt-20 pb-16 overflow-hidden bg-[#0A0A0A]">
       {/* Background orbs */}
       <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none animate-glow-pulse bg-[radial-gradient(circle,rgba(0,245,212,0.08)_0%,rgba(0,245,212,0.02)_40%,transparent_70%)]" />
       <div className="absolute top-1/3 right-[-10%] w-[500px] h-[500px] rounded-full pointer-events-none animate-glow-pulse bg-[radial-gradient(circle,rgba(255,77,148,0.08)_0%,transparent_70%)]" style={{ animationDelay: "2s" }} />
@@ -19,7 +19,7 @@ export default function HeroSection() {
           <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/[0.04] border border-white/[0.08] mx-auto lg:mx-0 w-fit">
             <div className="flex -space-x-1">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} size={12} fill="#00f5d4" color="#00f5d4" />
+                <Star key={i} size={12} fill="#00E676" color="#00E676" />
               ))}
             </div>
             <span className="text-xs text-white/60">
@@ -47,7 +47,7 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row items-center gap-4 mt-2 justify-center lg:justify-start">
             <a
               href={APP_STORE_URL}
-              className="flex items-center gap-3 px-7 py-3.5 rounded-full font-semibold text-base bg-teal text-[#050505] shadow-[0_0_40px_rgba(0,245,212,0.35)] hover:scale-[1.02] transition-all"
+              className="flex items-center gap-3 px-7 py-3.5 rounded-full font-semibold text-base bg-teal text-[#0A0A0A] shadow-[0_0_40px_rgba(0,245,212,0.35)] hover:scale-[1.02] transition-all"
             >
               <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
@@ -105,9 +105,9 @@ export default function HeroSection() {
               style={{ transform: "rotate(5deg)" }}
             >
               {/* Notch */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[110px] h-[30px] sm:w-[120px] sm:h-[32px] rounded-b-2xl z-10 bg-[#050505]" />
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[110px] h-[30px] sm:w-[120px] sm:h-[32px] rounded-b-2xl z-10 bg-[#0A0A0A]" />
               {/* Screen bg */}
-              <div className="absolute inset-0 bg-[linear-gradient(160deg,#0d1a18_0%,#050505_50%,#110d15_100%)]" />
+              <div className="absolute inset-0 bg-[linear-gradient(160deg,#0d1a18_0%,#0A0A0A_50%,#110d15_100%)]" />
               {/* Screen content */}
               <div className="absolute inset-0 flex flex-col items-center pt-12 px-5 gap-3">
                 {/* Score circle */}
@@ -120,10 +120,10 @@ export default function HeroSection() {
                 {/* Technique bars */}
                 <div className="w-full mt-2 flex flex-col gap-2">
                   {[
-                    { label: "Grip", score: "8/10", pct: "80%", color: "#00f5d4" },
-                    { label: "Stance", score: "6/10", pct: "60%", color: "#ff4d94" },
-                    { label: "Swing", score: "7/10", pct: "70%", color: "#00f5d4" },
-                    { label: "Position", score: "9/10", pct: "90%", color: "#00f5d4" },
+                    { label: "Grip", score: "8/10", pct: "80%", color: "#00E676" },
+                    { label: "Stance", score: "6/10", pct: "60%", color: "#00E676" },
+                    { label: "Swing", score: "7/10", pct: "70%", color: "#00E676" },
+                    { label: "Position", score: "9/10", pct: "90%", color: "#00E676" },
                   ].map((bar) => (
                     <div key={bar.label}>
                       <div className="flex justify-between text-[9px] mb-0.5">

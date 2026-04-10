@@ -44,7 +44,7 @@ export default function Navbar() {
   }, [menuOpen]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#050505]/85 backdrop-blur-xl border-b border-white/[0.06]">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0A0A0A]/85 backdrop-blur-xl border-b border-white/[0.06]">
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
           <span className="text-xl font-bold tracking-tight gradient-text-logo" style={{ fontFamily: "'Clash Display', sans-serif" }}>
@@ -71,7 +71,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center">
           <a
             href={APP_STORE_URL}
-            className="text-sm font-semibold px-5 py-2 rounded-full bg-teal text-[#050505] shadow-[0_0_20px_rgba(0,245,212,0.3)] hover:shadow-[0_0_35px_rgba(0,245,212,0.5)] hover:-translate-y-px transition-all"
+            className="text-sm font-semibold px-5 py-2 rounded-full bg-teal text-[#0A0A0A] shadow-[0_0_20px_rgba(0,245,212,0.3)] hover:shadow-[0_0_35px_rgba(0,245,212,0.5)] hover:-translate-y-px transition-all"
           >
             Download
           </a>
@@ -104,7 +104,7 @@ export default function Navbar() {
 
       {/* Mobile menu — full-screen overlay */}
       <div
-        className={`md:hidden fixed inset-0 z-50 flex flex-col items-center justify-center gap-8 bg-[#050505]/95 backdrop-blur-2xl transition-all duration-300 ${
+        className={`md:hidden fixed inset-0 z-50 flex flex-col items-center justify-center gap-8 bg-[#0A0A0A]/95 backdrop-blur-2xl transition-all duration-300 ${
           menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
@@ -121,7 +121,7 @@ export default function Navbar() {
         ))}
         <a
           href={APP_STORE_URL}
-          className="mt-4 text-base font-semibold px-8 py-3.5 rounded-full bg-teal text-[#050505] shadow-[0_0_30px_rgba(0,245,212,0.35)]"
+          className="mt-4 text-base font-semibold px-8 py-3.5 rounded-full bg-teal text-[#0A0A0A] shadow-[0_0_30px_rgba(0,245,212,0.35)]"
           onClick={() => setMenuOpen(false)}
         >
           Download on the App Store

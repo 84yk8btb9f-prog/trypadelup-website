@@ -90,7 +90,7 @@ function SmallCard({
     >
       <div className="flex gap-1">
         {[...Array(5)].map((_, i) => (
-          <Star key={i} size={12} fill="#00f5d4" color="#00f5d4" />
+          <Star key={i} size={12} fill="#00E676" color="#00E676" />
         ))}
       </div>
       <p className="text-sm leading-relaxed text-white/80 flex-1">
@@ -129,7 +129,7 @@ export default function SocialProofSection() {
   }, []);
 
   return (
-    <section id="testimonials" className="py-28 px-4 bg-[#050505] relative">
+    <section id="testimonials" className="py-28 px-4 bg-[#0A0A0A] relative">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
 
       <div className="max-w-6xl mx-auto">
@@ -146,7 +146,7 @@ export default function SocialProofSection() {
           <div className="flex items-center gap-3">
             <div className="flex gap-1">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} size={16} fill="#00f5d4" color="#00f5d4" />
+                <Star key={i} size={16} fill="#00E676" color="#00E676" />
               ))}
             </div>
             <span className="text-base font-semibold text-white/80">4.9 rating on the App Store</span>
