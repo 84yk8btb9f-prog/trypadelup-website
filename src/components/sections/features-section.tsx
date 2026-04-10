@@ -2,247 +2,31 @@
 
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import {
-  Video,
-  UtensilsCrossed,
-  Dumbbell,
-  MapPin,
-  MessageCircle,
-} from 'lucide-react';
-import { MotionDiv } from '@/components/ui/motion-wrapper';
 
 const features = [
   {
-    title: 'AI Video Analysis',
-    description:
-      'Frame-by-frame technique breakdown with personalized coaching tips.',
-    icon: Video,
+    num: '01',
+    title: 'Video Analysis',
+    description: 'Upload any clip and get frame-by-frame technique scoring in seconds.',
     top: 80,
-    content: (
-      <div className="w-full max-w-xs">
-        <div className="text-center mb-6">
-          <div className="relative inline-flex items-center justify-center">
-            <svg className="w-24 h-24" viewBox="0 0 120 120">
-              <circle
-                cx="60"
-                cy="60"
-                r="52"
-                fill="none"
-                stroke="rgba(255,255,255,0.06)"
-                strokeWidth="5"
-              />
-              <circle
-                cx="60"
-                cy="60"
-                r="52"
-                fill="none"
-                stroke="#00E676"
-                strokeWidth="5"
-                strokeLinecap="round"
-                strokeDasharray="245 327"
-                transform="rotate(-90 60 60)"
-              />
-            </svg>
-            <span className="absolute text-3xl font-bold text-white font-heading">
-              7.5
-            </span>
-          </div>
-        </div>
-        <div className="space-y-3">
-          {[
-            { label: 'Grip', pct: 80 },
-            { label: 'Stance', pct: 60 },
-            { label: 'Swing', pct: 70 },
-            { label: 'Position', pct: 90 },
-          ].map((bar) => (
-            <div key={bar.label}>
-              <div className="flex justify-between text-xs mb-1">
-                <span className="text-white/50">{bar.label}</span>
-                <span className="text-[#00E676]">{bar.pct}%</span>
-              </div>
-              <div className="w-full h-1.5 rounded-full bg-white/[0.06]">
-                <div
-                  className={`h-full rounded-full bg-[#00E676] w-[${bar.pct}%]`}
-                  style={{ width: `${bar.pct}%` }}
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    ),
   },
   {
-    title: 'Smart Nutrition',
-    description:
-      'Snap a photo of your meal and AI identifies macros instantly.',
-    icon: UtensilsCrossed,
+    num: '02',
+    title: 'Nutrition',
+    description: 'Snap your meal, get instant macros. No manual logging.',
     top: 100,
-    content: (
-      <div className="w-full max-w-xs space-y-4">
-        <div className="flex items-center justify-between p-4 rounded-2xl bg-white/[0.04] border border-white/[0.06]">
-          <div>
-            <p className="text-sm font-semibold text-white">
-              Today&apos;s Calories
-            </p>
-            <p className="text-2xl font-bold text-[#00E676] font-heading">
-              1,842
-            </p>
-          </div>
-          <div className="text-right">
-            <p className="text-xs text-white/50">Target</p>
-            <p className="text-sm text-white/60">2,200</p>
-          </div>
-        </div>
-        <div className="grid grid-cols-3 gap-3">
-          {[
-            { label: 'Protein', val: '128g', pct: 75 },
-            { label: 'Carbs', val: '210g', pct: 65 },
-            { label: 'Fat', val: '52g', pct: 55 },
-          ].map((macro) => (
-            <div key={macro.label} className="text-center">
-              <p className="text-[10px] text-white/50 uppercase tracking-wider mb-1">
-                {macro.label}
-              </p>
-              <p className="text-sm font-bold text-white">{macro.val}</p>
-              <div className="w-full h-1 rounded-full bg-white/[0.06] mt-1">
-                <div
-                  className="h-full rounded-full bg-[#00E676]/60"
-                  style={{ width: `${macro.pct}%` }}
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    ),
   },
   {
-    title: 'Personalized Training',
-    description: 'AI-generated daily drills based on your weak points.',
-    icon: Dumbbell,
+    num: '03',
+    title: 'Training',
+    description: 'Daily drills built around your weak spots. Adapts as you improve.',
     top: 120,
-    content: (
-      <div className="w-full max-w-xs space-y-3">
-        {[
-          { name: 'Bandeja Drill', duration: '15 min', level: 'Intermediate' },
-          { name: 'Volley Precision', duration: '10 min', level: 'Beginner' },
-          { name: 'Smash Power', duration: '12 min', level: 'Advanced' },
-        ].map((drill, i) => (
-          <div
-            key={drill.name}
-            className="flex items-center gap-4 p-3.5 rounded-2xl bg-white/[0.04] border border-white/[0.06]"
-          >
-            <div className="w-10 h-10 rounded-lg bg-[#00E676]/10 flex items-center justify-center text-[#00E676] text-sm font-bold shrink-0">
-              {i + 1}
-            </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-sm font-semibold text-white truncate">
-                {drill.name}
-              </p>
-              <p className="text-xs text-white/50">
-                {drill.duration} &middot; {drill.level}
-              </p>
-            </div>
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              className="text-white/20 shrink-0"
-              aria-hidden="true"
-            >
-              <polyline points="9 18 15 12 9 6" />
-            </svg>
-          </div>
-        ))}
-      </div>
-    ),
   },
   {
-    title: 'Find Courts',
-    description: 'Discover padel courts worldwide with real-time availability.',
-    icon: MapPin,
+    num: '04',
+    title: 'AI Coach',
+    description: 'Ask anything about padel. Get answers from an expert, instantly.',
     top: 140,
-    content: (
-      <div className="w-full max-w-xs">
-        <div className="relative w-full h-40 rounded-2xl bg-white/[0.04] border border-white/[0.06] overflow-hidden">
-          {/* Map grid lines */}
-          <div className="absolute inset-0 opacity-10">
-            {[...Array(6)].map((_, i) => (
-              <div
-                key={`h-${i}`}
-                className="absolute left-0 right-0 h-px bg-white/30"
-                style={{ top: `${(i + 1) * 16.6}%` }}
-              />
-            ))}
-            {[...Array(8)].map((_, i) => (
-              <div
-                key={`v-${i}`}
-                className="absolute top-0 bottom-0 w-px bg-white/30"
-                style={{ left: `${(i + 1) * 12.5}%` }}
-              />
-            ))}
-          </div>
-          {/* Map pins */}
-          {[
-            { x: '25%', y: '30%' },
-            { x: '55%', y: '45%' },
-            { x: '70%', y: '25%' },
-            { x: '40%', y: '65%' },
-            { x: '80%', y: '60%' },
-          ].map((pin, i) => (
-            <div
-              key={i}
-              className="absolute flex flex-col items-center"
-              style={{ left: pin.x, top: pin.y }}
-            >
-              <div className="w-3 h-3 rounded-full bg-[#00E676] shadow-[0_0_8px_rgba(0,230,118,0.4)]" />
-              <div className="w-px h-2 bg-[#00E676]/40" />
-            </div>
-          ))}
-        </div>
-        <div className="mt-3 flex items-center gap-2 text-xs text-white/50">
-          <div className="w-2 h-2 rounded-full bg-[#00E676]" />
-          <span>5 courts near you</span>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: 'AI Coach Chat',
-    description:
-      'Ask any padel question and get instant expert answers from AI.',
-    icon: MessageCircle,
-    top: 160,
-    content: (
-      <div className="w-full max-w-xs space-y-3">
-        {/* Chat bubbles */}
-        <div className="flex justify-end">
-          <div className="max-w-[80%] px-4 py-2.5 rounded-2xl rounded-br-md bg-[#00E676]/15 border border-[#00E676]/20">
-            <p className="text-sm text-white">
-              How do I improve my bandeja?
-            </p>
-          </div>
-        </div>
-        <div className="flex justify-start">
-          <div className="max-w-[85%] px-4 py-2.5 rounded-2xl rounded-bl-md bg-white/[0.04] border border-white/[0.06]">
-            <p className="text-sm text-white/70">
-              Focus on a continental grip and contact the ball at shoulder
-              height. Keep your wrist firm and follow through toward your
-              target.
-            </p>
-          </div>
-        </div>
-        <div className="flex justify-end">
-          <div className="max-w-[80%] px-4 py-2.5 rounded-2xl rounded-br-md bg-[#00E676]/15 border border-[#00E676]/20">
-            <p className="text-sm text-white">Any drills for this?</p>
-          </div>
-        </div>
-      </div>
-    ),
   },
 ];
 
@@ -269,9 +53,6 @@ function FeatureCard({
     [0.92, 1 - (total - 1 - index) * 0.015]
   );
 
-  const Icon = feature.icon;
-  const isLast = index === total - 1;
-
   return (
     <motion.div
       ref={cardRef}
@@ -284,39 +65,20 @@ function FeatureCard({
         zIndex: index + 1,
       }}
     >
-      <div
-        className={`
-          relative rounded-2xl p-8 sm:p-10
-          bg-white/[0.04] border backdrop-blur-xl
-          ${isLast ? 'border-[#00E676]/20 shadow-[0_0_20px_rgba(0,230,118,0.08)]' : 'border-white/[0.08]'}
-        `}
-      >
-        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-          {/* Left: text */}
-          <div className="flex-1 text-center lg:text-left">
-            <div
-              className={`
-                inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-6
-                ${isLast ? 'bg-[#00E676]/15 border border-[#00E676]/20' : 'bg-[#00E676]/10 border border-[#00E676]/15'}
-              `}
-            >
-              <Icon
-                size={26}
-                className="text-[#00E676]"
-                strokeWidth={1.5}
-              />
-            </div>
-            <h3 className="text-2xl sm:text-3xl font-semibold text-white mb-3 font-heading">
+      <div className="relative rounded-2xl p-8 sm:p-10 bg-white/[0.03] border border-white/[0.07]">
+        <div className="flex items-start gap-6 sm:gap-10">
+          {/* Big number */}
+          <span className="text-6xl sm:text-7xl lg:text-8xl font-bold text-white/[0.05] font-heading leading-none select-none shrink-0">
+            {feature.num}
+          </span>
+          {/* Text */}
+          <div className="pt-2 sm:pt-4">
+            <h3 className="text-xl sm:text-2xl font-semibold text-white mb-2 font-heading">
               {feature.title}
             </h3>
-            <p className="text-base leading-relaxed text-white/50 max-w-md">
+            <p className="text-base text-white/45 leading-relaxed max-w-lg">
               {feature.description}
             </p>
-          </div>
-
-          {/* Right: mini UI mockup */}
-          <div className="flex items-center justify-center shrink-0">
-            {feature.content}
           </div>
         </div>
       </div>
@@ -326,28 +88,17 @@ function FeatureCard({
 
 export default function FeaturesSection() {
   return (
-    <section
-      id="features"
-      className="relative bg-[#0A0A0A]"
-    >
-      {/* Gradient divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-[#00E676]/10 to-transparent" />
-
-      <div className="max-w-5xl mx-auto px-4">
-        {/* Header */}
-        <div className="pt-32 pb-16 sticky top-0 z-10 bg-[#0A0A0A]">
-          <MotionDiv className="max-w-lg">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] mb-4 text-[#00E676]">
-              Features
-            </p>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 font-heading">
-              Built for serious players
-            </h2>
-          </MotionDiv>
+    <section id="features" className="relative bg-[#0A0A0A]">
+      <div className="max-w-4xl mx-auto px-6 sm:px-10">
+        {/* Header - left-aligned, no uppercase label */}
+        <div className="pt-28 pb-14 sticky top-0 z-10 bg-[#0A0A0A]">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-heading">
+            Everything in one app.
+          </h2>
         </div>
 
         {/* Stacking cards */}
-        <div className="relative pb-32 flex flex-col gap-8">
+        <div className="relative pb-28 flex flex-col gap-6">
           {features.map((feature, i) => (
             <FeatureCard
               key={feature.title}

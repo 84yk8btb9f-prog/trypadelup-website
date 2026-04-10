@@ -1,6 +1,5 @@
 import dynamic from "next/dynamic";
 import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
 import HeroSection from "@/components/sections/hero-section";
 import StickyMobileCta from "@/components/sticky-mobile-cta";
 
@@ -20,9 +19,8 @@ export default function Home() {
         <DemoSection />
         <SocialProofSection />
         <PricingSection />
-        <FinalCta />
       </main>
-      <Footer />
+      <FinalCta />
       <StickyMobileCta />
     </>
   );
