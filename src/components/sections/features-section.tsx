@@ -43,30 +43,27 @@ const features = [
                 transform="rotate(-90 60 60)"
               />
             </svg>
-            <span
-              className="absolute text-3xl font-bold text-white"
-              style={{ fontFamily: "'Clash Display', sans-serif" }}
-            >
+            <span className="absolute text-3xl font-bold text-white font-heading">
               7.5
             </span>
           </div>
         </div>
         <div className="space-y-3">
           {[
-            { label: 'Grip', pct: '80%' },
-            { label: 'Stance', pct: '60%' },
-            { label: 'Swing', pct: '70%' },
-            { label: 'Position', pct: '90%' },
+            { label: 'Grip', pct: 80 },
+            { label: 'Stance', pct: 60 },
+            { label: 'Swing', pct: 70 },
+            { label: 'Position', pct: 90 },
           ].map((bar) => (
             <div key={bar.label}>
               <div className="flex justify-between text-xs mb-1">
                 <span className="text-white/50">{bar.label}</span>
-                <span className="text-[#00E676]">{bar.pct}</span>
+                <span className="text-[#00E676]">{bar.pct}%</span>
               </div>
               <div className="w-full h-1.5 rounded-full bg-white/[0.06]">
                 <div
-                  className="h-full rounded-full bg-[#00E676]"
-                  style={{ width: bar.pct }}
+                  className={`h-full rounded-full bg-[#00E676] w-[${bar.pct}%]`}
+                  style={{ width: `${bar.pct}%` }}
                 />
               </div>
             </div>
@@ -83,38 +80,35 @@ const features = [
     top: 100,
     content: (
       <div className="w-full max-w-xs space-y-4">
-        <div className="flex items-center justify-between p-4 rounded-xl bg-white/[0.04] border border-white/[0.06]">
+        <div className="flex items-center justify-between p-4 rounded-2xl bg-white/[0.04] border border-white/[0.06]">
           <div>
             <p className="text-sm font-semibold text-white">
               Today&apos;s Calories
             </p>
-            <p
-              className="text-2xl font-bold text-[#00E676]"
-              style={{ fontFamily: "'Clash Display', sans-serif" }}
-            >
+            <p className="text-2xl font-bold text-[#00E676] font-heading">
               1,842
             </p>
           </div>
           <div className="text-right">
-            <p className="text-xs text-white/40">Target</p>
+            <p className="text-xs text-white/50">Target</p>
             <p className="text-sm text-white/60">2,200</p>
           </div>
         </div>
         <div className="grid grid-cols-3 gap-3">
           {[
-            { label: 'Protein', val: '128g', pct: '75%' },
-            { label: 'Carbs', val: '210g', pct: '65%' },
-            { label: 'Fat', val: '52g', pct: '55%' },
+            { label: 'Protein', val: '128g', pct: 75 },
+            { label: 'Carbs', val: '210g', pct: 65 },
+            { label: 'Fat', val: '52g', pct: 55 },
           ].map((macro) => (
             <div key={macro.label} className="text-center">
-              <p className="text-[10px] text-white/40 uppercase tracking-wider mb-1">
+              <p className="text-[10px] text-white/50 uppercase tracking-wider mb-1">
                 {macro.label}
               </p>
               <p className="text-sm font-bold text-white">{macro.val}</p>
               <div className="w-full h-1 rounded-full bg-white/[0.06] mt-1">
                 <div
                   className="h-full rounded-full bg-[#00E676]/60"
-                  style={{ width: macro.pct }}
+                  style={{ width: `${macro.pct}%` }}
                 />
               </div>
             </div>
@@ -137,7 +131,7 @@ const features = [
         ].map((drill, i) => (
           <div
             key={drill.name}
-            className="flex items-center gap-4 p-3.5 rounded-xl bg-white/[0.04] border border-white/[0.06]"
+            className="flex items-center gap-4 p-3.5 rounded-2xl bg-white/[0.04] border border-white/[0.06]"
           >
             <div className="w-10 h-10 rounded-lg bg-[#00E676]/10 flex items-center justify-center text-[#00E676] text-sm font-bold shrink-0">
               {i + 1}
@@ -146,7 +140,7 @@ const features = [
               <p className="text-sm font-semibold text-white truncate">
                 {drill.name}
               </p>
-              <p className="text-xs text-white/40">
+              <p className="text-xs text-white/50">
                 {drill.duration} &middot; {drill.level}
               </p>
             </div>
@@ -174,7 +168,7 @@ const features = [
     top: 140,
     content: (
       <div className="w-full max-w-xs">
-        <div className="relative w-full h-40 rounded-xl bg-white/[0.04] border border-white/[0.06] overflow-hidden">
+        <div className="relative w-full h-40 rounded-2xl bg-white/[0.04] border border-white/[0.06] overflow-hidden">
           {/* Map grid lines */}
           <div className="absolute inset-0 opacity-10">
             {[...Array(6)].map((_, i) => (
@@ -205,12 +199,12 @@ const features = [
               className="absolute flex flex-col items-center"
               style={{ left: pin.x, top: pin.y }}
             >
-              <div className="w-3 h-3 rounded-full bg-[#00E676] shadow-[0_0_8px_rgba(0,230,118,0.5)]" />
+              <div className="w-3 h-3 rounded-full bg-[#00E676] shadow-[0_0_8px_rgba(0,230,118,0.4)]" />
               <div className="w-px h-2 bg-[#00E676]/40" />
             </div>
           ))}
         </div>
-        <div className="mt-3 flex items-center gap-2 text-xs text-white/40">
+        <div className="mt-3 flex items-center gap-2 text-xs text-white/50">
           <div className="w-2 h-2 rounded-full bg-[#00E676]" />
           <span>5 courts near you</span>
         </div>
@@ -292,20 +286,17 @@ function FeatureCard({
     >
       <div
         className={`
-          relative rounded-3xl p-8 sm:p-10
+          relative rounded-2xl p-8 sm:p-10
           bg-white/[0.04] border backdrop-blur-xl
-          ${isLast ? 'border-[#00E676]/20 shadow-[0_0_40px_rgba(0,230,118,0.08)]' : 'border-white/[0.08]'}
+          ${isLast ? 'border-[#00E676]/20 shadow-[0_0_20px_rgba(0,230,118,0.08)]' : 'border-white/[0.08]'}
         `}
-        style={{
-          boxShadow: `0 ${4 + index * 4}px ${20 + index * 10}px rgba(0,0,0,${0.2 + index * 0.05})`,
-        }}
       >
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           {/* Left: text */}
           <div className="flex-1 text-center lg:text-left">
             <div
               className={`
-                inline-flex items-center justify-center w-14 h-14 rounded-xl mb-6
+                inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-6
                 ${isLast ? 'bg-[#00E676]/15 border border-[#00E676]/20' : 'bg-[#00E676]/10 border border-[#00E676]/15'}
               `}
             >
@@ -315,13 +306,10 @@ function FeatureCard({
                 strokeWidth={1.5}
               />
             </div>
-            <h3
-              className="text-2xl sm:text-3xl font-semibold text-white mb-3"
-              style={{ fontFamily: "'Clash Display', sans-serif" }}
-            >
+            <h3 className="text-2xl sm:text-3xl font-semibold text-white mb-3 font-heading">
               {feature.title}
             </h3>
-            <p className="text-base leading-relaxed text-white/40 max-w-md">
+            <p className="text-base leading-relaxed text-white/50 max-w-md">
               {feature.description}
             </p>
           </div>
@@ -342,7 +330,8 @@ export default function FeaturesSection() {
       id="features"
       className="relative bg-[#0A0A0A]"
     >
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+      {/* Gradient divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-[#00E676]/10 to-transparent" />
 
       <div className="max-w-5xl mx-auto px-4">
         {/* Header */}
@@ -351,15 +340,9 @@ export default function FeaturesSection() {
             <p className="text-sm font-semibold uppercase tracking-[0.2em] mb-4 text-[#00E676]">
               Features
             </p>
-            <h2
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4"
-              style={{ fontFamily: "'Clash Display', sans-serif" }}
-            >
-              Everything you need to dominate
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 font-heading">
+              Built for serious players
             </h2>
-            <p className="text-lg text-white/40">
-              Five powerful tools working together, powered by the latest AI.
-            </p>
           </MotionDiv>
         </div>
 

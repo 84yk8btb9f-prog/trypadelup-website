@@ -20,31 +20,43 @@ const results: Record<
     score: 7.5,
     bars: [
       { label: 'Grip', pct: 80 },
-      { label: 'Stance', pct: 55 },
-      { label: 'Follow-through', pct: 72 },
-      { label: 'Contact point', pct: 88 },
+      { label: 'Stance', pct: 60 },
+      { label: 'Swing', pct: 70 },
+      { label: 'Position', pct: 90 },
     ],
-    tips: ['Widen your stance for stability', 'Follow through more toward target'],
+    tips: [
+      'Open your racket face more at contact',
+      'Keep your elbow higher through the swing',
+      'Step into the ball with your front foot',
+    ],
   },
   Smash: {
-    score: 6.8,
-    bars: [
-      { label: 'Power', pct: 90 },
-      { label: 'Accuracy', pct: 50 },
-      { label: 'Timing', pct: 65 },
-      { label: 'Positioning', pct: 72 },
-    ],
-    tips: ['Wait for the ball to drop lower', 'Aim for the side wall angles'],
-  },
-  Serve: {
     score: 8.2,
     bars: [
-      { label: 'Toss', pct: 85 },
-      { label: 'Slice', pct: 78 },
-      { label: 'Placement', pct: 92 },
-      { label: 'Speed', pct: 70 },
+      { label: 'Grip', pct: 90 },
+      { label: 'Stance', pct: 70 },
+      { label: 'Swing', pct: 80 },
+      { label: 'Position', pct: 80 },
     ],
-    tips: ['Add more spin for variation', 'Disguise your placement better'],
+    tips: [
+      'Start your swing from behind your head',
+      'Snap your wrist at the point of contact',
+      'Follow through across your body',
+    ],
+  },
+  Serve: {
+    score: 6.8,
+    bars: [
+      { label: 'Grip', pct: 70 },
+      { label: 'Stance', pct: 50 },
+      { label: 'Swing', pct: 70 },
+      { label: 'Position', pct: 80 },
+    ],
+    tips: [
+      'Toss the ball slightly in front',
+      'Keep a continental grip',
+      'Pronate your forearm on contact',
+    ],
   },
 };
 
@@ -58,7 +70,7 @@ function PhoneFrame({ children }: { children: React.ReactNode }) {
   return (
     <div className="relative mx-auto w-[280px] sm:w-[320px]">
       {/* Phone outer frame */}
-      <div className="rounded-[40px] border-2 border-white/[0.12] bg-[#111111] p-3 shadow-[0_0_60px_rgba(0,230,118,0.06)]">
+      <div className="rounded-[40px] border-2 border-white/[0.12] bg-[#111111] p-3 shadow-[0_0_40px_rgba(0,230,118,0.04)]">
         {/* Notch */}
         <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-6 bg-[#111111] rounded-b-2xl z-20 flex items-center justify-center">
           <div className="w-12 h-4 rounded-full bg-black/80 border border-white/[0.06]" />
@@ -91,13 +103,10 @@ function SelectStep({ onSelect }: { onSelect: (shot: string) => void }) {
       transition={{ duration: 0.35, ease: [0.25, 0.4, 0.25, 1] }}
       className="flex-1 flex flex-col"
     >
-      <p className="text-xs text-white/40 uppercase tracking-widest mb-1">
+      <p className="text-xs text-white/50 uppercase tracking-widest mb-1">
         Step 1
       </p>
-      <h4
-        className="text-lg font-semibold text-white mb-6"
-        style={{ fontFamily: "'Clash Display', sans-serif" }}
-      >
+      <h4 className="text-lg font-semibold text-white mb-6 font-heading">
         Select a shot type
       </h4>
       <div className="flex flex-col gap-3">
@@ -141,7 +150,7 @@ function AnalyzingStep({ shotName }: { shotName: string }) {
       transition={{ duration: 0.35, ease: [0.25, 0.4, 0.25, 1] }}
       className="flex-1 flex flex-col items-center justify-center"
     >
-      <p className="text-xs text-white/40 uppercase tracking-widest mb-4">
+      <p className="text-xs text-white/50 uppercase tracking-widest mb-4">
         Step 2
       </p>
       {/* Spinner */}
@@ -164,13 +173,10 @@ function AnalyzingStep({ shotName }: { shotName: string }) {
           />
         </div>
       </div>
-      <p
-        className="text-lg font-semibold text-white mb-1"
-        style={{ fontFamily: "'Clash Display', sans-serif" }}
-      >
+      <p className="text-lg font-semibold text-white mb-1 font-heading">
         Analyzing {shotName}...
       </p>
-      <p className="text-sm text-white/30">AI is reviewing your technique</p>
+      <p className="text-sm text-white/40">AI is reviewing your technique</p>
     </motion.div>
   );
 }
@@ -196,7 +202,7 @@ function ResultStep({
       transition={{ duration: 0.35, ease: [0.25, 0.4, 0.25, 1] }}
       className="flex-1 flex flex-col"
     >
-      <p className="text-xs text-white/40 uppercase tracking-widest mb-4">
+      <p className="text-xs text-white/50 uppercase tracking-widest mb-4">
         Result
       </p>
 
@@ -230,8 +236,7 @@ function ResultStep({
             />
           </svg>
           <motion.span
-            className="absolute text-2xl font-bold text-white"
-            style={{ fontFamily: "'Clash Display', sans-serif" }}
+            className="absolute text-2xl font-bold text-white font-heading"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
@@ -280,7 +285,7 @@ function ResultStep({
 
       <button
         onClick={onRetry}
-        className="mt-auto w-full py-3 rounded-xl bg-[#00E676]/10 border border-[#00E676]/20 text-[#00E676] text-sm font-semibold hover:bg-[#00E676]/15 transition-colors cursor-pointer"
+        className="mt-auto w-full py-3 rounded-2xl bg-[#00E676]/10 border border-[#00E676]/20 text-[#00E676] text-sm font-semibold hover:bg-[#00E676]/15 transition-colors cursor-pointer"
       >
         Try Again
       </button>
@@ -304,20 +309,18 @@ export default function DemoSection() {
 
   return (
     <section className="py-32 px-4 bg-[#0A0A0A] relative overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+      {/* Gradient divider */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00E676]/10 to-transparent" />
 
       <div className="max-w-6xl mx-auto">
         <MotionDiv className="text-center mb-16">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] mb-4 text-[#00E676]">
             Interactive Demo
           </p>
-          <h2
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4"
-            style={{ fontFamily: "'Clash Display', sans-serif" }}
-          >
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 font-heading">
             See it in action
           </h2>
-          <p className="text-lg text-white/40 max-w-md mx-auto">
+          <p className="text-lg text-white/50 max-w-md mx-auto">
             Try the AI analysis flow yourself. Select a shot and watch the
             breakdown.
           </p>

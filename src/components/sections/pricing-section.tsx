@@ -36,7 +36,7 @@ function PricingCard({
       className={cn(
         'relative p-8 rounded-2xl flex flex-col gap-6 backdrop-blur-xl transition-all duration-300',
         highlight
-          ? 'bg-[#00E676]/[0.05] border border-[#00E676]/25 shadow-[0_0_30px_rgba(0,230,118,0.15)]'
+          ? 'bg-[#00E676]/[0.05] border border-[#00E676]/25 shadow-[0_0_20px_rgba(0,230,118,0.08)]'
           : 'bg-white/[0.04] border border-white/[0.08]'
       )}
     >
@@ -63,15 +63,12 @@ function PricingCard({
           )}
         </div>
         <div className="flex items-end gap-1">
-          <span
-            className="text-5xl font-bold text-white"
-            style={{ fontFamily: "'Clash Display', sans-serif" }}
-          >
+          <span className="text-5xl font-bold text-white font-heading">
             {price}
           </span>
-          <span className="text-base mb-2 text-white/40">/{period}</span>
+          <span className="text-base mb-2 text-white/50">/{period}</span>
         </div>
-        <p className="text-sm text-white/40">{subtext}</p>
+        <p className="text-sm text-white/50">{subtext}</p>
       </div>
 
       <div className="text-xs font-semibold text-center py-2 rounded-lg bg-[#00E676]/10 text-[#00E676] border border-[#00E676]/15">
@@ -95,7 +92,7 @@ function PricingCard({
         className={cn(
           'w-full py-3.5 rounded-full font-semibold text-center text-sm transition-all',
           highlight
-            ? 'bg-[#00E676] text-[#0A0A0A] shadow-[0_0_30px_rgba(0,230,118,0.15)] hover:shadow-[0_0_50px_rgba(0,230,118,0.3)]'
+            ? 'bg-[#00E676] text-[#0A0A0A] shadow-[0_0_20px_rgba(0,230,118,0.08)] hover:shadow-[0_0_30px_rgba(0,230,118,0.15)]'
             : 'bg-white/[0.06] text-white border border-white/[0.1] hover:bg-white/[0.1]'
         )}
       >
@@ -109,21 +106,19 @@ export default function PricingSection() {
   const [isYearly, setIsYearly] = useState(true);
 
   return (
-    <section id="pricing" className="py-32 px-4 bg-[#0A0A0A] relative">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+    <section id="pricing" className="py-24 px-4 bg-[#0A0A0A] relative">
+      {/* Gradient divider */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00E676]/10 to-transparent" />
 
       <div className="max-w-3xl mx-auto">
         <MotionDiv className="text-center mb-14">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] mb-4 text-[#00E676]">
             Pricing
           </p>
-          <h2
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4"
-            style={{ fontFamily: "'Clash Display', sans-serif" }}
-          >
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 font-heading">
             Simple, transparent pricing
           </h2>
-          <p className="text-white/40 mb-8">
+          <p className="text-white/50 mb-8">
             Start with a 3-day free trial. Cancel anytime.
           </p>
 

@@ -2,8 +2,15 @@
 
 import { AnimatedGroup } from '@/components/ui/animated-group';
 import { ElegantShape } from '@/components/ui/elegant-shapes';
+import { Video, Cpu, TrendingUp } from 'lucide-react';
 
 const APP_STORE_URL = 'https://apps.apple.com/app/padelup/id0000000000';
+
+const steps = [
+  { icon: Video, title: 'Record', desc: 'Capture your match with any phone' },
+  { icon: Cpu, title: 'Analyze', desc: 'AI breaks down every frame' },
+  { icon: TrendingUp, title: 'Improve', desc: 'Follow drills, level up weekly' },
+];
 
 export default function HeroSection() {
   return (
@@ -65,10 +72,7 @@ export default function HeroSection() {
           </div>
 
           {/* Headline */}
-          <h1
-            className="text-6xl sm:text-7xl lg:text-8xl xl:text-[9rem] font-bold tracking-tight leading-[0.9]"
-            style={{ fontFamily: "'Clash Display', sans-serif" }}
-          >
+          <h1 className="text-6xl sm:text-7xl lg:text-8xl xl:text-[9rem] font-bold tracking-tight leading-[0.9] font-heading">
             <span className="bg-gradient-to-b from-white to-white/80 bg-clip-text text-transparent">
               Elevate Your
             </span>
@@ -79,7 +83,7 @@ export default function HeroSection() {
           </h1>
 
           {/* Subtitle */}
-          <p className="max-w-xl text-lg sm:text-xl leading-relaxed text-white/40">
+          <p className="max-w-xl text-lg sm:text-xl leading-relaxed text-white/50">
             Upload your game footage. Get AI-powered technique analysis.
             Improve faster than ever before.
           </p>
@@ -88,19 +92,35 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row items-center gap-4 mt-2">
             <a
               href={APP_STORE_URL}
-              className="flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-base bg-[#00E676] text-[#0A0A0A] shadow-[0_0_30px_rgba(0,230,118,0.15)] hover:shadow-[0_0_50px_rgba(0,230,118,0.3)] hover:-translate-y-px transition-all"
+              className="flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-base bg-[#00E676] text-[#0A0A0A] shadow-[0_0_20px_rgba(0,230,118,0.08)] hover:shadow-[0_0_40px_rgba(0,230,118,0.15)] hover:-translate-y-px transition-all"
             >
               Start Free Trial
             </a>
             <a
-              href="#app-reveal"
+              href="#features"
               className="flex items-center gap-2 px-8 py-4 rounded-full font-medium text-base text-white/60 border border-white/[0.1] hover:bg-white/[0.04] hover:text-white/80 transition-all"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <polygon points="5 3 19 12 5 21 5 3" />
               </svg>
-              Watch Demo
+              See Features
             </a>
+          </div>
+
+          {/* Mini how-it-works — 3 steps inline */}
+          <div className="grid grid-cols-3 gap-4 sm:gap-6 mt-4 pt-8 border-t border-white/[0.06] max-w-lg w-full">
+            {steps.map((s) => {
+              const Icon = s.icon;
+              return (
+                <div key={s.title} className="flex flex-col items-center gap-2 text-center">
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-[#00E676]/10 border border-[#00E676]/15">
+                    <Icon size={18} className="text-[#00E676]" strokeWidth={1.5} />
+                  </div>
+                  <p className="text-sm font-semibold text-white">{s.title}</p>
+                  <p className="text-xs text-white/50 leading-snug hidden sm:block">{s.desc}</p>
+                </div>
+              );
+            })}
           </div>
         </AnimatedGroup>
       </div>

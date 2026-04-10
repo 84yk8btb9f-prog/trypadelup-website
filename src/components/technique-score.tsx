@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import { Lightbulb } from "lucide-react";
 
 const techniques = [
-  { label: "Grip", score: 8, color: "#00E676" },
-  { label: "Stance", score: 6, color: "#00E676" },
-  { label: "Swing", score: 7, color: "#00E676" },
-  { label: "Position", score: 9, color: "#00E676" },
+  { label: "Grip", score: 8 },
+  { label: "Stance", score: 6 },
+  { label: "Swing", score: 7 },
+  { label: "Position", score: 9 },
 ];
 
 const tips = [
@@ -88,17 +88,12 @@ export default function TechniqueScore({ className = "" }: { className?: string 
   return (
     <div
       ref={ref}
-      className={`relative rounded-2xl overflow-hidden ${className}`}
-      style={{
-        background: "linear-gradient(160deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%)",
-        border: "1px solid rgba(255,255,255,0.1)",
-        backdropFilter: "blur(12px)",
-      }}
+      className={`relative rounded-2xl overflow-hidden bg-gradient-to-br from-white/[0.06] to-white/[0.02] border border-white/10 backdrop-blur-xl ${className}`}
     >
       <div className="p-6 sm:p-8">
         {/* Overall Score */}
         <div className="text-center mb-6">
-          <p className="text-xs uppercase tracking-[0.2em] text-white/50 mb-2" style={{ fontFamily: "'Satoshi', sans-serif" }}>
+          <p className="text-xs uppercase tracking-[0.2em] text-white/50 mb-2 font-sans">
             Overall Score
           </p>
           <div className="relative inline-flex items-center justify-center">
@@ -124,13 +119,10 @@ export default function TechniqueScore({ className = "" }: { className?: string 
               </defs>
             </svg>
             <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <span
-                className="text-4xl font-bold text-white tabular-nums"
-                style={{ fontFamily: "'Clash Display', sans-serif" }}
-              >
+              <span className="text-4xl font-bold text-white tabular-nums font-heading">
                 {overallScore}
               </span>
-              <span className="text-xs text-white/40">/10</span>
+              <span className="text-xs text-white/50">/10</span>
             </div>
           </div>
         </div>
@@ -141,20 +133,16 @@ export default function TechniqueScore({ className = "" }: { className?: string 
             <div key={tech.label}>
               <div className="flex justify-between items-center mb-1.5">
                 <span className="text-sm font-medium text-white/70">{tech.label}</span>
-                <span
-                  className="text-sm font-bold tabular-nums"
-                  style={{ color: tech.color }}
-                >
+                <span className="text-sm font-bold tabular-nums text-[#00E676]">
                   {triggered ? tech.score : 0}
                 </span>
               </div>
               <div className="w-full h-2 rounded-full bg-white/[0.08]">
                 <div
-                  className="h-full rounded-full transition-all duration-100"
+                  className="h-full rounded-full bg-[#00E676] transition-all duration-100"
                   style={{
                     width: `${barWidths[i]}%`,
-                    background: tech.color,
-                    boxShadow: barWidths[i] > 0 ? `0 0 12px ${tech.color}40` : "none",
+                    boxShadow: barWidths[i] > 0 ? '0 0 12px rgba(0,230,118,0.25)' : 'none',
                   }}
                 />
               </div>
@@ -164,17 +152,18 @@ export default function TechniqueScore({ className = "" }: { className?: string 
 
         {/* Tips */}
         <div
-          className="mt-6 p-4 rounded-xl bg-white/[0.03] border border-white/[0.06] transition-all duration-500"
-          style={{ opacity: showTips ? 1 : 0, transform: showTips ? "translateY(0)" : "translateY(8px)" }}
+          className={`mt-6 p-4 rounded-2xl bg-white/[0.03] border border-white/[0.06] transition-all duration-500 ${
+            showTips ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+          }`}
         >
           <div className="flex items-center gap-2 mb-2">
-            <Lightbulb size={14} className="text-teal" />
-            <p className="text-xs font-semibold text-teal uppercase tracking-wider">AI Tips</p>
+            <Lightbulb size={14} className="text-[#00E676]" />
+            <p className="text-xs font-semibold text-[#00E676] uppercase tracking-wider">AI Tips</p>
           </div>
           <ul className="space-y-1.5">
             {tips.map((tip) => (
               <li key={tip} className="text-sm text-white/60 flex items-start gap-2">
-                <span className="text-teal mt-0.5 shrink-0">&#8226;</span>
+                <span className="text-[#00E676] mt-0.5 shrink-0">&#8226;</span>
                 {tip}
               </li>
             ))}

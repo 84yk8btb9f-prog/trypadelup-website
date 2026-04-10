@@ -6,7 +6,6 @@ import Link from "next/link";
 const APP_STORE_URL = "https://apps.apple.com/app/padelup/id0000000000";
 
 const navLinks = [
-  { href: "#how-it-works", label: "How It Works" },
   { href: "#features", label: "Features" },
   { href: "#pricing", label: "Pricing" },
   { href: "#testimonials", label: "Testimonials" },
@@ -47,7 +46,7 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#0A0A0A]/85 backdrop-blur-xl border-b border-white/[0.06]">
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
-          <span className="text-xl font-bold tracking-tight gradient-text-logo" style={{ fontFamily: "'Clash Display', sans-serif" }}>
+          <span className="text-xl font-bold tracking-tight gradient-text-logo font-heading">
             PadelUp
           </span>
         </Link>
@@ -71,7 +70,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center">
           <a
             href={APP_STORE_URL}
-            className="text-sm font-semibold px-5 py-2 rounded-full bg-teal text-[#0A0A0A] shadow-[0_0_20px_rgba(0,245,212,0.3)] hover:shadow-[0_0_35px_rgba(0,245,212,0.5)] hover:-translate-y-px transition-all"
+            className="text-sm font-semibold px-5 py-2 rounded-full bg-[#00E676] text-[#0A0A0A] shadow-[0_0_20px_rgba(0,230,118,0.08)] hover:shadow-[0_0_30px_rgba(0,230,118,0.15)] hover:-translate-y-px transition-all"
           >
             Download
           </a>
@@ -84,25 +83,24 @@ export default function Navbar() {
           aria-label="Toggle menu"
         >
           <span
-            className="block w-5 h-0.5 bg-[#f0f4f8] transition-all duration-200"
-            style={{
-              transform: menuOpen ? "translateY(8px) rotate(45deg)" : "none",
-            }}
+            className={`block w-5 h-0.5 bg-[#f0f4f8] transition-all duration-200 ${
+              menuOpen ? "translate-y-2 rotate-45" : ""
+            }`}
           />
           <span
-            className="block w-5 h-0.5 bg-[#f0f4f8] transition-all duration-200"
-            style={{ opacity: menuOpen ? 0 : 1 }}
+            className={`block w-5 h-0.5 bg-[#f0f4f8] transition-all duration-200 ${
+              menuOpen ? "opacity-0" : "opacity-100"
+            }`}
           />
           <span
-            className="block w-5 h-0.5 bg-[#f0f4f8] transition-all duration-200"
-            style={{
-              transform: menuOpen ? "translateY(-8px) rotate(-45deg)" : "none",
-            }}
+            className={`block w-5 h-0.5 bg-[#f0f4f8] transition-all duration-200 ${
+              menuOpen ? "-translate-y-2 -rotate-45" : ""
+            }`}
           />
         </button>
       </nav>
 
-      {/* Mobile menu — full-screen overlay */}
+      {/* Mobile menu */}
       <div
         className={`md:hidden fixed inset-0 z-50 flex flex-col items-center justify-center gap-8 bg-[#0A0A0A]/95 backdrop-blur-2xl transition-all duration-300 ${
           menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
@@ -112,8 +110,7 @@ export default function Navbar() {
           <a
             key={link.href}
             href={link.href}
-            className="text-2xl font-semibold text-white/80 hover:text-white transition-colors"
-            style={{ fontFamily: "'Clash Display', sans-serif" }}
+            className="text-2xl font-semibold text-white/80 hover:text-white transition-colors font-heading"
             onClick={() => setMenuOpen(false)}
           >
             {link.label}
@@ -121,7 +118,7 @@ export default function Navbar() {
         ))}
         <a
           href={APP_STORE_URL}
-          className="mt-4 text-base font-semibold px-8 py-3.5 rounded-full bg-teal text-[#0A0A0A] shadow-[0_0_30px_rgba(0,245,212,0.35)]"
+          className="mt-4 text-base font-semibold px-8 py-3.5 rounded-full bg-[#00E676] text-[#0A0A0A] shadow-[0_0_20px_rgba(0,230,118,0.08)]"
           onClick={() => setMenuOpen(false)}
         >
           Download on the App Store

@@ -6,13 +6,10 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex flex-col items-center md:items-start gap-2">
-            <span
-              className="text-lg font-bold tracking-tight gradient-text-logo"
-              style={{ fontFamily: "'Clash Display', sans-serif" }}
-            >
+            <span className="text-lg font-bold tracking-tight gradient-text-logo font-heading">
               PadelUp
             </span>
-            <p className="text-xs text-white/40">Your AI Padel Coach</p>
+            <p className="text-xs text-white/50">Your AI Padel Coach</p>
           </div>
 
           <div className="flex items-center gap-6 flex-wrap justify-center">
@@ -29,7 +26,7 @@ export default function Footer() {
 
           <div className="flex items-center gap-4">
             <a
-              href="#"
+              href="https://instagram.com/padelup"
               aria-label="Instagram"
               className="w-9 h-9 flex items-center justify-center rounded-full bg-white/[0.06] border border-white/[0.08] text-white/60 hover:text-white hover:bg-white/10 transition-all"
             >
@@ -38,7 +35,7 @@ export default function Footer() {
               </svg>
             </a>
             <a
-              href="#"
+              href="https://x.com/padelup"
               aria-label="X / Twitter"
               className="w-9 h-9 flex items-center justify-center rounded-full bg-white/[0.06] border border-white/[0.08] text-white/60 hover:text-white hover:bg-white/10 transition-all"
             >
@@ -47,7 +44,7 @@ export default function Footer() {
               </svg>
             </a>
             <a
-              href="#"
+              href="https://tiktok.com/@padelup"
               aria-label="TikTok"
               className="w-9 h-9 flex items-center justify-center rounded-full bg-white/[0.06] border border-white/[0.08] text-white/60 hover:text-white hover:bg-white/10 transition-all"
             >
