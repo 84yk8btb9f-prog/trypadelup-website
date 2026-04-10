@@ -11,7 +11,7 @@ export default function AnimatedCounter({
   suffix?: string;
   duration?: number;
 }) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(end);
   const ref = useRef<HTMLSpanElement>(null);
   const hasAnimated = useRef(false);
 
@@ -19,10 +19,15 @@ export default function AnimatedCounter({
     const el = ref.current;
     if (!el) return;
 
+    // Start at the target value to prevent "0+" flash
+    setCount(end);
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated.current) {
           hasAnimated.current = true;
+          // Reset to 0 and animate up
+          setCount(0);
           const startTime = performance.now();
 
           const animate = (now: number) => {

@@ -61,23 +61,18 @@ export default function FaqSection() {
   }, []);
 
   return (
-    <section
-      id="faq"
-      className="py-24 px-4"
-      style={{
-        backgroundColor: "#0a0a0a",
-        borderTop: "1px solid rgba(255, 255, 255, 0.04)",
-      }}
-    >
+    <section id="faq" className="py-28 px-4 bg-[#050505] relative">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
+
       <div className="max-w-2xl mx-auto">
         <div ref={headingRef} className="scroll-reveal text-center mb-12">
-          <p
-            className="text-sm font-semibold uppercase tracking-widest mb-3"
-            style={{ color: "#00f5d4" }}
-          >
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] mb-3 text-teal">
             FAQ
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white">
+          <h2
+            className="text-3xl sm:text-4xl font-bold text-white"
+            style={{ fontFamily: "'Clash Display', sans-serif" }}
+          >
             Frequently asked questions
           </h2>
         </div>
@@ -94,9 +89,7 @@ export default function FaqSection() {
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent>
-                  <p style={{ color: "rgba(240, 244, 248, 0.6)" }}>
-                    {faq.answer}
-                  </p>
+                  <p className="text-white/60">{faq.answer}</p>
                 </AccordionContent>
               </AccordionItem>
             ))}

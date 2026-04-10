@@ -1,8 +1,11 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { Check } from "lucide-react";
 
-const featureList = [
+const APP_STORE_URL = "https://apps.apple.com/app/padelup/id0000000000";
+
+const allFeatures = [
   "Unlimited AI video analysis",
   "Personalized training plans",
   "Nutrition tracking & meal calendar",
@@ -48,26 +51,14 @@ function PricingCard({
   return (
     <div
       ref={ref}
-      className="scroll-reveal relative p-7 rounded-2xl flex flex-col gap-6"
-      style={{
-        backgroundColor: highlight
-          ? "rgba(0, 245, 212, 0.07)"
-          : "rgba(255, 255, 255, 0.04)",
-        border: highlight
-          ? "1px solid rgba(0, 245, 212, 0.35)"
-          : "1px solid rgba(255, 255, 255, 0.08)",
-        backdropFilter: "blur(8px)",
-        boxShadow: highlight ? "0 0 50px rgba(0, 245, 212, 0.1)" : "none",
-      }}
+      className={`scroll-reveal relative p-7 rounded-2xl flex flex-col gap-6 backdrop-blur-lg ${
+        highlight
+          ? "bg-teal/[0.07] border border-teal/35 shadow-[0_0_50px_rgba(0,245,212,0.1)]"
+          : "bg-white/[0.04] border border-white/[0.08]"
+      }`}
     >
       {badge && (
-        <div
-          className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider"
-          style={{
-            backgroundColor: "#00f5d4",
-            color: "#0a0a0a",
-          }}
-        >
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-magenta text-white">
           {badge}
         </div>
       )}
@@ -75,97 +66,44 @@ function PricingCard({
       <div className="flex flex-col gap-1">
         <div className="flex items-center gap-2 justify-between">
           <span
-            className="text-sm font-semibold uppercase tracking-wide"
-            style={{ color: highlight ? "#00f5d4" : "rgba(240, 244, 248, 0.6)" }}
+            className={`text-sm font-semibold uppercase tracking-wide ${
+              highlight ? "text-teal" : "text-white/60"
+            }`}
           >
             {plan}
           </span>
           {highlight && (
-            <span
-              className="text-xs font-bold px-2 py-0.5 rounded"
-              style={{
-                backgroundColor: "rgba(0, 245, 212, 0.15)",
-                color: "#00f5d4",
-              }}
-            >
+            <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-magenta/20 text-magenta">
               SAVE 58%
             </span>
           )}
         </div>
         <div className="flex items-end gap-1">
-          <span className="text-5xl font-bold text-white">{price}</span>
           <span
-            className="text-base mb-2"
-            style={{ color: "rgba(240, 244, 248, 0.5)" }}
+            className="text-5xl font-bold text-white"
+            style={{ fontFamily: "'Clash Display', sans-serif" }}
           >
-            /{period}
+            {price}
           </span>
+          <span className="text-base mb-2 text-white/50">/{period}</span>
         </div>
-        <p
-          className="text-sm"
-          style={{ color: "rgba(240, 244, 248, 0.5)" }}
-        >
-          {subtext}
-        </p>
+        <p className="text-sm text-white/50">{subtext}</p>
       </div>
 
-      <div
-        className="text-xs font-semibold text-center py-1.5 rounded-lg"
-        style={{
-          backgroundColor: "rgba(0, 245, 212, 0.1)",
-          color: "#00f5d4",
-          border: "1px solid rgba(0, 245, 212, 0.15)",
-        }}
-      >
+      <div className="text-xs font-semibold text-center py-1.5 rounded-lg bg-teal/10 text-teal border border-teal/15">
         3-day free trial included
       </div>
 
       <a
-        href="#"
-        className="w-full py-3 rounded-full font-semibold text-center text-sm transition-all"
-        style={
+        href={APP_STORE_URL}
+        className={`w-full py-3.5 rounded-full font-semibold text-center text-sm transition-all ${
           highlight
-            ? {
-                backgroundColor: "#00f5d4",
-                color: "#0a0a0a",
-                boxShadow: "0 0 25px rgba(0, 245, 212, 0.3)",
-              }
-            : {
-                backgroundColor: "rgba(255, 255, 255, 0.08)",
-                color: "#f0f4f8",
-                border: "1px solid rgba(255, 255, 255, 0.12)",
-              }
-        }
+            ? "bg-teal text-[#050505] shadow-[0_0_25px_rgba(0,245,212,0.3)] hover:shadow-[0_0_40px_rgba(0,245,212,0.5)]"
+            : "bg-white/[0.08] text-[#f0f4f8] border border-white/12 hover:bg-white/12"
+        }`}
       >
         Start free trial
       </a>
-
-      <ul className="flex flex-col gap-3">
-        {featureList.map((feature) => (
-          <li key={feature} className="flex items-start gap-2.5 text-sm">
-            <svg
-              width="16"
-              height="16"
-              fill="none"
-              viewBox="0 0 24 24"
-              className="mt-0.5 shrink-0"
-              aria-hidden="true"
-            >
-              <circle cx="12" cy="12" r="10" fill="rgba(0, 245, 212, 0.15)" />
-              <path
-                d="M8 12l3 3 5-5"
-                stroke="#00f5d4"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <span style={{ color: "rgba(240, 244, 248, 0.75)" }}>
-              {feature}
-            </span>
-          </li>
-        ))}
-      </ul>
     </div>
   );
 }
@@ -190,30 +128,41 @@ export default function PricingSection() {
   }, []);
 
   return (
-    <section
-      id="pricing"
-      className="py-24 px-4"
-      style={{
-        backgroundColor: "#0a0a0a",
-        borderTop: "1px solid rgba(255, 255, 255, 0.04)",
-      }}
-    >
+    <section id="pricing" className="py-28 px-4 bg-[#050505] relative">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
+
       <div className="max-w-3xl mx-auto">
         <div ref={headingRef} className="scroll-reveal text-center mb-12">
-          <p
-            className="text-sm font-semibold uppercase tracking-widest mb-3"
-            style={{ color: "#00f5d4" }}
-          >
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] mb-3 text-teal">
             Pricing
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+          <h2
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
+            style={{ fontFamily: "'Clash Display', sans-serif" }}
+          >
             Simple, transparent pricing
           </h2>
-          <p style={{ color: "rgba(240, 244, 248, 0.6)" }}>
+          <p className="text-white/60">
             Start with a 3-day free trial. No commitment required.
           </p>
         </div>
 
+        {/* Shared features — shown once */}
+        <div className="mb-10 p-6 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
+          <p className="text-sm font-semibold text-white/80 mb-4 uppercase tracking-wider">Both plans include</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {allFeatures.map((feature) => (
+              <div key={feature} className="flex items-center gap-2.5 text-sm">
+                <div className="w-5 h-5 rounded-full bg-teal/15 flex items-center justify-center shrink-0">
+                  <Check size={12} className="text-teal" strokeWidth={2.5} />
+                </div>
+                <span className="text-white/75">{feature}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Price cards — focused on price only */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <PricingCard
             plan="Monthly"
@@ -233,10 +182,7 @@ export default function PricingSection() {
           />
         </div>
 
-        <p
-          className="text-center text-xs mt-6"
-          style={{ color: "rgba(240, 244, 248, 0.35)" }}
-        >
+        <p className="text-center text-xs mt-6 text-white/35">
           Billed through the Apple App Store. Cancel anytime.
         </p>
       </div>
