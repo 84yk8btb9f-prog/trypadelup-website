@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PadelUp — Your AI Padel Coach</title>
+  <meta name="description" content="Upload your game, get AI-powered technique analysis, and improve faster than ever. Your pocket coach for every shot.">
+  <meta property="og:title" content="PadelUp — Your AI Padel Coach">
+  <meta property="og:description" content="AI-powered padel coaching — analyze your technique, track nutrition, and level up your game.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trypadelup.com">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Space Grotesk', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            bg: '#0a0a0a',
+            teal: '#00f5d4',
+            magenta: '#ff4d94',
+            surface: 'rgba(255,255,255,0.04)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #f0f4f8; overflow-x: hidden; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Space Grotesk', sans-serif; }
+
+    /* Animations */
+    @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-16px); } }
+    @keyframes glow-pulse { 0%, 100% { opacity: 0.5; transform: scale(1); } 50% { opacity: 0.8; transform: scale(1.05); } }
+    @keyframes fade-in-up { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+    @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes bar-fill { from { width: 0; } }
+    @keyframes score-count { from { opacity: 0; transform: scale(0.5); } to { opacity: 1; transform: scale(1); } }
+
+    .animate-float { animation: float 6s ease-in-out infinite; }
+    .animate-glow { animation: glow-pulse 4s ease-in-out infinite; }
+    .animate-fade-in-up { animation: fade-in-up 0.7s ease-out forwards; }
+
+    /* Scroll reveal */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Glass card */
+    .glass { background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+    .glass-hover:hover { border-color: rgba(0,245,212,0.3); box-shadow: 0 0 40px rgba(0,245,212,0.08); transform: translateY(-4px); }
+
+    /* Gradient text */
+    .gradient-text { background: linear-gradient(135deg, #ffffff 0%, #00f5d4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .gradient-text-logo { background: linear-gradient(135deg, #00f5d4 0%, #ff4d94 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    /* Teal glow button */
+    .btn-teal { background: #00f5d4; color: #0a0a0a; box-shadow: 0 0 30px rgba(0,245,212,0.3); transition: all 0.3s ease; }
+    .btn-teal:hover { box-shadow: 0 0 50px rgba(0,245,212,0.5); transform: translateY(-2px) scale(1.02); }
+
+    /* Outline button */
+    .btn-outline { border: 1px solid rgba(255,255,255,0.15); color: rgba(240,244,248,0.8); transition: all 0.3s ease; }
+    .btn-outline:hover { border-color: rgba(0,245,212,0.4); background: rgba(0,245,212,0.05); color: #00f5d4; }
+
+    /* Step connector */
+    .step-connector { position: relative; }
+    .step-connector::after {
+      content: '';
+      position: absolute;
+      top: 32px;
+      left: calc(50% + 40px);
+      width: calc(100% - 80px);
+      height: 2px;
+      background: linear-gradient(90deg, rgba(0,245,212,0.3), rgba(255,77,148,0.3));
+    }
+    .step-connector:last-child::after { display: none; }
+
+    /* Pricing glow border */
+    .pricing-highlight {
+      border: 1px solid rgba(0,245,212,0.4);
+      box-shadow: 0 0 60px rgba(0,245,212,0.1), inset 0 0 60px rgba(0,245,212,0.02);
+    }
+
+    /* Bar animation for analysis card */
+    .bar-animated { animation: bar-fill 1.2s ease-out forwards; }
+
+    /* Score circle */
+    .score-circle { animation: score-count 0.8s ease-out forwards; }
+
+    /* Mobile menu */
+    #mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+    #mobile-menu.open { max-height: 400px; }
+
+    /* CTA glow animation */
+    @keyframes glow-ring {
+      0%, 100% { box-shadow: 0 0 30px rgba(0,245,212,0.3), 0 0 60px rgba(0,245,212,0.1); }
+      50% { box-shadow: 0 0 50px rgba(0,245,212,0.5), 0 0 100px rgba(0,245,212,0.2); }
+    }
+    .glow-ring { animation: glow-ring 3s ease-in-out infinite; }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background: rgba(10,10,10,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06);">
+    <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#" class="text-xl font-bold tracking-tight gradient-text-logo" style="font-family: 'Space Grotesk', sans-serif;">PadelUp</a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#features" class="text-sm font-medium transition-colors" style="color: rgba(240,244,248,0.65);" onmouseenter="this.style.color='#f0f4f8'" onmouseleave="this.style.color='rgba(240,244,248,0.65)'">Features</a>
+        <a href="#how-it-works" class="text-sm font-medium transition-colors" style="color: rgba(240,244,248,0.65);" onmouseenter="this.style.color='#f0f4f8'" onmouseleave="this.style.color='rgba(240,244,248,0.65)'">How it Works</a>
+        <a href="#testimonials" class="text-sm font-medium transition-colors" style="color: rgba(240,244,248,0.65);" onmouseenter="this.style.color='#f0f4f8'" onmouseleave="this.style.color='rgba(240,244,248,0.65)'">Testimonials</a>
+      </div>
+      <div class="hidden md:flex items-center">
+        <a href="#" class="btn-teal text-sm font-semibold px-5 py-2 rounded-full">Download</a>
+      </div>
+      <button id="hamburger" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle menu" onclick="document.getElementById('mobile-menu').classList.toggle('open'); this.classList.toggle('active')">
+        <span class="block w-5 h-0.5 bg-white transition-all duration-200"></span>
+        <span class="block w-5 h-0.5 bg-white transition-all duration-200"></span>
+        <span class="block w-5 h-0.5 bg-white transition-all duration-200"></span>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="md:hidden px-4 pb-4" style="border-top: 1px solid rgba(255,255,255,0.06);">
+      <a href="#features" class="block text-sm font-medium py-3" style="color: rgba(240,244,248,0.8);" onclick="document.getElementById('mobile-menu').classList.remove('open')">Features</a>
+      <a href="#how-it-works" class="block text-sm font-medium py-3" style="color: rgba(240,244,248,0.8);" onclick="document.getElementById('mobile-menu').classList.remove('open')">How it Works</a>
+      <a href="#testimonials" class="block text-sm font-medium py-3" style="color: rgba(240,244,248,0.8);" onclick="document.getElementById('mobile-menu').classList.remove('open')">Testimonials</a>
+      <a href="#" class="btn-teal block text-sm font-semibold px-5 py-2.5 rounded-full text-center mt-2">Download on the App Store</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center justify-center px-4 pt-16 overflow-hidden" style="background: #0a0a0a;">
+    <!-- Orb gradients -->
+    <div class="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none animate-glow" style="background: radial-gradient(circle, rgba(0,245,212,0.1) 0%, rgba(0,245,212,0.03) 40%, transparent 70%);"></div>
+    <div class="absolute top-1/3 right-0 w-[500px] h-[500px] rounded-full pointer-events-none animate-glow" style="background: radial-gradient(circle, rgba(255,77,148,0.06) 0%, transparent 70%); animation-delay: 2s;"></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+      <!-- Left: Text -->
+      <div class="flex flex-col gap-6 text-center lg:text-left animate-fade-in-up">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase mx-auto lg:mx-0 w-fit" style="background: rgba(0,245,212,0.1); border: 1px solid rgba(0,245,212,0.2); color: #00f5d4;">
+          <span class="w-1.5 h-1.5 rounded-full animate-pulse" style="background: #00f5d4;"></span>
+          Your AI Padel Coach
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight gradient-text">
+          Upload your game, get AI-powered technique analysis, and improve faster than ever.
+        </h1>
+
+        <p class="text-lg lg:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0" style="color: rgba(240,244,248,0.6);">
+          Your pocket coach for every shot.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center gap-4 mt-2 justify-center lg:justify-start">
+          <a href="#" class="btn-teal flex items-center gap-3 px-7 py-3.5 rounded-full font-semibold text-base">
+            <i class="fa-brands fa-apple text-xl"></i>
+            Download on App Store
+          </a>
+          <a href="#how-it-works" class="btn-outline flex items-center gap-2 px-6 py-3.5 rounded-full font-medium text-base">
+            See How It Works
+          </a>
+        </div>
+
+        <!-- Trust bar -->
+        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-6 sm:gap-8 mt-4">
+          <div class="flex flex-col items-center lg:items-start">
+            <span class="text-xl sm:text-2xl font-bold text-white">8,000+</span>
+            <span class="text-xs uppercase tracking-wider" style="color: rgba(240,244,248,0.45);">Active Players</span>
+          </div>
+          <div class="hidden sm:block w-px h-10" style="background: rgba(255,255,255,0.1);"></div>
+          <div class="flex flex-col items-center lg:items-start">
+            <span class="text-xl sm:text-2xl font-bold" style="color: #00f5d4;">4.9<i class="fa-solid fa-star text-sm ml-1"></i></span>
+            <span class="text-xs uppercase tracking-wider" style="color: rgba(240,244,248,0.45);">App Rating</span>
+          </div>
+          <div class="hidden sm:block w-px h-10" style="background: rgba(255,255,255,0.1);"></div>
+          <div class="flex flex-col items-center lg:items-start">
+            <span class="text-xl sm:text-2xl font-bold text-white">50,000+</span>
+            <span class="text-xs uppercase tracking-wider" style="color: rgba(240,244,248,0.45);">Analyses Done</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Phone mockup -->
+      <div class="flex justify-center lg:justify-end animate-fade-in-up" style="animation-delay: 0.2s;">
+        <div class="animate-float relative">
+          <!-- Phone frame -->
+          <div class="relative w-[260px] h-[530px] sm:w-[290px] sm:h-[590px] rounded-[44px] overflow-hidden" style="border: 3px solid rgba(255,255,255,0.12); box-shadow: 0 0 80px rgba(0,245,212,0.12), 0 30px 60px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.06);">
+            <!-- Notch -->
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-[32px] rounded-b-2xl z-10" style="background: #0a0a0a;"></div>
+            <!-- Screen bg -->
+            <div class="absolute inset-0" style="background: linear-gradient(160deg, #0d1a18 0%, #0a0a0a 50%, #110d15 100%);"></div>
+            <!-- Screen content: Analysis UI -->
+            <div class="absolute inset-0 flex flex-col items-center pt-12 px-5 gap-3">
+              <!-- App bar -->
+              <div class="flex items-center justify-between w-full mb-2">
+                <span class="text-xs font-semibold" style="color: rgba(240,244,248,0.5);"><i class="fa-solid fa-chevron-left mr-1"></i> Back</span>
+                <span class="text-xs font-bold" style="color: #00f5d4;">Analysis</span>
+                <span class="text-xs" style="color: rgba(240,244,248,0.3);"><i class="fa-solid fa-share-nodes"></i></span>
+              </div>
+              <!-- Score circle -->
+              <div class="relative w-20 h-20 rounded-full flex items-center justify-center mt-1" style="border: 3px solid #00f5d4; box-shadow: 0 0 30px rgba(0,245,212,0.2);">
+                <div class="text-center">
+                  <span class="text-2xl font-bold" style="color: #00f5d4;">7.5</span>
+                  <span class="block text-[9px] uppercase tracking-wider" style="color: rgba(240,244,248,0.5);">Score</span>
+                </div>
+              </div>
+              <!-- Technique bars -->
+              <div class="w-full mt-3 flex flex-col gap-2.5">
+                <div>
+                  <div class="flex justify-between text-[10px] mb-1">
+                    <span style="color: rgba(240,244,248,0.7);">Grip</span>
+                    <span style="color: #00f5d4;">8/10</span>
+                  </div>
+                  <div class="w-full h-1.5 rounded-full" style="background: rgba(255,255,255,0.08);">
+                    <div class="h-full rounded-full bar-animated" style="width: 80%; background: linear-gradient(90deg, #00f5d4, #00c4a7);"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-[10px] mb-1">
+                    <span style="color: rgba(240,244,248,0.7);">Stance</span>
+                    <span style="color: #ff4d94;">6/10</span>
+                  </div>
+                  <div class="w-full h-1.5 rounded-full" style="background: rgba(255,255,255,0.08);">
+                    <div class="h-full rounded-full bar-animated" style="width: 60%; background: linear-gradient(90deg, #ff4d94, #cc3d76); animation-delay: 0.2s;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-[10px] mb-1">
+                    <span style="color: rgba(240,244,248,0.7);">Swing Path</span>
+                    <span style="color: #00f5d4;">7/10</span>
+                  </div>
+                  <div class="w-full h-1.5 rounded-full" style="background: rgba(255,255,255,0.08);">
+                    <div class="h-full rounded-full bar-animated" style="width: 70%; background: linear-gradient(90deg, #00f5d4, #00c4a7); animation-delay: 0.4s;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-[10px] mb-1">
+                    <span style="color: rgba(240,244,248,0.7);">Positioning</span>
+                    <span style="color: #00f5d4;">9/10</span>
+                  </div>
+                  <div class="w-full h-1.5 rounded-full" style="background: rgba(255,255,255,0.08);">
+                    <div class="h-full rounded-full bar-animated" style="width: 90%; background: linear-gradient(90deg, #00f5d4, #00c4a7); animation-delay: 0.6s;"></div>
+                  </div>
+                </div>
+              </div>
+              <!-- Tips -->
+              <div class="w-full mt-3 p-3 rounded-xl" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);">
+                <p class="text-[10px] font-semibold mb-2" style="color: #00f5d4;"><i class="fa-solid fa-lightbulb mr-1"></i> Top Tips</p>
+                <p class="text-[9px] leading-relaxed" style="color: rgba(240,244,248,0.6);">1. Widen your base for better stability<br>2. Follow through higher on your bandeja<br>3. Keep the wrist firm at contact point</p>
+              </div>
+              <!-- Bottom nav mockup -->
+              <div class="absolute bottom-4 left-5 right-5 flex justify-around items-center py-2 rounded-2xl" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);">
+                <i class="fa-solid fa-house text-[10px]" style="color: rgba(240,244,248,0.3);"></i>
+                <i class="fa-solid fa-video text-[10px]" style="color: #00f5d4;"></i>
+                <i class="fa-solid fa-dumbbell text-[10px]" style="color: rgba(240,244,248,0.3);"></i>
+                <i class="fa-solid fa-user text-[10px]" style="color: rgba(240,244,248,0.3);"></i>
+              </div>
+            </div>
+          </div>
+          <!-- Glow behind phone -->
+          <div class="absolute -inset-10 -z-10 rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(0,245,212,0.1) 0%, transparent 70%);"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2" style="color: rgba(240,244,248,0.3);">
+      <span class="text-xs uppercase tracking-widest">Scroll</span>
+      <div class="w-px h-8 bg-current opacity-40"></div>
+    </div>
+  </section>
+
+  <!-- How it Works -->
+  <section id="how-it-works" class="py-24 px-4" style="background: #0a0a0a; border-top: 1px solid rgba(255,255,255,0.04);">
+    <div class="max-w-5xl mx-auto">
+      <div class="reveal text-center mb-16">
+        <p class="text-sm font-semibold uppercase tracking-widest mb-3" style="color: #00f5d4;">How it works</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white">Four steps to a better game</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4 relative">
+        <!-- Desktop connector line -->
+        <div class="hidden lg:block absolute top-10 left-[calc(12.5%+40px)] right-[calc(12.5%+40px)] h-px" style="background: linear-gradient(90deg, rgba(0,245,212,0.3), rgba(255,77,148,0.2), rgba(0,245,212,0.3));"></div>
+
+        <!-- Step 1 -->
+        <div class="reveal flex flex-col items-center text-center gap-4">
+          <div class="relative w-16 h-16 rounded-2xl flex items-center justify-center" style="background: rgba(0,245,212,0.1); border: 1px solid rgba(0,245,212,0.2);">
+            <i class="fa-solid fa-video text-xl" style="color: #00f5d4;"></i>
+            <span class="absolute -top-2 -right-2 w-6 h-6 rounded-full text-xs font-bold flex items-center justify-center" style="background: #00f5d4; color: #0a0a0a;">1</span>
+          </div>
+          <h3 class="text-lg font-semibold text-white">Record Your Game</h3>
+          <p class="text-sm leading-relaxed max-w-xs" style="color: rgba(240,244,248,0.6);">Capture your padel match or training session with your phone camera.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="reveal flex flex-col items-center text-center gap-4" style="transition-delay: 0.1s;">
+          <div class="relative w-16 h-16 rounded-2xl flex items-center justify-center" style="background: rgba(0,245,212,0.1); border: 1px solid rgba(0,245,212,0.2);">
+            <i class="fa-solid fa-microchip text-xl" style="color: #00f5d4;"></i>
+            <span class="absolute -top-2 -right-2 w-6 h-6 rounded-full text-xs font-bold flex items-center justify-center" style="background: #00f5d4; color: #0a0a0a;">2</span>
+          </div>
+          <h3 class="text-lg font-semibold text-white">AI Analyzes Every Frame</h3>
+          <p class="text-sm leading-relaxed max-w-xs" style="color: rgba(240,244,248,0.6);">Our AI breaks down your technique frame-by-frame with precision feedback.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="reveal flex flex-col items-center text-center gap-4" style="transition-delay: 0.2s;">
+          <div class="relative w-16 h-16 rounded-2xl flex items-center justify-center" style="background: rgba(0,245,212,0.1); border: 1px solid rgba(0,245,212,0.2);">
+            <i class="fa-solid fa-chart-column text-xl" style="color: #00f5d4;"></i>
+            <span class="absolute -top-2 -right-2 w-6 h-6 rounded-full text-xs font-bold flex items-center justify-center" style="background: #00f5d4; color: #0a0a0a;">3</span>
+          </div>
+          <h3 class="text-lg font-semibold text-white">Get Your Score & Tips</h3>
+          <p class="text-sm leading-relaxed max-w-xs" style="color: rgba(240,244,248,0.6);">Receive technique scores, heatmaps, and personalized improvement tips.</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="reveal flex flex-col items-center text-center gap-4" style="transition-delay: 0.3s;">
+          <div class="relative w-16 h-16 rounded-2xl flex items-center justify-center" style="background: rgba(0,245,212,0.1); border: 1px solid rgba(0,245,212,0.2);">
+            <i class="fa-solid fa-arrow-trend-up text-xl" style="color: #00f5d4;"></i>
+            <span class="absolute -top-2 -right-2 w-6 h-6 rounded-full text-xs font-bold flex items-center justify-center" style="background: #00f5d4; color: #0a0a0a;">4</span>
+          </div>
+          <h3 class="text-lg font-semibold text-white">Train & Improve</h3>
+          <p class="text-sm leading-relaxed max-w-xs" style="color: rgba(240,244,248,0.6);">Follow personalized drills and track your progress over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features -->
+  <section id="features" class="py-24 px-4" style="background: #0a0a0a; border-top: 1px solid rgba(255,255,255,0.04);">
+    <div class="max-w-6xl mx-auto">
+      <div class="reveal text-center mb-16">
+        <p class="text-sm font-semibold uppercase tracking-widest mb-3" style="color: #00f5d4;">Features</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Everything you need to dominate the court</h2>
+        <p class="text-lg max-w-xl mx-auto" style="color: rgba(240,244,248,0.6);">Six powerful tools working together in one app, powered by the latest AI.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Feature 1 -->
+        <div class="reveal glass glass-hover p-6 rounded-2xl flex flex-col gap-4 transition-all duration-300 cursor-default">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(0,245,212,0.1);">
+            <i class="fa-solid fa-film text-lg" style="color: #00f5d4;"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-white">AI Shot Analysis</h3>
+          <p class="text-sm leading-relaxed" style="color: rgba(240,244,248,0.6);">Upload a clip and get frame-by-frame technique analysis. Fix your bandeja, smash, and volleys faster than ever.</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="reveal glass glass-hover p-6 rounded-2xl flex flex-col gap-4 transition-all duration-300 cursor-default" style="transition-delay: 0.05s;">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(0,245,212,0.1);">
+            <i class="fa-solid fa-ranking-star text-lg" style="color: #00f5d4;"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-white">Technique Scoring</h3>
+          <p class="text-sm leading-relaxed" style="color: rgba(240,244,248,0.6);">Get scored 1-10 on grip, stance, swing path, contact point, and positioning with detailed breakdowns.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="reveal glass glass-hover p-6 rounded-2xl flex flex-col gap-4 transition-all duration-300 cursor-default" style="transition-delay: 0.1s;">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(0,245,212,0.1);">
+            <i class="fa-solid fa-clipboard-list text-lg" style="color: #00f5d4;"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-white">Personalized Drills</h3>
+          <p class="text-sm leading-relaxed" style="color: rgba(240,244,248,0.6);">AI-generated daily training plans based on your weak points. Progress at your own pace with structured routines.</p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="reveal glass glass-hover p-6 rounded-2xl flex flex-col gap-4 transition-all duration-300 cursor-default" style="transition-delay: 0.15s;">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(255,77,148,0.1);">
+            <i class="fa-solid fa-utensils text-lg" style="color: #ff4d94;"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-white">Nutrition Tracking</h3>
+          <p class="text-sm leading-relaxed" style="color: rgba(240,244,248,0.6);">Snap a photo of your meal and AI identifies macros instantly. Track daily calories with a meal calendar built for athletes.</p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="reveal glass glass-hover p-6 rounded-2xl flex flex-col gap-4 transition-all duration-300 cursor-default" style="transition-delay: 0.2s;">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(255,77,148,0.1);">
+            <i class="fa-solid fa-map-location-dot text-lg" style="color: #ff4d94;"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-white">Find Courts</h3>
+          <p class="text-sm leading-relaxed" style="color: rgba(240,244,248,0.6);">Discover padel and tennis courts worldwide on an interactive map. Add your own and earn XP.</p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="reveal glass glass-hover p-6 rounded-2xl flex flex-col gap-4 transition-all duration-300 cursor-default" style="transition-delay: 0.25s;">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(255,77,148,0.1);">
+            <i class="fa-solid fa-robot text-lg" style="color: #ff4d94;"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-white">AI Coach Chat</h3>
+          <p class="text-sm leading-relaxed" style="color: rgba(240,244,248,0.6);">Ask any padel question and get instant expert answers. Strategy, technique, gear recommendations, and more.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI in Action -->
+  <section class="py-24 px-4" style="background: #0a0a0a; border-top: 1px solid rgba(255,255,255,0.04);">
+    <div class="max-w-5xl mx-auto">
+      <div class="reveal text-center mb-16">
+        <p class="text-sm font-semibold uppercase tracking-widest mb-3" style="color: #00f5d4;">AI in Action</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white">See your technique breakdown</h2>
+      </div>
+
+      <div class="reveal grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        <!-- Before -->
+        <div class="glass p-8 rounded-2xl flex flex-col gap-6">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="w-3 h-3 rounded-full" style="background: rgba(255,77,148,0.6);"></span>
+            <span class="text-sm font-semibold uppercase tracking-wider" style="color: #ff4d94;">Before PadelUp</span>
+          </div>
+          <div class="flex flex-col gap-4 flex-1">
+            <div class="flex items-center gap-3 p-4 rounded-xl" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+              <i class="fa-solid fa-circle-question text-xl" style="color: rgba(240,244,248,0.3);"></i>
+              <div>
+                <p class="text-sm font-medium text-white">No idea what to fix</p>
+                <p class="text-xs" style="color: rgba(240,244,248,0.4);">Playing the same mistakes on repeat</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 p-4 rounded-xl" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+              <i class="fa-solid fa-shuffle text-xl" style="color: rgba(240,244,248,0.3);"></i>
+              <div>
+                <p class="text-sm font-medium text-white">Generic YouTube tutorials</p>
+                <p class="text-xs" style="color: rgba(240,244,248,0.4);">One-size-fits-all advice</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 p-4 rounded-xl" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+              <i class="fa-solid fa-calendar-xmark text-xl" style="color: rgba(240,244,248,0.3);"></i>
+              <div>
+                <p class="text-sm font-medium text-white">No structured training</p>
+                <p class="text-xs" style="color: rgba(240,244,248,0.4);">Hoping to improve by just playing more</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- After / Analysis card -->
+        <div class="relative p-8 rounded-2xl flex flex-col gap-6" style="background: rgba(0,245,212,0.04); border: 1px solid rgba(0,245,212,0.15); box-shadow: 0 0 60px rgba(0,245,212,0.06);">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="w-3 h-3 rounded-full" style="background: #00f5d4;"></span>
+            <span class="text-sm font-semibold uppercase tracking-wider" style="color: #00f5d4;">After PadelUp</span>
+          </div>
+
+          <!-- Score -->
+          <div class="flex items-center gap-6">
+            <div class="w-20 h-20 rounded-full flex items-center justify-center shrink-0" style="border: 3px solid #00f5d4; box-shadow: 0 0 25px rgba(0,245,212,0.2);">
+              <div class="text-center">
+                <span class="text-2xl font-bold" style="color: #00f5d4;">7.5</span>
+                <span class="block text-[9px] uppercase tracking-wider" style="color: rgba(240,244,248,0.5);">/10</span>
+              </div>
+            </div>
+            <div>
+              <p class="text-lg font-semibold text-white">Overall Technique</p>
+              <p class="text-xs" style="color: rgba(240,244,248,0.5);">Based on 247 frames analyzed</p>
+            </div>
+          </div>
+
+          <!-- Bars -->
+          <div class="flex flex-col gap-3">
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span style="color: rgba(240,244,248,0.7);">Grip</span>
+                <span class="font-semibold" style="color: #00f5d4;">8/10</span>
+              </div>
+              <div class="w-full h-2 rounded-full" style="background: rgba(255,255,255,0.08);">
+                <div class="h-full rounded-full" style="width: 80%; background: linear-gradient(90deg, #00f5d4, #00c4a7);"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span style="color: rgba(240,244,248,0.7);">Stance</span>
+                <span class="font-semibold" style="color: #ff4d94;">6/10</span>
+              </div>
+              <div class="w-full h-2 rounded-full" style="background: rgba(255,255,255,0.08);">
+                <div class="h-full rounded-full" style="width: 60%; background: linear-gradient(90deg, #ff4d94, #cc3d76);"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span style="color: rgba(240,244,248,0.7);">Swing Path</span>
+                <span class="font-semibold" style="color: #00f5d4;">7/10</span>
+              </div>
+              <div class="w-full h-2 rounded-full" style="background: rgba(255,255,255,0.08);">
+                <div class="h-full rounded-full" style="width: 70%; background: linear-gradient(90deg, #00f5d4, #00c4a7);"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span style="color: rgba(240,244,248,0.7);">Positioning</span>
+                <span class="font-semibold" style="color: #00f5d4;">9/10</span>
+              </div>
+              <div class="w-full h-2 rounded-full" style="background: rgba(255,255,255,0.08);">
+                <div class="h-full rounded-full" style="width: 90%; background: linear-gradient(90deg, #00f5d4, #00c4a7);"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tips -->
+          <div class="p-4 rounded-xl" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);">
+            <p class="text-xs font-semibold mb-2" style="color: #00f5d4;"><i class="fa-solid fa-lightbulb mr-1"></i> Personalized Tips</p>
+            <ul class="text-xs leading-loose" style="color: rgba(240,244,248,0.6);">
+              <li>1. Widen your base for better stability during volleys</li>
+              <li>2. Follow through higher on your bandeja</li>
+              <li>3. Keep the wrist firm at contact point</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="py-24 px-4" style="background: #0a0a0a; border-top: 1px solid rgba(255,255,255,0.04);">
+    <div class="max-w-5xl mx-auto">
+      <div class="reveal text-center mb-12">
+        <p class="text-sm font-semibold uppercase tracking-widest mb-3" style="color: #00f5d4;">Testimonials</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Loved by padel players worldwide</h2>
+        <div class="flex items-center justify-center gap-2">
+          <div class="flex gap-0.5">
+            <i class="fa-solid fa-star text-sm" style="color: #00f5d4;"></i>
+            <i class="fa-solid fa-star text-sm" style="color: #00f5d4;"></i>
+            <i class="fa-solid fa-star text-sm" style="color: #00f5d4;"></i>
+            <i class="fa-solid fa-star text-sm" style="color: #00f5d4;"></i>
+            <i class="fa-solid fa-star text-sm" style="color: #00f5d4;"></i>
+          </div>
+          <span class="text-sm font-medium" style="color: rgba(240,244,248,0.7);">4.9 on the App Store</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <!-- Testimonial 1 -->
+        <div class="reveal glass p-6 rounded-2xl flex flex-col gap-4">
+          <div class="flex gap-0.5">
+            <i class="fa-solid fa-star text-xs" style="color: #00f5d4;"></i>
+            <i class="fa-solid fa-star text-xs" style="color: #00f5d4;"></i>
+            <i class="fa-solid fa-star text-xs" style="color: #00f5d4;"></i>
+            <i class="fa-solid fa-star text-xs" style="color: #00f5d4;"></i>
+            <i class="fa-solid fa-star text-xs" style="color: #00f5d4;"></i>
+          </div>
+          <p class="text-sm leading-relaxed flex-1" style="color: rgba(240,244,248,0.8);">"PadelUp transformed my bandeja. Went from 4/10 to 8/10 in three weeks."</p>
+          <div class="flex items-center gap-3 mt-2">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold shrink-0" style="background: linear-gradient(135deg, #0d4a3a, #0a3530); border: 2px solid rgba(0,245,212,0.2); color: #00f5d4;">CM</div>
+            <div>
+              <p class="text-sm font-semibold text-white">Carlos M.</p>
+              <p class="text-xs" style="color: rgba(240,244,248,0.45);">Madrid</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="reveal glass p-6 rounded-2xl flex flex-col gap-4" style="transition-delay: 0.1s;">
+          <div class="flex gap-0.5">
+            <i class="fa-solid fa-star text-xs" style="color: #00f5d4;"></i>
+            <i class="fa-solid fa-star text-xs" style="color: #00f5d4;"></i>
+            <i class="fa-solid fa-star text-xs" style="color: #00f5d4;"></i>
+            <i class="fa-solid fa-star text-xs" style="color: #00f5d4;"></i>
+            <i class="fa-solid fa-star text-xs" style="color: #00f5d4;"></i>
+          </div>
+          <p class="text-sm leading-relaxed flex-1" style="color: rgba(240,244,248,0.8);">"The AI analysis is like having a personal coach watching every frame."</p>
+          <div class="flex items-center gap-3 mt-2">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold shrink-0" style="background: linear-gradient(135deg, #2a1a3d, #1a1030); border: 2px solid rgba(255,77,148,0.2); color: #ff4d94;">SK</div>
+            <div>
+              <p class="text-sm font-semibold text-white">Sofia K.</p>
+              <p class="text-xs" style="color: rgba(240,244,248,0.45);">Athens</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="reveal glass p-6 rounded-2xl flex flex-col gap-4" style="transition-delay: 0.2s;">
+          <div class="flex gap-0.5">
+            <i class="fa-solid fa-star text-xs" style="color: #00f5d4;"></i>
+            <i class="fa-solid fa-star text-xs" style="color: #00f5d4;"></i>
+            <i class="fa-solid fa-star text-xs" style="color: #00f5d4;"></i>
+            <i class="fa-solid fa-star text-xs" style="color: #00f5d4;"></i>
+            <i class="fa-solid fa-star text-xs" style="color: #00f5d4;"></i>
+          </div>
+          <p class="text-sm leading-relaxed flex-1" style="color: rgba(240,244,248,0.8);">"Best padel app I've used. The nutrition tracking is a game changer."</p>
+          <div class="flex items-center gap-3 mt-2">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold shrink-0" style="background: linear-gradient(135deg, #1a2a40, #0f1a2a); border: 2px solid rgba(0,245,212,0.2); color: #00f5d4;">AP</div>
+            <div>
+              <p class="text-sm font-semibold text-white">Alex P.</p>
+              <p class="text-xs" style="color: rgba(240,244,248,0.45);">London</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="py-24 px-4" style="background: #0a0a0a; border-top: 1px solid rgba(255,255,255,0.04);">
+    <div class="max-w-3xl mx-auto">
+      <div class="reveal text-center mb-12">
+        <p class="text-sm font-semibold uppercase tracking-widest mb-3" style="color: #00f5d4;">Pricing</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Simple, transparent pricing</h2>
+        <p style="color: rgba(240,244,248,0.6);">Start with a 3-day free trial. No commitment required.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <!-- Monthly -->
+        <div class="reveal glass p-7 rounded-2xl flex flex-col gap-6">
+          <div class="flex flex-col gap-1">
+            <span class="text-sm font-semibold uppercase tracking-wide" style="color: rgba(240,244,248,0.6);">Monthly</span>
+            <div class="flex items-end gap-1">
+              <span class="text-5xl font-bold text-white">$9.99</span>
+              <span class="text-base mb-2" style="color: rgba(240,244,248,0.5);">/mo</span>
+            </div>
+            <p class="text-sm" style="color: rgba(240,244,248,0.5);">Full access to all features</p>
+          </div>
+          <div class="text-xs font-semibold text-center py-1.5 rounded-lg" style="background: rgba(0,245,212,0.1); color: #00f5d4; border: 1px solid rgba(0,245,212,0.15);">3-day free trial included</div>
+          <a href="#" class="w-full py-3 rounded-full font-semibold text-center text-sm transition-all btn-outline">Start free trial</a>
+          <ul class="flex flex-col gap-3">
+            <li class="flex items-center gap-2.5 text-sm" style="color: rgba(240,244,248,0.75);"><i class="fa-solid fa-circle-check text-xs" style="color: #00f5d4;"></i> Unlimited AI video analysis</li>
+            <li class="flex items-center gap-2.5 text-sm" style="color: rgba(240,244,248,0.75);"><i class="fa-solid fa-circle-check text-xs" style="color: #00f5d4;"></i> Personalized training plans</li>
+            <li class="flex items-center gap-2.5 text-sm" style="color: rgba(240,244,248,0.75);"><i class="fa-solid fa-circle-check text-xs" style="color: #00f5d4;"></i> Nutrition tracking</li>
+            <li class="flex items-center gap-2.5 text-sm" style="color: rgba(240,244,248,0.75);"><i class="fa-solid fa-circle-check text-xs" style="color: #00f5d4;"></i> AI Coach chat</li>
+            <li class="flex items-center gap-2.5 text-sm" style="color: rgba(240,244,248,0.75);"><i class="fa-solid fa-circle-check text-xs" style="color: #00f5d4;"></i> Court discovery & social</li>
+          </ul>
+        </div>
+
+        <!-- Yearly -->
+        <div class="reveal relative p-7 rounded-2xl flex flex-col gap-6 pricing-highlight" style="background: rgba(0,245,212,0.05); transition-delay: 0.1s;">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider" style="background: #00f5d4; color: #0a0a0a;">Most Popular</div>
+          <div class="flex flex-col gap-1">
+            <div class="flex items-center gap-2 justify-between">
+              <span class="text-sm font-semibold uppercase tracking-wide" style="color: #00f5d4;">Yearly</span>
+              <span class="text-xs font-bold px-2 py-0.5 rounded" style="background: rgba(255,77,148,0.15); color: #ff4d94;">SAVE 58%</span>
+            </div>
+            <div class="flex items-end gap-1">
+              <span class="text-5xl font-bold text-white">$49.99</span>
+              <span class="text-base mb-2" style="color: rgba(240,244,248,0.5);">/yr</span>
+            </div>
+            <p class="text-sm" style="color: rgba(240,244,248,0.5);">$4.17/mo — billed annually</p>
+          </div>
+          <div class="text-xs font-semibold text-center py-1.5 rounded-lg" style="background: rgba(0,245,212,0.1); color: #00f5d4; border: 1px solid rgba(0,245,212,0.15);">3-day free trial included</div>
+          <a href="#" class="btn-teal w-full py-3 rounded-full font-semibold text-center text-sm">Start free trial</a>
+          <ul class="flex flex-col gap-3">
+            <li class="flex items-center gap-2.5 text-sm" style="color: rgba(240,244,248,0.75);"><i class="fa-solid fa-circle-check text-xs" style="color: #00f5d4;"></i> Unlimited AI video analysis</li>
+            <li class="flex items-center gap-2.5 text-sm" style="color: rgba(240,244,248,0.75);"><i class="fa-solid fa-circle-check text-xs" style="color: #00f5d4;"></i> Personalized training plans</li>
+            <li class="flex items-center gap-2.5 text-sm" style="color: rgba(240,244,248,0.75);"><i class="fa-solid fa-circle-check text-xs" style="color: #00f5d4;"></i> Nutrition tracking</li>
+            <li class="flex items-center gap-2.5 text-sm" style="color: rgba(240,244,248,0.75);"><i class="fa-solid fa-circle-check text-xs" style="color: #00f5d4;"></i> AI Coach chat</li>
+            <li class="flex items-center gap-2.5 text-sm" style="color: rgba(240,244,248,0.75);"><i class="fa-solid fa-circle-check text-xs" style="color: #00f5d4;"></i> Court discovery & social</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="text-center text-xs mt-6" style="color: rgba(240,244,248,0.35);">Billed through the Apple App Store. Cancel anytime.</p>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="relative py-28 px-4 text-center overflow-hidden" style="background: #0a0a0a; border-top: 1px solid rgba(255,255,255,0.04);">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none animate-glow" style="background: radial-gradient(circle, rgba(0,245,212,0.08) 0%, transparent 70%);"></div>
+    <div class="absolute top-1/3 right-1/4 w-[400px] h-[400px] rounded-full pointer-events-none animate-glow" style="background: radial-gradient(circle, rgba(255,77,148,0.05) 0%, transparent 70%); animation-delay: 1.5s;"></div>
+
+    <div class="relative z-10 max-w-2xl mx-auto flex flex-col items-center gap-6">
+      <h2 class="text-4xl sm:text-5xl font-bold leading-tight gradient-text">Ready to level up your game?</h2>
+      <p style="color: rgba(240,244,248,0.6);">Join thousands of padel players using AI to improve faster.</p>
+      <a href="#" class="btn-teal glow-ring flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-lg mt-2">
+        <i class="fa-brands fa-apple text-2xl"></i>
+        Download on the App Store
+      </a>
+      <p class="text-sm" style="color: rgba(240,244,248,0.4);">Start your free trial today</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="border-top: 1px solid rgba(255,255,255,0.06); background: #0a0a0a;">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <!-- Brand -->
+        <div class="flex flex-col items-center md:items-start gap-2">
+          <span class="text-lg font-bold tracking-tight gradient-text-logo" style="font-family: 'Space Grotesk', sans-serif;">PadelUp</span>
+          <p class="text-xs" style="color: rgba(240,244,248,0.4);">Your AI Padel Coach</p>
+        </div>
+
+        <!-- Links -->
+        <div class="flex items-center gap-6 flex-wrap justify-center">
+          <a href="/privacy" class="text-sm transition-colors" style="color: rgba(240,244,248,0.5);" onmouseenter="this.style.color='#00f5d4'" onmouseleave="this.style.color='rgba(240,244,248,0.5)'">Privacy Policy</a>
+          <a href="/terms" class="text-sm transition-colors" style="color: rgba(240,244,248,0.5);" onmouseenter="this.style.color='#00f5d4'" onmouseleave="this.style.color='rgba(240,244,248,0.5)'">Terms</a>
+          <a href="mailto:support@trypadelup.com" class="text-sm transition-colors" style="color: rgba(240,244,248,0.5);" onmouseenter="this.style.color='#00f5d4'" onmouseleave="this.style.color='rgba(240,244,248,0.5)'">Contact</a>
+        </div>
+
+        <!-- Social -->
+        <div class="flex items-center gap-3">
+          <a href="#" aria-label="Instagram" class="w-9 h-9 flex items-center justify-center rounded-full transition-all glass" style="color: rgba(240,244,248,0.6);" onmouseenter="this.style.borderColor='rgba(0,245,212,0.3)';this.style.color='#00f5d4'" onmouseleave="this.style.borderColor='rgba(255,255,255,0.08)';this.style.color='rgba(240,244,248,0.6)'">
+            <i class="fa-brands fa-instagram text-sm"></i>
+          </a>
+          <a href="#" aria-label="X / Twitter" class="w-9 h-9 flex items-center justify-center rounded-full transition-all glass" style="color: rgba(240,244,248,0.6);" onmouseenter="this.style.borderColor='rgba(0,245,212,0.3)';this.style.color='#00f5d4'" onmouseleave="this.style.borderColor='rgba(255,255,255,0.08)';this.style.color='rgba(240,244,248,0.6)'">
+            <i class="fa-brands fa-x-twitter text-sm"></i>
+          </a>
+          <a href="#" aria-label="TikTok" class="w-9 h-9 flex items-center justify-center rounded-full transition-all glass" style="color: rgba(240,244,248,0.6);" onmouseenter="this.style.borderColor='rgba(0,245,212,0.3)';this.style.color='#00f5d4'" onmouseleave="this.style.borderColor='rgba(255,255,255,0.08)';this.style.color='rgba(240,244,248,0.6)'">
+            <i class="fa-brands fa-tiktok text-sm"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-8 pt-6 text-center text-xs" style="border-top: 1px solid rgba(255,255,255,0.04); color: rgba(240,244,248,0.3);">
+        &copy; 2026 PadelUp. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky Mobile CTA -->
+  <div id="sticky-cta" class="fixed bottom-0 left-0 right-0 z-50 md:hidden transition-transform duration-300" style="transform: translateY(100%); background: rgba(10,10,10,0.95); backdrop-filter: blur(12px); border-top: 1px solid rgba(0,245,212,0.15); padding: 12px 16px; padding-bottom: calc(12px + env(safe-area-inset-bottom));">
+    <a href="#" class="btn-teal flex items-center justify-center gap-2 w-full py-3 rounded-full font-semibold text-sm">
+      <i class="fa-brands fa-apple text-lg"></i>
+      Download PadelUp — Free Trial
+    </a>
+  </div>
+
+  <script>
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    // Sticky mobile CTA
+    const stickyCta = document.getElementById('sticky-cta');
+    window.addEventListener('scroll', () => {
+      stickyCta.style.transform = window.scrollY > 600 ? 'translateY(0)' : 'translateY(100%)';
+    }, { passive: true });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>

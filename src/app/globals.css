@@ -49,38 +49,38 @@
 }
 
 :root {
-  --background: #0b0f14;
+  --background: #0a0a0a;
   --foreground: #f0f4f8;
   --card: rgba(255, 255, 255, 0.04);
   --card-foreground: #f0f4f8;
   --popover: #131920;
   --popover-foreground: #f0f4f8;
-  --primary: #39ff7d;
-  --primary-foreground: #0b0f14;
+  --primary: #00f5d4;
+  --primary-foreground: #0a0a0a;
   --secondary: rgba(255, 255, 255, 0.08);
   --secondary-foreground: #f0f4f8;
   --muted: rgba(255, 255, 255, 0.06);
   --muted-foreground: rgba(240, 244, 248, 0.5);
-  --accent: #39ff7d;
-  --accent-foreground: #0b0f14;
+  --accent: #00f5d4;
+  --accent-foreground: #0a0a0a;
   --destructive: oklch(0.704 0.191 22.216);
   --border: rgba(255, 255, 255, 0.08);
   --input: rgba(255, 255, 255, 0.1);
-  --ring: #39ff7d;
-  --chart-1: #39ff7d;
+  --ring: #00f5d4;
+  --chart-1: #00f5d4;
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
   --radius: 0.75rem;
-  --sidebar: #0b0f14;
+  --sidebar: #0a0a0a;
   --sidebar-foreground: #f0f4f8;
-  --sidebar-primary: #39ff7d;
-  --sidebar-primary-foreground: #0b0f14;
+  --sidebar-primary: #00f5d4;
+  --sidebar-primary-foreground: #0a0a0a;
   --sidebar-accent: rgba(255, 255, 255, 0.06);
   --sidebar-accent-foreground: #f0f4f8;
   --sidebar-border: rgba(255, 255, 255, 0.08);
-  --sidebar-ring: #39ff7d;
+  --sidebar-ring: #00f5d4;
 }
 
 @layer base {
@@ -89,7 +89,7 @@
   }
   body {
     @apply bg-background text-foreground;
-    background-color: #0b0f14;
+    background-color: #0a0a0a;
     color: #f0f4f8;
   }
   html {
@@ -151,11 +151,11 @@
 }
 
 .green-glow {
-  box-shadow: 0 0 80px rgba(57, 255, 125, 0.15);
+  box-shadow: 0 0 80px rgba(0, 245, 212, 0.15);
 }
 
 .green-glow-sm {
-  box-shadow: 0 0 30px rgba(57, 255, 125, 0.12);
+  box-shadow: 0 0 30px rgba(0, 245, 212, 0.12);
 }
 
 .glass-card {
@@ -165,9 +165,16 @@
 }
 
 .text-green {
-  color: #39ff7d;
+  color: #00f5d4;
 }
 
 .bg-green {
-  background-color: #39ff7d;
+  background-color: #00f5d4;
+}
+
+.gradient-text-logo {
+  background: linear-gradient(135deg, #00f5d4 0%, #ff4d94 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

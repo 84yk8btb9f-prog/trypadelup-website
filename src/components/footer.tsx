@@ -6,7 +6,7 @@ export default function Footer() {
       className="w-full mt-auto"
       style={{
         borderTop: "1px solid rgba(255, 255, 255, 0.06)",
-        backgroundColor: "#0b0f14",
+        backgroundColor: "#0a0a0a",
       }}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -14,8 +14,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="flex flex-col items-center md:items-start gap-2">
             <span
-              className="text-lg font-bold tracking-tight"
-              style={{ color: "#39ff7d" }}
+              className="text-lg font-bold tracking-tight gradient-text-logo"
             >
               PadelUp
             </span>

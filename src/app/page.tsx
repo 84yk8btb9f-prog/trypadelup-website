@@ -23,13 +23,13 @@ export default function Home() {
         {/* Final CTA */}
         <section
           className="relative py-24 px-4 text-center overflow-hidden"
-          style={{ backgroundColor: "#0b0f14" }}
+          style={{ backgroundColor: "#0a0a0a" }}
         >
           <div
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none"
             style={{
               background:
-                "radial-gradient(circle, rgba(57, 255, 125, 0.06) 0%, transparent 70%)",
+                "radial-gradient(circle, rgba(0, 245, 212, 0.06) 0%, transparent 70%)",
             }}
           />
           <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center gap-6">
@@ -43,9 +43,9 @@ export default function Home() {
               href="#"
               className="flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-lg transition-all mt-2"
               style={{
-                backgroundColor: "#39ff7d",
-                color: "#0b0f14",
-                boxShadow: "0 0 50px rgba(57, 255, 125, 0.4)",
+                backgroundColor: "#00f5d4",
+                color: "#0a0a0a",
+                boxShadow: "0 0 50px rgba(0, 245, 212, 0.4)",
               }}
             >
               <svg

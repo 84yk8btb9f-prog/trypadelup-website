@@ -103,7 +103,7 @@ function TestimonialCard({
             key={i}
             width="14"
             height="14"
-            fill="#39ff7d"
+            fill="#00f5d4"
             viewBox="0 0 24 24"
             aria-hidden="true"
           >
@@ -166,9 +166,10 @@ export default function SocialProofSection() {
 
   return (
     <section
+      id="testimonials"
       className="py-24 px-4"
       style={{
-        backgroundColor: "#0b0f14",
+        backgroundColor: "#0a0a0a",
         borderTop: "1px solid rgba(255, 255, 255, 0.04)",
       }}
     >
@@ -176,7 +177,7 @@ export default function SocialProofSection() {
         <div ref={headingRef} className="scroll-reveal text-center mb-12">
           <p
             className="text-sm font-semibold uppercase tracking-widest mb-3"
-            style={{ color: "#39ff7d" }}
+            style={{ color: "#00f5d4" }}
           >
             Testimonials
           </p>
@@ -190,7 +191,7 @@ export default function SocialProofSection() {
                   key={i}
                   width="18"
                   height="18"
-                  fill="#39ff7d"
+                  fill="#00f5d4"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
                 >

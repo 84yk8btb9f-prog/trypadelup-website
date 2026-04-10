@@ -10,7 +10,7 @@ export default function Navbar() {
     <header
       className="fixed top-0 left-0 right-0 z-50"
       style={{
-        backgroundColor: "rgba(11, 15, 20, 0.85)",
+        backgroundColor: "rgba(10, 10, 10, 0.85)",
         backdropFilter: "blur(12px)",
         borderBottom: "1px solid rgba(255, 255, 255, 0.06)",
       }}
@@ -19,8 +19,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
           <span
-            className="text-xl font-bold tracking-tight"
-            style={{ color: "#39ff7d" }}
+            className="text-xl font-bold tracking-tight gradient-text-logo"
           >
             PadelUp
           </span>
@@ -42,7 +41,7 @@ export default function Navbar() {
             Features
           </a>
           <a
-            href="#pricing"
+            href="#how-it-works"
             className="text-sm font-medium transition-colors"
             style={{ color: "rgba(240, 244, 248, 0.65)" }}
             onMouseEnter={(e) =>
@@ -52,10 +51,10 @@ export default function Navbar() {
               (e.currentTarget.style.color = "rgba(240, 244, 248, 0.65)")
             }
           >
-            Pricing
+            How it Works
           </a>
           <a
-            href="#faq"
+            href="#testimonials"
             className="text-sm font-medium transition-colors"
             style={{ color: "rgba(240, 244, 248, 0.65)" }}
             onMouseEnter={(e) =>
@@ -65,7 +64,7 @@ export default function Navbar() {
               (e.currentTarget.style.color = "rgba(240, 244, 248, 0.65)")
             }
           >
-            FAQ
+            Testimonials
           </a>
         </div>
 
@@ -75,18 +74,18 @@ export default function Navbar() {
             href="#"
             className="text-sm font-semibold px-5 py-2 rounded-full transition-all"
             style={{
-              backgroundColor: "#39ff7d",
-              color: "#0b0f14",
-              boxShadow: "0 0 20px rgba(57, 255, 125, 0.3)",
+              backgroundColor: "#00f5d4",
+              color: "#0a0a0a",
+              boxShadow: "0 0 20px rgba(0, 245, 212, 0.3)",
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.boxShadow =
-                "0 0 35px rgba(57, 255, 125, 0.5)";
+                "0 0 35px rgba(0, 245, 212, 0.5)";
               e.currentTarget.style.transform = "translateY(-1px)";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.boxShadow =
-                "0 0 20px rgba(57, 255, 125, 0.3)";
+                "0 0 20px rgba(0, 245, 212, 0.3)";
               e.currentTarget.style.transform = "translateY(0)";
             }}
           >
@@ -139,27 +138,27 @@ export default function Navbar() {
             Features
           </a>
           <a
-            href="#pricing"
+            href="#how-it-works"
             className="text-sm font-medium py-2"
             style={{ color: "rgba(240, 244, 248, 0.8)" }}
             onClick={() => setMenuOpen(false)}
           >
-            Pricing
+            How it Works
           </a>
           <a
-            href="#faq"
+            href="#testimonials"
             className="text-sm font-medium py-2"
             style={{ color: "rgba(240, 244, 248, 0.8)" }}
             onClick={() => setMenuOpen(false)}
           >
-            FAQ
+            Testimonials
           </a>
           <a
             href="#"
             className="text-sm font-semibold px-5 py-2.5 rounded-full text-center"
             style={{
-              backgroundColor: "#39ff7d",
-              color: "#0b0f14",
+              backgroundColor: "#00f5d4",
+              color: "#0a0a0a",
             }}
           >
             Download on the App Store

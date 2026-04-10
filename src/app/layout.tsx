@@ -49,7 +49,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col" style={{ backgroundColor: "#0b0f14", color: "#f0f4f8" }}>
+      <body className="min-h-full flex flex-col" style={{ backgroundColor: "#0a0a0a", color: "#f0f4f8" }}>
         {children}
       </body>
     </html>

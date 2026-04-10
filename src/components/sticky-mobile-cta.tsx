@@ -20,7 +20,7 @@ export default function StickyMobileCta() {
         transform: visible ? "translateY(0)" : "translateY(100%)",
         backgroundColor: "rgba(11, 15, 20, 0.95)",
         backdropFilter: "blur(12px)",
-        borderTop: "1px solid rgba(57, 255, 125, 0.15)",
+        borderTop: "1px solid rgba(0, 245, 212, 0.15)",
         padding: "12px 16px",
         paddingBottom: "calc(12px + env(safe-area-inset-bottom))",
       }}
@@ -29,9 +29,9 @@ export default function StickyMobileCta() {
         href="#"
         className="flex items-center justify-center gap-2 w-full py-3 rounded-full font-semibold text-sm"
         style={{
-          backgroundColor: "#39ff7d",
-          color: "#0b0f14",
-          boxShadow: "0 0 30px rgba(57, 255, 125, 0.35)",
+          backgroundColor: "#00f5d4",
+          color: "#0a0a0a",
+          boxShadow: "0 0 30px rgba(0, 245, 212, 0.35)",
         }}
       >
         <svg

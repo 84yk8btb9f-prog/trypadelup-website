@@ -65,7 +65,7 @@ export default function FaqSection() {
       id="faq"
       className="py-24 px-4"
       style={{
-        backgroundColor: "#0b0f14",
+        backgroundColor: "#0a0a0a",
         borderTop: "1px solid rgba(255, 255, 255, 0.04)",
       }}
     >
@@ -73,7 +73,7 @@ export default function FaqSection() {
         <div ref={headingRef} className="scroll-reveal text-center mb-12">
           <p
             className="text-sm font-semibold uppercase tracking-widest mb-3"
-            style={{ color: "#39ff7d" }}
+            style={{ color: "#00f5d4" }}
           >
             FAQ
           </p>

@@ -51,21 +51,21 @@ function PricingCard({
       className="scroll-reveal relative p-7 rounded-2xl flex flex-col gap-6"
       style={{
         backgroundColor: highlight
-          ? "rgba(57, 255, 125, 0.07)"
+          ? "rgba(0, 245, 212, 0.07)"
           : "rgba(255, 255, 255, 0.04)",
         border: highlight
-          ? "1px solid rgba(57, 255, 125, 0.35)"
+          ? "1px solid rgba(0, 245, 212, 0.35)"
           : "1px solid rgba(255, 255, 255, 0.08)",
         backdropFilter: "blur(8px)",
-        boxShadow: highlight ? "0 0 50px rgba(57, 255, 125, 0.1)" : "none",
+        boxShadow: highlight ? "0 0 50px rgba(0, 245, 212, 0.1)" : "none",
       }}
     >
       {badge && (
         <div
           className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider"
           style={{
-            backgroundColor: "#39ff7d",
-            color: "#0b0f14",
+            backgroundColor: "#00f5d4",
+            color: "#0a0a0a",
           }}
         >
           {badge}
@@ -76,7 +76,7 @@ function PricingCard({
         <div className="flex items-center gap-2 justify-between">
           <span
             className="text-sm font-semibold uppercase tracking-wide"
-            style={{ color: highlight ? "#39ff7d" : "rgba(240, 244, 248, 0.6)" }}
+            style={{ color: highlight ? "#00f5d4" : "rgba(240, 244, 248, 0.6)" }}
           >
             {plan}
           </span>
@@ -84,8 +84,8 @@ function PricingCard({
             <span
               className="text-xs font-bold px-2 py-0.5 rounded"
               style={{
-                backgroundColor: "rgba(57, 255, 125, 0.15)",
-                color: "#39ff7d",
+                backgroundColor: "rgba(0, 245, 212, 0.15)",
+                color: "#00f5d4",
               }}
             >
               SAVE 58%
@@ -112,9 +112,9 @@ function PricingCard({
       <div
         className="text-xs font-semibold text-center py-1.5 rounded-lg"
         style={{
-          backgroundColor: "rgba(57, 255, 125, 0.1)",
-          color: "#39ff7d",
-          border: "1px solid rgba(57, 255, 125, 0.15)",
+          backgroundColor: "rgba(0, 245, 212, 0.1)",
+          color: "#00f5d4",
+          border: "1px solid rgba(0, 245, 212, 0.15)",
         }}
       >
         3-day free trial included
@@ -126,9 +126,9 @@ function PricingCard({
         style={
           highlight
             ? {
-                backgroundColor: "#39ff7d",
-                color: "#0b0f14",
-                boxShadow: "0 0 25px rgba(57, 255, 125, 0.3)",
+                backgroundColor: "#00f5d4",
+                color: "#0a0a0a",
+                boxShadow: "0 0 25px rgba(0, 245, 212, 0.3)",
               }
             : {
                 backgroundColor: "rgba(255, 255, 255, 0.08)",
@@ -151,10 +151,10 @@ function PricingCard({
               className="mt-0.5 shrink-0"
               aria-hidden="true"
             >
-              <circle cx="12" cy="12" r="10" fill="rgba(57, 255, 125, 0.15)" />
+              <circle cx="12" cy="12" r="10" fill="rgba(0, 245, 212, 0.15)" />
               <path
                 d="M8 12l3 3 5-5"
-                stroke="#39ff7d"
+                stroke="#00f5d4"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -194,7 +194,7 @@ export default function PricingSection() {
       id="pricing"
       className="py-24 px-4"
       style={{
-        backgroundColor: "#0b0f14",
+        backgroundColor: "#0a0a0a",
         borderTop: "1px solid rgba(255, 255, 255, 0.04)",
       }}
     >
@@ -202,7 +202,7 @@ export default function PricingSection() {
         <div ref={headingRef} className="scroll-reveal text-center mb-12">
           <p
             className="text-sm font-semibold uppercase tracking-widest mb-3"
-            style={{ color: "#39ff7d" }}
+            style={{ color: "#00f5d4" }}
           >
             Pricing
           </p>
