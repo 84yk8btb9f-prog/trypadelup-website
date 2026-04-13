@@ -1,18 +1,14 @@
 "use client";
 
 import { motion } from "motion/react";
-import PhoneFrame from "@/components/mockups/phone-frame";
-import MockupAnalysisHistory from "@/components/mockups/analysis-history-mockup";
-import MockupNutrition from "@/components/mockups/nutrition-mockup";
-import MockupTraining from "@/components/mockups/training-mockup";
-import MockupChat from "@/components/mockups/chat-mockup";
+import Image from "next/image";
 
 interface FeatureBlockProps {
   label: string;
   title: string;
   description: string;
   bullets: string[];
-  mockup: React.ReactNode;
+  mockup: string;
   reversed?: boolean;
   index: number;
 }
@@ -105,7 +101,13 @@ function FeatureBlock({
               transformStyle: "preserve-3d",
             }}
           >
-            <PhoneFrame>{mockup}</PhoneFrame>
+            <Image
+              src={mockup as string}
+              alt=""
+              width={960}
+              height={720}
+              className="w-72 sm:w-80 lg:w-[360px] drop-shadow-2xl"
+            />
           </div>
         </motion.div>
       </div>
@@ -124,7 +126,7 @@ const features = [
       "0\u201310 score across stance, grip, swing, position, racket angle",
       "Actionable tips with matched drills",
     ],
-    mockup: <MockupAnalysisHistory />,
+    mockup: "/screenshots/analyze.png",
   },
   {
     label: "Personalized Plans",
@@ -136,7 +138,7 @@ const features = [
       "Technique, footwork, positioning, fitness, tactics",
       "Streak tracking and XP to keep you consistent",
     ],
-    mockup: <MockupTraining />,
+    mockup: "/screenshots/training.png",
     reversed: true,
   },
   {
@@ -149,7 +151,7 @@ const features = [
       "Daily targets and weekly trend charts",
       "Hydration tracking built in",
     ],
-    mockup: <MockupNutrition />,
+    mockup: "/screenshots/nutrition.png",
   },
   {
     label: "24/7 Expert Chat",
@@ -161,7 +163,7 @@ const features = [
       "Remembers your conversation history",
       "Available 24/7 \u2014 no booking required",
     ],
-    mockup: <MockupChat />,
+    mockup: "/screenshots/chat.jpg",
     reversed: true,
   },
 ];
