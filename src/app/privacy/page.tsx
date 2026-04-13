@@ -3,8 +3,10 @@ import Footer from "@/components/footer";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — PadelUp",
+  title: "Privacy Policy",
   description: "PadelUp privacy policy — how we collect, use, and protect your data.",
+  alternates: { canonical: "https://trypadelup.com/privacy" },
+  robots: { index: false, follow: false },
 };
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {

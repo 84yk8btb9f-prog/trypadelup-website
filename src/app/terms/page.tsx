@@ -3,8 +3,10 @@ import Footer from "@/components/footer";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — PadelUp",
+  title: "Terms of Service",
   description: "PadelUp terms of service — the rules governing your use of the app.",
+  alternates: { canonical: "https://trypadelup.com/terms" },
+  robots: { index: false, follow: false },
 };
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
