@@ -163,7 +163,7 @@ const features = [
       "Remembers your conversation history",
       "Available 24/7 \u2014 no booking required",
     ],
-    mockup: "/screenshots/chat.jpg",
+    mockup: "/screenshots/chat.png",
     reversed: true,
   },
 ];

@@ -3,6 +3,7 @@ import Navbar from "@/components/navbar";
 import HeroSection from "@/components/sections/hero-section";
 import StickyMobileCta from "@/components/sticky-mobile-cta";
 
+const ScreenshotsSection = dynamic(() => import("@/components/sections/screenshots-section"));
 const ProblemSection = dynamic(() => import("@/components/sections/problem-section"));
 const FeaturesSection = dynamic(() => import("@/components/sections/features-section"));
 const SocialProofSection = dynamic(() => import("@/components/sections/social-proof-section"));
@@ -15,6 +16,7 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <HeroSection />
+        <ScreenshotsSection />
         <ProblemSection />
         <FeaturesSection />
         <SocialProofSection />

@@ -1,0 +1,375 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e3]:
+      - link "PadelUp" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e5]: PadelUp
+      - generic [ref=e6]:
+        - link "Features" [ref=e7] [cursor=pointer]:
+          - /url: "#features"
+        - link "Pricing" [ref=e8] [cursor=pointer]:
+          - /url: "#pricing"
+        - link "Reviews" [ref=e9] [cursor=pointer]:
+          - /url: "#testimonials"
+      - link "Start Free Trial" [ref=e11] [cursor=pointer]:
+        - /url: https://apps.apple.com/app/padelup/id0000000000
+  - main [ref=e12]:
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - generic [ref=e17]: AI-Powered Padel Coaching
+        - heading "Most players play often. Few play smart." [level=1] [ref=e19]:
+          - generic [ref=e20]: Most players play often.
+          - generic [ref=e21]: Few play smart.
+        - paragraph [ref=e22]: PadelUp sees what you can't — frame-by-frame analysis of your technique, a training plan built around your weaknesses, and an AI coach that knows padel inside out. Stop guessing. Start improving.
+        - link "Start your free trial" [ref=e24] [cursor=pointer]:
+          - /url: https://apps.apple.com/app/padelup/id0000000000
+          - button "Start your free trial" [ref=e25]:
+            - generic [ref=e29]: Start your free trial
+        - generic [ref=e32]:
+          - generic [ref=e33]:
+            - generic [ref=e34]: C
+            - generic [ref=e35]: S
+            - generic [ref=e36]: L
+            - generic [ref=e37]: A
+          - generic [ref=e38]:
+            - text: Loved by 8,000+ players
+            - text: across 40+ countries
+      - generic [ref=e51]:
+        - generic [ref=e52]:
+          - generic [ref=e53]:
+            - img [ref=e54]
+            - generic [ref=e56]: Bandeja Analysis
+          - img [ref=e57]
+        - generic [ref=e61]:
+          - img [ref=e62]
+          - generic [ref=e76]: Elbow too low
+        - generic [ref=e77]:
+          - generic [ref=e78]:
+            - generic [ref=e79]:
+              - paragraph [ref=e80]: Technique Score
+              - paragraph [ref=e81]: Based on 5 dimensions
+            - generic [ref=e82]:
+              - generic [ref=e83]: "7.2"
+              - generic [ref=e84]: /10
+          - generic [ref=e85]:
+            - generic [ref=e88]: Position
+            - generic [ref=e93]: Swing
+    - generic [ref=e98]:
+      - heading "You play 3 times a week. Your level hasn't changed in months." [level=2] [ref=e99]
+      - generic [ref=e100]:
+        - generic [ref=e101]:
+          - img [ref=e103]
+          - paragraph [ref=e106]:
+            - text: "You watch YouTube tutorials. You ask friends for tips. You play more games hoping something clicks. But here's the truth:"
+            - strong [ref=e107]: you can't coach what you can't see.
+        - generic [ref=e108]:
+          - img [ref=e110]
+          - paragraph [ref=e112]:
+            - text: Every player has blind spots — a dropped elbow, a late split step, a closed racket face. Without real feedback,
+            - strong [ref=e113]: you repeat the same mistakes every session.
+        - generic [ref=e114]:
+          - img [ref=e116]
+          - paragraph [ref=e118]:
+            - text: A private coach costs $60–100/hour and sees you once a week. PadelUp watches every shot, every session, and
+            - strong [ref=e119]: builds your path to the next level.
+    - generic [ref=e120]:
+      - generic [ref=e122]:
+        - generic [ref=e123]:
+          - generic [ref=e124]: AI Video Analysis
+          - heading "Upload a shot. See exactly what to fix." [level=3] [ref=e125]
+          - paragraph [ref=e126]: Don’t guess what went wrong with that smash. Upload a quick clip and let our vision AI break it down frame-by-frame, just like a pro coach would.
+          - list [ref=e127]:
+            - listitem [ref=e128]:
+              - generic [ref=e130]: 8 shot types analyzed frame-by-frame
+            - listitem [ref=e131]:
+              - generic [ref=e133]: 0–10 score across stance, grip, swing, position, racket angle
+            - listitem [ref=e134]:
+              - generic [ref=e136]: Actionable tips with matched drills
+        - generic [ref=e149]:
+          - heading "Shot History" [level=3] [ref=e150]
+          - generic [ref=e151]:
+            - generic [ref=e152]:
+              - img [ref=e154]
+              - generic [ref=e156]:
+                - paragraph [ref=e157]: Bandeja
+                - generic [ref=e158]:
+                  - generic [ref=e159]: Today, 14:30
+                  - generic [ref=e160]: Fix Elbow
+              - generic [ref=e161]: "7.2"
+            - generic [ref=e162]:
+              - img [ref=e164]
+              - generic [ref=e166]:
+                - paragraph [ref=e167]: Vibora
+                - generic [ref=e168]:
+                  - generic [ref=e169]: Yesterday
+                  - generic [ref=e170]: Low Score
+              - generic [ref=e171]: "5.8"
+          - button "Upload New Clip" [ref=e172]:
+            - img [ref=e173]
+            - text: Upload New Clip
+      - generic [ref=e178]:
+        - generic [ref=e179]:
+          - generic [ref=e180]: Personalized Plans
+          - heading "Your weak spots become your training plan." [level=3] [ref=e181]
+          - paragraph [ref=e182]: Stop doing generic drills. Based on your video analysis, PadelUp generates a structured 7-day curriculum designed specifically to fix your flaws.
+          - list [ref=e183]:
+            - listitem [ref=e184]:
+              - generic [ref=e186]: Plans adapt to your analysis scores
+            - listitem [ref=e187]:
+              - generic [ref=e189]: Technique, footwork, positioning, fitness, tactics
+            - listitem [ref=e190]:
+              - generic [ref=e192]: Streak tracking and XP to keep you consistent
+        - generic [ref=e205]:
+          - generic [ref=e206]:
+            - generic [ref=e207]:
+              - paragraph [ref=e208]: Week 3 Plan
+              - heading "Fix the Bandeja" [level=3] [ref=e209]
+            - generic [ref=e210]: Day 3
+          - generic [ref=e212]:
+            - generic [ref=e213]: Weekly Progress
+            - generic [ref=e214]: 2/7 Sessions
+          - generic [ref=e217]:
+            - paragraph [ref=e218]: Today's Drills
+            - generic [ref=e219]:
+              - img [ref=e221]
+              - generic [ref=e223]:
+                - paragraph [ref=e224]: Shadow Swings
+                - paragraph [ref=e225]: "5 mins · Focus: Elbow Height"
+            - generic [ref=e229]:
+              - paragraph [ref=e230]: "Basket Feed: Targets"
+              - paragraph [ref=e231]: 15 mins · 60 balls
+            - generic [ref=e235]:
+              - paragraph [ref=e236]: Live Ball Defense
+              - paragraph [ref=e237]: 20 mins · Tactics
+      - generic [ref=e241]:
+        - generic [ref=e242]:
+          - generic [ref=e243]: AI Nutrition
+          - heading "Snap your meal. Know your macros." [level=3] [ref=e244]
+          - paragraph [ref=e245]: Fueling for a 3-set match shouldn’t require a spreadsheet. Take a photo of your plate, and our AI calculates calories, protein, carbs, and fats instantly.
+          - list [ref=e246]:
+            - listitem [ref=e247]:
+              - generic [ref=e249]: Photo-to-macros in seconds
+            - listitem [ref=e250]:
+              - generic [ref=e252]: Daily targets and weekly trend charts
+            - listitem [ref=e253]:
+              - generic [ref=e255]: Hydration tracking built in
+        - generic [ref=e268]:
+          - generic [ref=e269]:
+            - heading "Today's Fuel" [level=3] [ref=e270]
+            - paragraph [ref=e271]: 1,850 / 2,400 kcal
+          - generic [ref=e273]:
+            - img [ref=e274]
+            - generic [ref=e277]:
+              - generic [ref=e278]: "550"
+              - generic [ref=e279]: cal
+          - generic [ref=e280]:
+            - generic [ref=e281]:
+              - paragraph [ref=e282]: Protein
+              - paragraph [ref=e283]: 120g
+            - generic [ref=e284]:
+              - paragraph [ref=e285]: Carbs
+              - paragraph [ref=e286]: 210g
+            - generic [ref=e287]:
+              - paragraph [ref=e288]: Fat
+              - paragraph [ref=e289]: 45g
+          - generic [ref=e290]:
+            - generic [ref=e292]: 🥗
+            - generic [ref=e293]:
+              - paragraph [ref=e294]: Grilled Chicken Salad
+              - paragraph [ref=e295]: 450 kcal · Logged 11m ago
+          - img [ref=e298]
+      - generic [ref=e304]:
+        - generic [ref=e305]:
+          - generic [ref=e306]: 24/7 Expert Chat
+          - heading "Ask anything about padel. Get a real answer." [level=3] [ref=e307]
+          - paragraph [ref=e308]: Tired of generic fitness AI? Our model is trained exclusively on professional padel matches, coaching manuals, and equipment specs.
+          - list [ref=e309]:
+            - listitem [ref=e310]:
+              - generic [ref=e312]: Technique, strategy, rules, equipment advice
+            - listitem [ref=e313]:
+              - generic [ref=e315]: Remembers your conversation history
+            - listitem [ref=e316]:
+              - generic [ref=e318]: Available 24/7 — no booking required
+        - generic [ref=e331]:
+          - generic [ref=e332]:
+            - img [ref=e334]
+            - generic [ref=e336]:
+              - text: Coach AI
+              - generic [ref=e339]: Always online
+          - generic [ref=e340]:
+            - paragraph [ref=e343]: What's the best tactic against players who lob constantly?
+            - generic [ref=e345]:
+              - paragraph [ref=e346]: "Against lobbers, patience is key. Here are 3 tactical adjustments:"
+              - generic [ref=e347]:
+                - paragraph [ref=e348]: 1. Let deep lobs bounce off the glass (besa) instead of forcing difficult smashes.
+                - paragraph [ref=e349]: 2. Hit your bandejas slower and deeper into corners to prevent easy counters.
+                - paragraph [ref=e350]: 3. Only face the net when you've pushed them completely out of position.
+          - generic [ref=e352]:
+            - generic [ref=e353]: Ask anything...
+            - img [ref=e355]
+    - generic [ref=e358]:
+      - generic [ref=e359]:
+        - generic [ref=e360]:
+          - generic [ref=e361]:
+            - generic [ref=e362]: "0"
+            - text: +
+          - generic [ref=e363]: Active Players
+        - generic [ref=e364]:
+          - generic [ref=e365]:
+            - generic [ref=e366]: "0"
+            - text: +
+          - generic [ref=e367]: Countries
+        - generic [ref=e368]:
+          - generic [ref=e369]:
+            - generic [ref=e370]: "0"
+            - img [ref=e371]
+          - generic [ref=e373]: App Store Rating
+      - heading "Players who see their mistakes fix them faster." [level=2] [ref=e374]
+      - generic [ref=e376]:
+        - generic [ref=e377]:
+          - generic [ref=e378]:
+            - img [ref=e379]
+            - img [ref=e381]
+            - img [ref=e383]
+            - img [ref=e385]
+            - img [ref=e387]
+          - paragraph [ref=e389]: “Fixed my bandeja in two weeks. The frame-by-frame breakdown showed exactly where my elbow was dropping. Unbelievable tool.”
+          - generic [ref=e390]:
+            - generic [ref=e391]: C
+            - generic [ref=e392]:
+              - paragraph [ref=e393]: Carlos M.
+              - paragraph [ref=e394]: Madrid, Spain
+        - generic [ref=e395]:
+          - generic [ref=e396]:
+            - img [ref=e397]
+            - img [ref=e399]
+            - img [ref=e401]
+            - img [ref=e403]
+            - img [ref=e405]
+          - paragraph [ref=e407]: “The nutrition tracking saves me 10 minutes a day. Just snap a photo and it gets the macros right every time. Fueling properly now.”
+          - generic [ref=e408]:
+            - generic [ref=e409]: S
+            - generic [ref=e410]:
+              - paragraph [ref=e411]: Sofia K.
+              - paragraph [ref=e412]: Athens, Greece
+        - generic [ref=e413]:
+          - generic [ref=e414]:
+            - img [ref=e415]
+            - img [ref=e417]
+            - img [ref=e419]
+            - img [ref=e421]
+            - img [ref=e423]
+          - paragraph [ref=e425]: “Like having a personal coach in my pocket. The AI training plans pushed my level from 3.5 to 5.0 in three months. Highly recommend.”
+          - generic [ref=e426]:
+            - generic [ref=e427]: L
+            - generic [ref=e428]:
+              - paragraph [ref=e429]: Luca R.
+              - paragraph [ref=e430]: Milan, Italy
+        - generic [ref=e431]:
+          - generic [ref=e432]:
+            - img [ref=e433]
+            - img [ref=e435]
+            - img [ref=e437]
+            - img [ref=e439]
+            - img [ref=e441]
+          - paragraph [ref=e443]: “Best investment for my padel game. The video analysis catches things I never noticed about my technique even after years of playing.”
+          - generic [ref=e444]:
+            - generic [ref=e445]: A
+            - generic [ref=e446]:
+              - paragraph [ref=e447]: Ana P.
+              - paragraph [ref=e448]: Barcelona, Spain
+    - generic [ref=e450]:
+      - heading "One app. Everything you need to improve." [level=2] [ref=e451]
+      - generic [ref=e452]:
+        - generic [ref=e453]:
+          - generic [ref=e454]:
+            - heading "Monthly" [level=3] [ref=e455]
+            - paragraph [ref=e456]: Flexibility to pay as you go.
+          - generic [ref=e457]:
+            - generic [ref=e458]: $9.99
+            - generic [ref=e459]: /mo
+          - list [ref=e460]:
+            - listitem [ref=e461]:
+              - img [ref=e462]
+              - generic [ref=e464]: Unlimited Video Analysis
+            - listitem [ref=e465]:
+              - img [ref=e466]
+              - generic [ref=e468]: Personalized Training Plans
+            - listitem [ref=e469]:
+              - img [ref=e470]
+              - generic [ref=e472]: AI Nutrition Tracking
+            - listitem [ref=e473]:
+              - img [ref=e474]
+              - generic [ref=e476]: 24/7 AI Coach Chat
+          - link "Start Monthly Plan" [ref=e477] [cursor=pointer]:
+            - /url: https://apps.apple.com/app/padelup/id0000000000
+        - generic [ref=e478]:
+          - generic [ref=e479]: SAVE 58%
+          - generic [ref=e480]:
+            - generic [ref=e481]:
+              - heading "Yearly" [level=3] [ref=e482]
+              - generic [ref=e483]: 🔥
+            - paragraph [ref=e484]: Commit to your game. Best value.
+          - generic [ref=e485]:
+            - generic [ref=e486]: $4.17
+            - generic [ref=e487]: /mo
+          - paragraph [ref=e488]: Billed $49.99 annually
+          - list [ref=e489]:
+            - listitem [ref=e490]:
+              - img [ref=e491]
+              - generic [ref=e493]: Everything in Monthly
+            - listitem [ref=e494]:
+              - img [ref=e495]
+              - generic [ref=e497]: Priority Analysis Processing
+            - listitem [ref=e498]:
+              - img [ref=e499]
+              - generic [ref=e501]: Early access to new features
+          - link "Start Yearly Plan" [ref=e502] [cursor=pointer]:
+            - /url: https://apps.apple.com/app/padelup/id0000000000
+      - paragraph [ref=e503]: 3-day free trial. Cancel anytime. No credit card until you're sure.
+  - contentinfo [ref=e504]:
+    - generic [ref=e506]:
+      - heading "Your next level starts with your next shot." [level=2] [ref=e507]:
+        - text: Your next level starts
+        - text: with your next shot.
+      - paragraph [ref=e508]: Upload a clip. See what you've been missing. Improve where it counts.
+      - link "Start your free trial" [ref=e510] [cursor=pointer]:
+        - /url: https://apps.apple.com/app/padelup/id0000000000
+        - text: Start your free trial
+        - img [ref=e511]
+    - generic [ref=e514]:
+      - generic [ref=e515]:
+        - generic [ref=e516]:
+          - paragraph [ref=e517]: PadelUp
+          - paragraph [ref=e518]: The AI-powered coaching app designed specifically for padel players who want to level up faster.
+        - generic [ref=e519]:
+          - paragraph [ref=e520]: Product
+          - list [ref=e521]:
+            - listitem [ref=e522]:
+              - link "Features" [ref=e523] [cursor=pointer]:
+                - /url: "#features"
+            - listitem [ref=e524]:
+              - link "Pricing" [ref=e525] [cursor=pointer]:
+                - /url: "#pricing"
+            - listitem [ref=e526]:
+              - link "Testimonials" [ref=e527] [cursor=pointer]:
+                - /url: "#testimonials"
+        - generic [ref=e528]:
+          - paragraph [ref=e529]: Legal & Contact
+          - list [ref=e530]:
+            - listitem [ref=e531]:
+              - link "Privacy Policy" [ref=e532] [cursor=pointer]:
+                - /url: /privacy
+            - listitem [ref=e533]:
+              - link "Terms of Service" [ref=e534] [cursor=pointer]:
+                - /url: /terms
+            - listitem [ref=e535]:
+              - link "support@trypadelup.com" [ref=e536] [cursor=pointer]:
+                - /url: mailto:support@trypadelup.com
+      - generic [ref=e537]:
+        - paragraph [ref=e538]: © 2026 PadelUp. All rights reserved.
+        - link "Instagram" [ref=e539] [cursor=pointer]:
+          - /url: https://instagram.com/padelup
+          - img [ref=e540]
+  - button "Open Next.js Dev Tools" [ref=e547] [cursor=pointer]:
+    - img [ref=e548]

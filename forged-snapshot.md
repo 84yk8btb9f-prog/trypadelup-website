@@ -1,0 +1,285 @@
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e6]:
+      - link "FORGE" [ref=e7] [cursor=pointer]:
+        - /url: "#"
+      - button "Join Waitlist" [ref=e8]
+  - generic [ref=e9]:
+    - generic:
+      - generic [ref=e10]:
+        - generic [ref=e11]: VOL. 1, NO. 2, 2024
+        - heading "Daily Check- in" [level=4] [ref=e12]:
+          - text: Daily
+          - text: Check-
+          - text: in
+        - generic [ref=e15]:
+          - generic [ref=e16]: "01"
+          - generic [ref=e17]:
+            - generic [ref=e18]: Day 47
+            - generic [ref=e19]: "STREAK: 12 DAYS"
+      - generic [ref=e20]:
+        - generic [ref=e21]: IMPROVEMENT SCORE
+        - generic [ref=e22]: "68.7"
+        - generic [ref=e23]: "02"
+        - generic [ref=e24]: "+12.4"
+    - generic [ref=e25]:
+      - heading "Most men look worse than they could. Forge fixes that." [level=1] [ref=e26]:
+        - text: Most men look worse
+        - text: than they could.
+        - text: Forge fixes that.
+      - generic [ref=e27]:
+        - generic [ref=e29]: Not because of genetics. Because they never had a system. FORGE is a 90-day AI transformation program — daily tasks, photo proof every 3 days, and a score that tracks exactly how close you are.
+        - generic [ref=e30]:
+          - generic [ref=e31]:
+            - button "Join the Waitlist" [ref=e32]
+            - generic [ref=e33]: First 500 Get Lifetime Premium
+            - generic [ref=e34]:
+              - generic [ref=e38]: "21"
+              - text: Enrolled.
+          - generic [ref=e39] [cursor=pointer]:
+            - generic [ref=e40]: Scroll Down
+            - generic [ref=e41]: 
+  - heading "No Ratings. No Bone Structure Analysis. No Gimmicks. Just Execution." [level=2] [ref=e45]:
+    - text: No Ratings. No Bone Structure Analysis.
+    - text: No Gimmicks. Just Execution.
+  - generic [ref=e46]:
+    - generic [ref=e50]:
+      - generic [ref=e52]: The Recognition Mirror
+      - heading "You know this pattern." [level=3] [ref=e53]:
+        - text: You know this
+        - text: pattern.
+      - generic [ref=e55]:
+        - paragraph [ref=e56]: You've always wanted to look good . You've searched the internet. Style. Body. Grooming. Skin. You've watched all the videos.
+        - paragraph [ref=e57]: Maybe you even bought the products. Went to the gym. You used them for four days. Then Thursday happened. Then the weekend. Nothing worked.
+        - paragraph [ref=e58]: You're not failing. You're missing architecture.
+    - generic [ref=e62]:
+      - generic [ref=e63]:
+        - heading "The gap isn't knowledge. It's architecture." [level=2] [ref=e64]:
+          - text: The gap isn't knowledge.
+          - text: It's architecture.
+        - generic [ref=e66]:
+          - paragraph [ref=e67]: Most men approach their appearance the way they approach New Year's resolutions — bursts of motivation with no structure underneath.
+          - paragraph [ref=e68]: A skincare routine with no sequence. A grooming habit with no schedule. A hair goal with no way to tell a barber what you actually want.
+          - paragraph [ref=e69]: You're not failing at the content. The content was never built to execute.
+      - generic [ref=e73]:
+        - generic [ref=e74]: Progress Cycle
+        - generic [ref=e75]:
+          - generic [ref=e76]: "66"
+          - generic [ref=e77]: Days to Habit
+        - generic [ref=e78]:
+          - generic [ref=e79]: "03"
+          - generic [ref=e80]:
+            - text: BEHAVIORAL
+            - text: THRESHOLD
+    - generic [ref=e85]:
+      - generic [ref=e86]:
+        - generic [ref=e87]: The Forge Approach
+        - heading "Built for the man who is done experimenting." [level=2] [ref=e88]:
+          - text: Built for the man who is
+          - text: done experimenting.
+        - paragraph [ref=e90]: Not generic tips. A system built around your body, your habits, and your proof.
+      - generic [ref=e91]:
+        - generic [ref=e94]:
+          - generic [ref=e95]: Pillar 01
+          - heading "Personalized to you." [level=3] [ref=e96]:
+            - text: Personalized
+            - text: to you.
+          - paragraph [ref=e98]: Built from your photo, your quiz, your time. Not a program for everyone — a protocol for exactly where you are right now.
+        - generic [ref=e101]:
+          - generic [ref=e102]: Pillar 02
+          - heading "A daily execution system." [level=3] [ref=e103]:
+            - text: A daily execution
+            - text: system.
+          - paragraph [ref=e105]: Not motivation. Architecture. Every morning you open a protocol, not a feed. Every habit tracked.
+        - generic [ref=e108]:
+          - generic [ref=e109]: Pillar 03
+          - heading "Proof it's working." [level=3] [ref=e110]:
+            - text: Proof it's
+            - text: working.
+          - paragraph [ref=e112]: A score that updates every 3 days. Streaks you can see. Photo cycles that show the change before you feel it.
+      - paragraph [ref=e114]:
+        - text: "\"FORGE doesn't promise a better version of you."
+        - text: It builds one."
+    - region "Take a sneak peek" [ref=e116]:
+      - generic [ref=e117]:
+        - generic [ref=e118]:
+          - generic [ref=e119]: Inside the app
+          - heading "Take a sneak peek" [level=2] [ref=e120]
+          - paragraph [ref=e121]: A quick preview of how FORGE feels on your phone — tap through when you're ready.
+        - button "I want that system" [ref=e396]
+        - generic [ref=e128]:
+          - button "Replay preview" [ref=e129]
+          - paragraph [ref=e130]: The UI screens above are mockups only — not final design, visual style, or shipped product.
+    - generic [ref=e133]:
+      - heading "The 90-Day Transformation Cycle" [level=2] [ref=e134]:
+        - text: The 90-Day
+        - text: Transformation Cycle
+      - generic [ref=e136]:
+        - generic [ref=e140]:
+          - generic [ref=e141]: Day 1
+          - generic [ref=e142]: FOUNDATION
+          - paragraph [ref=e143]: Your FORGE Score is set. Your protocol is built from your photo and quiz. You know exactly what to do today.
+        - generic [ref=e148]:
+          - generic [ref=e149]: Day 28
+          - generic [ref=e150]: RENEWAL
+          - paragraph [ref=e151]: Every skin cell you can see has been replaced once. First measurable improvement window.
+        - generic [ref=e156]:
+          - generic [ref=e157]: Day 66
+          - generic [ref=e158]: AUTOMATION
+          - paragraph [ref=e159]: This is the average human threshold where behaviours stop requiring willpower. The system is now default.
+        - generic [ref=e164]:
+          - generic [ref=e165]: Day 90
+          - generic [ref=e166]: BASELINE
+          - paragraph [ref=e167]: Season 1 complete. Your new baseline is established. Season 2 begins.
+    - generic [ref=e171]:
+      - generic [ref=e172]:
+        - heading "One number. Eight categories." [level=2] [ref=e173]:
+          - text: One number.
+          - text: Eight categories.
+        - paragraph [ref=e175]: On Day 0, FORGE analyses your photo and quiz answers and gives you your Optimisation Score — not a rating, but a measure of how close you are to your actual baseline potential.
+        - generic [ref=e176]:
+          - generic [ref=e177]:
+            - generic [ref=e178]:
+              - generic [ref=e179]: Grooming
+              - generic [ref=e180]: Neckline consistency.
+            - generic [ref=e181]: 52 → 79
+          - generic [ref=e182]:
+            - generic [ref=e183]:
+              - generic [ref=e184]: Skin
+              - generic [ref=e185]: SPF 30 Moisturizer
+            - generic [ref=e186]: 41 → 68
+      - generic [ref=e190]:
+        - generic [ref=e192]:
+          - img [ref=e193]
+          - generic [ref=e197]: "100"
+        - generic [ref=e198]: Improvement Score
+        - generic [ref=e199]:
+          - generic [ref=e200]:
+            - img [ref=e201]
+            - generic [ref=e205]: "75"
+          - generic [ref=e207]: "75"
+        - generic [ref=e208]: +27.2 pts increased
+    - generic [ref=e212]:
+      - heading "The 8 Pillars of Visual Architecture" [level=2] [ref=e214]:
+        - text: The 8 Pillars of
+        - text: Visual Architecture
+      - generic [ref=e216]:
+        - article [ref=e217]:
+          - generic [ref=e218]: Pillar 01
+          - heading "Skin" [level=3] [ref=e219]
+          - paragraph [ref=e222]: Barrier repair first. Actives second. A sequence that compounds over 90 days.
+        - article [ref=e223]:
+          - generic [ref=e224]: Pillar 02
+          - heading "Grooming" [level=3] [ref=e225]
+          - paragraph [ref=e228]: The neckline adjustment that changes your jaw definition in 48 hours.
+        - article [ref=e229]:
+          - generic [ref=e230]: Pillar 03
+          - heading "Facial Composition" [level=3] [ref=e231]
+          - paragraph [ref=e234]: Your bone structure is already there. Body fat is what's hiding it.
+        - article [ref=e235]:
+          - generic [ref=e236]: Pillar 04
+          - heading "Hair" [level=3] [ref=e237]
+          - paragraph [ref=e240]: The right cut for your face shape. The styling routine that takes 8 minutes.
+        - article [ref=e241]:
+          - generic [ref=e242]: Pillar 05
+          - heading "Posture & Frame" [level=3] [ref=e243]
+          - paragraph [ref=e246]: Forward head posture adds a visual double chin regardless of body fat. Fixable in weeks.
+        - article [ref=e247]:
+          - generic [ref=e248]: Pillar 06
+          - heading "Style" [level=3] [ref=e249]
+          - paragraph [ref=e252]: Fit is the only variable that matters more than budget or brand.
+        - article [ref=e253]:
+          - generic [ref=e254]: Pillar 07
+          - heading "Sleep & Recovery" [level=3] [ref=e255]
+          - paragraph [ref=e258]: Growth hormone — the primary skin repair signal — releases during deep sleep stages 3 and 4.
+        - article [ref=e259]:
+          - generic [ref=e260]: Pillar 08
+          - heading "Hydration & Nutrition" [level=3] [ref=e261]
+          - paragraph [ref=e264]: No topical product replicates what correct internal hydration does to skin quality.
+    - generic [ref=e268]:
+      - generic [ref=e269]:
+        - heading "The Truth" [level=4] [ref=e270]
+        - heading "What FORGE can change. What it cannot." [level=2] [ref=e271]:
+          - text: What FORGE can change.
+          - text: What it cannot.
+      - generic [ref=e273]:
+        - generic [ref=e274]:
+          - heading "Biological Limits" [level=3] [ref=e275]
+          - list [ref=e276]:
+            - listitem [ref=e277]: Hand Bone Structure
+            - listitem [ref=e279]: Height
+            - listitem [ref=e281]: Facial Bone Landmarks
+            - listitem [ref=e283]: Genetics
+            - listitem [ref=e285]: Eye Color
+        - generic [ref=e287]:
+          - heading "Measurable Improvement" [level=3] [ref=e288]
+          - list [ref=e289]:
+            - listitem [ref=e290]: Skin Texture & Clarity
+            - listitem [ref=e292]: Posture & Frame Alignment
+            - listitem [ref=e294]: Facial Composition (Body Fat %)
+            - listitem [ref=e296]: Symmetry & Grooming
+            - listitem [ref=e298]: Your style choices
+            - listitem [ref=e300]: Overall aesthetic
+      - paragraph [ref=e302]: Our program was designed for men to optimize their appearances to their very best, not what looked best in an ad.
+    - generic [ref=e307]:
+      - heading "The first 500 men get Lifetime Premium — free." [level=2] [ref=e308]
+      - paragraph [ref=e309]: After launch, FORGE Premium is $11/month. When the counter hits 500, this offer closes permanently.
+      - generic [ref=e311]:
+        - generic [ref=e318]: Question 1 of 5
+        - heading "What do you most want to improve?" [level=3] [ref=e319]
+        - generic [ref=e320]:
+          - button "My skin and grooming" [ref=e321]
+          - button "My body composition and facial definition" [ref=e322]
+          - button "My hair and styling" [ref=e323]
+          - button "My posture and frame" [ref=e324]
+          - button "All of the above" [ref=e325]
+      - generic [ref=e326] [cursor=pointer]:
+        - generic [ref=e327]: Scroll down for everything you need to know
+        - generic [ref=e329]: 
+    - generic [ref=e333]:
+      - generic [ref=e334]:
+        - generic [ref=e335]: Common Questions
+        - heading "Everything you need to know of." [level=2] [ref=e336]:
+          - text: Everything you need
+          - text: to know of.
+      - generic [ref=e338]:
+        - button "Is this a looksmaxxing app?" [ref=e340]:
+          - generic [ref=e341]: Is this a looksmaxxing app?
+          - generic [ref=e343]: 
+        - button "How is this different from just watching YouTube videos?" [ref=e345]:
+          - generic [ref=e346]: How is this different from just watching YouTube videos?
+          - generic [ref=e348]: 
+        - button "Do I need to buy a lot of products?" [ref=e350]:
+          - generic [ref=e351]: Do I need to buy a lot of products?
+          - generic [ref=e353]: 
+        - button "How much time does this take daily?" [ref=e355]:
+          - generic [ref=e356]: How much time does this take daily?
+          - generic [ref=e358]: 
+        - button "Will I actually see results?" [ref=e360]:
+          - generic [ref=e361]: Will I actually see results?
+          - generic [ref=e363]: 
+        - button "What if I have bad genetics or a weak jawline?" [ref=e365]:
+          - generic [ref=e366]: What if I have bad genetics or a weak jawline?
+          - generic [ref=e368]: 
+        - button "When does the app launch?" [ref=e370]:
+          - generic [ref=e371]: When does the app launch?
+          - generic [ref=e373]: 
+        - button "What happens after 90 days?" [ref=e375]:
+          - generic [ref=e376]: What happens after 90 days?
+          - generic [ref=e378]: 
+        - button "Is my photo data private?" [ref=e380]:
+          - generic [ref=e381]: Is my photo data private?
+          - generic [ref=e383]: 
+  - contentinfo [ref=e384]:
+    - generic [ref=e385]:
+      - generic [ref=e386]:
+        - generic [ref=e387]: Forge
+        - generic [ref=e388]: Built seriously. Progress first.
+      - generic [ref=e389]:
+        - link "Privacy" [ref=e390] [cursor=pointer]:
+          - /url: "#"
+        - link "Terms" [ref=e391] [cursor=pointer]:
+          - /url: "#"
+        - link "Twitter" [ref=e392] [cursor=pointer]:
+          - /url: "#"
+    - generic [ref=e393]: © 2026 FORGE AI
