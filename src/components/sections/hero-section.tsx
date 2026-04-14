@@ -141,8 +141,8 @@ export default function HeroSection() {
           className="relative flex flex-1 items-end justify-center"
         >
           <div
-            className="relative"
-            style={{ height: "440px", width: "480px", maxWidth: "100%" }}
+            className="relative translate-y-8 sm:translate-y-12 lg:translate-y-16"
+            style={{ height: "clamp(380px, 50vh, 500px)", width: "480px", maxWidth: "100%" }}
           >
             {/* Green glow */}
             <div className="pointer-events-none absolute bottom-0 left-1/2 h-60 w-full -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(0,230,118,0.15)_0%,transparent_70%)] blur-3xl" />

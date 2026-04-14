@@ -75,8 +75,8 @@ export default function PricingSection() {
               Start Monthly Plan
             </a>
 
-            <p className="mt-3 flex items-center justify-center gap-1.5 text-xs text-white/25">
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#00E676]/60 animate-pulse" />
+            <p className="mt-3 flex items-center justify-center gap-1.5 text-xs text-white/40">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#00E676] animate-pulse" />
               3 people subscribed in the last 24 hours
             </p>
           </motion.div>
@@ -128,8 +128,8 @@ export default function PricingSection() {
               Start Yearly Plan
             </a>
 
-            <p className="mt-3 flex items-center justify-center gap-1.5 text-xs text-white/25">
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#00E676]/60 animate-pulse" />
+            <p className="mt-3 flex items-center justify-center gap-1.5 text-xs text-white/40">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#00E676] animate-pulse" />
               4 people subscribed in the last 24 hours
             </p>
           </motion.div>
