@@ -97,7 +97,12 @@ export default function HeroSection() {
             }}
             className="mt-8 flex flex-col items-center gap-5 lg:items-start"
           >
-            <AppStoreBadge href={APP_STORE_URL} height="h-12 sm:h-14" />
+            <div className="relative">
+              <div className="pointer-events-none absolute -inset-3 rounded-2xl bg-[#00E676]/20 blur-xl" />
+              <div className="relative">
+                <AppStoreBadge href={APP_STORE_URL} height="h-12 sm:h-14" />
+              </div>
+            </div>
             <div className="flex items-center gap-3">
               <div className="flex -space-x-2">
                 {avatars.map((a, i) => (
@@ -133,11 +138,11 @@ export default function HeroSection() {
             },
             ...transitionVariants,
           }}
-          className="relative mx-auto flex-shrink-0 lg:mx-0"
+          className="relative flex flex-1 items-end justify-center"
         >
           <div
             className="relative"
-            style={{ height: "440px", width: "420px", maxWidth: "100%" }}
+            style={{ height: "440px", width: "480px", maxWidth: "100%" }}
           >
             {/* Green glow */}
             <div className="pointer-events-none absolute bottom-0 left-1/2 h-60 w-full -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(0,230,118,0.15)_0%,transparent_70%)] blur-3xl" />

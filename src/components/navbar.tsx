@@ -3,7 +3,9 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Menu, X } from "lucide-react";
 import AppStoreBadge from "@/components/app-store-badge";
+import { cn } from "@/lib/utils";
 
 const APP_STORE_URL = "https://apps.apple.com/app/padelup/id0000000000";
 
@@ -53,93 +55,118 @@ export default function Navbar() {
   }, [menuOpen]);
 
   return (
-    <header
-      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-[#050505]/90 backdrop-blur-2xl border-b border-white/[0.06]"
-          : "bg-transparent"
-      }`}
-    >
-      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-2.5">
-          <Image src="/logo.png" alt="PadelUp" width={40} height={40} className="rounded-[22%]" />
-          <span className="gradient-text text-xl font-bold tracking-tight font-heading">
-            PadelUp
-          </span>
-        </Link>
-
-        {/* Desktop links */}
-        <div className="hidden items-center gap-8 md:flex">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={`nav-link text-sm font-medium transition-colors ${
-                activeSection === link.href.slice(1)
-                  ? "active text-white"
-                  : "text-white/45 hover:text-white/70"
-              }`}
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
-
-        {/* Desktop CTA */}
-        <div className="hidden items-center md:flex">
-          <AppStoreBadge href={APP_STORE_URL} height="h-9" />
-        </div>
-
-        {/* Mobile hamburger */}
-        <button
-          className="relative z-[60] flex flex-col gap-1.5 p-2 md:hidden"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          <span
-            className={`block h-0.5 w-5 bg-white transition-all duration-200 ${
-              menuOpen ? "translate-y-2 rotate-45" : ""
-            }`}
-          />
-          <span
-            className={`block h-0.5 w-5 bg-white transition-all duration-200 ${
-              menuOpen ? "opacity-0" : "opacity-100"
-            }`}
-          />
-          <span
-            className={`block h-0.5 w-5 bg-white transition-all duration-200 ${
-              menuOpen ? "-translate-y-2 -rotate-45" : ""
-            }`}
-          />
-        </button>
-      </nav>
-
-      {/* Mobile menu */}
-      <div
-        className={`fixed inset-0 z-50 flex flex-col items-center justify-center gap-8 bg-[#050505]/98 backdrop-blur-3xl transition-all duration-300 md:hidden ${
-          menuOpen
-            ? "pointer-events-auto opacity-100"
-            : "pointer-events-none opacity-0"
-        }`}
+    <header>
+      <nav
+        data-state={menuOpen ? "active" : undefined}
+        className="fixed z-50 w-full px-2 group"
       >
-        {navLinks.map((link) => (
-          <a
-            key={link.href}
-            href={link.href}
-            className="text-2xl font-semibold text-white/80 transition-colors hover:text-white font-heading"
-            onClick={() => setMenuOpen(false)}
-          >
-            {link.label}
-          </a>
-        ))}
-        <a
-          href={APP_STORE_URL}
-          className="mt-4 rounded-full bg-[#00E676] px-8 py-3.5 text-base font-semibold text-[#050505]"
-          onClick={() => setMenuOpen(false)}
+        <div
+          className={cn(
+            "mx-auto mt-2 max-w-6xl px-6 transition-all duration-300 lg:px-12",
+            scrolled &&
+              "max-w-4xl rounded-2xl border border-white/[0.06] bg-[#050505]/50 backdrop-blur-lg lg:px-5"
+          )}
         >
-          Download on the App Store
-        </a>
-      </div>
+          <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
+            {/* Logo + mobile toggle */}
+            <div className="flex w-full justify-between lg:w-auto">
+              <Link href="/" className="flex items-center gap-2.5">
+                <Image
+                  src="/logo.png"
+                  alt="PadelUp"
+                  width={36}
+                  height={36}
+                  className="rounded-[22%]"
+                />
+                <span className="gradient-text text-xl font-bold tracking-tight font-heading">
+                  PadelUp
+                </span>
+              </Link>
+
+              <button
+                onClick={() => setMenuOpen(!menuOpen)}
+                aria-label={menuOpen ? "Close Menu" : "Open Menu"}
+                className="relative z-20 -m-2.5 -mr-4 block cursor-pointer p-2.5 lg:hidden"
+              >
+                <Menu
+                  className={cn(
+                    "size-6 text-white duration-200",
+                    menuOpen && "rotate-180 scale-0 opacity-0"
+                  )}
+                />
+                <X
+                  className={cn(
+                    "absolute inset-0 m-auto size-6 -rotate-180 scale-0 text-white opacity-0 duration-200",
+                    menuOpen && "rotate-0 scale-100 opacity-100"
+                  )}
+                />
+              </button>
+            </div>
+
+            {/* Desktop center links */}
+            <div className="absolute inset-0 m-auto hidden size-fit lg:block">
+              <ul className="flex gap-8 text-sm">
+                {navLinks.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      className={cn(
+                        "block font-medium transition-colors duration-150",
+                        activeSection === link.href.slice(1)
+                          ? "text-white"
+                          : "text-white/45 hover:text-white/70"
+                      )}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Desktop right CTA */}
+            <div className="hidden items-center gap-3 lg:flex">
+              <AppStoreBadge
+                href={APP_STORE_URL}
+                height={cn(scrolled ? "h-8" : "h-9")}
+              />
+            </div>
+
+            {/* Mobile menu dropdown */}
+            <div
+              className={cn(
+                "mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border border-white/[0.06] bg-[#050505] p-6 shadow-2xl md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none",
+                menuOpen && "block lg:flex"
+              )}
+            >
+              <div className="lg:hidden">
+                <ul className="space-y-6 text-base">
+                  {navLinks.map((link) => (
+                    <li key={link.href}>
+                      <a
+                        href={link.href}
+                        className="block font-medium text-white/60 transition-colors hover:text-white"
+                        onClick={() => setMenuOpen(false)}
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit lg:hidden">
+                <a
+                  href={APP_STORE_URL}
+                  className="rounded-full bg-[#00E676] px-6 py-3 text-center text-sm font-semibold text-[#050505] transition-colors hover:bg-[#00E676]/90"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Download App
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
     </header>
   );
 }
