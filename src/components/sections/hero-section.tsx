@@ -88,7 +88,7 @@ export default function HeroSection() {
         </div>
 
         {/* Right: 3-phone fan */}
-        <div className="relative flex-shrink-0 flex items-end justify-center" style={{ width: "420px", height: "520px" }}>
+        <div className="relative flex-shrink-0 flex items-end justify-center" style={{ width: "560px", height: "640px" }}>
           {/* Green glow */}
           <div className="pointer-events-none absolute bottom-0 left-1/2 h-64 w-[500px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(0,230,118,0.18)_0%,transparent_70%)] blur-3xl" />
 
@@ -96,10 +96,10 @@ export default function HeroSection() {
           <motion.div
             className="absolute bottom-0"
             initial={{ opacity: 0, x: 0, rotate: 0 }}
-            animate={{ opacity: 0.65, x: -110, rotate: -10 }}
+            animate={{ opacity: 0.65, x: -145, rotate: -10 }}
             transition={{ duration: 1.1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
-            <Image src="/screenshots/cropped/training.png" alt="" width={700} height={1420} className="w-44 sm:w-48 lg:w-52 drop-shadow-2xl" />
+            <Image src="/screenshots/cropped/training.png" alt="" width={700} height={1420} className="w-52 sm:w-56 lg:w-64 drop-shadow-2xl" />
           </motion.div>
 
           {/* Center phone */}
@@ -109,17 +109,17 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
           >
-            <Image src="/screenshots/cropped/analyze.png" alt="PadelUp AI analysis" width={700} height={1420} priority className="w-52 sm:w-56 lg:w-64 drop-shadow-2xl" />
+            <Image src="/screenshots/cropped/analyze.png" alt="PadelUp AI analysis" width={700} height={1420} priority className="w-64 sm:w-72 lg:w-80 drop-shadow-2xl" />
           </motion.div>
 
           {/* Right phone */}
           <motion.div
             className="absolute bottom-0"
             initial={{ opacity: 0, x: 0, rotate: 0 }}
-            animate={{ opacity: 0.65, x: 110, rotate: 10 }}
+            animate={{ opacity: 0.65, x: 145, rotate: 10 }}
             transition={{ duration: 1.1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
-            <Image src="/screenshots/cropped/nutrition.png" alt="" width={700} height={1420} className="w-44 sm:w-48 lg:w-52 drop-shadow-2xl" />
+            <Image src="/screenshots/cropped/nutrition.png" alt="" width={700} height={1420} className="w-52 sm:w-56 lg:w-64 drop-shadow-2xl" />
           </motion.div>
         </div>
 
