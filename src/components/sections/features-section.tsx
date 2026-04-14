@@ -171,7 +171,7 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <section id="features" className="bg-[#050505] overflow-x-hidden">
+    <section id="features" className="bg-[#050505] overflow-x-clip">
       {features.map((feature, i) => (
         <FeatureBlock key={feature.title} {...feature} index={i} />
       ))}

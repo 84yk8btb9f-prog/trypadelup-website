@@ -28,7 +28,7 @@ function CheckIcon() {
 
 export default function PricingSection() {
   return (
-    <section id="pricing" className="bg-[#050505] py-16 lg:py-24 px-5 sm:px-6 lg:px-10">
+    <section id="pricing" className="bg-[#050505] py-16 lg:py-24 px-5 sm:px-6 lg:px-10 overflow-x-clip">
       <div className="mx-auto max-w-3xl">
         <motion.h2
           className="mb-14 text-center text-3xl font-bold text-white sm:text-4xl lg:text-5xl font-heading"
