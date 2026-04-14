@@ -84,7 +84,7 @@ export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="bg-[#050505] py-24">
+    <section id="faq" className="bg-[#050505] py-16 lg:py-24">
       <div className="mx-auto max-w-3xl px-6">
         <motion.div
           className="mb-12 text-center"
@@ -102,6 +102,7 @@ export default function FaqSection() {
         </motion.div>
 
         <motion.div
+          className="mb-8 lg:mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

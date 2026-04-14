@@ -61,7 +61,7 @@ export default function Navbar() {
           className={cn(
             "mx-auto mt-2 max-w-6xl px-6 transition-all duration-300 lg:px-12",
             scrolled &&
-              "max-w-4xl rounded-2xl border border-white/[0.06] bg-[#050505]/50 backdrop-blur-lg lg:px-5"
+              "max-w-4xl rounded-xl sm:rounded-2xl border border-white/[0.06] bg-[#050505]/50 backdrop-blur-lg lg:px-5"
           )}
         >
           <div className="relative flex items-center justify-between py-3 lg:py-4">

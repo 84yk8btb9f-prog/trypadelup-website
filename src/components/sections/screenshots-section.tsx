@@ -78,9 +78,9 @@ export default function ScreenshotsSection() {
   }, []);
 
   return (
-    <section className="bg-[#050505] py-24">
+    <section className="bg-[#050505] py-16 lg:py-24">
       <motion.h2
-        className="mb-20 px-6 text-center text-3xl font-bold text-white sm:text-4xl lg:text-5xl font-heading"
+        className="mb-10 lg:mb-20 px-6 text-center text-3xl font-bold text-white sm:text-4xl lg:text-5xl font-heading"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
@@ -96,7 +96,7 @@ export default function ScreenshotsSection() {
           {screens.map((screen, i) => (
             <motion.div
               key={screen.label}
-              className="mb-16 last:mb-0"
+              className="mb-10 last:mb-0"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
@@ -109,7 +109,7 @@ export default function ScreenshotsSection() {
                 <h3 className="text-xl font-bold text-white font-heading">{screen.label}</h3>
               </div>
               <p className="mb-6 text-sm leading-relaxed text-white/40">{screen.description}</p>
-              <div className="mx-auto w-48">
+              <div className="mx-auto w-52">
                 <PhoneFrame>
                   <div className="absolute inset-0">
                     <Image src={screen.src} alt={screen.label} fill className="object-cover object-top" />

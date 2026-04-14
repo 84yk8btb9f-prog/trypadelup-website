@@ -47,7 +47,7 @@ const transitionVariants = {
 
 export default function HeroSection() {
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden bg-[#050505] px-5 pb-16 pt-24 sm:px-10 sm:pb-20 sm:pt-28 lg:px-16">
+    <section className="relative flex min-h-screen items-start lg:items-center overflow-hidden bg-[#050505] px-5 pb-16 pt-24 sm:px-10 sm:pb-20 sm:pt-28 lg:px-16">
       {/* Subtle radial light effects */}
       <div
         aria-hidden
@@ -57,7 +57,7 @@ export default function HeroSection() {
         <div className="absolute left-0 top-0 h-[80rem] w-56 -rotate-45 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,hsla(145,100%,60%,.06)_0,hsla(145,100%,30%,.02)_80%,transparent_100%)] [translate:5%_-50%]" />
       </div>
 
-      <div className="mx-auto flex w-full max-w-7xl flex-col gap-12 lg:flex-row lg:items-center lg:gap-20">
+      <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 lg:flex-row lg:items-center lg:gap-20">
         {/* Left: copy */}
         <div className="flex-1 text-center lg:text-left">
           <AnimatedGroup variants={transitionVariants}>
@@ -125,7 +125,22 @@ export default function HeroSection() {
           </AnimatedGroup>
         </div>
 
-        {/* Right: 3-phone fan — centered */}
+        {/* Right: phone mockups */}
+        {/* Mobile: single phone in normal flow */}
+        <motion.div
+          className="mx-auto w-52 sm:hidden"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <PhoneFrame>
+            <div className="absolute inset-0">
+              <Image src="/screenshots/raw/home.png" alt="PadelUp home screen" fill className="object-cover object-top" />
+            </div>
+          </PhoneFrame>
+        </motion.div>
+
+        {/* Desktop/tablet: 3-phone fan */}
         <AnimatedGroup
           variants={{
             container: {
@@ -138,14 +153,14 @@ export default function HeroSection() {
             },
             ...transitionVariants,
           }}
-          className="relative flex flex-1 items-end justify-center translate-y-24 lg:-translate-x-20"
+          className="relative hidden sm:flex items-end justify-center lg:flex-1 lg:translate-y-24 lg:-translate-x-20"
         >
           <div
             className="relative"
-            style={{ height: "clamp(380px, 50vh, 500px)", width: "480px", maxWidth: "100%" }}
+            style={{ height: "clamp(350px, 45vh, 500px)", width: "480px", maxWidth: "100%" }}
           >
             {/* Green glow */}
-            <div className="pointer-events-none absolute bottom-0 left-1/2 h-60 w-full -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(0,230,118,0.15)_0%,transparent_70%)] blur-3xl" />
+            <div className="pointer-events-none absolute bottom-0 left-1/2 h-36 w-3/4 -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(0,230,118,0.10)_0%,transparent_70%)] blur-3xl sm:h-60 sm:w-full sm:bg-[radial-gradient(ellipse,rgba(0,230,118,0.15)_0%,transparent_70%)]" />
 
             {/* Left phone — analysis result */}
             <motion.div
