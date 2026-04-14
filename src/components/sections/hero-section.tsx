@@ -141,7 +141,7 @@ export default function HeroSection() {
           className="relative flex flex-1 items-end justify-center"
         >
           <div
-            className="relative translate-y-8 sm:translate-y-12 lg:translate-y-16"
+            className="relative"
             style={{ height: "clamp(380px, 50vh, 500px)", width: "480px", maxWidth: "100%" }}
           >
             {/* Green glow */}

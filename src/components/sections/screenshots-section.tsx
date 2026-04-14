@@ -125,12 +125,12 @@ export default function ScreenshotsSection() {
       <div ref={containerRef} className="relative mx-auto hidden max-w-6xl px-6 lg:block lg:px-16">
         <div className="flex gap-20">
           {/* Left — scrolling text cards */}
-          <div className="flex-1 py-8">
+          <div className="flex-1">
             {screens.map((screen, i) => (
               <div
                 key={screen.label}
                 ref={(el) => { sectionRefs.current[i] = el; }}
-                className="flex min-h-[50vh] flex-col justify-center"
+                className={`flex min-h-[50vh] flex-col justify-center ${i === 0 ? "pt-4" : ""}`}
               >
                 <motion.div
                   initial={{ opacity: 0, x: -30 }}
@@ -162,7 +162,7 @@ export default function ScreenshotsSection() {
 
           {/* Right — sticky phone */}
           <div className="relative w-72 flex-shrink-0">
-            <div className="sticky top-[30%]">
+            <div className="sticky top-32">
               <div className="pointer-events-none absolute -inset-10 rounded-full bg-[#00E676]/[0.06] blur-3xl" />
               <div className="relative">
                 <AnimatePresence mode="wait">
