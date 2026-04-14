@@ -56,10 +56,7 @@ export default function Navbar() {
 
   return (
     <header>
-      <nav
-        data-state={menuOpen ? "active" : undefined}
-        className="fixed z-50 w-full px-2 group"
-      >
+      <nav className="fixed z-50 w-full px-2">
         <div
           className={cn(
             "mx-auto mt-2 max-w-6xl px-6 transition-all duration-300 lg:px-12",
@@ -67,51 +64,30 @@ export default function Navbar() {
               "max-w-4xl rounded-2xl border border-white/[0.06] bg-[#050505]/50 backdrop-blur-lg lg:px-5"
           )}
         >
-          <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
-            {/* Logo + mobile toggle */}
-            <div className="flex w-full justify-between lg:w-auto">
-              <Link href="/" className="flex items-center gap-2.5">
-                <Image
-                  src="/logo.png"
-                  alt="PadelUp"
-                  width={36}
-                  height={36}
-                  className="rounded-[22%]"
-                />
-                <span className="gradient-text text-xl font-bold tracking-tight font-heading">
-                  PadelUp
-                </span>
-              </Link>
+          <div className="relative flex items-center justify-between py-3 lg:py-4">
+            {/* Logo */}
+            <Link href="/" className="relative z-10 flex items-center gap-2.5">
+              <Image
+                src="/logo.png"
+                alt="PadelUp"
+                width={36}
+                height={36}
+                className="rounded-[22%]"
+              />
+              <span className="gradient-text text-xl font-bold tracking-tight font-heading">
+                PadelUp
+              </span>
+            </Link>
 
-              <button
-                onClick={() => setMenuOpen(!menuOpen)}
-                aria-label={menuOpen ? "Close Menu" : "Open Menu"}
-                className="relative z-20 -m-2.5 -mr-4 block cursor-pointer p-2.5 lg:hidden"
-              >
-                <Menu
-                  className={cn(
-                    "size-6 text-white duration-200",
-                    menuOpen && "rotate-180 scale-0 opacity-0"
-                  )}
-                />
-                <X
-                  className={cn(
-                    "absolute inset-0 m-auto size-6 -rotate-180 scale-0 text-white opacity-0 duration-200",
-                    menuOpen && "rotate-0 scale-100 opacity-100"
-                  )}
-                />
-              </button>
-            </div>
-
-            {/* Desktop center links */}
-            <div className="absolute inset-0 m-auto hidden size-fit lg:block">
+            {/* Desktop center links — absolutely centered */}
+            <div className="absolute inset-0 hidden items-center justify-center lg:flex">
               <ul className="flex gap-8 text-sm">
                 {navLinks.map((link) => (
                   <li key={link.href}>
                     <a
                       href={link.href}
                       className={cn(
-                        "block font-medium transition-colors duration-150",
+                        "font-medium transition-colors duration-150",
                         activeSection === link.href.slice(1)
                           ? "text-white"
                           : "text-white/45 hover:text-white/70"
@@ -124,49 +100,64 @@ export default function Navbar() {
               </ul>
             </div>
 
-            {/* Desktop right CTA */}
-            <div className="hidden items-center gap-3 lg:flex">
+            {/* Desktop right — App Store badge */}
+            <div className="relative z-10 hidden lg:block">
               <AppStoreBadge
                 href={APP_STORE_URL}
-                height={cn(scrolled ? "h-8" : "h-9")}
+                height={scrolled ? "h-8" : "h-9"}
               />
             </div>
 
-            {/* Mobile menu dropdown */}
-            <div
-              className={cn(
-                "mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border border-white/[0.06] bg-[#050505] p-6 shadow-2xl md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none",
-                menuOpen && "block lg:flex"
-              )}
+            {/* Mobile hamburger */}
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label={menuOpen ? "Close Menu" : "Open Menu"}
+              className="relative z-[60] -m-2.5 block cursor-pointer p-2.5 lg:hidden"
             >
-              <div className="lg:hidden">
-                <ul className="space-y-6 text-base">
-                  {navLinks.map((link) => (
-                    <li key={link.href}>
-                      <a
-                        href={link.href}
-                        className="block font-medium text-white/60 transition-colors hover:text-white"
-                        onClick={() => setMenuOpen(false)}
-                      >
-                        {link.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit lg:hidden">
-                <a
-                  href={APP_STORE_URL}
-                  className="rounded-full bg-[#00E676] px-6 py-3 text-center text-sm font-semibold text-[#050505] transition-colors hover:bg-[#00E676]/90"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Download App
-                </a>
-              </div>
-            </div>
+              <Menu
+                className={cn(
+                  "size-6 text-white duration-200",
+                  menuOpen && "rotate-180 scale-0 opacity-0"
+                )}
+              />
+              <X
+                className={cn(
+                  "absolute inset-0 m-auto size-6 -rotate-180 scale-0 text-white opacity-0 duration-200",
+                  menuOpen && "rotate-0 scale-100 opacity-100"
+                )}
+              />
+            </button>
           </div>
         </div>
       </nav>
+
+      {/* Mobile fullscreen menu */}
+      <div
+        className={cn(
+          "fixed inset-0 z-50 flex flex-col items-center justify-center gap-8 bg-[#050505]/98 backdrop-blur-3xl transition-all duration-300 lg:hidden",
+          menuOpen
+            ? "pointer-events-auto opacity-100"
+            : "pointer-events-none opacity-0"
+        )}
+      >
+        {navLinks.map((link) => (
+          <a
+            key={link.href}
+            href={link.href}
+            className="text-2xl font-semibold text-white/80 transition-colors hover:text-white font-heading"
+            onClick={() => setMenuOpen(false)}
+          >
+            {link.label}
+          </a>
+        ))}
+        <a
+          href={APP_STORE_URL}
+          className="mt-4 rounded-full bg-[#00E676] px-8 py-3.5 text-base font-semibold text-[#050505]"
+          onClick={() => setMenuOpen(false)}
+        >
+          Download on the App Store
+        </a>
+      </div>
     </header>
   );
 }
