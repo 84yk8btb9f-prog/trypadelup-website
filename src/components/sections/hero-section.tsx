@@ -3,8 +3,19 @@
 import { motion } from "motion/react";
 import Image from "next/image";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
+import PhoneFrame from "@/components/mockups/phone-frame";
 
 const APP_STORE_URL = "https://apps.apple.com/app/padelup/id0000000000";
+
+function RawScreenshot({ src, alt = "" }: { src: string; alt?: string }) {
+  return (
+    <PhoneFrame>
+      <div className="absolute inset-0">
+        <Image src={src} alt={alt} fill className="object-cover object-top" />
+      </div>
+    </PhoneFrame>
+  );
+}
 
 export default function HeroSection() {
   return (
@@ -61,7 +72,7 @@ export default function HeroSection() {
                 background="rgba(0, 230, 118, 0.1)"
                 className="px-10 py-4 text-base font-semibold"
               >
-                <span className="text-white">Start your free trial</span>
+                <span className="text-white">Download on the App Store</span>
               </ShimmerButton>
             </a>
             <div className="flex items-center gap-3">
@@ -88,38 +99,44 @@ export default function HeroSection() {
         </div>
 
         {/* Right: 3-phone fan */}
-        <div className="relative flex-shrink-0 flex items-end justify-center" style={{ width: "560px", height: "640px" }}>
+        <div className="relative flex-shrink-0 flex items-end justify-center" style={{ width: "580px", height: "620px" }}>
           {/* Green glow */}
-          <div className="pointer-events-none absolute bottom-0 left-1/2 h-64 w-[500px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(0,230,118,0.18)_0%,transparent_70%)] blur-3xl" />
+          <div className="pointer-events-none absolute bottom-0 left-1/2 h-72 w-[600px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(0,230,118,0.15)_0%,transparent_70%)] blur-3xl" />
 
-          {/* Left phone */}
+          {/* Left phone — analysis result */}
           <motion.div
             className="absolute bottom-0"
             initial={{ opacity: 0, x: 0, rotate: 0 }}
-            animate={{ opacity: 0.65, x: -145, rotate: -10 }}
+            animate={{ opacity: 0.7, x: -155, rotate: -10 }}
             transition={{ duration: 1.1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
-            <Image src="/screenshots/cropped/training.png" alt="" width={700} height={1420} className="w-52 sm:w-56 lg:w-64 drop-shadow-2xl" />
+            <div className="w-44 sm:w-48 lg:w-52">
+              <RawScreenshot src="/screenshots/raw/analyze.png" />
+            </div>
           </motion.div>
 
-          {/* Center phone */}
+          {/* Center phone — home */}
           <motion.div
             className="relative z-10"
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
           >
-            <Image src="/screenshots/cropped/analyze.png" alt="PadelUp AI analysis" width={700} height={1420} priority className="w-64 sm:w-72 lg:w-80 drop-shadow-2xl" />
+            <div className="w-56 sm:w-60 lg:w-72">
+              <RawScreenshot src="/screenshots/raw/home.png" alt="PadelUp home screen" />
+            </div>
           </motion.div>
 
-          {/* Right phone */}
+          {/* Right phone — training */}
           <motion.div
             className="absolute bottom-0"
             initial={{ opacity: 0, x: 0, rotate: 0 }}
-            animate={{ opacity: 0.65, x: 145, rotate: 10 }}
+            animate={{ opacity: 0.7, x: 155, rotate: 10 }}
             transition={{ duration: 1.1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
-            <Image src="/screenshots/cropped/nutrition.png" alt="" width={700} height={1420} className="w-52 sm:w-56 lg:w-64 drop-shadow-2xl" />
+            <div className="w-44 sm:w-48 lg:w-52">
+              <RawScreenshot src="/screenshots/raw/training.png" />
+            </div>
           </motion.div>
         </div>
 

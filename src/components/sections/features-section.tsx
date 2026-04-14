@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import Image from "next/image";
+import PhoneFrame from "@/components/mockups/phone-frame";
 
 interface FeatureBlockProps {
   label: string;
@@ -101,13 +102,13 @@ function FeatureBlock({
               transformStyle: "preserve-3d",
             }}
           >
-            <Image
-              src={mockup as string}
-              alt=""
-              width={700}
-              height={1420}
-              className="w-64 sm:w-72 lg:w-80 xl:w-96 drop-shadow-2xl"
-            />
+            <div className="w-56 sm:w-64 lg:w-72 drop-shadow-2xl">
+              <PhoneFrame>
+                <div className="absolute inset-0">
+                  <Image src={mockup as string} alt="" fill className="object-cover object-top" />
+                </div>
+              </PhoneFrame>
+            </div>
           </div>
         </motion.div>
       </div>
@@ -126,7 +127,7 @@ const features = [
       "0\u201310 score across stance, grip, swing, position, racket angle",
       "Actionable tips with matched drills",
     ],
-    mockup: "/screenshots/cropped/analyze.png",
+    mockup: "/screenshots/raw/analyze.png",
   },
   {
     label: "Personalized Plans",
@@ -138,7 +139,7 @@ const features = [
       "Technique, footwork, positioning, fitness, tactics",
       "Streak tracking and XP to keep you consistent",
     ],
-    mockup: "/screenshots/cropped/training.png",
+    mockup: "/screenshots/raw/training.png",
     reversed: true,
   },
   {
@@ -151,7 +152,7 @@ const features = [
       "Daily targets and weekly trend charts",
       "Hydration tracking built in",
     ],
-    mockup: "/screenshots/cropped/nutrition.png",
+    mockup: "/screenshots/raw/nutrition.png",
   },
   {
     label: "24/7 Expert Chat",
@@ -163,7 +164,7 @@ const features = [
       "Remembers your conversation history",
       "Available 24/7 \u2014 no booking required",
     ],
-    mockup: "/screenshots/cropped/chat.png",
+    mockup: "/screenshots/raw/chat.png",
     reversed: true,
   },
 ];
