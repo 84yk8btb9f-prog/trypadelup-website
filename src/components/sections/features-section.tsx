@@ -89,7 +89,7 @@ function FeatureBlock({
 
         {/* Phone mockup */}
         <motion.div
-          className="flex-shrink-0"
+          className="flex-shrink-0 mx-auto lg:mx-0"
           initial={{ opacity: 0, x: reversed ? -60 : 60, scale: 0.95 }}
           whileInView={{ opacity: 1, x: 0, scale: 1 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -171,7 +171,7 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <section id="features" className="bg-[#050505]">
+    <section id="features" className="bg-[#050505] overflow-x-hidden">
       {features.map((feature, i) => (
         <FeatureBlock key={feature.title} {...feature} index={i} />
       ))}

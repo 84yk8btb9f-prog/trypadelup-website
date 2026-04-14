@@ -6,9 +6,9 @@ export default function PhoneFrame({
   className?: string;
 }) {
   return (
-    <div className={`relative w-[280px] sm:w-[300px] lg:w-[320px] ${className}`}>
+    <div className={`relative w-full ${className}`}>
       {/* Glow behind phone */}
-      <div className="absolute inset-0 -m-8 rounded-full bg-[radial-gradient(circle,rgba(0,230,118,0.08)_0%,transparent_70%)] blur-2xl" />
+      <div className="pointer-events-none absolute inset-0 -m-4 sm:-m-8 rounded-full bg-[radial-gradient(circle,rgba(0,230,118,0.08)_0%,transparent_70%)] blur-2xl" />
 
       <div className="relative rounded-[3rem] border border-white/15 bg-gradient-to-b from-[#1c1c1e] to-[#111] p-[6px] shadow-2xl">
         {/* Reflective highlight */}
