@@ -124,33 +124,39 @@ export default function ScreenshotsSection() {
       {/* Desktop: sticky scroll layout */}
       <div ref={containerRef} className="relative mx-auto hidden max-w-6xl px-6 lg:block lg:px-16">
         <div className="flex gap-20">
-          {/* Left — scrolling text cards */}
+          {/* Left — stacking cards */}
           <div className="flex-1">
             {screens.map((screen, i) => (
               <div
                 key={screen.label}
                 ref={(el) => { sectionRefs.current[i] = el; }}
-                className={`flex min-h-[50vh] flex-col justify-center ${i === 0 ? "pt-4" : ""}`}
+                className="flex min-h-[50vh] flex-col justify-center"
               >
                 <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  className={`sticky top-[40%] rounded-2xl border p-6 transition-all duration-500 ${
+                    active === i
+                      ? "border-[#00E676]/15 bg-[#0a0a0a] shadow-lg shadow-[#00E676]/[0.04] scale-100"
+                      : "border-white/[0.06] bg-[#080808] scale-[0.97] opacity-60"
+                  }`}
+                  style={{ zIndex: i + 1 }}
                 >
-                  <div className="mb-4 flex items-center gap-3">
-                    <div className={`flex h-12 w-12 items-center justify-center rounded-xl transition-colors duration-300 ${
+                  <div className="mb-3 flex items-center gap-3">
+                    <div className={`flex h-10 w-10 items-center justify-center rounded-xl transition-colors duration-300 ${
                       active === i ? "bg-[#00E676]/10 text-[#00E676]" : "bg-white/[0.04] text-white/30"
                     }`}>
                       {screen.icon}
                     </div>
-                    <h3 className={`text-2xl font-bold font-heading transition-colors duration-300 ${
-                      active === i ? "text-white" : "text-white/30"
+                    <h3 className={`text-xl font-bold font-heading transition-colors duration-300 ${
+                      active === i ? "text-white" : "text-white/40"
                     }`}>
                       {screen.label}
                     </h3>
                   </div>
-                  <p className={`max-w-md text-base leading-relaxed transition-colors duration-300 ${
+                  <p className={`max-w-md text-sm leading-relaxed transition-colors duration-300 ${
                     active === i ? "text-white/50" : "text-white/20"
                   }`}>
                     {screen.description}
