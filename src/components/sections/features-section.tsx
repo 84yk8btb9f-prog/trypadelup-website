@@ -106,7 +106,7 @@ function FeatureBlock({
               alt=""
               width={700}
               height={1420}
-              className="w-52 sm:w-60 lg:w-64 drop-shadow-2xl"
+              className="w-64 sm:w-72 lg:w-80 xl:w-96 drop-shadow-2xl"
             />
           </div>
         </motion.div>

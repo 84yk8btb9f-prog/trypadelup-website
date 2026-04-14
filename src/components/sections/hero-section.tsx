@@ -8,7 +8,7 @@ const APP_STORE_URL = "https://apps.apple.com/app/padelup/id0000000000";
 
 export default function HeroSection() {
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-[#050505] px-6 pb-24 pt-28 text-center">
+    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-[#050505] px-6 pb-32 pt-28 text-center">
 
       {/* Badge */}
       <motion.div
@@ -22,13 +22,13 @@ export default function HeroSection() {
         </span>
       </motion.div>
 
-      {/* Headline */}
+      {/* Headline — very large, fills viewport */}
       <motion.h1
-        className="mt-7 font-heading font-bold leading-[0.92] tracking-tight text-white"
-        style={{ fontSize: "clamp(2.8rem, 7vw, 6.5rem)" }}
-        initial={{ opacity: 0, y: 24 }}
+        className="mt-6 max-w-5xl font-heading font-bold leading-[0.9] tracking-tight text-white"
+        style={{ fontSize: "clamp(3rem, 7.5vw, 7.5rem)" }}
+        initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.12, ease: "easeOut" }}
+        transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
       >
         Most players play often.
         <br />
@@ -37,17 +37,18 @@ export default function HeroSection() {
 
       {/* Sub */}
       <motion.p
-        className="mt-7 max-w-md text-base leading-relaxed text-white/40 sm:text-lg"
+        className="mt-6 max-w-lg text-base leading-relaxed text-white/40 sm:text-xl"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.26, ease: "easeOut" }}
+        transition={{ duration: 0.6, delay: 0.25, ease: "easeOut" }}
       >
-        Frame-by-frame video analysis, a training plan built around your weaknesses, and an AI coach that knows padel inside out.
+        Frame-by-frame video analysis, a training plan built around your weaknesses,
+        and an AI coach available 24/7.
       </motion.p>
 
-      {/* CTA */}
+      {/* CTA + social proof */}
       <motion.div
-        className="mt-8"
+        className="mt-8 flex flex-col items-center gap-5"
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.38, ease: "easeOut" }}
@@ -56,58 +57,89 @@ export default function HeroSection() {
           <ShimmerButton
             shimmerColor="#00E676"
             background="rgba(0, 230, 118, 0.1)"
-            className="px-8 py-4 text-base font-semibold"
+            className="px-10 py-4 text-base font-semibold"
           >
             <span className="text-white">Start your free trial</span>
           </ShimmerButton>
         </a>
-      </motion.div>
-
-      {/* Social proof */}
-      <motion.div
-        className="mt-8 flex items-center gap-3"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.52, duration: 0.6 }}
-      >
-        <div className="flex -space-x-2">
-          {[
-            { initial: "C", color: "bg-blue-500" },
-            { initial: "S", color: "bg-purple-500" },
-            { initial: "L", color: "bg-emerald-500" },
-            { initial: "A", color: "bg-amber-500" },
-          ].map((a) => (
-            <div
-              key={a.initial}
-              className={`flex h-7 w-7 items-center justify-center rounded-full border-2 border-[#050505] ${a.color} text-[10px] font-bold text-white`}
-            >
-              {a.initial}
-            </div>
-          ))}
+        <div className="flex items-center gap-3">
+          <div className="flex -space-x-2">
+            {[
+              { initial: "C", color: "bg-blue-500" },
+              { initial: "S", color: "bg-purple-500" },
+              { initial: "L", color: "bg-emerald-500" },
+              { initial: "A", color: "bg-amber-500" },
+            ].map((a) => (
+              <div
+                key={a.initial}
+                className={`flex h-7 w-7 items-center justify-center rounded-full border-2 border-[#050505] ${a.color} text-[10px] font-bold text-white`}
+              >
+                {a.initial}
+              </div>
+            ))}
+          </div>
+          <span className="text-sm text-white/30">
+            <span className="text-white/50">8,000+ players</span> across 40+ countries
+          </span>
         </div>
-        <span className="text-sm text-white/30">
-          Loved by <span className="text-white/50">8,000+ players</span> across 40+ countries
-        </span>
       </motion.div>
 
-      {/* Phone mockup */}
-      <motion.div
-        className="relative mt-20"
-        initial={{ opacity: 0, y: 60 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-      >
-        {/* Glow */}
-        <div className="pointer-events-none absolute -bottom-16 left-1/2 h-64 w-[500px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(0,230,118,0.15)_0%,transparent_70%)] blur-3xl" />
-        <Image
-          src="/screenshots/cropped/analyze.png"
-          alt="PadelUp AI video analysis"
-          width={700}
-          height={1420}
-          priority
-          className="relative w-56 sm:w-64 lg:w-72 drop-shadow-2xl"
-        />
-      </motion.div>
+      {/* 3-phone fan mockup */}
+      <div className="relative mt-20 flex items-end justify-center" style={{ height: "500px" }}>
+        {/* Green glow pool */}
+        <div className="pointer-events-none absolute bottom-0 left-1/2 h-64 w-[700px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(0,230,118,0.18)_0%,transparent_70%)] blur-3xl" />
+
+        {/* Left phone */}
+        <motion.div
+          className="absolute"
+          style={{ left: "50%", bottom: 0 }}
+          initial={{ opacity: 0, x: -120, y: 60, rotate: -6 }}
+          animate={{ opacity: 0.7, x: "-75%", y: 30, rotate: -10 }}
+          transition={{ duration: 1.1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <Image
+            src="/screenshots/cropped/training.png"
+            alt=""
+            width={700}
+            height={1420}
+            className="w-48 sm:w-56 lg:w-64 drop-shadow-2xl"
+          />
+        </motion.div>
+
+        {/* Center phone — hero */}
+        <motion.div
+          className="relative z-10"
+          initial={{ opacity: 0, y: 80 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <Image
+            src="/screenshots/cropped/analyze.png"
+            alt="PadelUp AI video analysis"
+            width={700}
+            height={1420}
+            priority
+            className="w-56 sm:w-64 lg:w-72 xl:w-80 drop-shadow-2xl"
+          />
+        </motion.div>
+
+        {/* Right phone */}
+        <motion.div
+          className="absolute"
+          style={{ right: "50%", bottom: 0 }}
+          initial={{ opacity: 0, x: 120, y: 60, rotate: 6 }}
+          animate={{ opacity: 0.7, x: "75%", y: 30, rotate: 10 }}
+          transition={{ duration: 1.1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <Image
+            src="/screenshots/cropped/nutrition.png"
+            alt=""
+            width={700}
+            height={1420}
+            className="w-48 sm:w-56 lg:w-64 drop-shadow-2xl"
+          />
+        </motion.div>
+      </div>
     </section>
   );
 }
