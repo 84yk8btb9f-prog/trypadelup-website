@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const APP_STORE_URL = "https://apps.apple.com/app/padelup/id0000000000";
 
@@ -59,7 +60,8 @@ export default function Navbar() {
       }`}
     >
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="group flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2.5">
+          <Image src="/logo.png" alt="PadelUp" width={32} height={32} className="rounded-lg" />
           <span className="gradient-text text-xl font-bold tracking-tight font-heading">
             PadelUp
           </span>
