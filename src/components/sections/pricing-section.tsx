@@ -74,6 +74,11 @@ export default function PricingSection() {
             >
               Start Monthly Plan
             </a>
+
+            <p className="mt-3 flex items-center justify-center gap-1.5 text-xs text-white/25">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#00E676]/60 animate-pulse" />
+              3 people subscribed in the last 24 hours
+            </p>
           </motion.div>
 
           {/* Yearly */}
@@ -97,10 +102,7 @@ export default function PricingSection() {
             </span>
 
             <div className="mb-6">
-              <div className="flex items-center gap-2">
-                <h3 className="text-lg font-semibold text-white font-heading">Yearly</h3>
-                <span className="text-lg">🔥</span>
-              </div>
+              <h3 className="text-lg font-semibold text-white font-heading">Yearly</h3>
               <p className="mt-1 text-sm text-white/30">Commit to your game. Best value.</p>
             </div>
 
@@ -125,6 +127,11 @@ export default function PricingSection() {
             >
               Start Yearly Plan
             </a>
+
+            <p className="mt-3 flex items-center justify-center gap-1.5 text-xs text-white/25">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#00E676]/60 animate-pulse" />
+              4 people subscribed in the last 24 hours
+            </p>
           </motion.div>
         </div>
 
