@@ -132,7 +132,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased overflow-x-hidden">
+    <html lang="en" className="h-full antialiased">
       <head>
         {/* Preconnect to font providers for faster loading */}
         <link rel="preconnect" href="https://api.fontshare.com" />
@@ -147,7 +147,7 @@ export default function RootLayout({
         />
         <StructuredData />
       </head>
-      <body className="min-h-full flex flex-col overflow-x-hidden bg-[#050505] text-[#f0f4f8]">
+      <body className="min-h-full flex flex-col bg-[#050505] text-[#f0f4f8]">
         {children}
         <Script id="microsoft-clarity" strategy="afterInteractive">
           {`(function(c,l,a,r,i,t,y){
