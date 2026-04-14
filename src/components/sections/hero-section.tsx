@@ -138,7 +138,7 @@ export default function HeroSection() {
             },
             ...transitionVariants,
           }}
-          className="relative flex flex-1 items-end justify-center translate-y-12 lg:-translate-x-8"
+          className="relative flex flex-1 items-end justify-center translate-y-24 lg:-translate-x-20"
         >
           <div
             className="relative"
