@@ -65,18 +65,9 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.38, ease: "easeOut" }}
           >
-            {/* Apple App Store badge */}
-            <a href={APP_STORE_URL} aria-label="Download on the App Store">
-              <svg width="180" height="54" viewBox="0 0 180 54" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
-                <rect width="180" height="54" rx="10" fill="black"/>
-                <rect x="0.5" y="0.5" width="179" height="53" rx="9.5" stroke="white" strokeOpacity="0.3"/>
-                {/* Apple logo */}
-                <path d="M36.5 17.2c-1.4 0-2.8.6-3.8 1.6-.9 1-1.4 2.3-1.3 3.7 1.4.1 2.8-.5 3.8-1.5.9-1 1.4-2.3 1.3-3.8zm3.3 18.8c-1.3 0-2.4-.8-3.1-.8s-1.9.8-3.2.8c-1.6 0-3.1-.9-4-2.4-1.8-3.1-.5-7.7 1.3-10.2.9-1.2 2-2.5 3.5-2.5 1.4 0 2.2.8 3.3.8 1.1 0 1.8-.8 3.4-.8 1.4 0 2.4 1.1 3.1 2.1-2.7 1.5-2.3 5.4.4 6.5-.5 1.4-1.2 2.8-2.2 3.9-.7.9-1.5 1.6-2.5 1.6z" fill="white"/>
-                {/* "Download on the" text */}
-                <text x="56" y="23" fontFamily="-apple-system, BlinkMacSystemFont, sans-serif" fontSize="11" fill="white" opacity="0.9">Download on the</text>
-                {/* "App Store" text */}
-                <text x="56" y="40" fontFamily="-apple-system, BlinkMacSystemFont, sans-serif" fontSize="20" fontWeight="600" fill="white">App Store</text>
-              </svg>
+            <a href={APP_STORE_URL} style={{ display: "inline-block", overflow: "hidden", borderRadius: "13px", width: "150px", height: "50px" }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" style={{ width: "150px", height: "50px" }} />
             </a>
             <div className="flex items-center gap-3">
               <div className="flex -space-x-2">
