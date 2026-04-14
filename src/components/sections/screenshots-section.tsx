@@ -4,10 +4,10 @@ import { motion } from "motion/react";
 import Image from "next/image";
 
 const screens = [
-  { src: "/screenshots/analyze.png", label: "Video Analysis" },
-  { src: "/screenshots/training.png", label: "Training Plans" },
-  { src: "/screenshots/nutrition.png", label: "AI Nutrition" },
-  { src: "/screenshots/chat.png", label: "AI Coach Chat" },
+  { src: "/screenshots/cropped/analyze.png", label: "Video Analysis" },
+  { src: "/screenshots/cropped/training.png", label: "Training Plans" },
+  { src: "/screenshots/cropped/nutrition.png", label: "AI Nutrition" },
+  { src: "/screenshots/cropped/chat.png", label: "AI Coach Chat" },
 ];
 
 export default function ScreenshotsSection() {
@@ -38,9 +38,9 @@ export default function ScreenshotsSection() {
             <Image
               src={screen.src}
               alt={screen.label}
-              width={960}
-              height={720}
-              className="w-full rounded-xl"
+              width={700}
+              height={1420}
+              className="w-full rounded-xl drop-shadow-2xl"
             />
             <span className="text-sm font-medium text-white/40">{screen.label}</span>
           </motion.div>

@@ -104,9 +104,9 @@ function FeatureBlock({
             <Image
               src={mockup as string}
               alt=""
-              width={960}
-              height={720}
-              className="w-72 sm:w-80 lg:w-[360px] drop-shadow-2xl"
+              width={700}
+              height={1420}
+              className="w-52 sm:w-60 lg:w-64 drop-shadow-2xl"
             />
           </div>
         </motion.div>
@@ -126,7 +126,7 @@ const features = [
       "0\u201310 score across stance, grip, swing, position, racket angle",
       "Actionable tips with matched drills",
     ],
-    mockup: "/screenshots/analyze.png",
+    mockup: "/screenshots/cropped/analyze.png",
   },
   {
     label: "Personalized Plans",
@@ -138,7 +138,7 @@ const features = [
       "Technique, footwork, positioning, fitness, tactics",
       "Streak tracking and XP to keep you consistent",
     ],
-    mockup: "/screenshots/training.png",
+    mockup: "/screenshots/cropped/training.png",
     reversed: true,
   },
   {
@@ -151,7 +151,7 @@ const features = [
       "Daily targets and weekly trend charts",
       "Hydration tracking built in",
     ],
-    mockup: "/screenshots/nutrition.png",
+    mockup: "/screenshots/cropped/nutrition.png",
   },
   {
     label: "24/7 Expert Chat",
@@ -163,7 +163,7 @@ const features = [
       "Remembers your conversation history",
       "Available 24/7 \u2014 no booking required",
     ],
-    mockup: "/screenshots/chat.png",
+    mockup: "/screenshots/cropped/chat.png",
     reversed: true,
   },
 ];
