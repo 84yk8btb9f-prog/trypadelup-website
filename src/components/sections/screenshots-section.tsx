@@ -162,7 +162,7 @@ export default function ScreenshotsSection() {
 
           {/* Right — sticky phone */}
           <div className="relative w-72 flex-shrink-0">
-            <div className="sticky top-[50%] -translate-y-1/2">
+            <div className="sticky top-[30%]">
               <div className="pointer-events-none absolute -inset-10 rounded-full bg-[#00E676]/[0.06] blur-3xl" />
               <div className="relative">
                 <AnimatePresence mode="wait">
