@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import AppStoreBadge from "@/components/app-store-badge";
 
 const APP_STORE_URL = "https://apps.apple.com/app/padelup/id0000000000";
 
@@ -61,7 +62,7 @@ export default function Navbar() {
     >
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2.5">
-          <Image src="/logo.png" alt="PadelUp" width={32} height={32} className="rounded-lg" />
+          <Image src="/logo.png" alt="PadelUp" width={40} height={40} className="rounded-[22%]" />
           <span className="gradient-text text-xl font-bold tracking-tight font-heading">
             PadelUp
           </span>
@@ -86,10 +87,7 @@ export default function Navbar() {
 
         {/* Desktop CTA */}
         <div className="hidden items-center md:flex">
-          <a href={APP_STORE_URL} style={{ display: "inline-block", overflow: "hidden", borderRadius: "13px", width: "130px", height: "43px" }} className="transition-opacity hover:opacity-80">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" style={{ width: "130px", height: "43px" }} />
-          </a>
+          <AppStoreBadge href={APP_STORE_URL} height="h-9" />
         </div>
 
         {/* Mobile hamburger */}

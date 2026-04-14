@@ -8,6 +8,7 @@ const ProblemSection = dynamic(() => import("@/components/sections/problem-secti
 const FeaturesSection = dynamic(() => import("@/components/sections/features-section"));
 const SocialProofSection = dynamic(() => import("@/components/sections/social-proof-section"));
 const PricingSection = dynamic(() => import("@/components/sections/pricing-section"));
+const FaqSection = dynamic(() => import("@/components/sections/faq-section"));
 const FinalCta = dynamic(() => import("@/components/sections/final-cta-section"));
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
         <FeaturesSection />
         <SocialProofSection />
         <PricingSection />
+        <FaqSection />
       </main>
       <FinalCta />
       <StickyMobileCta />

@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import Image from "next/image";
 import PhoneFrame from "@/components/mockups/phone-frame";
+import AppStoreBadge from "@/components/app-store-badge";
 
 const APP_STORE_URL = "https://apps.apple.com/app/padelup/id0000000000";
 
@@ -16,11 +17,18 @@ function RawScreenshot({ src, alt = "" }: { src: string; alt?: string }) {
   );
 }
 
+const avatars = [
+  { src: "https://i.pravatar.cc/56?img=12", alt: "Player" },
+  { src: "https://i.pravatar.cc/56?img=47", alt: "Player" },
+  { src: "https://i.pravatar.cc/56?img=33", alt: "Player" },
+  { src: "https://i.pravatar.cc/56?img=16", alt: "Player" },
+];
+
 export default function HeroSection() {
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden bg-[#050505] px-6 pb-20 pt-28 sm:px-10 lg:px-16">
+    <section className="relative flex min-h-screen items-center overflow-hidden bg-[#050505] px-5 pb-16 pt-24 sm:px-10 sm:pb-20 sm:pt-28 lg:px-16">
 
-      <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-16 lg:flex-row lg:items-center lg:gap-20">
+      <div className="mx-auto flex w-full max-w-7xl flex-col gap-12 lg:flex-row lg:items-center lg:gap-20">
 
         {/* Left: copy */}
         <div className="flex-1 text-center lg:text-left">
@@ -38,7 +46,7 @@ export default function HeroSection() {
 
           <motion.h1
             className="mt-6 font-heading font-bold leading-[0.9] tracking-tight text-white"
-            style={{ fontSize: "clamp(3rem, 5.5vw, 5.5rem)" }}
+            style={{ fontSize: "clamp(2.6rem, 6vw, 5.5rem)" }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
@@ -51,7 +59,7 @@ export default function HeroSection() {
           </motion.h1>
 
           <motion.p
-            className="mt-6 max-w-md text-base leading-relaxed text-white/40 sm:text-lg lg:max-w-sm"
+            className="mx-auto mt-6 max-w-sm text-base leading-relaxed text-white/40 sm:text-lg lg:mx-0 lg:max-w-sm"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25, ease: "easeOut" }}
@@ -65,24 +73,19 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.38, ease: "easeOut" }}
           >
-            <a href={APP_STORE_URL} style={{ display: "inline-block", overflow: "hidden", borderRadius: "13px", width: "150px", height: "50px" }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" style={{ width: "150px", height: "50px" }} />
-            </a>
+            <AppStoreBadge href={APP_STORE_URL} height="h-12 sm:h-14" />
             <div className="flex items-center gap-3">
               <div className="flex -space-x-2">
-                {[
-                  { initial: "C", color: "bg-blue-500" },
-                  { initial: "S", color: "bg-purple-500" },
-                  { initial: "L", color: "bg-emerald-500" },
-                  { initial: "A", color: "bg-amber-500" },
-                ].map((a) => (
-                  <div
-                    key={a.initial}
-                    className={`flex h-7 w-7 items-center justify-center rounded-full border-2 border-[#050505] ${a.color} text-[10px] font-bold text-white`}
-                  >
-                    {a.initial}
-                  </div>
+                {avatars.map((a, i) => (
+                  <Image
+                    key={i}
+                    src={a.src}
+                    alt={a.alt}
+                    width={28}
+                    height={28}
+                    className="rounded-full border-2 border-[#050505] object-cover"
+                    unoptimized
+                  />
                 ))}
               </div>
               <span className="text-sm text-white/30">
@@ -92,43 +95,46 @@ export default function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Right: 3-phone fan */}
-        <div className="relative flex-shrink-0 flex items-end justify-center" style={{ width: "580px", height: "620px" }}>
+        {/* Right: 3-phone fan — centered */}
+        <div
+          className="relative mx-auto flex-shrink-0 lg:mx-0"
+          style={{ height: "440px", width: "420px", maxWidth: "100%" }}
+        >
           {/* Green glow */}
-          <div className="pointer-events-none absolute bottom-0 left-1/2 h-72 w-[600px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(0,230,118,0.15)_0%,transparent_70%)] blur-3xl" />
+          <div className="pointer-events-none absolute bottom-0 left-1/2 h-60 w-full -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(0,230,118,0.15)_0%,transparent_70%)] blur-3xl" />
 
           {/* Left phone — analysis result */}
           <motion.div
-            className="absolute bottom-0"
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 hidden sm:block origin-bottom"
             initial={{ opacity: 0, x: 0, rotate: 0 }}
-            animate={{ opacity: 0.7, x: -155, rotate: -10 }}
+            animate={{ opacity: 0.7, x: -120, rotate: -10 }}
             transition={{ duration: 1.1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="w-44 sm:w-48 lg:w-52">
+            <div className="w-36 lg:w-44">
               <RawScreenshot src="/screenshots/raw/analyze.png" />
             </div>
           </motion.div>
 
           {/* Center phone — home */}
           <motion.div
-            className="relative z-10"
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 z-10"
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="w-56 sm:w-60 lg:w-72">
+            <div className="w-52 sm:w-56 lg:w-64">
               <RawScreenshot src="/screenshots/raw/home.png" alt="PadelUp home screen" />
             </div>
           </motion.div>
 
           {/* Right phone — training */}
           <motion.div
-            className="absolute bottom-0"
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 hidden sm:block origin-bottom"
             initial={{ opacity: 0, x: 0, rotate: 0 }}
-            animate={{ opacity: 0.7, x: 155, rotate: 10 }}
+            animate={{ opacity: 0.7, x: 120, rotate: 10 }}
             transition={{ duration: 1.1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="w-44 sm:w-48 lg:w-52">
+            <div className="w-36 lg:w-44">
               <RawScreenshot src="/screenshots/raw/training.png" />
             </div>
           </motion.div>
