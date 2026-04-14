@@ -130,7 +130,7 @@ export default function ScreenshotsSection() {
               <div
                 key={screen.label}
                 ref={(el) => { sectionRefs.current[i] = el; }}
-                className="flex min-h-[70vh] flex-col justify-center"
+                className="flex min-h-[50vh] flex-col justify-center"
               >
                 <motion.div
                   initial={{ opacity: 0, x: -30 }}
