@@ -1,0 +1,55 @@
+name: weekly-seo-report
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"  # Monday 06:00 UTC (= 09:00 Europe/Athens in summer)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: weekly-seo-report
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate SEO report
+        env:
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+          BING_WMT_KEY: ${{ secrets.BING_WMT_KEY }}
+          CLARITY_TOKEN: ${{ secrets.CLARITY_TOKEN }}
+          GSC_CLIENT_ID: ${{ secrets.GSC_CLIENT_ID }}
+          GSC_CLIENT_SECRET: ${{ secrets.GSC_CLIENT_SECRET }}
+          GSC_REFRESH_TOKEN: ${{ secrets.GSC_REFRESH_TOKEN }}
+        run: python3 scripts/weekly-seo-report.py
+
+      - name: Verify no secrets leaked into reports
+        run: |
+          if grep -rIE '${{ secrets.SERPAPI_KEY }}|${{ secrets.BING_WMT_KEY }}|${{ secrets.GSC_CLIENT_SECRET }}|${{ secrets.GSC_REFRESH_TOKEN }}|${{ secrets.CLARITY_TOKEN }}' seo-reports/ 2>/dev/null; then
+            echo "::error::Secrets found inside seo-reports/ — aborting"
+            exit 1
+          fi
+
+      - name: Commit report
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add seo-reports/
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "chore(seo): weekly report $(date -u +%Y-%m-%d)"
+          git push origin HEAD:main
