@@ -2,7 +2,7 @@ name: weekly-seo-report
 
 on:
   schedule:
-    - cron: "0 6 * * 1"  # Monday 06:00 UTC (= 09:00 Europe/Athens in summer)
+    - cron: "0 2 * * 1"  # Monday 02:00 UTC = 05:00 Europe/Athens (DST) / 04:00 (winter)
   workflow_dispatch: {}
 
 permissions:
