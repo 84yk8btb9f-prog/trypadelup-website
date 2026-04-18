@@ -4,9 +4,7 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import AppStoreBadge from "@/components/app-store-badge";
 import { AUDIENCES, AUDIENCE_SLUGS, type AudienceSlug } from "./data";
-
-const SITE_URL = "https://www.trypadelup.com";
-const APP_STORE_URL = "https://apps.apple.com/app/padelup/id0000000000";
+import { APP_STORE_URL, BASE_URL as SITE_URL } from "@/lib/config";
 
 export function generateStaticParams() {
   return AUDIENCE_SLUGS.map((audience) => ({ audience }));

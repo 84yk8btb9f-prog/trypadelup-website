@@ -6,40 +6,21 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import AppStoreBadge from "@/components/app-store-badge";
 import { cn } from "@/lib/utils";
+import { APP_STORE_URL } from "@/lib/config";
 
-const APP_STORE_URL = "https://apps.apple.com/app/padelup/id0000000000";
+type NavLink = { href: string; label: string };
 
-const navLinks = [
-  { href: "#features", label: "Features" },
-  { href: "#pricing", label: "Pricing" },
-  { href: "#testimonials", label: "Reviews" },
+const navLinks: NavLink[] = [
+  { href: "/features", label: "Features" },
+  { href: "/for", label: "For you" },
+  { href: "/compare", label: "Compare" },
+  { href: "/learn", label: "Learn" },
+  { href: "/#pricing", label: "Pricing" },
 ];
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
   const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const sectionIds = navLinks.map((l) => l.href.slice(1));
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        }
-      },
-      { threshold: 0.3, rootMargin: "-80px 0px -40% 0px" }
-    );
-
-    for (const id of sectionIds) {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    }
-
-    return () => observer.disconnect();
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -61,11 +42,10 @@ export default function Navbar() {
           className={cn(
             "mx-auto mt-2 max-w-6xl px-6 transition-all duration-300 lg:px-12",
             scrolled &&
-              "max-w-4xl rounded-xl sm:rounded-2xl border border-white/[0.06] bg-[#050505]/50 backdrop-blur-lg lg:px-5"
+              "max-w-5xl rounded-xl sm:rounded-2xl border border-white/[0.06] bg-[#050505]/50 backdrop-blur-lg lg:px-5"
           )}
         >
           <div className="relative flex items-center justify-between py-3 lg:py-4">
-            {/* Logo */}
             <Link href="/" className="relative z-10 flex items-center gap-2.5">
               <Image
                 src="/logo.png"
@@ -79,28 +59,21 @@ export default function Navbar() {
               </span>
             </Link>
 
-            {/* Desktop center links — absolutely centered */}
             <div className="absolute inset-0 hidden items-center justify-center lg:flex">
-              <ul className="flex gap-8 text-sm">
+              <ul className="flex gap-7 text-sm">
                 {navLinks.map((link) => (
                   <li key={link.href}>
-                    <a
+                    <Link
                       href={link.href}
-                      className={cn(
-                        "font-medium transition-colors duration-150",
-                        activeSection === link.href.slice(1)
-                          ? "text-white"
-                          : "text-white/45 hover:text-white/70"
-                      )}
+                      className="font-medium text-white/50 transition-colors duration-150 hover:text-white"
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Desktop right — App Store badge */}
             <div className="relative z-10 hidden lg:block">
               <AppStoreBadge
                 href={APP_STORE_URL}
@@ -108,10 +81,10 @@ export default function Navbar() {
               />
             </div>
 
-            {/* Mobile hamburger */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              aria-label={menuOpen ? "Close Menu" : "Open Menu"}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
               className="relative z-[60] -m-2.5 block cursor-pointer p-2.5 lg:hidden"
             >
               <Menu
@@ -131,24 +104,23 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile fullscreen menu */}
       <div
         className={cn(
-          "fixed inset-0 z-50 flex flex-col items-center justify-center gap-8 bg-[#050505]/98 backdrop-blur-3xl transition-all duration-300 lg:hidden",
+          "fixed inset-0 z-50 flex flex-col items-center justify-center gap-7 bg-[#050505]/98 backdrop-blur-3xl transition-all duration-300 lg:hidden",
           menuOpen
             ? "pointer-events-auto opacity-100"
             : "pointer-events-none opacity-0"
         )}
       >
         {navLinks.map((link) => (
-          <a
+          <Link
             key={link.href}
             href={link.href}
             className="text-2xl font-semibold text-white/80 transition-colors hover:text-white font-heading"
             onClick={() => setMenuOpen(false)}
           >
             {link.label}
-          </a>
+          </Link>
         ))}
         <a
           href={APP_STORE_URL}

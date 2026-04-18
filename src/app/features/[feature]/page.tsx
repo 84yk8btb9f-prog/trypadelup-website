@@ -6,9 +6,7 @@ import Footer from "@/components/footer";
 import PhoneFrame from "@/components/mockups/phone-frame";
 import AppStoreBadge from "@/components/app-store-badge";
 import { FEATURES, FEATURE_SLUGS, type FeatureSlug } from "./data";
-
-const SITE_URL = "https://www.trypadelup.com";
-const APP_STORE_URL = "https://apps.apple.com/app/padelup/id0000000000";
+import { APP_STORE_URL, BASE_URL as SITE_URL } from "@/lib/config";
 
 export function generateStaticParams() {
   return FEATURE_SLUGS.map((feature) => ({ feature }));

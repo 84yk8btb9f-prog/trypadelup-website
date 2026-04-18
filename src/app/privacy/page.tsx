@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "PadelUp privacy policy — how we collect, use, and protect your data.",
   alternates: { canonical: "https://www.trypadelup.com/privacy" },
-  robots: { index: false, follow: false },
+  robots: { index: true, follow: true },
 };
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {

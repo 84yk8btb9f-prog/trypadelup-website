@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "motion/react";
-
-const APP_STORE_URL = "https://apps.apple.com/app/padelup/id0000000000";
+import { APP_STORE_URL } from "@/lib/config";
 
 export default function FinalCta() {
   return (

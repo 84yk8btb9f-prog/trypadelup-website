@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.env*.local
+
+# Playwright MCP traces
+.playwright-mcp/
+
+# Stray root screenshots
+/mobile-*.png
+/forged-*.png
+/forged-snapshot.md

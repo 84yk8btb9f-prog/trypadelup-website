@@ -9,10 +9,11 @@ export const metadata: Metadata = {
   description:
     "Your friend wants you to join them on PadelUp — the AI padel coaching app. Sign up and you'll both receive 100 XP!",
   alternates: { canonical: "https://www.trypadelup.com/invite" },
+  robots: { index: false, follow: true },
   openGraph: {
     title: "You've been invited to PadelUp!",
-    description: "Join your friend on PadelUp and both of you get 100 XP. AI padel coaching, video analysis, and personalized training plans.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    description:
+      "Join your friend on PadelUp and both of you get 100 XP. AI padel coaching, video analysis, and personalized training plans.",
   },
 };
 

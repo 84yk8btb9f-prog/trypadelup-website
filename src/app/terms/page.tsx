@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Terms of Service",
   description: "PadelUp terms of service — the rules governing your use of the app.",
   alternates: { canonical: "https://www.trypadelup.com/terms" },
-  robots: { index: false, follow: false },
+  robots: { index: true, follow: true },
 };
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {

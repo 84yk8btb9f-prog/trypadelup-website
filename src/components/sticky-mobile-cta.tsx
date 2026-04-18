@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
-const APP_STORE_URL = "https://apps.apple.com/app/padelup/id0000000000";
+import { APP_STORE_URL } from "@/lib/config";
 
 export default function StickyMobileCta() {
   const [visible, setVisible] = useState(false);

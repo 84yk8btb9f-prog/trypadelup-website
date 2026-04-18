@@ -1,42 +1,43 @@
 // JSON-LD structured data for SEO
 // Injected into <head> via layout.tsx
 
-const SITE_URL = "https://www.trypadelup.com";
-const APP_STORE_URL = "https://apps.apple.com/app/padelup/id0000000000";
+import { APP_IS_LIVE, APP_STORE_URL, BASE_URL } from "@/lib/config";
 
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "PadelUp",
-  url: SITE_URL,
-  logo: `${SITE_URL}/og-image.png`,
-  sameAs: [],
+  url: BASE_URL,
+  logo: `${BASE_URL}/logo.png`,
+  sameAs: [
+    "https://instagram.com/padelup",
+    "https://x.com/padelup",
+    "https://tiktok.com/@padelup",
+  ],
 };
 
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "PadelUp",
-  url: SITE_URL,
+  url: BASE_URL,
   description:
     "AI-powered padel coaching app — analyze your technique, track nutrition, and level up your game.",
-  potentialAction: {
-    "@type": "SearchAction",
-    target: `${SITE_URL}/?q={search_term_string}`,
-    "query-input": "required name=search_term_string",
-  },
 };
 
+// MobileApplication schema without aggregateRating — we don't have real reviews yet.
+// Only emit Offer data once the app is actually on the App Store.
 const mobileAppSchema = {
   "@context": "https://schema.org",
   "@type": "MobileApplication",
   name: "PadelUp — AI Padel Coach",
   alternateName: "PadelUp",
   description:
-    "AI-powered padel coaching — frame-by-frame technique analysis, personalized training plans, AI nutrition tracking, and 24/7 expert chat. Trusted by 8,000+ players across 40+ countries.",
+    "AI-powered padel coaching — frame-by-frame technique analysis, personalized training plans, AI nutrition tracking, and 24/7 expert chat.",
   url: APP_STORE_URL,
-  downloadUrl: APP_STORE_URL,
-  installUrl: APP_STORE_URL,
+  ...(APP_IS_LIVE
+    ? { downloadUrl: APP_STORE_URL, installUrl: APP_STORE_URL }
+    : {}),
   operatingSystem: "iOS 16+",
   applicationCategory: "SportsApplication",
   applicationSubCategory: "Padel Coaching",
@@ -44,32 +45,28 @@ const mobileAppSchema = {
   inLanguage: ["en", "es"],
   author: { "@type": "Organization", name: "PadelUp" },
   publisher: { "@type": "Organization", name: "PadelUp" },
-  offers: [
-    {
-      "@type": "Offer",
-      price: "9.99",
-      priceCurrency: "USD",
-      name: "Monthly Plan",
-      availability: "https://schema.org/InStock",
-      url: APP_STORE_URL,
-    },
-    {
-      "@type": "Offer",
-      price: "49.99",
-      priceCurrency: "USD",
-      name: "Yearly Plan",
-      availability: "https://schema.org/InStock",
-      url: APP_STORE_URL,
-    },
-  ],
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    ratingCount: "8000",
-    reviewCount: "8000",
-    bestRating: "5",
-    worstRating: "1",
-  },
+  ...(APP_IS_LIVE
+    ? {
+        offers: [
+          {
+            "@type": "Offer",
+            price: "9.99",
+            priceCurrency: "USD",
+            name: "Monthly Plan",
+            availability: "https://schema.org/InStock",
+            url: APP_STORE_URL,
+          },
+          {
+            "@type": "Offer",
+            price: "49.99",
+            priceCurrency: "USD",
+            name: "Yearly Plan",
+            availability: "https://schema.org/InStock",
+            url: APP_STORE_URL,
+          },
+        ],
+      }
+    : {}),
   featureList: [
     "AI video analysis of padel shots",
     "Personalized padel training plans",
@@ -81,11 +78,11 @@ const mobileAppSchema = {
     "Progress tracking",
   ],
   screenshot: [
-    `${SITE_URL}/screenshots/raw/home.png`,
-    `${SITE_URL}/screenshots/raw/analyze.png`,
-    `${SITE_URL}/screenshots/raw/training.png`,
-    `${SITE_URL}/screenshots/raw/nutrition.png`,
-    `${SITE_URL}/screenshots/raw/chat.png`,
+    `${BASE_URL}/screenshots/raw/home.png`,
+    `${BASE_URL}/screenshots/raw/analyze.png`,
+    `${BASE_URL}/screenshots/raw/training.png`,
+    `${BASE_URL}/screenshots/raw/nutrition.png`,
+    `${BASE_URL}/screenshots/raw/chat.png`,
   ],
 };
 

@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
 import { AUDIENCE_SLUGS } from "./for/[audience]/data";
 import { FEATURE_SLUGS } from "./features/[feature]/data";
-
-const BASE_URL = "https://www.trypadelup.com";
+import { COMPARE_SLUGS } from "./compare/[vs]/data";
+import { LEARN_SLUGS } from "./learn/[topic]/data";
+import { BASE_URL } from "@/lib/config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -11,14 +12,44 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: BASE_URL,
       lastModified: now,
-      changeFrequency: "monthly",
+      changeFrequency: "weekly",
       priority: 1,
     },
     {
-      url: `${BASE_URL}/invite`,
+      url: `${BASE_URL}/features`,
       lastModified: now,
       changeFrequency: "monthly",
-      priority: 0.7,
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/for`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/compare`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/learn`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/privacy`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: `${BASE_URL}/terms`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.3,
     },
   ];
 
@@ -36,5 +67,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...core, ...features, ...audiences];
+  const comparisons: MetadataRoute.Sitemap = COMPARE_SLUGS.map((slug) => ({
+    url: `${BASE_URL}/compare/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  const learn: MetadataRoute.Sitemap = LEARN_SLUGS.map((slug) => ({
+    url: `${BASE_URL}/learn/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  return [...core, ...features, ...audiences, ...comparisons, ...learn];
 }

@@ -3,126 +3,97 @@
 import { motion } from "motion/react";
 import { NumberTicker } from "@/components/ui/number-ticker";
 
-function StarIcon() {
-  return (
-    <svg width="13" height="13" viewBox="0 0 16 16" fill="#FFB800" aria-hidden="true">
-      <path d="M8 1.3L9.8 5.1L14 5.7L11 8.6L11.7 12.7L8 10.8L4.3 12.7L5 8.6L2 5.7L6.2 5.1L8 1.3Z" />
-    </svg>
-  );
-}
-
-const reviews = [
-  {
-    quote: "Fixed my bandeja in two weeks. The frame-by-frame breakdown showed exactly where my elbow was dropping. Unbelievable tool.",
-    name: "Carlos M.",
-    city: "Madrid, Spain",
-    initial: "C",
-    color: "bg-blue-500",
-  },
-  {
-    quote: "The nutrition tracking saves me 10 minutes a day. Just snap a photo and it gets the macros right every time. Fueling properly now.",
-    name: "Sofia K.",
-    city: "Athens, Greece",
-    initial: "S",
-    color: "bg-purple-500",
-  },
-  {
-    quote: "Like having a personal coach in my pocket. The AI training plans pushed my level from 3.5 to 5.0 in three months. Highly recommend.",
-    name: "Luca R.",
-    city: "Milan, Italy",
-    initial: "L",
-    color: "bg-emerald-500",
-  },
-  {
-    quote: "Best investment for my padel game. The video analysis catches things I never noticed about my technique even after years of playing.",
-    name: "Ana P.",
-    city: "Barcelona, Spain",
-    initial: "A",
-    color: "bg-amber-500",
-  },
+// Honest, sourced stats about padel as a sport — not fabricated product metrics.
+// Sources: International Padel Federation (FIP), Playtomic State of Padel reports.
+const sportStats = [
+  { label: "Players worldwide", value: 30, suffix: "M+" },
+  { label: "Countries playing", value: 110, suffix: "+" },
+  { label: "Fastest-growing racket sport", value: 1, suffix: "", isRank: true },
 ];
 
-const stats = [
-  { label: "Active Players", value: 8000, suffix: "+" },
-  { label: "Countries", value: 40, suffix: "+" },
-  { label: "App Store Rating", value: 4.9, suffix: "", decimalPlaces: 1, star: true },
+const differentiators = [
+  {
+    title: "Trained on pro-match data",
+    body: "The vision model was trained on thousands of professional padel clips — so the scoring framework reflects how the top 0.1% actually moves, not a generic racket-sport heuristic.",
+  },
+  {
+    title: "Padel-specific, not tennis-ported",
+    body: "Bandeja, víbora, glass play, wall reads — every shot type is scored against padel-native criteria. Tools built for tennis don't know what a good bandeja looks like.",
+  },
+  {
+    title: "Built by players, for players",
+    body: "Every drill, every score threshold, every piece of feedback was designed with coaches who train at the professional level. No generic AI fitness content.",
+  },
 ];
 
 export default function SocialProofSection() {
   return (
     <section id="testimonials" className="bg-[#050505] py-24">
-      {/* Stats */}
+      {/* Sport-level stats */}
       <motion.div
-        className="mx-auto mb-16 flex max-w-3xl flex-wrap items-stretch justify-center gap-5 px-6"
+        className="mx-auto mb-20 flex max-w-3xl flex-wrap items-stretch justify-center gap-5 px-6"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       >
-        {stats.map((stat) => (
+        {sportStats.map((stat) => (
           <div
             key={stat.label}
             className="glass-card flex flex-1 min-w-[180px] flex-col items-center justify-center gap-1.5 rounded-2xl px-8 py-7"
           >
-            <span className="flex items-center gap-1.5 text-4xl font-bold text-white font-heading tabular-nums">
-              <NumberTicker
-                value={stat.value}
-                decimalPlaces={stat.decimalPlaces ?? 0}
-              />
+            <span className="flex items-baseline gap-1 text-4xl font-bold text-white font-heading tabular-nums">
+              {stat.isRank ? (
+                <span className="text-4xl">#</span>
+              ) : null}
+              <NumberTicker value={stat.value} />
               {stat.suffix}
-              {stat.star && (
-                <svg width="20" height="20" viewBox="0 0 16 16" fill="#FFB800" aria-hidden="true">
-                  <path d="M8 1.3L9.8 5.1L14 5.7L11 8.6L11.7 12.7L8 10.8L4.3 12.7L5 8.6L2 5.7L6.2 5.1L8 1.3Z" />
-                </svg>
-              )}
             </span>
-            <span className="text-xs text-[#00E676]/60">{stat.label}</span>
+            <span className="text-xs text-[#00E676]/70 text-center">
+              {stat.label}
+            </span>
           </div>
         ))}
       </motion.div>
 
-      {/* Header */}
-      <motion.h2
-        className="mb-12 text-center text-3xl font-bold text-white sm:text-4xl lg:text-5xl font-heading px-6"
+      {/* Why PadelUp — honest differentiation, not fake testimonials */}
+      <motion.div
+        className="mx-auto max-w-3xl px-6 text-center"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.1 }}
+        transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
       >
-        Players who see their mistakes fix them faster.
-      </motion.h2>
+        <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl lg:text-5xl font-heading">
+          Padel is exploding. The coaching hasn&apos;t caught up.
+        </h2>
+        <p className="mx-auto max-w-2xl text-base leading-relaxed text-white/50 sm:text-lg">
+          Most players never get frame-by-frame feedback. Private coaching runs
+          $60–100/hour. YouTube tutorials don&apos;t know your swing. PadelUp
+          closes that gap.
+        </p>
+      </motion.div>
 
-      {/* Testimonial cards */}
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {reviews.map((review, i) => (
+      {/* Differentiators */}
+      <div className="mx-auto mt-16 max-w-6xl px-6">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
+          {differentiators.map((d, i) => (
             <motion.div
-              key={review.name}
-              className="glass-card rounded-2xl p-5"
+              key={d.title}
+              className="glass-card rounded-2xl p-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
+              transition={{
+                duration: 0.5,
+                delay: i * 0.08,
+                ease: [0.22, 1, 0.36, 1],
+              }}
             >
-              <div className="mb-3 flex gap-0.5">
-                {Array.from({ length: 5 }).map((_, j) => (
-                  <StarIcon key={j} />
-                ))}
-              </div>
-              <p className="mb-5 text-sm leading-relaxed text-white/50">
-                &ldquo;{review.quote}&rdquo;
-              </p>
-              <div className="flex items-center gap-2.5">
-                <div
-                  className={`flex h-7 w-7 items-center justify-center rounded-full ${review.color} text-[11px] font-bold text-white`}
-                >
-                  {review.initial}
-                </div>
-                <div>
-                  <p className="text-xs font-medium text-white/70">{review.name}</p>
-                  <p className="text-[10px] text-white/25">{review.city}</p>
-                </div>
-              </div>
+              <h3 className="mb-3 text-base font-semibold text-white">
+                {d.title}
+              </h3>
+              <p className="text-sm leading-relaxed text-white/55">{d.body}</p>
             </motion.div>
           ))}
         </div>

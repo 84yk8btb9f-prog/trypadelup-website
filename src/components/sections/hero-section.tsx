@@ -5,8 +5,7 @@ import PhoneFrame from "@/components/mockups/phone-frame";
 import AppStoreBadge from "@/components/app-store-badge";
 import { AnimatedGroup } from "@/components/ui/animated-group";
 import { motion } from "motion/react";
-
-const APP_STORE_URL = "https://apps.apple.com/app/padelup/id0000000000";
+import { APP_STORE_URL } from "@/lib/config";
 
 function RawScreenshot({ src, alt = "" }: { src: string; alt?: string }) {
   return (
@@ -17,13 +16,6 @@ function RawScreenshot({ src, alt = "" }: { src: string; alt?: string }) {
     </PhoneFrame>
   );
 }
-
-const avatars = [
-  { src: "https://i.pravatar.cc/56?img=12", alt: "Player" },
-  { src: "https://i.pravatar.cc/56?img=47", alt: "Player" },
-  { src: "https://i.pravatar.cc/56?img=33", alt: "Player" },
-  { src: "https://i.pravatar.cc/56?img=16", alt: "Player" },
-];
 
 const transitionVariants = {
   item: {
@@ -77,7 +69,7 @@ export default function HeroSection() {
             <span className="sr-only">
               PadelUp — AI padel coaching app with frame-by-frame video analysis,
               personalized padel training plans, AI nutrition tracking, and 24/7
-              expert padel chat. Download the #1 padel app for iOS.
+              expert padel chat. Coming to iOS.
             </span>
 
             <p className="mx-auto mt-6 max-w-sm text-base leading-relaxed text-white/40 sm:text-lg lg:mx-0 lg:max-w-sm">
@@ -106,23 +98,11 @@ export default function HeroSection() {
                 <AppStoreBadge href={APP_STORE_URL} height="h-12 sm:h-14" />
               </div>
             </div>
-            <div className="flex items-center gap-3">
-              <div className="flex -space-x-2">
-                {avatars.map((a, i) => (
-                  <Image
-                    key={i}
-                    src={a.src}
-                    alt={a.alt}
-                    width={28}
-                    height={28}
-                    className="rounded-full border-2 border-[#050505] object-cover"
-                    unoptimized
-                  />
-                ))}
-              </div>
-              <span className="text-sm text-white/30">
-                <span className="text-white/50">8,000+ players</span> across
-                40+ countries
+            <div className="flex items-center gap-2.5 text-sm text-white/30">
+              <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#00E676]/70" />
+              <span>
+                Trained on pro matches.{" "}
+                <span className="text-white/50">Built for real players.</span>
               </span>
             </div>
           </AnimatedGroup>
