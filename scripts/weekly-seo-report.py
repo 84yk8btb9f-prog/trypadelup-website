@@ -146,18 +146,16 @@ def pull_gsc():
 
     site_encoded = None
     probe = {"startDate": GSC_START, "endDate": GSC_END, "dimensions": []}
+    probe_errors = []
     for c in candidates:
         status, data = gsc_query(token, c, probe)
         if status == 200:
             site_encoded = c
             break
-        if status == 404:
-            continue
-        errors.append(f"GSC probe HTTP {status}: {str(data)[:200]}")
-        return None
+        probe_errors.append(f"{c} HTTP {status}")
 
     if not site_encoded:
-        errors.append("GSC: site not found in either URL-prefix or sc-domain format")
+        errors.append(f"GSC: no accessible property format. Tried: {'; '.join(probe_errors)}")
         return None
 
     def q(payload):
