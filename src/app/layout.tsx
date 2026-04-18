@@ -3,7 +3,7 @@ import Script from "next/script";
 import "./globals.css";
 import StructuredData from "@/components/structured-data";
 
-const BASE_URL = "https://trypadelup.com";
+const BASE_URL = "https://www.trypadelup.com";
 // TODO: Replace with your actual App Store app ID once live
 const APP_STORE_ID = "0000000000";
 

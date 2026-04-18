@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description: "PadelUp terms of service — the rules governing your use of the app.",
-  alternates: { canonical: "https://trypadelup.com/terms" },
+  alternates: { canonical: "https://www.trypadelup.com/terms" },
   robots: { index: false, follow: false },
 };
 
@@ -193,7 +193,7 @@ export default function TermsPage() {
             </p>
             <p>
               <strong className="text-white">Website:</strong>{" "}
-              <a href="https://trypadelup.com" style={{ color: "#39ff7d" }}>
+              <a href="https://www.trypadelup.com" style={{ color: "#39ff7d" }}>
                 trypadelup.com
               </a>
             </p>

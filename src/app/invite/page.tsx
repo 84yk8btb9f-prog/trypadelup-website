@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "You've been invited to PadelUp!",
   description:
     "Your friend wants you to join them on PadelUp — the AI padel coaching app. Sign up and you'll both receive 100 XP!",
-  alternates: { canonical: "https://trypadelup.com/invite" },
+  alternates: { canonical: "https://www.trypadelup.com/invite" },
   openGraph: {
     title: "You've been invited to PadelUp!",
     description: "Join your friend on PadelUp and both of you get 100 XP. AI padel coaching, video analysis, and personalized training plans.",

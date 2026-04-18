@@ -15,6 +15,6 @@ export default function robots(): MetadataRoute.Robots {
         crawlDelay: 1,
       },
     ],
-    sitemap: "https://trypadelup.com/sitemap.xml",
+    sitemap: "https://www.trypadelup.com/sitemap.xml",
   };
 }

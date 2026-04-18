@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "PadelUp privacy policy — how we collect, use, and protect your data.",
-  alternates: { canonical: "https://trypadelup.com/privacy" },
+  alternates: { canonical: "https://www.trypadelup.com/privacy" },
   robots: { index: false, follow: false },
 };
 
@@ -198,7 +198,7 @@ export default function PrivacyPage() {
             </p>
             <p>
               <strong className="text-white">Website:</strong>{" "}
-              <a href="https://trypadelup.com" style={{ color: "#39ff7d" }}>
+              <a href="https://www.trypadelup.com" style={{ color: "#39ff7d" }}>
                 trypadelup.com
               </a>
             </p>

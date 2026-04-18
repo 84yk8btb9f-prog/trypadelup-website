@@ -8,8 +8,8 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "PadelUp",
-  url: "https://trypadelup.com",
-  logo: "https://trypadelup.com/og-image.png",
+  url: "https://www.trypadelup.com",
+  logo: "https://www.trypadelup.com/og-image.png",
   sameAs: [],
 };
 
@@ -17,7 +17,7 @@ const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "PadelUp",
-  url: "https://trypadelup.com",
+  url: "https://www.trypadelup.com",
   description:
     "AI-powered padel coaching app — analyze your technique, track nutrition, and level up your game.",
 };
