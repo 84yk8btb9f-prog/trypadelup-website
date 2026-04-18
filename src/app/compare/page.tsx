@@ -108,7 +108,7 @@ export default function CompareHub() {
               Try PadelUp yourself
             </h2>
             <p className="mb-6 text-sm text-white/50">
-              3 days free. No credit card. See where you land.
+              3 days free. Cancel anytime from the App Store. See where you land.
             </p>
             <div className="flex justify-center">
               <AppStoreBadge href={APP_STORE_URL} height="h-12" />

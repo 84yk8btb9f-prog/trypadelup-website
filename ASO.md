@@ -94,7 +94,7 @@ Your videos are encrypted in transit and at rest. Used only for your own analysi
 
 SUBSCRIPTION
 
-3-day free trial, every feature included, no credit card required. Monthly and yearly plans available. Cancel any time from the App Store.
+3-day free trial covering every feature. Billing is handled by Apple through the App Store — your payment method is on file during the trial, Apple only charges when it ends. Cancel anytime from your App Store subscriptions.
 ```
 
 ## Version release notes template

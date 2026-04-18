@@ -141,7 +141,7 @@ export default function PricingSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          3-day free trial. Cancel anytime. No credit card until you&apos;re sure.
+          3-day free trial. Billed through the App Store. Cancel anytime before the trial ends and you&apos;re not charged.
         </motion.p>
       </div>
     </section>

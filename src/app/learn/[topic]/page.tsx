@@ -174,7 +174,7 @@ export default async function LearnPage({
               {data.relatedFeatureLabel}
             </h2>
             <p className="mb-6 text-sm text-white/50">
-              Try PadelUp free for 3 days. No credit card.
+              Try PadelUp free for 3 days. Cancel anytime from the App Store.
             </p>
             <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
               <AppStoreBadge href={APP_STORE_URL} height="h-12" />

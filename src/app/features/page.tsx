@@ -117,7 +117,7 @@ export default function FeaturesHub() {
               Try every feature free for 3 days
             </h2>
             <p className="mb-6 text-sm text-white/50">
-              No credit card. Cancel any time.
+              Cancel anytime from the App Store before the trial ends.
             </p>
             <div className="flex justify-center">
               <AppStoreBadge href={APP_STORE_URL} height="h-12" />

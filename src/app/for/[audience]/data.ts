@@ -23,7 +23,7 @@ export const AUDIENCES: Record<AudienceSlug, AudienceData> = {
     h1: "The best padel app for beginners",
     title: "Padel App for Beginners — Learn Padel Fast with AI Coaching",
     description:
-      "Just started padel? PadelUp is the AI padel coach that teaches you the fundamentals — grip, stance, swing, positioning — with frame-by-frame video analysis. Free trial, no credit card.",
+      "Just started padel? PadelUp is the AI padel coach that teaches you the fundamentals — grip, stance, swing, positioning — with frame-by-frame video analysis. 3-day free trial through the App Store.",
     intro:
       "Starting padel is exciting — and confusing. There's forehand, backhand, bandeja, víbora, glass shots, wall plays. Most apps throw drills at you. PadelUp teaches you the fundamentals the way a real coach would: by analyzing your actual swing.",
     painPoints: [

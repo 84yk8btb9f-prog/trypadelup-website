@@ -204,7 +204,7 @@ export default async function FeaturePage({
               Try it free for 3 days
             </h2>
             <p className="mb-6 text-sm text-white/50">
-              Every feature, no credit card.
+              Every feature. Cancel anytime from the App Store.
             </p>
             <div className="flex justify-center">
               <AppStoreBadge href={APP_STORE_URL} height="h-12" />

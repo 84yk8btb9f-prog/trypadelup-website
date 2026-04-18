@@ -108,7 +108,7 @@ export default function AudienceHub() {
               Start your free trial
             </h2>
             <p className="mb-6 text-sm text-white/50">
-              3 days, every feature, no credit card.
+              3 days, every feature. Cancel anytime from the App Store.
             </p>
             <div className="flex justify-center">
               <AppStoreBadge href={APP_STORE_URL} height="h-12" />

@@ -17,8 +17,8 @@ const faqs = [
     answer: "Our AI recognizes thousands of foods from a single photo and estimates macros (calories, protein, carbs, fat) within 5\u201310% accuracy. You can always adjust portions manually for precision.",
   },
   {
-    question: "Does the free trial require a credit card?",
-    answer: "No. You get a full 3-day free trial with access to every feature. No credit card required until you decide to subscribe.",
+    question: "How does the free trial work?",
+    answer: "You get a 3-day free trial with every feature unlocked. Billing is handled by Apple through the App Store, so your payment method is on file during the trial — Apple only charges when the trial ends. Cancel anytime from your App Store subscriptions before then and you won\u2019t be charged.",
   },
   {
     question: "Can I cancel my subscription anytime?",

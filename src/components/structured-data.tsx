@@ -116,10 +116,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "Does the free trial require a credit card?",
+      name: "How does the free trial work?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No. You get a full 3-day free trial with access to every feature. No credit card required until you decide to subscribe.",
+        text: "You start with a 3-day free trial that covers every feature. Billing is handled by Apple through the App Store, so your payment method is required up front — Apple only charges when the trial ends. Cancel anytime from your App Store subscriptions before the trial ends and you won't be charged.",
       },
     },
     {
