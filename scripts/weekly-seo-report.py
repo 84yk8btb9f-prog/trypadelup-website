@@ -114,7 +114,7 @@ def gsc_access_token() -> str | None:
 
 
 def gsc_query(token: str, site_encoded: str, payload: dict):
-    url = f"https://searchconsole.googleapis.com/v1/sites/{site_encoded}/searchAnalytics/query"
+    url = f"https://searchconsole.googleapis.com/webmasters/v3/sites/{site_encoded}/searchAnalytics/query"
     status, body = http("POST", url,
                         headers={
                             "Authorization": f"Bearer {token}",
