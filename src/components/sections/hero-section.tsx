@@ -70,16 +70,19 @@ export default function HeroSection() {
               className="mt-6 font-heading font-bold leading-[0.9] tracking-tight text-white"
               style={{ fontSize: "clamp(2.6rem, 6vw, 5.5rem)" }}
             >
-              Most players
+              The AI Padel Coach
               <br />
-              play often.
-              <br />
-              <span className="gradient-text">Few get better.</span>
+              in your pocket.
             </h1>
+            <span className="sr-only">
+              PadelUp — AI padel coaching app with frame-by-frame video analysis,
+              personalized padel training plans, AI nutrition tracking, and 24/7
+              expert padel chat. Download the #1 padel app for iOS.
+            </span>
 
             <p className="mx-auto mt-6 max-w-sm text-base leading-relaxed text-white/40 sm:text-lg lg:mx-0 lg:max-w-sm">
-              Frame-by-frame video analysis, a training plan built around your
-              weaknesses, and an AI coach available 24/7.
+              Frame-by-frame padel video analysis, a training plan built around
+              your weaknesses, and an AI padel coach available 24/7.
             </p>
           </AnimatedGroup>
 

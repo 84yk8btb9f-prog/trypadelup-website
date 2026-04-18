@@ -10,6 +10,7 @@ interface FeatureBlockProps {
   description: string;
   bullets: string[];
   mockup: string;
+  mockupAlt: string;
   reversed?: boolean;
   index: number;
 }
@@ -20,6 +21,7 @@ function FeatureBlock({
   description,
   bullets,
   mockup,
+  mockupAlt,
   reversed,
   index,
 }: FeatureBlockProps) {
@@ -105,7 +107,7 @@ function FeatureBlock({
             <div className="w-56 sm:w-64 lg:w-72 drop-shadow-2xl">
               <PhoneFrame>
                 <div className="absolute inset-0">
-                  <Image src={mockup as string} alt="" fill className="object-cover object-top" />
+                  <Image src={mockup as string} alt={mockupAlt} fill className="object-cover object-top" />
                 </div>
               </PhoneFrame>
             </div>
@@ -128,6 +130,7 @@ const features = [
       "Actionable tips with matched drills",
     ],
     mockup: "/screenshots/raw/analyze.png",
+    mockupAlt: "PadelUp AI video analysis screen scoring a padel shot frame-by-frame",
   },
   {
     label: "Personalized Plans",
@@ -140,6 +143,7 @@ const features = [
       "Streak tracking and XP to keep you consistent",
     ],
     mockup: "/screenshots/raw/training.png",
+    mockupAlt: "PadelUp personalized padel training plan dashboard",
     reversed: true,
   },
   {
@@ -153,6 +157,7 @@ const features = [
       "Hydration tracking built in",
     ],
     mockup: "/screenshots/raw/nutrition.png",
+    mockupAlt: "PadelUp AI nutrition tracker identifying food macros from a photo",
   },
   {
     label: "24/7 Expert Chat",
@@ -165,6 +170,7 @@ const features = [
       "Available 24/7 \u2014 no booking required",
     ],
     mockup: "/screenshots/raw/chat.png",
+    mockupAlt: "PadelUp 24/7 AI padel coach chat answering a padel strategy question",
     reversed: true,
   },
 ];

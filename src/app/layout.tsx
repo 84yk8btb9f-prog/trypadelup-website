@@ -38,11 +38,24 @@ export const metadata: Metadata = {
     "best padel app",
     "padel racket sport app",
     "padel performance tracker",
+    "padel app for beginners",
+    "padel app for intermediate players",
+    "padel app for advanced players",
+    "learn padel",
+    "padel drills app",
+    "padel strategy app",
+    "padel shot analysis",
+    "aplicación de pádel",
+    "entrenador de pádel AI",
   ],
 
   // ── Canonical / Alternates ────────────────────────────────────────────────
   alternates: {
     canonical: BASE_URL,
+    languages: {
+      "x-default": BASE_URL,
+      en: BASE_URL,
+    },
   },
 
   // ── Robots ────────────────────────────────────────────────────────────────
@@ -55,6 +68,15 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
       "max-image-preview": "large",
       "max-snippet": -1,
+    },
+  },
+
+  // ── Search engine verification (add real codes from each console) ─────────
+  verification: {
+    google: "", // add from Google Search Console
+    yandex: "", // add from Yandex Webmaster
+    other: {
+      "msvalidate.01": "", // Bing Webmaster
     },
   },
 
