@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import AppStoreBadge from "@/components/app-store-badge";
+import PhoneFrame from "@/components/mockups/phone-frame";
 import { AUDIENCES, AUDIENCE_SLUGS } from "./[audience]/data";
 import { APP_STORE_URL, BASE_URL } from "@/lib/config";
 
@@ -66,18 +68,33 @@ export default function AudienceHub() {
       <Navbar />
       <main className="flex-1 pt-24 pb-24">
         <article className="mx-auto max-w-5xl px-6 sm:px-10 lg:px-16">
-          <header className="mb-20 text-center">
-            <span className="mb-4 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[#00E676]">
-              Who it&apos;s for
-            </span>
-            <h1 className="font-heading text-4xl font-bold leading-[1.05] text-white sm:text-5xl lg:text-6xl">
-              Pick your level. We&apos;ll meet you there.
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/55">
-              PadelUp adapts depth, drills, and analysis to the player. A
-              beginner gets fundamentals. An advanced player gets consistency
-              metrics. A coach gets tools. A club gets retention data.
-            </p>
+          <header className="mb-20 grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:items-center">
+            <div>
+              <span className="mb-4 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[#00E676]">
+                Who it&apos;s for
+              </span>
+              <h1 className="font-heading text-4xl font-bold leading-[1.05] text-white sm:text-5xl lg:text-6xl">
+                Pick your level. We&apos;ll meet you there.
+              </h1>
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/55">
+                PadelUp adapts depth, drills, and analysis to the player. A
+                beginner gets fundamentals. An advanced player gets consistency
+                metrics. A coach gets tools. A club gets retention data.
+              </p>
+            </div>
+            <div className="mx-auto w-52 sm:w-60 lg:w-64">
+              <PhoneFrame>
+                <div className="absolute inset-0">
+                  <Image
+                    src="/screenshots/raw/profile.png"
+                    alt="PadelUp profile showing a player's level, stats, and progress"
+                    fill
+                    sizes="(min-width: 1024px) 256px, 208px"
+                    className="object-cover object-top"
+                  />
+                </div>
+              </PhoneFrame>
+            </div>
           </header>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

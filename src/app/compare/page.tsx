@@ -1,10 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
+import { Calendar, Video, UserRound } from "lucide-react";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import AppStoreBadge from "@/components/app-store-badge";
-import { COMPARISONS, COMPARE_SLUGS } from "./[vs]/data";
+import PhoneFrame from "@/components/mockups/phone-frame";
+import { COMPARISONS, COMPARE_SLUGS, type CompareSlug } from "./[vs]/data";
 import { APP_STORE_URL, BASE_URL } from "@/lib/config";
+
+const COMPARE_ICONS: Record<CompareSlug, typeof Calendar> = {
+  "vs-playtomic": Calendar,
+  "vs-swingvision": Video,
+  "vs-private-coach": UserRound,
+};
 
 const PAGE_URL = `${BASE_URL}/compare`;
 
@@ -66,29 +75,48 @@ export default function CompareHub() {
       <Navbar />
       <main className="flex-1 pt-24 pb-24">
         <article className="mx-auto max-w-5xl px-6 sm:px-10 lg:px-16">
-          <header className="mb-20 text-center">
-            <span className="mb-4 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[#00E676]">
-              Compare
-            </span>
-            <h1 className="font-heading text-4xl font-bold leading-[1.05] text-white sm:text-5xl lg:text-6xl">
-              PadelUp vs the alternatives.
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/55">
-              Most "vs" pages exist to trash the competition. These don&apos;t.
-              Where PadelUp wins, we say so. Where something else is better, we
-              say that too.
-            </p>
+          <header className="mb-20 grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:items-center">
+            <div>
+              <span className="mb-4 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[#00E676]">
+                Compare
+              </span>
+              <h1 className="font-heading text-4xl font-bold leading-[1.05] text-white sm:text-5xl lg:text-6xl">
+                PadelUp vs the alternatives.
+              </h1>
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/55">
+                Most &ldquo;vs&rdquo; pages exist to trash the competition. These
+                don&apos;t. Where PadelUp wins, we say so. Where something else is
+                better, we say that too.
+              </p>
+            </div>
+            <div className="mx-auto w-52 sm:w-60 lg:w-64">
+              <PhoneFrame>
+                <div className="absolute inset-0">
+                  <Image
+                    src="/screenshots/raw/analyze.png"
+                    alt="PadelUp frame-by-frame video analysis"
+                    fill
+                    sizes="(min-width: 1024px) 256px, 208px"
+                    className="object-cover object-top"
+                  />
+                </div>
+              </PhoneFrame>
+            </div>
           </header>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {COMPARE_SLUGS.map((slug) => {
               const c = COMPARISONS[slug];
+              const Icon = COMPARE_ICONS[slug];
               return (
                 <Link
                   key={slug}
                   href={`/compare/${slug}`}
                   className="group rounded-2xl border border-white/[0.06] bg-white/[0.02] p-7 transition-colors duration-200 hover:border-[#00E676]/30 hover:bg-white/[0.035]"
                 >
+                  <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-xl border border-[#00E676]/20 bg-[#00E676]/[0.06] text-[#00E676]">
+                    <Icon size={18} strokeWidth={1.75} />
+                  </div>
                   <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#00E676]/70">
                     vs {c.competitor}
                   </span>

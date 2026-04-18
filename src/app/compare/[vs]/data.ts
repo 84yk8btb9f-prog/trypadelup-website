@@ -11,6 +11,8 @@ export interface CompareData {
   description: string;
   intro: string;
   positioning: string;
+  heroScreenshot: string;
+  heroScreenshotAlt: string;
   table: {
     feature: string;
     padelup: string;
@@ -34,6 +36,8 @@ export const COMPARISONS: Record<CompareSlug, CompareData> = {
       "Playtomic is the default court-booking app across Europe. It does one thing and does it well: find courts, book times, match with players. It doesn't coach you. PadelUp is the opposite — it analyses your technique, builds your training plan, and answers padel questions 24/7. Most players who are actually trying to improve use both.",
     positioning:
       "These two apps don't compete — they complement. Think of Playtomic as your diary and PadelUp as your coach.",
+    heroScreenshot: "/screenshots/raw/home.png",
+    heroScreenshotAlt: "PadelUp home screen showing training progress and quick access to analysis",
     table: [
       { feature: "Core function", padelup: "AI padel coaching", competitor: "Court booking + matchmaking" },
       { feature: "AI video analysis", padelup: "Frame-by-frame, 0–10 scores", competitor: "None" },
@@ -94,6 +98,8 @@ export const COMPARISONS: Record<CompareSlug, CompareData> = {
       "SwingVision is an excellent AI for tennis — line calling, rally stats, swing analysis. It added padel support, but the underlying model is tennis-trained. PadelUp was built for padel from day one, with shot types (bandeja, víbora, glass play) and scoring criteria that don't exist in tennis. If you play padel specifically, that difference matters.",
     positioning:
       "Tennis-ported AI vs padel-native AI. Both do video analysis. One understands bandeja; the other doesn't.",
+    heroScreenshot: "/screenshots/raw/analyze.png",
+    heroScreenshotAlt: "PadelUp frame-by-frame video analysis scoring a padel shot across 5 technique dimensions",
     table: [
       { feature: "Primary sport", padelup: "Padel", competitor: "Tennis (padel added)" },
       { feature: "Padel shot types recognised", padelup: "8 (inc. bandeja, víbora, glass)", competitor: "Limited" },
@@ -154,6 +160,8 @@ export const COMPARISONS: Record<CompareSlug, CompareData> = {
       "A good private padel coach is the fastest way to fix a broken shot — while you're on court with them. The limitation is time and cost. You get one hour a week, the rest of your training happens unmonitored, and a full package runs into thousands. PadelUp isn't trying to replace a coach. It's trying to be the other 167 hours a week.",
     positioning:
       "Private coach: deep, expensive, weekly. PadelUp: broad, affordable, always on. Not a replacement — a complement.",
+    heroScreenshot: "/screenshots/raw/training.png",
+    heroScreenshotAlt: "PadelUp personalized weekly padel training plan tailored to the player's weakest shots",
     table: [
       { feature: "Typical cost", padelup: "Monthly subscription", competitor: "$60–100 per hour" },
       { feature: "Availability", padelup: "24/7", competitor: "Weekly, by appointment" },

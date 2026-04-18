@@ -4,8 +4,58 @@ import Link from "next/link";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import AppStoreBadge from "@/components/app-store-badge";
+import PadelCourt from "@/components/diagrams/padel-court";
+import TennisCourt from "@/components/diagrams/tennis-court";
+import BandejaSwing from "@/components/diagrams/bandeja-swing";
 import { LEARN, LEARN_SLUGS, type LearnSlug } from "./data";
 import { APP_STORE_URL, BASE_URL } from "@/lib/config";
+
+function DiagramFor({ slug }: { slug: LearnSlug }) {
+  if (slug === "padel-rules") {
+    return (
+      <figure className="mt-10 mb-4 rounded-3xl border border-white/[0.06] bg-white/[0.015] p-6 sm:p-10">
+        <PadelCourt className="mx-auto w-full max-w-2xl" />
+        <figcaption className="mt-6 text-center text-xs uppercase tracking-[0.18em] text-white/40">
+          Padel court — 20 m × 10 m, net at centre
+        </figcaption>
+      </figure>
+    );
+  }
+  if (slug === "padel-vs-tennis") {
+    return (
+      <figure className="mt-10 mb-4 rounded-3xl border border-white/[0.06] bg-white/[0.015] p-6 sm:p-10">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <div>
+            <PadelCourt className="mx-auto w-full" />
+            <p className="mt-4 text-center text-xs uppercase tracking-[0.18em] text-[#00E676]/80">
+              Padel · 20 × 10 m · walled
+            </p>
+          </div>
+          <div>
+            <TennisCourt className="mx-auto w-full" />
+            <p className="mt-4 text-center text-xs uppercase tracking-[0.18em] text-white/40">
+              Tennis · 23.77 × 10.97 m · open
+            </p>
+          </div>
+        </div>
+        <figcaption className="mt-8 text-center text-xs uppercase tracking-[0.18em] text-white/40">
+          Courts drawn to scale
+        </figcaption>
+      </figure>
+    );
+  }
+  if (slug === "bandeja-technique") {
+    return (
+      <figure className="mt-10 mb-4 rounded-3xl border border-white/[0.06] bg-white/[0.015] p-6 sm:p-10">
+        <BandejaSwing className="mx-auto w-full max-w-3xl" />
+        <figcaption className="mt-6 text-center text-xs uppercase tracking-[0.18em] text-white/40">
+          Bandeja swing path — side view
+        </figcaption>
+      </figure>
+    );
+  }
+  return null;
+}
 
 export function generateStaticParams() {
   return LEARN_SLUGS.map((topic) => ({ topic }));
@@ -121,6 +171,8 @@ export default async function LearnPage({
               {data.intro}
             </p>
           </header>
+
+          <DiagramFor slug={data.slug} />
 
           {data.sections.map((s) => (
             <section key={s.title} className="mb-10">

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import AppStoreBadge from "@/components/app-store-badge";
+import PhoneFrame from "@/components/mockups/phone-frame";
 import { FEATURES, FEATURE_SLUGS } from "./[feature]/data";
 import { APP_STORE_URL, BASE_URL } from "@/lib/config";
 
@@ -67,18 +69,33 @@ export default function FeaturesHub() {
       <Navbar />
       <main className="flex-1 pt-24 pb-24">
         <article className="mx-auto max-w-5xl px-6 sm:px-10 lg:px-16">
-          <header className="mb-20 text-center">
-            <span className="mb-4 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[#00E676]">
-              Features
-            </span>
-            <h1 className="font-heading text-4xl font-bold leading-[1.05] text-white sm:text-5xl lg:text-6xl">
-              Every tool you need to improve at padel.
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/55">
-              Four AI-powered tools that work together — analyse your
-              technique, plan your training, fuel your body, and ask anything
-              about padel. Built for iOS.
-            </p>
+          <header className="mb-20 grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:items-center">
+            <div>
+              <span className="mb-4 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[#00E676]">
+                Features
+              </span>
+              <h1 className="font-heading text-4xl font-bold leading-[1.05] text-white sm:text-5xl lg:text-6xl">
+                Every tool you need to improve at padel.
+              </h1>
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/55">
+                Four AI-powered tools that work together — analyse your
+                technique, plan your training, fuel your body, and ask anything
+                about padel. Built for iOS.
+              </p>
+            </div>
+            <div className="mx-auto w-52 sm:w-60 lg:w-64">
+              <PhoneFrame>
+                <div className="absolute inset-0">
+                  <Image
+                    src="/screenshots/raw/home.png"
+                    alt="PadelUp home screen"
+                    fill
+                    sizes="(min-width: 1024px) 256px, 208px"
+                    className="object-cover object-top"
+                  />
+                </div>
+              </PhoneFrame>
+            </div>
           </header>
 
           <div className="grid gap-6 sm:grid-cols-2">
@@ -88,25 +105,36 @@ export default function FeaturesHub() {
                 <Link
                   key={slug}
                   href={`/features/${slug}`}
-                  className="group rounded-2xl border border-white/[0.06] bg-white/[0.02] p-8 transition-colors duration-200 hover:border-[#00E676]/30 hover:bg-white/[0.035]"
+                  className="group overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] transition-colors duration-200 hover:border-[#00E676]/30 hover:bg-white/[0.035]"
                 >
-                  <h2 className="mb-3 text-xl font-semibold text-white group-hover:text-[#00E676]">
-                    {f.h1}
-                  </h2>
-                  <p className="mb-5 text-sm leading-relaxed text-white/55">
-                    {f.description}
-                  </p>
-                  <ul className="space-y-1.5">
-                    {f.bullets.slice(0, 3).map((b) => (
-                      <li
-                        key={b}
-                        className="flex items-center gap-3 text-xs text-white/45"
-                      >
-                        <span className="h-1 w-1 flex-shrink-0 rounded-full bg-[#00E676]/70" />
-                        <span>{b}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="relative aspect-[16/9] w-full overflow-hidden border-b border-white/[0.06] bg-[#0A0A0A]">
+                    <Image
+                      src={f.mockup}
+                      alt={f.mockupAlt}
+                      fill
+                      sizes="(min-width: 640px) 50vw, 100vw"
+                      className="object-cover object-top opacity-90 transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  </div>
+                  <div className="p-7">
+                    <h2 className="mb-3 text-xl font-semibold text-white group-hover:text-[#00E676]">
+                      {f.h1}
+                    </h2>
+                    <p className="mb-5 text-sm leading-relaxed text-white/55">
+                      {f.description}
+                    </p>
+                    <ul className="space-y-1.5">
+                      {f.bullets.slice(0, 3).map((b) => (
+                        <li
+                          key={b}
+                          className="flex items-center gap-3 text-xs text-white/45"
+                        >
+                          <span className="h-1 w-1 flex-shrink-0 rounded-full bg-[#00E676]/70" />
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </Link>
               );
             })}

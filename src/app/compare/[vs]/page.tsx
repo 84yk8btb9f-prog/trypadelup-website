@@ -1,9 +1,11 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import AppStoreBadge from "@/components/app-store-badge";
+import PhoneFrame from "@/components/mockups/phone-frame";
 import { COMPARISONS, COMPARE_SLUGS, type CompareSlug } from "./data";
 import { APP_STORE_URL, BASE_URL } from "@/lib/config";
 
@@ -84,20 +86,35 @@ export default async function ComparePage({
       />
       <Navbar />
       <main className="flex-1 pt-24 pb-24">
-        <article className="mx-auto max-w-4xl px-6 sm:px-10 lg:px-16">
-          <header className="mb-16">
-            <span className="mb-4 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[#00E676]">
-              Compare · PadelUp vs {data.competitor}
-            </span>
-            <h1 className="font-heading text-4xl font-bold leading-[1.05] text-white sm:text-5xl lg:text-6xl">
-              {data.h1}
-            </h1>
-            <p className="mt-6 text-lg leading-relaxed text-white/55">
-              {data.intro}
-            </p>
-            <p className="mt-4 rounded-xl border-l-2 border-[#00E676]/40 bg-white/[0.02] p-5 text-sm leading-relaxed text-white/65">
-              {data.positioning}
-            </p>
+        <article className="mx-auto max-w-5xl px-6 sm:px-10 lg:px-16">
+          <header className="mb-16 grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:items-center">
+            <div>
+              <span className="mb-4 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[#00E676]">
+                Compare · PadelUp vs {data.competitor}
+              </span>
+              <h1 className="font-heading text-4xl font-bold leading-[1.05] text-white sm:text-5xl lg:text-6xl">
+                {data.h1}
+              </h1>
+              <p className="mt-6 text-lg leading-relaxed text-white/55">
+                {data.intro}
+              </p>
+              <p className="mt-5 rounded-xl border-l-2 border-[#00E676]/40 bg-white/[0.02] p-5 text-sm leading-relaxed text-white/65">
+                {data.positioning}
+              </p>
+            </div>
+            <div className="mx-auto w-52 sm:w-60 lg:w-64">
+              <PhoneFrame>
+                <div className="absolute inset-0">
+                  <Image
+                    src={data.heroScreenshot}
+                    alt={data.heroScreenshotAlt}
+                    fill
+                    sizes="(min-width: 1024px) 256px, (min-width: 640px) 240px, 208px"
+                    className="object-cover object-top"
+                  />
+                </div>
+              </PhoneFrame>
+            </div>
           </header>
 
           <section className="mb-16">
