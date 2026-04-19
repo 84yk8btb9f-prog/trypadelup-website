@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import StructuredData from "@/components/structured-data";
 import { APP_IS_LIVE, APP_STORE_ID, BASE_URL } from "@/lib/config";
@@ -160,6 +161,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col bg-[#050505] text-[#f0f4f8]">
         {children}
+        <Analytics />
         <Script id="microsoft-clarity" strategy="afterInteractive">
           {`(function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
