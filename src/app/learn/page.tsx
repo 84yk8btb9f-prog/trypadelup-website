@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { BookOpen, GitCompareArrows, Zap } from "lucide-react";
+import { BookOpen, GitCompareArrows, Zap, Bot, Video, ScanSearch, Swords, MapPin, TrendingUp, Move, Footprints, RotateCcw, Users, AlertCircle, Cpu, Trophy, Eye, Layers, Target, BarChart3 } from "lucide-react";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import AppStoreBadge from "@/components/app-store-badge";
@@ -13,6 +13,23 @@ const ICONS: Record<LearnSlug, typeof BookOpen> = {
   "padel-rules": BookOpen,
   "padel-vs-tennis": GitCompareArrows,
   "bandeja-technique": Zap,
+  "ai-padel-coaching": Bot,
+  "padel-video-analysis": Video,
+  "padel-technique-weaknesses": ScanSearch,
+  "padel-backhand-technique": Swords,
+  "padel-court-positioning": MapPin,
+  "padel-improvement-plateau": TrendingUp,
+  "padel-forehand-technique": Move,
+  "padel-footwork-drills": Footprints,
+  "padel-vibora-shot": RotateCcw,
+  "padel-doubles-strategy": Users,
+  "padel-rules-mistakes": AlertCircle,
+  "ai-sports-coaching-future": Cpu,
+  "padel-tournament-prep": Trophy,
+  "how-to-read-opponents": Eye,
+  "master-padel-technique-ai": Layers,
+  "advanced-padel-strategy-tactics": Target,
+  "ai-padel-coaching-performance": BarChart3,
 };
 
 const PAGE_URL = `${BASE_URL}/learn`;

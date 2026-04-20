@@ -1,7 +1,8 @@
 export type CompareSlug =
   | "vs-playtomic"
   | "vs-swingvision"
-  | "vs-private-coach";
+  | "vs-private-coach"
+  | "vs-squash";
 
 export interface CompareData {
   slug: CompareSlug;
@@ -208,6 +209,116 @@ export const COMPARISONS: Record<CompareSlug, CompareData> = {
       {
         q: "Will my coach find PadelUp useful?",
         a: "Yes — several coaches already use the analysis output to structure lessons. Some clubs offer it as a member benefit.",
+      },
+    ],
+  },
+  "vs-squash": {
+    slug: "vs-squash",
+    competitor: "squash",
+    h1: "Padel vs squash — how the two sports compare for racket players",
+    title: "Padel vs Squash: Key Differences for Racket Sport Players | PadelUp",
+    description:
+      "Padel and squash both use walls, but they're completely different sports. Here's how court, serve, ball, and tactics compare — and what transfers between them.",
+    intro:
+      "Both padel and squash use walls. That's where most of the similarities end. The court dimensions, the equipment, the serve, and the tactical logic are different enough that squash players starting padel have a genuine advantage on some things and a genuine handicap on others.",
+    positioning:
+      "Squash uses walls offensively; padel uses them defensively. Both sports reward positioning — but the positions that win are completely different.",
+    heroScreenshot: "/screenshots/raw/home.png",
+    heroScreenshotAlt:
+      "PadelUp home screen showing AI padel coaching for players switching from other racket sports",
+    table: [
+      {
+        feature: "Court dimensions",
+        padelup: "20m × 10m, enclosed, outdoors or indoors",
+        competitor: "9.75m × 6.4m, fully enclosed, indoors",
+      },
+      {
+        feature: "Players",
+        padelup: "Always doubles (4 players)",
+        competitor: "Singles or doubles",
+      },
+      {
+        feature: "Racket",
+        padelup: "Solid composite, no strings, ~45cm",
+        competitor: "Strung, longer handle, more like tennis",
+      },
+      {
+        feature: "Ball",
+        padelup: "Low-pressure rubber, similar to tennis ball",
+        competitor: "Hollow rubber, much smaller, very fast",
+      },
+      {
+        feature: "Serve",
+        padelup: "Underhand, bounced, into diagonal service box",
+        competitor: "Overhead, against front wall, service box rules",
+      },
+      {
+        feature: "Wall use",
+        padelup: "After bounce — defensive reset off back/side glass",
+        competitor: "Directly off front wall — primary shot surface",
+      },
+      {
+        feature: "Scoring",
+        padelup: "Tennis scoring: 15, 30, 40, game",
+        competitor: "Point-a-rally to 11, best of 5",
+      },
+      {
+        feature: "AI coaching",
+        padelup: "Frame-by-frame analysis, 8 shot types",
+        competitor: "Not offered by PadelUp",
+      },
+    ],
+    sections: [
+      {
+        title: "The wall logic is completely different",
+        body: "In squash, the front wall is the primary playing surface — every shot goes to the front wall first. In padel, the walls are a secondary surface used after the ball bounces on the ground. A squash player's instinct to attack with the wall works against them in padel: you're looking for defensive resets off the back glass, not offensive wall play. The tactical instinct needs to invert.",
+      },
+      {
+        title: "What squash players get right immediately",
+        body: "Court awareness, reading a moving ball off surfaces, quick reflexes, and the physical discipline for racket sport movement all transfer. Squash players tend to pick up padel volleys faster than tennis players — the punching motion and wrist control are closer to squash strokes than tennis strokes. Footwork and split-step habits also carry over well.",
+      },
+      {
+        title: "What squash players get wrong",
+        body: "The serve — squash players instinctively want to hit overhead or against the front wall, neither of which is legal in padel. The doubles logic is unfamiliar; squash is almost always singles, and padel's partner coordination is a new skill. The back wall reset requires a specific footwork pattern (turn and face the glass) that squash instincts actively work against.",
+      },
+      {
+        title: "Equipment differences that affect play",
+        body: "The padel racket is solid — no strings, perforated composite face, about 45cm long. The squash racket is strung and longer. The padel ball is larger and lower-pressure than a squash ball, giving a slower bounce and more time to react. Squash players typically find padel gives them more time than they're used to — which they can use to improve positioning rather than racing to the ball.",
+      },
+      {
+        title: "Fitness and physical demands",
+        body: "Squash is one of the most aerobically demanding sports. Padel is high intensity but less continuously demanding — points are shorter and doubles sharing of court coverage reduces individual movement load. Squash players entering padel are typically over-fit for the physical demands, which lets them focus on technique and positioning rather than managing fatigue.",
+      },
+      {
+        title: "Which sport is harder to master",
+        body: "Squash is harder to start — the ball speed and court size make early sessions genuinely difficult. Padel is easier to start and harder to master at an advanced level. The tactical depth of doubles positioning, the shot variety (bandeja, víbora, glass play), and the partner coordination create a complexity that rewards long-term investment. For a squash player making the switch, expect a faster early improvement curve than the average beginner.",
+      },
+    ],
+    verdict:
+      "Squash and padel reward similar physical traits but require completely different tactical instincts. Squash players pick up padel faster than most — but need to explicitly unlearn the front-wall instinct and learn the doubles game.",
+    keywords: [
+      "padel vs squash",
+      "padel squash differences",
+      "squash player starting padel",
+      "racket sport comparison padel",
+      "padel court vs squash court",
+    ],
+    faq: [
+      {
+        q: "Is padel easier than squash?",
+        a: "Easier to start — the slower ball and larger court give beginners more time. Harder to master at an advanced level due to the tactical complexity of doubles and the range of shot types required.",
+      },
+      {
+        q: "Do squash players pick up padel quickly?",
+        a: "Yes, typically faster than tennis or other racket sport players. Reflexes, wall awareness, and movement discipline all carry over. The serve and doubles coordination are the main things to learn from scratch.",
+      },
+      {
+        q: "Can I use a squash racket in padel?",
+        a: "No. Padel requires a solid-faced racket within specific dimensions. Squash rackets are strung and would be both illegal and impractical on a padel court.",
+      },
+      {
+        q: "Do the wall skills from squash transfer to padel?",
+        a: "Partially. Reading a ball bouncing off a surface transfers. The specific instincts — hitting toward the front wall, playing the ball directly off the wall without a ground bounce — do not. Those need to be explicitly unlearned.",
       },
     ],
   },
