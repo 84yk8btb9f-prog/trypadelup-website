@@ -217,6 +217,7 @@ def pull_clarity():
         return None
     url = "https://www.clarity.ms/export-data/api/v1/project-live-insights?numOfDays=3&dimension1=URL"
     status, body = http("GET", url, headers={"Authorization": f"Bearer {CLARITY_TOKEN}"})
+    print(f"Clarity debug: status={status} bodylen={len(body) if body else 0} first400={(body or '')[:400]}")
     if status != 200:
         errors.append(f"Clarity HTTP {status}: {body[:200]}")
         return None
