@@ -273,7 +273,10 @@ def _aggregate_clarity(snapshots_by_date: dict):
                         per_url_sessions[url] = per_url_sessions.get(url, 0) + s
                 bucket = name_to_bucket.get(key)
                 if bucket and url:
-                    c = int(info.get("sessionsCount") or info.get("subTotal") or 0)
+                    # subTotal = actual count of the metric (e.g. dead clicks).
+                    # sessionsCount on these rows is just page visits and would
+                    # overstate severity, so we ignore it here.
+                    c = int(info.get("subTotal") or 0)
                     if c > 0:
                         hotspots[bucket][url] = hotspots[bucket].get(url, 0) + c
         per_day_sessions[date] = day_sessions
