@@ -215,12 +215,11 @@ def pull_bing():
 CLARITY_DAILY_DIR = REPO_ROOT / "seo-reports" / "clarity-daily"
 
 
-def _clarity_live_today():
-    """Fetch today's Clarity window live (numOfDays=1). Used when the daily
-    snapshot workflow hasn't run yet for today. API limit: 10 calls/day."""
+def _clarity_live(num_days: int = 3):
+    """Fetch Clarity insights for the last N days (1, 2, or 3 per API cap)."""
     if not CLARITY_TOKEN:
         return None
-    url = "https://www.clarity.ms/export-data/api/v1/project-live-insights?numOfDays=1&dimension1=URL"
+    url = f"https://www.clarity.ms/export-data/api/v1/project-live-insights?numOfDays={num_days}&dimension1=URL"
     status, body = http("GET", url, headers={"Authorization": f"Bearer {CLARITY_TOKEN}"})
     if status != 200:
         errors.append(f"Clarity live HTTP {status}: {body[:200]}")
@@ -290,17 +289,31 @@ def _aggregate_clarity(snapshots_by_date: dict):
 
 
 def pull_clarity():
-    """Build a rolling 7-day Clarity rollup from daily snapshots
-    (seo-reports/clarity-daily/YYYY-MM-DD.json) + a live top-up for today.
-
-    Microsoft's API caps at 1/2/3 days per call and 10 calls/project/day, so
-    the 7-day view is built by accumulating daily snapshots over time. First
-    run: we only have today's live data; each subsequent day adds one."""
+    """Build a 7-day Clarity rollup:
+      - Live numOfDays=3 fetch covers the most recent 72h (today + 2 days back).
+      - Daily snapshots in seo-reports/clarity-daily/ cover days 4–7.
+    Clarity API caps at 1/2/3 days per call and 10 calls/project/day, so a
+    single call cannot return 7 days. During the first week after deployment,
+    only the 3-day live window is available; the daily snapshot workflow
+    (00:30 UTC) accumulates older days over the following week."""
     snapshots: dict[str, list] = {}
 
+    # Live 3-day window — primary source for the 3 most recent days.
+    live3 = _clarity_live(3)
+    if isinstance(live3, list):
+        snapshots["live-3d"] = live3
+
+    # Historical daily snapshots older than 3 days — fill in days 4–7.
     if CLARITY_DAILY_DIR.is_dir():
-        files = sorted(CLARITY_DAILY_DIR.glob("*.json"))[-7:]
+        cutoff = (now - timedelta(days=3)).date()
+        files = sorted(CLARITY_DAILY_DIR.glob("*.json"))
         for f in files:
+            try:
+                snap_date = datetime.strptime(f.stem, "%Y-%m-%d").date()
+            except ValueError:
+                continue
+            if snap_date >= cutoff:
+                continue  # already covered by live 3-day fetch
             try:
                 snap = json.loads(f.read_text(encoding="utf-8"))
                 metrics = snap.get("metrics") if isinstance(snap, dict) else snap
@@ -309,10 +322,12 @@ def pull_clarity():
             except Exception as e:
                 errors.append(f"Clarity snapshot {f.name} unreadable: {e}")
 
-    if TODAY not in snapshots:
-        live = _clarity_live_today()
-        if isinstance(live, list):
-            snapshots[TODAY] = live
+        # Keep only the 4 most recent historical days (days 4-7 of the window).
+        historical = {k: v for k, v in snapshots.items() if k != "live-3d"}
+        keep = dict(sorted(historical.items())[-4:])
+        snapshots = {"live-3d": snapshots.get("live-3d")} if "live-3d" in snapshots else {}
+        snapshots.update(keep)
+        snapshots = {k: v for k, v in snapshots.items() if v is not None}
 
     if not snapshots:
         return None
@@ -501,12 +516,21 @@ def render_bing(bing):
 def render_clarity(clarity):
     if not clarity:
         return (
-            "## Microsoft Clarity (last 7 days, rolling)\n\n"
-            "(no data yet — snapshots accumulate daily; first week will ramp up from 1 day)\n\n"
+            "## Microsoft Clarity (last 7 days)\n\n"
+            "(no data yet — snapshots accumulate daily; first week will ramp up from 3 days)\n\n"
         )
 
     dates = clarity.get("snapshot_dates") or []
-    window_label = f"last {len(dates)} day{'s' if len(dates) != 1 else ''} ({dates[0]} → {dates[-1]})" if dates else "no days yet"
+    has_live = "live-3d" in dates
+    historical = [d for d in dates if d != "live-3d"]
+    if has_live and historical:
+        window_label = f"last 72h live + {len(historical)} historical day{'s' if len(historical) != 1 else ''} ({historical[0]} → {historical[-1]})"
+    elif has_live:
+        window_label = "last 72h (live fetch; historical snapshots accumulating daily)"
+    elif historical:
+        window_label = f"{len(historical)} historical day{'s' if len(historical) != 1 else ''} ({historical[0]} → {historical[-1]}) — live fetch failed"
+    else:
+        window_label = "no data yet"
     lines = [f"## Microsoft Clarity ({window_label})\n"]
 
     sessions = clarity.get("sessions") or 0
@@ -518,9 +542,10 @@ def render_clarity(clarity):
 
     per_day = clarity.get("per_day_sessions") or {}
     if per_day and any(per_day.values()):
-        lines.append("- Sessions per day:")
+        lines.append("- Sessions per window:")
         for d in sorted(per_day.keys()):
-            lines.append(f"  - {d}: {per_day[d]}")
+            label = "last 72h (live)" if d == "live-3d" else d
+            lines.append(f"  - {label}: {per_day[d]}")
 
     per_url = clarity.get("per_url_sessions") or {}
     lines.append("- Top pages by sessions:")
