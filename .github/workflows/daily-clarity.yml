@@ -1,0 +1,51 @@
+name: daily-clarity-snapshot
+
+on:
+  schedule:
+    - cron: "30 0 * * *"  # 00:30 UTC daily — before weekly-seo-report (Mon 02:00 UTC)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-clarity-snapshot
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Snapshot Clarity
+        env:
+          CLARITY_TOKEN: ${{ secrets.CLARITY_TOKEN }}
+        run: python3 scripts/clarity-daily-snapshot.py
+
+      - name: Verify no secrets leaked
+        run: |
+          if grep -rIE '${{ secrets.CLARITY_TOKEN }}' seo-reports/ 2>/dev/null; then
+            echo "::error::Token found inside seo-reports/ — aborting"
+            exit 1
+          fi
+
+      - name: Commit snapshot
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add seo-reports/clarity-daily/
+          if git diff --cached --quiet; then
+            echo "No new snapshot to commit."
+            exit 0
+          fi
+          git commit -m "chore(seo): clarity daily snapshot $(date -u +%Y-%m-%d)"
+          git pull --rebase origin main
+          git push origin HEAD:main

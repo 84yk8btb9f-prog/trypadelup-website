@@ -212,20 +212,111 @@ def pull_bing():
 # ---------------------------------------------------------------------------
 # Microsoft Clarity
 # ---------------------------------------------------------------------------
-def pull_clarity():
+CLARITY_DAILY_DIR = REPO_ROOT / "seo-reports" / "clarity-daily"
+
+
+def _clarity_live_today():
+    """Fetch today's Clarity window live (numOfDays=1). Used when the daily
+    snapshot workflow hasn't run yet for today. API limit: 10 calls/day."""
     if not CLARITY_TOKEN:
         return None
-    url = "https://www.clarity.ms/export-data/api/v1/project-live-insights?numOfDays=3&dimension1=URL"
+    url = "https://www.clarity.ms/export-data/api/v1/project-live-insights?numOfDays=1&dimension1=URL"
     status, body = http("GET", url, headers={"Authorization": f"Bearer {CLARITY_TOKEN}"})
-    print(f"Clarity debug: status={status} bodylen={len(body) if body else 0} first400={(body or '')[:400]}")
     if status != 200:
-        errors.append(f"Clarity HTTP {status}: {body[:200]}")
+        errors.append(f"Clarity live HTTP {status}: {body[:200]}")
         return None
     try:
         return json.loads(body)
     except Exception as e:
-        errors.append(f"Clarity parse: {e}")
+        errors.append(f"Clarity live parse: {e}")
         return None
+
+
+def _aggregate_clarity(snapshots_by_date: dict):
+    """Aggregate a {date_str: raw_metrics_list} dict into a 7-day rollup."""
+    total_sessions = 0
+    total_bot = 0
+    per_url_sessions: dict[str, int] = {}
+    hotspots = {"rage": {}, "dead": {}, "quick": {}}
+    per_day_sessions: dict[str, int] = {}
+
+    name_to_bucket = {
+        "rageclickcount": "rage",
+        "rageclicks": "rage",
+        "deadclickcount": "dead",
+        "deadclicks": "dead",
+        "quickbackclick": "quick",
+        "quickbackclicks": "quick",
+        "quickbackclickcount": "quick",
+    }
+
+    for date, metrics in snapshots_by_date.items():
+        day_sessions = 0
+        if not isinstance(metrics, list):
+            continue
+        for m in metrics:
+            name = (m.get("metricName") or "").strip()
+            key = name.lower().replace(" ", "")
+            rows = m.get("information") or []
+            for info in rows:
+                url = info.get("Url") or info.get("URL") or ""
+                if key == "traffic":
+                    s = int(info.get("totalSessionCount") or 0)
+                    b = int(info.get("totalBotSessionCount") or 0)
+                    total_sessions += s
+                    total_bot += b
+                    day_sessions += s
+                    if url:
+                        per_url_sessions[url] = per_url_sessions.get(url, 0) + s
+                elif key in ("popularpages",):
+                    s = int(info.get("totalSessionCount") or info.get("sessionsCount") or 0)
+                    if url:
+                        per_url_sessions[url] = per_url_sessions.get(url, 0) + s
+                bucket = name_to_bucket.get(key)
+                if bucket and url:
+                    c = int(info.get("sessionsCount") or info.get("subTotal") or 0)
+                    if c > 0:
+                        hotspots[bucket][url] = hotspots[bucket].get(url, 0) + c
+        per_day_sessions[date] = day_sessions
+
+    return {
+        "snapshot_dates": sorted(snapshots_by_date.keys()),
+        "sessions": total_sessions,
+        "bot_sessions": total_bot,
+        "per_url_sessions": per_url_sessions,
+        "per_day_sessions": per_day_sessions,
+        "hotspots": hotspots,
+    }
+
+
+def pull_clarity():
+    """Build a rolling 7-day Clarity rollup from daily snapshots
+    (seo-reports/clarity-daily/YYYY-MM-DD.json) + a live top-up for today.
+
+    Microsoft's API caps at 1/2/3 days per call and 10 calls/project/day, so
+    the 7-day view is built by accumulating daily snapshots over time. First
+    run: we only have today's live data; each subsequent day adds one."""
+    snapshots: dict[str, list] = {}
+
+    if CLARITY_DAILY_DIR.is_dir():
+        files = sorted(CLARITY_DAILY_DIR.glob("*.json"))[-7:]
+        for f in files:
+            try:
+                snap = json.loads(f.read_text(encoding="utf-8"))
+                metrics = snap.get("metrics") if isinstance(snap, dict) else snap
+                if isinstance(metrics, list):
+                    snapshots[f.stem] = metrics
+            except Exception as e:
+                errors.append(f"Clarity snapshot {f.name} unreadable: {e}")
+
+    if TODAY not in snapshots:
+        live = _clarity_live_today()
+        if isinstance(live, list):
+            snapshots[TODAY] = live
+
+    if not snapshots:
+        return None
+    return _aggregate_clarity(snapshots)
 
 
 # ---------------------------------------------------------------------------
@@ -408,44 +499,42 @@ def render_bing(bing):
 
 
 def render_clarity(clarity):
-    lines = ["## Microsoft Clarity (last 3 days)\n"]
     if not clarity:
-        lines.append("(no data yet)\n")
-        return "\n".join(lines)
+        return (
+            "## Microsoft Clarity (last 7 days, rolling)\n\n"
+            "(no data yet — snapshots accumulate daily; first week will ramp up from 1 day)\n\n"
+        )
 
-    # Expected shape: list of {metricName, information: [{Url, SessionsCount, ...}]}
-    sessions_total = 0
-    per_url_sessions: dict[str, int] = {}
-    rage: list[tuple[str, int]] = []
-    dead: list[tuple[str, int]] = []
-    quick: list[tuple[str, int]] = []
+    dates = clarity.get("snapshot_dates") or []
+    window_label = f"last {len(dates)} day{'s' if len(dates) != 1 else ''} ({dates[0]} → {dates[-1]})" if dates else "no days yet"
+    lines = [f"## Microsoft Clarity ({window_label})\n"]
 
-    if isinstance(clarity, list):
-        for m in clarity:
-            name = m.get("metricName") or ""
-            for info in m.get("information") or []:
-                url = info.get("Url") or info.get("URL") or "?"
-                if name == "Sessions":
-                    c = int(info.get("SessionsCount") or 0)
-                    sessions_total += c
-                    per_url_sessions[url] = per_url_sessions.get(url, 0) + c
-                for key, bucket in (("RageClicksCount", rage),
-                                    ("DeadClicksCount", dead),
-                                    ("QuickbackClicksCount", quick)):
-                    v = info.get(key)
-                    if v:
-                        bucket.append((url, int(v)))
+    sessions = clarity.get("sessions") or 0
+    bots = clarity.get("bot_sessions") or 0
+    human = max(sessions - bots, 0)
+    lines.append(f"- Sessions (human): {human if human else '(no data yet)'}")
+    if bots:
+        lines.append(f"- Bot sessions excluded: {bots}")
 
-    lines.append(f"- Sessions: {sessions_total if sessions_total else '(no data yet)'}")
+    per_day = clarity.get("per_day_sessions") or {}
+    if per_day and any(per_day.values()):
+        lines.append("- Sessions per day:")
+        for d in sorted(per_day.keys()):
+            lines.append(f"  - {d}: {per_day[d]}")
+
+    per_url = clarity.get("per_url_sessions") or {}
     lines.append("- Top pages by sessions:")
-    if per_url_sessions:
-        top = sorted(per_url_sessions.items(), key=lambda x: x[1], reverse=True)[:5]
+    if per_url:
+        top = sorted(per_url.items(), key=lambda x: x[1], reverse=True)[:5]
         for url, c in top:
             lines.append(f"  - `{url}` — {c} sessions")
     else:
-        lines.append("  - (no data yet)")
+        lines.append("  - (no Traffic/Popular Pages data in snapshots yet)")
 
-    def fmt_bucket(title, items):
+    hotspots = clarity.get("hotspots") or {}
+
+    def fmt_bucket(title: str, key: str):
+        items = list((hotspots.get(key) or {}).items())
         if not items:
             lines.append(f"- {title}: none")
             return
@@ -453,9 +542,9 @@ def render_clarity(clarity):
         hot = ", ".join(f"`{u}` ({c})" for u, c in items[:5])
         lines.append(f"- {title}: {hot}")
 
-    fmt_bucket("Rage-click hotspots", rage)
-    fmt_bucket("Dead-click hotspots", dead)
-    fmt_bucket("Quickback (possible bounces)", quick)
+    fmt_bucket("Rage-click hotspots", "rage")
+    fmt_bucket("Dead-click hotspots", "dead")
+    fmt_bucket("Quickback (possible bounces)", "quick")
     lines.append("")
     return "\n".join(lines)
 
