@@ -48,3 +48,7 @@ next-env.d.ts
 /mobile-*.png
 /forged-*.png
 /forged-snapshot.md
+
+# Python bytecode (scripts/ tooling)
+__pycache__/
+*.pyc
