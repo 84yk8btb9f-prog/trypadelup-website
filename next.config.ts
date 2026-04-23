@@ -57,6 +57,18 @@ const nextConfig: NextConfig = {
       { hostname: "i.pravatar.cc" },
     ],
   },
+
+  async redirects() {
+    return [
+      // Legacy prototype landing page — consolidate to homepage so Google
+      // drops the duplicate and any external backlinks still work.
+      {
+        source: "/landing.html",
+        destination: "/",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
