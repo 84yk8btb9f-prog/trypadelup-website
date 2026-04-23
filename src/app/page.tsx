@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import Navbar from "@/components/navbar";
+import { BASE_URL } from "@/lib/config";
+
+export const metadata: Metadata = {
+  alternates: { canonical: BASE_URL },
+};
 import HeroSection from "@/components/sections/hero-section";
 import StickyMobileCta from "@/components/sticky-mobile-cta";
 

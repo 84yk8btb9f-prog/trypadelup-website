@@ -50,10 +50,6 @@ export const metadata: Metadata = {
   // ── Canonical / Alternates ────────────────────────────────────────────────
   alternates: {
     canonical: BASE_URL,
-    languages: {
-      "x-default": BASE_URL,
-      en: BASE_URL,
-    },
   },
 
   // ── Robots ────────────────────────────────────────────────────────────────
