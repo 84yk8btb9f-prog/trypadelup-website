@@ -48,6 +48,10 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
       {
+        userAgent: "anthropic-ai",
+        allow: "/",
+      },
+      {
         userAgent: "Google-Extended",
         allow: "/",
       },

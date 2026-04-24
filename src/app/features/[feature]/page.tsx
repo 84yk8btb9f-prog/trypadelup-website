@@ -70,6 +70,19 @@ export default async function FeaturePage({
     ],
   };
 
+  const howToSchema = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: data.h1,
+    description: data.description,
+    step: data.howItWorks.map((s, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: s.step,
+      text: s.body,
+    })),
+  };
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -85,6 +98,10 @@ export default async function FeaturePage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
       />
       <script
         type="application/ld+json"

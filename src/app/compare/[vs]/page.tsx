@@ -31,6 +31,7 @@ export async function generateMetadata({
       url,
       title: data.title,
       description: data.description,
+      images: [{ url: "/og-image.png", width: 1200, height: 630 }],
     },
   };
 }

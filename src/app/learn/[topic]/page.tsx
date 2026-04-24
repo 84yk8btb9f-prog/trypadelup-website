@@ -118,6 +118,9 @@ export default async function LearnPage({
     "@type": "Article",
     headline: data.h1,
     description: data.description,
+    datePublished: "2025-01-15",
+    dateModified: "2026-04-24",
+    image: `${BASE_URL}/og-image.png`,
     author: { "@type": "Organization", name: "PadelUp" },
     publisher: {
       "@type": "Organization",

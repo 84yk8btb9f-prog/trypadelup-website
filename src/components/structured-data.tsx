@@ -23,6 +23,14 @@ const websiteSchema = {
   url: BASE_URL,
   description:
     "AI-powered padel coaching app — analyze your technique, track nutrition, and level up your game.",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${BASE_URL}/learn/{search_term_string}`,
+    },
+    "query-input": "required name=search_term_string",
+  },
 };
 
 // MobileApplication schema without aggregateRating — we don't have real reviews yet.
@@ -35,6 +43,8 @@ const mobileAppSchema = {
   description:
     "AI-powered padel coaching — frame-by-frame technique analysis, personalized training plans, AI nutrition tracking, and 24/7 expert chat.",
   url: APP_STORE_URL,
+  datePublished: "2025-01-15",
+  dateModified: "2026-04-24",
   ...(APP_IS_LIVE
     ? { downloadUrl: APP_STORE_URL, installUrl: APP_STORE_URL }
     : {}),
