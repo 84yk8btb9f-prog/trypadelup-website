@@ -2,7 +2,11 @@ export type CompareSlug =
   | "vs-playtomic"
   | "vs-swingvision"
   | "vs-private-coach"
-  | "vs-squash";
+  | "vs-squash"
+  | "vs-padel-coach"
+  | "vs-oipadel"
+  | "vs-pelota"
+  | "vs-padelio";
 
 export interface CompareData {
   slug: CompareSlug;
@@ -319,6 +323,367 @@ export const COMPARISONS: Record<CompareSlug, CompareData> = {
       {
         q: "Do the wall skills from squash transfer to padel?",
         a: "Partially. Reading a ball bouncing off a surface transfers. The specific instincts — hitting toward the front wall, playing the ball directly off the wall without a ground bounce — do not. Those need to be explicitly unlearned.",
+      },
+    ],
+  },
+  "vs-padel-coach": {
+    slug: "vs-padel-coach",
+    competitor: "Padel Coach",
+    h1: "PadelUp vs Padel Coach — two AI padel coaches compared",
+    title: "PadelUp vs Padel Coach — AI Padel Coaching Apps Compared",
+    description:
+      "Padel Coach is one of the more established AI-powered padel apps. PadelUp covers the same brief with newer vision models and a tighter feature set. Here's the honest comparison.",
+    intro:
+      "Padel Coach has been a recognised name in AI padel coaching — structured drills, video upload, training plans, tactical Q&A. PadelUp covers the same brief, built later, with newer vision models trained from day one on padel-specific shot types. The right pick depends on which way you weight maturity vs. the current generation of AI.",
+    positioning:
+      "Padel Coach: established structured-coaching system. PadelUp: newer AI, sharper per-shot scoring, padel-native video analysis.",
+    heroScreenshot: "/screenshots/raw/analyze.png",
+    heroScreenshotAlt:
+      "PadelUp frame-by-frame video analysis showing technique scores across five dimensions",
+    table: [
+      {
+        feature: "Core function",
+        padelup: "AI padel coaching",
+        competitor: "AI padel coaching",
+      },
+      {
+        feature: "Video analysis depth",
+        padelup: "Frame-by-frame, 5 technique dimensions per shot",
+        competitor: "Video upload with technique feedback",
+      },
+      {
+        feature: "Shot types scored",
+        padelup: "8 (forehand, backhand, bandeja, víbora, smash, lob, volley, glass)",
+        competitor: "Core padel shots",
+      },
+      {
+        feature: "Training plan adaptivity",
+        padelup: "Re-targets your weakest shot every week",
+        competitor: "Personalised drills + plans",
+      },
+      {
+        feature: "AI coach chat",
+        padelup: "24/7, trained on pro-match data",
+        competitor: "Tactical Q&A coach mode",
+      },
+      {
+        feature: "Nutrition tracking",
+        padelup: "Photo-to-macros, training-load aware",
+        competitor: "Not the focus",
+      },
+      {
+        feature: "Approach to AI",
+        padelup: "Newer vision models, padel-native from day one",
+        competitor: "Established structured-coaching system",
+      },
+    ],
+    sections: [
+      {
+        title: "Where Padel Coach is stronger",
+        body: "Maturity. Padel Coach has been iterated on for longer, which usually translates into a more polished training-content library and a more battle-tested set of drills. If you value an app that's already had years of feedback baked into it, that's a real point in its favour.",
+      },
+      {
+        title: "Where PadelUp is stronger",
+        body: "The analysis layer. PadelUp scores five technique dimensions per shot type, every shot type, against padel-specific criteria — that depth-per-shot is what the newer vision models enable. The 24/7 coach chat is also closer to a real coaching conversation than a Q&A mode. And the nutrition tracker means you don't need a separate macro app for the days you're playing three matches.",
+      },
+      {
+        title: "How to choose",
+        body: "If you mainly want a structured drill library and tactical Q&A, Padel Coach is a fine choice. If you want detailed shot-by-shot scoring, an adaptive plan that retargets weekly, and a coaching chat that draws on professional match data, PadelUp is the more current generation of the same idea.",
+      },
+    ],
+    verdict:
+      "Both apps are AI padel coaches. PadelUp is the newer build with deeper per-shot analysis; Padel Coach is the more mature structured system. Pick the one whose tradeoff matches how you train.",
+    keywords: [
+      "PadelUp vs Padel Coach",
+      "Padel Coach app alternative",
+      "best AI padel coach app",
+      "padel coach app comparison",
+      "padel video analysis app",
+    ],
+    faq: [
+      {
+        q: "Is PadelUp a replacement for Padel Coach?",
+        a: "Functionally yes — both cover AI video analysis, training plans, and coaching chat. The choice comes down to which generation of AI and which feature mix you prefer.",
+      },
+      {
+        q: "Does PadelUp also recognise padel-specific shots like the bandeja and víbora?",
+        a: "Yes. PadelUp recognises 8 padel shot types and scores each against shot-specific criteria, not generic motion patterns.",
+      },
+      {
+        q: "Which app is better for an intermediate player?",
+        a: "Either works. PadelUp's per-shot scoring is particularly useful for intermediate players who need to identify which specific shot is holding them back — that's the gap that's typically hardest to self-diagnose.",
+      },
+    ],
+  },
+  "vs-oipadel": {
+    slug: "vs-oipadel",
+    competitor: "OiPadel",
+    h1: "PadelUp vs OiPadel — technical analysis vs tactical coaching",
+    title: "PadelUp vs OiPadel — AI Padel Coaching Apps Compared",
+    description:
+      "OiPadel focuses on AI chat coaching, mental focus, and match reflection. PadelUp focuses on frame-by-frame technical analysis. Two different layers of the same problem — here's how they compare.",
+    intro:
+      "OiPadel is a community-built AI padel app that took the chat-and-tactics route — pre-game focus points, post-game reflection, conversational coaching. PadelUp took the video-and-technique route — frame-by-frame scoring of every shot, drills tied to scores, training plans built from analysis. Both are useful. They solve different parts of the same problem.",
+    positioning:
+      "OiPadel: AI for the mental and tactical layer. PadelUp: AI for the technique layer. Different layers of the same coaching stack.",
+    heroScreenshot: "/screenshots/raw/chat.png",
+    heroScreenshotAlt:
+      "PadelUp 24/7 AI padel coach chat answering a technique question",
+    table: [
+      {
+        feature: "Primary focus",
+        padelup: "Technique analysis from video",
+        competitor: "Mental and tactical coaching",
+      },
+      {
+        feature: "AI video analysis",
+        padelup: "Frame-by-frame, 5 dimensions, 8 shot types",
+        competitor: "Not the focus",
+      },
+      {
+        feature: "AI coach chat",
+        padelup: "Yes, 24/7, integrated with your scores",
+        competitor: "Yes, conversational coaching",
+      },
+      {
+        feature: "Pre-game focus points",
+        padelup: "Available via the chat",
+        competitor: "Built into the flow",
+      },
+      {
+        feature: "Match reflection",
+        padelup: "Via uploaded clips and scoring",
+        competitor: "Conversational reflection",
+      },
+      {
+        feature: "Training plans",
+        padelup: "Adaptive, generated from technique scores",
+        competitor: "Tactical/mental focus",
+      },
+      {
+        feature: "Nutrition tracking",
+        padelup: "Photo-to-macros, training-load aware",
+        competitor: "Not offered",
+      },
+    ],
+    sections: [
+      {
+        title: "Where OiPadel is stronger",
+        body: "If your gap is mental — overthinking on big points, no pre-match plan, struggling to reflect on what went wrong — OiPadel's conversational format is well-suited. The pre-game focus prompts and post-game reflection are useful for players whose technique is fine but whose head isn't.",
+      },
+      {
+        title: "Where PadelUp is stronger",
+        body: "If your gap is technical — your backhand keeps breaking, your bandeja lands short, you can't tell why — PadelUp's video analysis tells you the exact frame where the error starts and gives you the drill that fixes it. That's a different problem than the one OiPadel is trying to solve.",
+      },
+      {
+        title: "Using them together",
+        body: "Most serious players have both kinds of gap. PadelUp gives you the technical map; OiPadel gives you the mental routine. Used together, they cover the two layers most players don't address themselves: what's wrong with the swing, and what's wrong with the head.",
+      },
+    ],
+    verdict:
+      "Not direct competitors. OiPadel is the mental and tactical layer; PadelUp is the technical analysis layer. If your bottleneck is technique, PadelUp. If it's the head, OiPadel. Most players need both eventually.",
+    keywords: [
+      "PadelUp vs OiPadel",
+      "OiPadel alternative",
+      "AI padel coaching apps",
+      "padel mental coaching app",
+      "padel technique analysis app",
+    ],
+    faq: [
+      {
+        q: "Does PadelUp do pre-game focus points like OiPadel?",
+        a: "You can ask the AI coach for a pre-match focus based on your weakest shots — but it's not built as a structured pre-game routine the way OiPadel is. OiPadel is more designed around that flow.",
+      },
+      {
+        q: "Does OiPadel do video analysis?",
+        a: "Not as a primary feature. OiPadel is built around chat-driven coaching, reflection, and match awareness rather than frame-by-frame video scoring.",
+      },
+      {
+        q: "Should I use both?",
+        a: "If technique and mental game are both gaps for you, yes. If only one is broken, pick the app that targets that one.",
+      },
+    ],
+  },
+  "vs-pelota": {
+    slug: "vs-pelota",
+    competitor: "Pelota",
+    h1: "PadelUp vs Pelota — coaching vs match analytics",
+    title: "PadelUp vs Pelota — Padel Coaching App vs Match Analytics",
+    description:
+      "Pelota leans into score tracking, highlights, and performance analytics. PadelUp focuses on coaching — analysing your technique and building plans to fix it. Here's the honest comparison.",
+    intro:
+      "Pelota and PadelUp both use AI, but they aim at different outcomes. Pelota is closer to a performance-analytics and social tool — score tracking, match highlights, stats. PadelUp is a coaching tool — analyse your shots, score your technique, get a training plan. The right pick depends on what you're trying to fix.",
+    positioning:
+      "Pelota: track and share what happened. PadelUp: change what happens next.",
+    heroScreenshot: "/screenshots/raw/training.png",
+    heroScreenshotAlt:
+      "PadelUp personalised weekly padel training plan dashboard",
+    table: [
+      {
+        feature: "Core function",
+        padelup: "AI coaching and training plans",
+        competitor: "Match analytics and highlights",
+      },
+      {
+        feature: "Frame-by-frame technique scoring",
+        padelup: "Yes — 5 dimensions per shot type",
+        competitor: "Not the focus",
+      },
+      {
+        feature: "Personalised training plans",
+        padelup: "Adaptive, weekly, built from your scores",
+        competitor: "Not the focus",
+      },
+      {
+        feature: "Match score tracking",
+        padelup: "Not offered",
+        competitor: "Primary feature",
+      },
+      {
+        feature: "Highlights and clip library",
+        padelup: "Not offered",
+        competitor: "Primary feature",
+      },
+      {
+        feature: "AI coach chat",
+        padelup: "Yes — trained on pro-match data, 24/7",
+        competitor: "Not the focus",
+      },
+      {
+        feature: "Nutrition tracking",
+        padelup: "Photo-to-macros, training-load aware",
+        competitor: "Not offered",
+      },
+    ],
+    sections: [
+      {
+        title: "Where Pelota is stronger",
+        body: "Capturing the match. If you want to log scores, save highlights, share clips, and look at performance stats over time, Pelota is built for that. The social and analytics layer is the point.",
+      },
+      {
+        title: "Where PadelUp is stronger",
+        body: "Closing the loop between watching and improving. Saving a clip is one thing — knowing what's wrong with the shot in that clip, getting it scored, and being handed the drill that fixes it is another. PadelUp is built for the second job.",
+      },
+      {
+        title: "Using them together",
+        body: "There's no real conflict. Track and share matches in Pelota. When a shot keeps breaking, send the clip to PadelUp for the analysis and the drill. The two apps fit the same week without overlap.",
+      },
+    ],
+    verdict:
+      "Pelota is for tracking and sharing your padel; PadelUp is for improving it. If you mainly want stats and highlights, Pelota. If you want to fix what's broken, PadelUp.",
+    keywords: [
+      "PadelUp vs Pelota",
+      "Pelota padel app alternative",
+      "padel match tracker vs coaching app",
+      "padel analytics vs coaching",
+      "best padel improvement app",
+    ],
+    faq: [
+      {
+        q: "Does PadelUp track match scores?",
+        a: "Score tracking isn't a primary PadelUp feature. The focus is on technique improvement between and during sessions, not match logging.",
+      },
+      {
+        q: "Does Pelota analyse my technique?",
+        a: "Pelota is built around match analytics, scoring, and highlights rather than per-shot technique scoring. For frame-by-frame analysis, PadelUp is the more direct fit.",
+      },
+      {
+        q: "Which app helps me actually improve faster?",
+        a: "Improvement comes from objective feedback on technique plus targeted practice. PadelUp's analysis-and-plan loop is built for that. Pelota's analytics are useful for tracking outcomes, less so for changing them.",
+      },
+    ],
+  },
+  "vs-padelio": {
+    slug: "vs-padelio",
+    competitor: "Padelio",
+    h1: "PadelUp vs Padelio — passive Apple Watch tracking vs deep video analysis",
+    title: "PadelUp vs Padelio — Apple Watch Tracking vs AI Video Coaching",
+    description:
+      "Padelio uses Apple Watch ML to detect shots passively during play. PadelUp uses video analysis to score your technique frame by frame. Two very different approaches to padel tracking.",
+    intro:
+      "Padelio took the wearable route — strap on an Apple Watch, play, and the app detects shot types in the background using on-device ML. No video, no upload. PadelUp took the video route — record a clip, get frame-by-frame scoring with drills. Both are valuable; they answer different questions about your game.",
+    positioning:
+      "Padelio: passive shot counting and detection. PadelUp: active shot analysis and coaching. Different tools for different parts of improvement.",
+    heroScreenshot: "/screenshots/raw/analyze.png",
+    heroScreenshotAlt:
+      "PadelUp frame-by-frame padel shot analysis showing scoring across five technique dimensions",
+    table: [
+      {
+        feature: "Tracking method",
+        padelup: "Video upload — phone camera",
+        competitor: "Apple Watch ML — passive",
+      },
+      {
+        feature: "Shot detection",
+        padelup: "Per-clip with full scoring",
+        competitor: "Per-match passively",
+      },
+      {
+        feature: "Per-shot technique scoring",
+        padelup: "Yes — 5 dimensions, 0–10 scale",
+        competitor: "Not the focus",
+      },
+      {
+        feature: "Hardware required",
+        padelup: "Phone camera",
+        competitor: "Apple Watch",
+      },
+      {
+        feature: "Effort to use during play",
+        padelup: "Record, then upload after the session",
+        competitor: "Zero — runs in background",
+      },
+      {
+        feature: "Training plans from data",
+        padelup: "Adaptive, weekly, from your scores",
+        competitor: "Not the focus",
+      },
+      {
+        feature: "AI coach chat",
+        padelup: "24/7, trained on pro-match data",
+        competitor: "Not offered",
+      },
+      {
+        feature: "Nutrition tracking",
+        padelup: "Photo-to-macros, training-load aware",
+        competitor: "Not offered",
+      },
+    ],
+    sections: [
+      {
+        title: "Where Padelio is stronger",
+        body: "Friction-free tracking. Padelio runs in the background and counts shots without you doing anything. If you mainly want to know how many forehands and backhands you hit per session — and don't want to film or upload anything — that's exactly the right job for an Apple Watch app.",
+      },
+      {
+        title: "Where PadelUp is stronger",
+        body: "Telling you what to actually fix. Counting shots is data. Scoring whether each shot is well-struck is feedback. PadelUp's frame-by-frame analysis identifies the specific frame an error starts and gives you the drill that fixes it. That's a different category of output than passive shot counts.",
+      },
+      {
+        title: "Using them together",
+        body: "Padelio for the volume picture (how many shots, what types, across the week). PadelUp for the quality picture (which shot is broken, what dimension is the issue, what drill fixes it). Volume + quality is the full performance loop.",
+      },
+    ],
+    verdict:
+      "Padelio counts what you hit. PadelUp scores how you hit it. If you want effortless background tracking, Padelio. If you want technique feedback and a training plan that adapts, PadelUp.",
+    keywords: [
+      "PadelUp vs Padelio",
+      "Padelio alternative",
+      "Apple Watch padel app vs video analysis",
+      "padel shot tracking",
+      "padel technique vs counting",
+    ],
+    faq: [
+      {
+        q: "Does PadelUp need an Apple Watch?",
+        a: "No. PadelUp uses your phone camera. An Apple Watch is not required.",
+      },
+      {
+        q: "Does Padelio score my technique like PadelUp?",
+        a: "Padelio is built around passive shot detection on the Apple Watch — counting shots and recognising types — rather than scoring each shot's technique frame by frame. They're different layers of analysis.",
+      },
+      {
+        q: "Which is easier to use during a match?",
+        a: "Padelio — it runs in the background. PadelUp requires recording and uploading a clip, so it's more deliberate. The trade-off is depth of analysis.",
       },
     ],
   },

@@ -18,7 +18,8 @@ export type LearnSlug =
   | "how-to-read-opponents"
   | "master-padel-technique-ai"
   | "advanced-padel-strategy-tactics"
-  | "ai-padel-coaching-performance";
+  | "ai-padel-coaching-performance"
+  | "is-there-a-strava-of-padel";
 
 export interface LearnSection {
   title: string;
@@ -1531,6 +1532,81 @@ export const LEARN: Record<LearnSlug, LearnData> = {
     ],
     relatedFeature: "/features/ai-video-analysis",
     relatedFeatureLabel: "Start your AI padel coaching journey",
+  },
+  "is-there-a-strava-of-padel": {
+    slug: "is-there-a-strava-of-padel",
+    h1: "Is there a Strava of padel coaching?",
+    title: "Is There a Strava of Padel Coaching? | PadelUp",
+    description:
+      "Strava transformed how runners and cyclists train and improve. Padel doesn't have a single dominant coaching platform yet — here's what the gap looks like, what's filling it, and where the category is heading.",
+    intro:
+      "Strava became the default tracking layer for running and cycling because it combined three things in one product: objective performance data, social context, and training feedback. Padel doesn't have an equivalent yet. The category is wide open, and a handful of apps are racing to define what padel's version of that platform looks like.",
+    sections: [
+      {
+        title: "What 'a Strava for X' actually means",
+        body: "Strava worked because it solved a specific problem: athletes wanted to know whether they were getting better, see how they compared, and get structured feedback from their data. It wasn't the first GPS app. It was the first to layer social context, segment competition, and training analysis on top of the basic data. The same opportunity exists in padel — but only if an app combines technique data, training feedback, and progression context in a way no current product does.",
+      },
+      {
+        title: "Why padel is harder to track than running",
+        body: "Running data is one-dimensional: pace, distance, elevation. Padel data is multi-dimensional: shot type, technique quality, court position, partner coordination, point context. A GPS watch can capture a run perfectly. Capturing a padel shot well requires either video or wearable shot detection — both of which are still maturing. The category is harder, which is partly why no single app has run away with it yet.",
+      },
+      {
+        title: "What's currently filling the gap",
+        body: "Different apps are targeting different layers. Playtomic owns booking and level rating. Padelio uses Apple Watch ML for passive shot tracking. OiPadel runs the chat and tactical layer. SwingVision approaches video analysis from a tennis-first angle. Padel Coach and PadelUp are building the AI coaching layer — Padel Coach as the established system, PadelUp as the newer padel-native build with deeper per-shot scoring.",
+      },
+      {
+        title: "What a 'Strava of padel' would actually look like",
+        body: "It would combine objective technique scoring (per shot, per dimension), adaptive training plans built from that scoring, social and progression context, and a coaching layer that ties it all together. No single app has all four layers built well today. The closest combinations either skip the technique scoring (analytics apps) or skip the training plan (passive trackers).",
+      },
+      {
+        title: "Why the AI coaching layer is the most defensible position",
+        body: "Booking platforms get commoditised quickly. Score trackers don't have strong moats. Social-only platforms struggle to monetise. The AI coaching layer — frame-by-frame analysis trained on padel-specific shot types, plus an adaptive training plan, plus a coach chat trained on pro-match data — is harder to copy and produces a measurable improvement loop. It's the layer most likely to anchor whatever 'Strava of padel' eventually becomes.",
+      },
+      {
+        title: "Where PadelUp fits in",
+        body: "PadelUp is built around the AI coaching layer specifically. Frame-by-frame video analysis scores 5 technique dimensions across 8 padel shot types. Training plans regenerate weekly from those scores. The 24/7 coach chat draws on professional match data. It's not trying to be a booking platform or a passive tracker — it's trying to be the coaching system that the rest of a player's tooling sits around.",
+      },
+      {
+        title: "How long until one app wins the category",
+        body: "Probably two to four years. Padel's growth curve — from around 6 million players in 2019 to over 25 million in 2024 according to the FIP — means the market is being built and contested at the same time. The winning platform will likely be the one that becomes the default coaching layer, the way Strava became the default training feedback layer for endurance sports. Today, the strongest claim to that position belongs to whoever does AI-driven technique analysis best across all the major shot types.",
+      },
+    ],
+    keyTakeaways: [
+      "There is no single dominant 'Strava of padel coaching' yet — the category is open",
+      "Padel is harder to track than running because the data is multi-dimensional",
+      "Different apps are claiming different layers: booking, tracking, chat, analysis, coaching",
+      "The AI coaching layer is the most defensible position for a category leader",
+      "Frame-by-frame technique scoring with adaptive training plans is the closest current fit",
+      "Whoever wins will become the default coaching layer for the next decade of padel growth",
+    ],
+    keywords: [
+      "Strava of padel",
+      "Strava of padel coaching",
+      "best padel coaching app",
+      "padel app category",
+      "AI padel coaching platform",
+      "future of padel apps",
+    ],
+    faq: [
+      {
+        q: "What does 'Strava of padel coaching' mean?",
+        a: "It's shorthand for a single dominant platform that combines objective performance data, training feedback, social context, and a clear progression layer — the way Strava did for running and cycling. The phrase signals there's an open category waiting for a category leader.",
+      },
+      {
+        q: "Which padel app is closest to being that platform?",
+        a: "PadelUp is the closest to the coaching-layer version of it — frame-by-frame technique scoring, adaptive training plans, and a 24/7 coach chat trained on pro-match data, all built padel-native. Booking platforms like Playtomic dominate the logistics layer, but the coaching layer is the harder and more defensible category to win.",
+      },
+      {
+        q: "Why doesn't padel already have a Strava equivalent?",
+        a: "Padel data is multi-dimensional in a way running data isn't — shot type, technique quality, court position, partner dynamics. Capturing it well requires video or wearable shot detection, both of which are only now maturing. The technical bar is higher, which is why the category is younger.",
+      },
+      {
+        q: "How quickly will the category consolidate?",
+        a: "Probably two to four years. Padel went from around 6 million players in 2019 to over 25 million in 2024, so the user base is still being built. The winner will likely be the app that becomes the default coaching layer during that growth, not the one that wins booking or social.",
+      },
+    ],
+    relatedFeature: "/features/ai-video-analysis",
+    relatedFeatureLabel: "See PadelUp's AI video analysis in action",
   },
 };
 

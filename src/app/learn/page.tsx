@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { BookOpen, GitCompareArrows, Zap, Bot, Video, ScanSearch, Swords, MapPin, TrendingUp, Move, Footprints, RotateCcw, Users, AlertCircle, Cpu, Trophy, Eye, Layers, Target, BarChart3 } from "lucide-react";
+import { BookOpen, GitCompareArrows, Zap, Bot, Video, ScanSearch, Swords, MapPin, TrendingUp, Move, Footprints, RotateCcw, Users, AlertCircle, Cpu, Trophy, Eye, Layers, Target, BarChart3, Compass } from "lucide-react";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import AppStoreBadge from "@/components/app-store-badge";
@@ -30,6 +30,7 @@ const ICONS: Record<LearnSlug, typeof BookOpen> = {
   "master-padel-technique-ai": Layers,
   "advanced-padel-strategy-tactics": Target,
   "ai-padel-coaching-performance": BarChart3,
+  "is-there-a-strava-of-padel": Compass,
 };
 
 const PAGE_URL = `${BASE_URL}/learn`;
