@@ -82,7 +82,13 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-white/[0.04] pt-8">
-          <div className="flex items-center gap-6 text-sm text-white/35">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-white/35">
+            <Link href="/level-test" className="hover:text-white/60 transition-colors">
+              Test my level
+            </Link>
+            <Link href="/resources" className="hover:text-white/60 transition-colors">
+              Resources
+            </Link>
             <Link href="/privacy" className="hover:text-white/60 transition-colors">
               Privacy
             </Link>
