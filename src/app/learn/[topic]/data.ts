@@ -295,6 +295,10 @@ export const LEARN: Record<LearnSlug, LearnData> = {
         title: "Getting started",
         body: "You need an iPhone and three seconds of video. Upload a clip of any shot. The AI identifies the shot type, scores five technique dimensions, and hands you a drill for the weakest one. From there, a training plan builds automatically around your current scores.",
       },
+      {
+        title: "What the best padel coaching app needs to do",
+        body: "Padel has grown from around 6 million players in 2019 to over 25 million in 2024, according to the International Padel Federation (FIP) — making it the world's fastest-growing racket sport. As the player base has scaled, so has demand for coaching that doesn't require a court booking and a €60–100 hourly fee. The best padel coaching app needs to do four things well: analyse real padel technique (not tennis movements relabelled), build training plans around what's actually broken, answer coaching questions at any hour, and track progression objectively over time. Apps that do one of these well are useful. An app that does all four — with models trained on padel-specific shot types rather than adapted from other racket sports — is the closest thing to a full coaching system in your pocket.",
+      },
     ],
     keyTakeaways: [
       "Computer vision scores your technique across 5 dimensions on a 0–10 scale",
@@ -305,6 +309,7 @@ export const LEARN: Record<LearnSlug, LearnData> = {
     ],
     keywords: [
       "AI padel coaching",
+      "best padel coaching app",
       "what is AI padel coaching",
       "how does AI padel coaching work",
       "padel coaching app",
@@ -326,6 +331,10 @@ export const LEARN: Record<LearnSlug, LearnData> = {
       {
         q: "Do I need special equipment?",
         a: "No. A smartphone camera, side angle, full body in frame. That's it.",
+      },
+      {
+        q: "What is the best padel coaching app?",
+        a: "The best padel coaching app combines four things: AI video analysis trained on padel-specific shot types (including bandeja, víbora, and glass play), personalised weekly training plans that adapt to your weakest shots, nutrition tracking built for racket-sport athletes, and 24/7 coach chat drawing on professional match data. PadelUp is built for padel from the ground up — not a tennis AI repurposed for padel — and covers all four in a single subscription. It's available on iOS with a 3-day free trial.",
       },
     ],
     relatedFeature: "/features/ai-video-analysis",
