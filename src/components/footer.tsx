@@ -1,8 +1,36 @@
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { FEATURE_SLUGS, FEATURES } from "@/app/features/[feature]/data";
 import { AUDIENCE_SLUGS, AUDIENCES } from "@/app/for/[audience]/data";
-import { COMPARE_SLUGS, COMPARISONS } from "@/app/compare/[vs]/data";
-import { LEARN_SLUGS, LEARN } from "@/app/learn/[topic]/data";
+import { COMPARISONS, type CompareSlug } from "@/app/compare/[vs]/data";
+import { LEARN, type LearnSlug } from "@/app/learn/[topic]/data";
+
+// Curated subsets — keep the footer compact while highlighting the
+// highest-traffic and highest-intent pages. Hub pages (/learn, /compare)
+// link to all sub-pages, so discovery isn't lost.
+const FEATURED_COMPARES: CompareSlug[] = [
+  "vs-playtomic",
+  "vs-pickleball",
+  "vs-private-coach",
+  "vs-padel-coach",
+  "vs-swingvision",
+];
+
+const FEATURED_LEARN: LearnSlug[] = [
+  "what-is-padel",
+  "padel-rules-2026",
+  "how-to-play-padel",
+  "best-padel-rackets-2026",
+  "padel-vs-pickleball",
+  "ai-padel-coaching",
+];
+
+const TOOLS = [
+  { href: "/level-test", label: "Padel level test" },
+  { href: "/score-keeper", label: "Score keeper" },
+  { href: "/racket-finder", label: "Racket finder" },
+  { href: "/resources", label: "Resources" },
+];
 
 function ColumnHeader({ children }: { children: React.ReactNode }) {
   return (
@@ -25,32 +53,57 @@ function FooterLink({ href, children }: { href: string; children: React.ReactNod
   );
 }
 
+function ViewAllLink({ href, label }: { href: string; label: string }) {
+  return (
+    <li>
+      <Link
+        href={href}
+        className="inline-flex items-center gap-1 text-sm text-[#00E676]/80 transition-colors hover:text-[#00E676]"
+      >
+        {label}
+        <ArrowUpRight className="size-3.5" strokeWidth={1.75} />
+      </Link>
+    </li>
+  );
+}
+
 export default function Footer() {
   return (
     <footer className="w-full mt-auto border-t border-white/[0.06] bg-[#0A0A0A]">
       <div className="max-w-6xl mx-auto px-6 sm:px-10 py-14">
-        <div className="grid grid-cols-2 gap-10 sm:grid-cols-4">
+        <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:grid-cols-5">
           <div>
-            <ColumnHeader>Features</ColumnHeader>
+            <ColumnHeader>Product</ColumnHeader>
             <ul className="space-y-2.5">
-              <FooterLink href="/features">All features</FooterLink>
               {FEATURE_SLUGS.map((slug) => (
                 <FooterLink key={slug} href={`/features/${slug}`}>
                   {FEATURES[slug].h1.replace(/^AI\s|^Personalized\s|^24\/7\s/, "")}
                 </FooterLink>
               ))}
+              <ViewAllLink href="/features" label="All features" />
             </ul>
           </div>
 
           <div>
             <ColumnHeader>For players</ColumnHeader>
             <ul className="space-y-2.5">
-              <FooterLink href="/for">Every level</FooterLink>
               {AUDIENCE_SLUGS.map((slug) => (
                 <FooterLink key={slug} href={`/for/${slug}`}>
                   {slug === "clubs" || slug === "coaches"
                     ? `For ${slug.charAt(0).toUpperCase() + slug.slice(1)}`
                     : `For ${AUDIENCES[slug].slug.replace(/-/g, " ")}`}
+                </FooterLink>
+              ))}
+              <ViewAllLink href="/for" label="All audiences" />
+            </ul>
+          </div>
+
+          <div>
+            <ColumnHeader>Tools</ColumnHeader>
+            <ul className="space-y-2.5">
+              {TOOLS.map((tool) => (
+                <FooterLink key={tool.href} href={tool.href}>
+                  {tool.label}
                 </FooterLink>
               ))}
             </ul>
@@ -59,36 +112,30 @@ export default function Footer() {
           <div>
             <ColumnHeader>Compare</ColumnHeader>
             <ul className="space-y-2.5">
-              <FooterLink href="/compare">All comparisons</FooterLink>
-              {COMPARE_SLUGS.map((slug) => (
+              {FEATURED_COMPARES.map((slug) => (
                 <FooterLink key={slug} href={`/compare/${slug}`}>
                   vs {COMPARISONS[slug].competitor}
                 </FooterLink>
               ))}
+              <ViewAllLink href="/compare" label="All comparisons" />
             </ul>
           </div>
 
           <div>
             <ColumnHeader>Learn</ColumnHeader>
             <ul className="space-y-2.5">
-              <FooterLink href="/learn">All guides</FooterLink>
-              {LEARN_SLUGS.map((slug) => (
+              {FEATURED_LEARN.map((slug) => (
                 <FooterLink key={slug} href={`/learn/${slug}`}>
-                  {LEARN[slug].h1.replace(/ —.*$/, "")}
+                  {LEARN[slug].h1.replace(/ —.*$/, "").replace(/\?$/, "")}
                 </FooterLink>
               ))}
+              <ViewAllLink href="/learn" label="All guides" />
             </ul>
           </div>
         </div>
 
         <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-white/[0.04] pt-8">
           <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-white/35">
-            <Link href="/level-test" className="hover:text-white/60 transition-colors">
-              Test my level
-            </Link>
-            <Link href="/resources" className="hover:text-white/60 transition-colors">
-              Resources
-            </Link>
             <Link href="/privacy" className="hover:text-white/60 transition-colors">
               Privacy
             </Link>

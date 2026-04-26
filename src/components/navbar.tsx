@@ -15,8 +15,7 @@ const navLinks: NavLink[] = [
   { href: "/for", label: "For you" },
   { href: "/compare", label: "Compare" },
   { href: "/learn", label: "Learn" },
-  { href: "/resources", label: "Resources" },
-  { href: "/level-test", label: "Test my level" },
+  { href: "/resources", label: "Tools" },
 ];
 
 export default function Navbar() {
