@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { BookOpen, GitCompareArrows, Zap, Bot, Video, ScanSearch, Swords, MapPin, TrendingUp, Move, Footprints, RotateCcw, Users, AlertCircle, Cpu, Trophy, Eye, Layers, Target, BarChart3, Compass, Sparkles, HelpCircle, Activity, XCircle } from "lucide-react";
+import { BookOpen, GitCompareArrows, Zap, Bot, Video, ScanSearch, Swords, MapPin, TrendingUp, Move, Footprints, RotateCcw, Users, AlertCircle, Cpu, Trophy, Eye, Layers, Target, BarChart3, Compass, Sparkles, HelpCircle, Activity, XCircle, Play, ShoppingBag, Hand, Hash, ArrowRightLeft, MessagesSquare } from "lucide-react";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import AppStoreBadge from "@/components/app-store-badge";
@@ -35,6 +35,12 @@ const ICONS: Record<LearnSlug, typeof BookOpen> = {
   "what-is-padel": HelpCircle,
   "padel-vs-pickleball": Activity,
   "common-padel-mistakes": XCircle,
+  "how-to-play-padel": Play,
+  "padel-racket-buying-guide": ShoppingBag,
+  "padel-grip-guide": Hand,
+  "padel-scoring-explained": Hash,
+  "padel-for-tennis-players": ArrowRightLeft,
+  "padel-partner-communication": MessagesSquare,
 };
 
 const PAGE_URL = `${BASE_URL}/learn`;

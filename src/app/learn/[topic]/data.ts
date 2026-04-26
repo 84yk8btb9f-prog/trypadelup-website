@@ -23,7 +23,13 @@ export type LearnSlug =
   | "padel-rules-2026"
   | "what-is-padel"
   | "padel-vs-pickleball"
-  | "common-padel-mistakes";
+  | "common-padel-mistakes"
+  | "how-to-play-padel"
+  | "padel-racket-buying-guide"
+  | "padel-grip-guide"
+  | "padel-scoring-explained"
+  | "padel-for-tennis-players"
+  | "padel-partner-communication";
 
 export interface LearnSection {
   title: string;
@@ -1936,6 +1942,497 @@ export const LEARN: Record<LearnSlug, LearnData> = {
     ],
     relatedFeature: "/features/ai-video-analysis",
     relatedFeatureLabel: "Get every mistake scored frame by frame",
+  },
+  "how-to-play-padel": {
+    slug: "how-to-play-padel",
+    h1: "How to play padel — the absolute beginner's guide",
+    title: "How to Play Padel: Complete Beginner's Step-by-Step Guide | PadelUp",
+    description:
+      "How to play padel from your first session — grip, serve, rally, walls, scoring, positioning. Everything you need to play your first match without looking lost.",
+    intro:
+      "Padel is the easiest racket sport to start. Most beginners can sustain a real rally in their first hour. But there's a 30-minute gap between 'I have no idea what's happening' and 'I get it' — this guide closes that gap fast. Grip, serve, rally, walls, scoring, and positioning, in the order you actually need to learn them.",
+    sections: [
+      {
+        title: "What you need before stepping on court",
+        body: "A racket (clubs rent them for a few euros if you don't own one), padel shoes or any clean court shoes (no running shoes — they don't grip the surface and the lateral movement causes injuries), and three other people. That's it. You don't need lessons before your first session — most clubs will let you book a court and figure it out, though one beginner clinic at €20–30 is the fastest investment if you want to skip the floundering stage.",
+      },
+      {
+        title: "The grip — only learn one",
+        body: "Hold the racket like you're shaking hands with it, with the racket face perpendicular to the ground. That's the continental grip. It's the only grip you need for the first six months of padel. Forehand, backhand, volley, serve, smash, bandeja — all use the same grip. Tennis players who try to use eastern forehand grip end up with a broken backhand within a week. Learn continental, stick with continental.",
+      },
+      {
+        title: "The serve — underhand, into the diagonal box",
+        body: "Stand behind the baseline, one foot on either side of the centre line. Bounce the ball once on the ground in front of you. Hit it underhand — your contact point must be at or below your waist. The ball must land in the service box diagonally opposite. You get two attempts (first serve, second serve). The serve in padel is a setup, not a weapon — most beginners over-hit and lose easy points.",
+      },
+      {
+        title: "The basic rally — the first 10 shots of every point",
+        body: "After the serve, your team goes to the net. The receiving team stays at the back. The first goal is just to keep the ball in play. Hit it back. Don't try to win the point in three shots. The longer the rally, the more chances your opponent has to make a mistake — and at beginner level, almost every point is decided by a mistake, not a winner.",
+      },
+      {
+        title: "Using the back wall — the part everyone gets wrong",
+        body: "When a ball lands in your court and bounces off the back glass, it's still in play. You can hit it after the bounce off the glass. The instinct most beginners have is to swing at the ball as it bounces off the wall — wrong. Let the ball travel away from the wall, then hit it on its way back to you. Turn your body sideways, face the wall briefly, then come back into the shot. This is the single hardest part of padel for total beginners.",
+      },
+      {
+        title: "Scoring — same as tennis",
+        body: "Points: 0, 15, 30, 40, game. Tied at 40-40 (deuce): you need to win two points in a row, OR a single 'golden point' depending on the format (most clubs use Classic Golden Point or the new STAR POINT introduced in 2026). Six games wins a set, you need to win by two. Match is best of three sets. Tiebreak at 6-6 in a set goes to 7. Don't worry about the edge cases — your partner will help you keep score.",
+      },
+      {
+        title: "Court positioning — front and back, never middle",
+        body: "When you're at the net, stay close — within one metre of the net or just behind the service line. When you're at the back, stay deep — near the baseline so the back glass works for you. Standing in the middle (no-man's-land) is the worst position on the court. Volleys land at your feet, lobs go over your head, and you can't attack or defend. Make a decision: net or back.",
+      },
+      {
+        title: "Your first match — what actually happens",
+        body: "You'll mishit a lot of balls in the first 10 minutes. You'll over-hit serves. You'll swing too early on glass shots. You'll stand in the wrong place. By the end of the first set, you'll be having real rallies. By the end of the first match, you'll be addicted. The learning curve is steep at the very start and rewarding within a single session — that's why padel is growing so fast.",
+      },
+      {
+        title: "The 5 things that make beginners look better fast",
+        body: "1. Use the continental grip for everything. 2. Always serve and move forward to the net. 3. Don't try to smash every overhead — just get the ball in. 4. Lob the ball deep when you're under pressure (high and far). 5. Talk to your partner — call balls, share information. Doing these five things alone will make you look better than 70% of recreational players.",
+      },
+    ],
+    keyTakeaways: [
+      "Continental grip is the only grip to learn first",
+      "Underhand serve into the diagonal service box, contact below the waist",
+      "After serving, always move forward to the net",
+      "On glass plays, let the ball travel away from the wall before hitting",
+      "Stay at net or back — never the middle",
+      "Most points are decided by mistakes, not winners — keep the ball in play",
+    ],
+    keywords: [
+      "how to play padel",
+      "padel for beginners",
+      "padel rules beginner",
+      "learn padel basics",
+      "how to start padel",
+      "padel beginner tips",
+    ],
+    faq: [
+      {
+        q: "Do I need lessons before my first padel match?",
+        a: "No. You can play your first match cold. One beginner clinic (60–90 minutes, €20–30) is the fastest way to skip the early frustration, but it's optional. Many players learn entirely through playing.",
+      },
+      {
+        q: "How long until I'm competent?",
+        a: "Most beginners are sustaining real rallies within their first hour. Three months of regular play (twice a week) gets you to recreational competence. Six months and you can hold your own in club-level pickup games.",
+      },
+      {
+        q: "What if I've never played a racket sport before?",
+        a: "Padel is the most beginner-friendly racket sport — easier than tennis, more athletic than pickleball. The walls actually help beginners (balls that would be 'out' in tennis stay in play). You'll be fine.",
+      },
+      {
+        q: "Can I learn padel from YouTube alone?",
+        a: "You can learn the basics, but YouTube can't tell you what's wrong with your specific swing. The fastest improvement comes from objective feedback on your actual technique — that's why apps like PadelUp exist (frame-by-frame analysis of your shots).",
+      },
+    ],
+    relatedFeature: "/features/ai-video-analysis",
+    relatedFeatureLabel: "Get your shots analysed frame by frame",
+  },
+  "padel-racket-buying-guide": {
+    slug: "padel-racket-buying-guide",
+    h1: "Padel racket buying guide — how to choose your first (or fifth)",
+    title: "Padel Racket Buying Guide: Shape, Balance, Hardness Explained | PadelUp",
+    description:
+      "Padel racket choice comes down to shape, balance, and hardness. Here's how each one changes your game, what to pick at every level, and what brands actually deliver value.",
+    intro:
+      "Padel rackets all look similar. They aren't. The differences in shape, balance, and hardness change how the racket plays more than the brand or the colour does. This guide cuts through the marketing — what each spec actually does, what fits your level, and how to avoid spending €300 on a racket that's wrong for you.",
+    sections: [
+      {
+        title: "The three things that actually matter",
+        body: "Shape (round, teardrop, diamond), balance (where the weight sits), and hardness (how the core feels). Everything else — colour, brand, paint job, professional endorsement — is secondary. Get these three right for your level and style and you'll have a racket that helps you play better. Get them wrong and even a €350 elite-tier racket will feel like a punishment.",
+      },
+      {
+        title: "Shape — round, teardrop, or diamond",
+        body: "Round shape: large sweet spot in the middle of the racket, lower balance, easier control. Best for beginners and players who prioritise consistency. Teardrop shape: sweet spot slightly higher, balanced between control and power. Best for intermediate players. Diamond shape: small sweet spot near the top, high balance, maximum power. Best for advanced players with strong technique. Choose the wrong shape and you'll mishit constantly because your natural contact point doesn't match the racket's sweet spot.",
+      },
+      {
+        title: "Balance — how it feels in your hand",
+        body: "Balance is measured in millimetres from the bottom of the handle. Low balance (250–260mm): the racket feels light in your hand, easy to manoeuvre, faster reactions at the net, less power on smashes. High balance (270–280mm): heavier feel, more power on overheads, slower swing speed. Most beginners and intermediate players are happiest at 260–265mm. Don't jump from a low-balance racket to a high-balance one — go gradually, 5mm at a time.",
+      },
+      {
+        title: "Hardness — soft vs hard EVA core",
+        body: "Soft EVA: more rebound off the racket face, easier to generate power without strong technique, more forgiving on mishits. Hard EVA: less rebound, more control, requires better technique to generate power, more durable. Beginners and intermediates almost always want soft EVA. Players with strong, fast swings want hard EVA. Brands name their EVAs differently (EVA 30, EVA 50, Soft EVA, Black EVA, etc.) — within the same brand, lower numbers usually mean softer.",
+      },
+      {
+        title: "Materials — fiberglass vs carbon",
+        body: "Fiberglass faces: softer feel, more forgiving, less durable, cheaper. Found on most beginner rackets (€40–100). Carbon faces (1k, 3k, 12k, 18k): harder, more responsive, more durable, more expensive. Found on intermediate-to-advanced rackets (€120–350+). The 'k' number is the carbon fibre weave density — lower numbers (1k, 3k) tend to be harder. Mixed fibre rackets bridge the two worlds and are a sensible middle ground for €80–150.",
+      },
+      {
+        title: "What to choose at your level",
+        body: "Beginner (first racket, first 6 months): round shape, low balance (255–260mm), soft EVA, fiberglass face, weight 360–365g. Budget: €60–120. Examples to look at: Kuikma PR 560, Nox ML10 (premium beginner), Head Evo, basic Bullpadel. Intermediate (1–3 years): teardrop shape, mid balance (265mm), soft-to-medium EVA, mixed carbon/fiberglass. Budget: €120–200. Advanced (3+ years, competitive): diamond or teardrop, high balance (270–275mm), hard EVA, full carbon. Budget: €200–350+.",
+      },
+      {
+        title: "Brands worth considering",
+        body: "Nox: strong all-round range, used by many pros. Bullpadel: technical innovations, used by Lebrón. Adidas: strong intermediate-to-advanced range. Head: solid mid-range, good warranty. Babolat: tennis-derived expertise. Star Vie: high-end specialist. Wilson: commercial-friendly with decent quality. Kuikma (Decathlon): excellent value at the entry level. The best brand is the one whose racket matches your level and style — don't pick by who endorses it.",
+      },
+      {
+        title: "Common mistakes when buying",
+        body: "Buying a pro's racket because they use it: pros play with diamond-shape, hard EVA, high-balance rackets that punish anyone without elite technique. Their racket will hurt your game. Buying based on price: a €300 racket isn't 3× better than a €100 one — it's 30% better, and only if its specs match you. Buying based on colour: laughable but extremely common. Not changing your overgrip: a €250 racket with a worn overgrip plays worse than a €100 racket with a fresh one.",
+      },
+      {
+        title: "When to upgrade",
+        body: "Upgrade when your current racket is clearly limiting you — you're being out-powered consistently, you've outgrown the forgiveness of a beginner racket and now want more control, or your old racket has visible damage (cracks, paint chips through to the fibre, dead spots). Don't upgrade for marginal gains — at recreational level, technique improvements outpace racket upgrades by orders of magnitude. The right time to spend €200+ is when you've stopped improving with effort and the racket itself is the ceiling.",
+      },
+    ],
+    keyTakeaways: [
+      "Shape, balance, hardness — these three matter most",
+      "Round + low balance + soft EVA = beginner-friendly",
+      "Diamond + high balance + hard EVA = advanced/punishing",
+      "Don't buy a pro's racket — it's specced for elite technique",
+      "Beginners: €60–120; Intermediate: €120–200; Advanced: €200–350+",
+      "Change your overgrip every month — it's bigger than racket upgrades",
+    ],
+    keywords: [
+      "padel racket buying guide",
+      "best padel racket",
+      "how to choose padel racket",
+      "padel racket for beginners",
+      "padel racket shape balance",
+    ],
+    faq: [
+      {
+        q: "What's the best padel racket for an absolute beginner?",
+        a: "A round-shape racket with low balance (255–260mm) and soft EVA core, weighing 360–365g. Budget €60–120. Specific examples: Kuikma PR 560 (Decathlon), Nox ML10, Head Evo series. Avoid diamond shapes and hard EVA at this level — they punish technique mistakes.",
+      },
+      {
+        q: "Should I buy the racket my favourite pro uses?",
+        a: "No. Pros use diamond-shape, hard EVA, high-balance rackets designed for elite technique. Using their racket as a recreational player makes you mishit constantly and reduces power, not increases it. Match the racket to your level, not your idol.",
+      },
+      {
+        q: "How much should I spend on my first racket?",
+        a: "€60–120 for a first racket is the sweet spot. Anything below €40 tends to use cheap materials that affect feel and durability. Anything above €150 has features (stiff carbon, high balance) you can't use yet — they'll come into play after a year of regular play.",
+      },
+      {
+        q: "How often should I replace my padel racket?",
+        a: "If undamaged, a quality racket lasts 1–3 years of regular play. Cracks in the face propagate quickly and end the racket within weeks. Dead spots (areas that don't return the ball with the same energy as the rest of the face) are a sign of internal damage and mean it's time to replace.",
+      },
+    ],
+    relatedFeature: "/features/24-7-chat",
+    relatedFeatureLabel: "Ask the AI coach for racket advice based on your play style",
+  },
+  "padel-grip-guide": {
+    slug: "padel-grip-guide",
+    h1: "Padel grip guide — the only grip you need to learn first",
+    title: "Padel Grip Guide: Continental Grip and Why It's the Answer | PadelUp",
+    description:
+      "There's only one grip you need for the first six months of padel — the continental grip. Here's how to find it, why it works, and the grip mistakes that hold most beginners back.",
+    intro:
+      "Most padel mistakes start at the grip. The wrong grip makes every shot harder. The right grip makes every shot easier. There's basically one grip to learn for the first six months: the continental grip. This guide covers how to find it, why it works for every shot, and the grip mistakes that quietly cap most players at intermediate forever.",
+    sections: [
+      {
+        title: "The continental grip — what it is",
+        body: "The continental grip — also called the 'hammer grip' or 'V grip' — is the foundational padel grip. The 'V' formed between your thumb and index finger sits along the top edge of the racket handle when the racket face is perpendicular to the ground. Imagine holding a hammer and tapping a nail in front of you — that's almost exactly the continental grip. The racket face stays neutral, ready to angle in any direction with small wrist adjustments.",
+      },
+      {
+        title: "How to find it (the shake-hands method)",
+        body: "Hold the racket out in front of you with the face perpendicular to the ground (like a sword, not a frying pan). Now grab the handle as if you're shaking hands with the racket. The 'V' between your thumb and index finger should be on the top edge — index-finger side. That's continental. Check by looking down at your hand: if you can see the second knuckle of your index finger on top of the handle, you're close.",
+      },
+      {
+        title: "Why this one grip works for every shot",
+        body: "Padel rallies move fast — a defensive shot becomes a volley becomes a smash becomes a glass-wall reset, all in three seconds. There isn't time to switch grips between shots. The continental grip works for forehand, backhand, volley, serve, smash, bandeja, and víbora. Small wrist adjustments handle the angle changes the shot needs. One grip, every shot, no transition delay.",
+      },
+      {
+        title: "Why eastern forehand grip is wrong for padel",
+        body: "Eastern forehand grip — the one tennis players default to — sits the racket face slightly more open. It's great for tennis forehand topspin, terrible for everything else. Eastern grip kills your backhand (you have to switch grips mid-rally, which is too slow), wrecks your volleys (the open face floats balls long), and makes overheads harder. Tennis players who don't switch to continental hit a hard plateau within a few months.",
+      },
+      {
+        title: "When (rarely) to switch grips",
+        body: "Advanced players sometimes use slight grip variations for specific shots — a slightly stronger grip for heavy topspin forehands, or a slightly more open face for soft chops. These are micro-adjustments, not full grip changes. For your first one to two years of padel, the answer is: don't switch. One grip. All shots. Master that first.",
+      },
+      {
+        title: "Common grip mistakes",
+        body: "Holding too tightly: a death grip kills wrist mobility and tires your forearm fast. Hold the racket like you're holding a bird — firm enough not to drop it, loose enough not to crush it. Choking up: holding too high on the handle reduces leverage. Your hand should sit at the base, with the bottom of your palm at the bottom of the handle. Letting the grip rotate during play: as your hand sweats, the racket rotates — your continental grip becomes a frying-pan grip without you noticing. Reset between points.",
+      },
+      {
+        title: "How grip affects every shot type",
+        body: "Forehand: continental gives a slight slice naturally, which is exactly what padel forehands need. Backhand: continental supports both one-handed and two-handed backhands without changing. Volley: continental keeps the racket face stable, which is what volleys need. Serve: continental gives the underhand serve a clean strike. Smash and bandeja: continental allows the wrist snap that creates spin. Glass plays: continental lets you adjust the racket angle on the fly as the ball comes off the wall at unpredictable angles.",
+      },
+      {
+        title: "Drills to lock the grip in",
+        body: "Wall drill: stand 3 metres from a wall, hit forehand-backhand-forehand-backhand against it without changing grip. Do 50 reps. If you have to switch grips, you're not on continental yet. Shadow swings: between matches, stand in front of a mirror, swing through forehand and backhand in continental grip. Catch yourself if your hand drifts. Match application: every time you walk to your serve position, check your grip. Eventually it becomes automatic.",
+      },
+    ],
+    keyTakeaways: [
+      "Continental grip ('hammer grip', 'V grip') is the only grip to learn first",
+      "Find it by shaking hands with the racket while the face is perpendicular to the ground",
+      "Works for every shot in padel — forehand, backhand, volley, serve, smash, bandeja",
+      "Eastern forehand grip (tennis default) is wrong for padel — switch to continental",
+      "Hold firmly but not tightly — death grip kills wrist mobility",
+      "Reset your grip every point — sweat causes the racket to rotate without noticing",
+    ],
+    keywords: [
+      "padel grip",
+      "how to hold padel racket",
+      "continental grip padel",
+      "padel grip technique",
+      "best padel grip",
+    ],
+    faq: [
+      {
+        q: "Is there really only one grip in padel?",
+        a: "For your first one to two years, yes. Continental grip works for every shot. Advanced players make tiny adjustments for specific shots, but those are micro-tweaks, not separate grips. Mastering continental first is non-negotiable.",
+      },
+      {
+        q: "I'm a tennis player — can I keep using my eastern forehand grip?",
+        a: "You can, but you'll plateau within months. Tennis players who refuse to switch to continental end up with a broken backhand and weak volleys. Make the switch in your first few sessions — it'll cost you two weeks of feeling weird and save you years of bad habits.",
+      },
+      {
+        q: "How tight should I hold the racket?",
+        a: "Firm enough that the racket won't fly out of your hand during a hard shot, loose enough that your forearm doesn't tire after 10 minutes. The 'holding a bird' image works: don't let it escape, don't crush it.",
+      },
+      {
+        q: "Why does my grip keep changing during matches?",
+        a: "Sweat. As your hand gets damp, the racket rotates between shots without you noticing. Solutions: change your overgrip every month, use a towel between points, or use a Hesacore-style hex grip that resists rotation.",
+      },
+    ],
+    relatedFeature: "/features/ai-video-analysis",
+    relatedFeatureLabel: "Get your grip scored from frame-by-frame video",
+  },
+  "padel-scoring-explained": {
+    slug: "padel-scoring-explained",
+    h1: "Padel scoring explained — points, games, sets, tiebreaks",
+    title: "Padel Scoring Explained: Points, Games, Sets, Tiebreaks (with Examples) | PadelUp",
+    description:
+      "How padel scoring works — 15, 30, 40, deuce, golden point, games, sets, tiebreaks. Includes 2026 STAR POINT rule and serving rotation.",
+    intro:
+      "Padel uses tennis scoring, with a few padel-specific wrinkles. The basic structure is simple — points make games, games make sets, two sets win the match. The complications are the deuce situations, the new STAR POINT rule from 2026, and the serving rotation. Here's the complete scoring system, with examples.",
+    sections: [
+      {
+        title: "The big picture",
+        body: "A padel match is best of three sets. To win a set, you need to win six games (and be ahead by two). To win a game, you need to win four points (and be ahead by two). Most matches last 60–90 minutes for two sets, longer if a third set is played. Tiebreaks at 6-6 in a set decide who wins it — except sometimes the third set, depending on the tournament format.",
+      },
+      {
+        title: "Points: 15, 30, 40, game",
+        body: "Within a single game, points are scored as: 0 (called 'love'), 15, 30, 40, game. So if you've won three points and your opponents have won one, the score is 40-15. The strange numbers are inherited from tennis history — they don't mean anything mathematical. Just memorise the order: love, 15, 30, 40, game.",
+      },
+      {
+        title: "Deuce — when both teams reach 40",
+        body: "When both teams reach 40 (40-40), it's called 'deuce'. From deuce, you have two ways to win the game: traditional advantage scoring, or the golden point. Traditional: the next team to win a point gets 'advantage'. If they win the next point too, they win the game. If they lose it, it goes back to deuce. Repeats until one team wins two consecutive points from deuce.",
+      },
+      {
+        title: "Golden point and STAR POINT (2026 update)",
+        body: "Most amateur padel uses Classic Golden Point: at deuce, one decisive point decides the game. The receiving team chooses which side will receive the serve. This is faster than traditional advantage scoring and prevents games from dragging. In 2026, the FIP introduced the STAR POINT — a similar but slightly different deciding-point system that only kicks in after multiple deuces in the same game. Tournament organisers choose which to use; check your tournament rules.",
+      },
+      {
+        title: "Games and sets",
+        body: "Whoever wins six games first wins the set, as long as they're ahead by two. So 6-4 wins. 6-3 wins. 6-5 doesn't — you need to win one more (7-5) or lose to make it 6-6 (which goes to a tiebreak). Best of three sets means whoever wins two sets first wins the match. Winning sets 6-4, 6-3 wins in two sets. Losing the first set 6-7 in a tiebreak then winning 6-3, 6-2 wins in three sets.",
+      },
+      {
+        title: "Tiebreaks",
+        body: "When a set reaches 6-6, a tiebreak decides who wins the set. Tiebreak points use simple counting: 1, 2, 3, 4, 5... First team to 7 points wins the tiebreak (and the set), as long as they're ahead by two. If it reaches 6-6 in the tiebreak, you keep playing until one team is ahead by two. Serving rotates every two points, with the team that didn't serve first in the tiebreak serving the first point.",
+      },
+      {
+        title: "Serving rotation",
+        body: "Within a single game, one player serves the entire game. Both players on that team alternate serving sides — the first point is served from the right side (deuce side), the second from the left (advantage side), and so on. After the game, the other team serves. Within a team, players alternate which one serves each game. So in a typical match: Player A serves game 1, Player C serves game 2, Player B serves game 3, Player D serves game 4, and so on.",
+      },
+      {
+        title: "Side switching",
+        body: "Teams switch ends of the court after the first game and then every two games. So you switch after game 1, game 3, game 5, etc. (odd games). At the end of a set, you switch only if the total games played in that set is odd. In a tiebreak, you switch ends every six points.",
+      },
+      {
+        title: "Common scoring mistakes beginners make",
+        body: "Forgetting who's serving and from which side: keep score out loud. Calling the score wrong (server's score first): always say your team's score first if you're the server. Confusing 'love' with zero: same thing. Not knowing whether the tournament uses Classic Golden Point or STAR POINT: ask before the first match. Forgetting to switch sides: someone always notices eventually — it's not a big deal mid-match.",
+      },
+    ],
+    keyTakeaways: [
+      "Match: best of three sets. Set: first to six games, win by two",
+      "Game: first to four points (15, 30, 40, game), win by two",
+      "Deuce at 40-40: traditional advantage or golden point/STAR POINT",
+      "Tiebreak at 6-6 in a set: first to seven points, win by two",
+      "Server alternates within a team each game; teams alternate each game",
+      "Switch ends after odd games (1, 3, 5...) and every six points in a tiebreak",
+    ],
+    keywords: [
+      "padel scoring",
+      "how does padel scoring work",
+      "padel score system",
+      "padel deuce golden point",
+      "padel tiebreak rules",
+    ],
+    faq: [
+      {
+        q: "What's the difference between golden point and STAR POINT?",
+        a: "Both are tiebreaker systems for deuce. Classic Golden Point: at the first 40-40, one decisive point decides the game. STAR POINT (introduced by FIP in 2026): only kicks in after multiple deuces in the same game. Tournament organisers choose which to use.",
+      },
+      {
+        q: "How long does a padel match last?",
+        a: "Two-set match: typically 60–90 minutes. Three-set match: 90–120 minutes. Tournament matches with multiple long deuces or tiebreaks can run longer. The 2026 rules tightened time enforcement to keep matches moving.",
+      },
+      {
+        q: "Can a padel match end in a draw?",
+        a: "No. Tiebreaks resolve all set ties; whoever wins two sets wins the match. There's no draw outcome in standard padel.",
+      },
+      {
+        q: "Do amateurs really need to know all this?",
+        a: "The basics (15-30-40, six games to win a set) are essential. The detailed rules about deuce variants and tiebreak switching are useful but you'll pick them up in the first few matches. Don't let scoring confusion stop you from playing — your partner usually knows.",
+      },
+    ],
+    relatedFeature: "/features/24-7-chat",
+    relatedFeatureLabel: "Ask the AI coach about any scoring edge case",
+  },
+  "padel-for-tennis-players": {
+    slug: "padel-for-tennis-players",
+    h1: "Padel for tennis players — what transfers, what doesn't, and how to adapt fast",
+    title: "Padel for Tennis Players: What Transfers, What to Unlearn | PadelUp",
+    description:
+      "Tennis players adapt to padel faster than most — but the wrong instincts cost you. Here's exactly what transfers, what to unlearn, and how to get competitive in weeks.",
+    intro:
+      "Tennis players have a real head start in padel — court awareness, racket-sport instincts, fitness, and ball-tracking are all transferable. But three or four tennis instincts work against you in padel and need to be deliberately unlearned. Here's the honest map: what transfers, what doesn't, and the fastest way to convert your tennis level into padel level.",
+    sections: [
+      {
+        title: "The good news — most of it transfers",
+        body: "Hand-eye coordination, footwork, court awareness, ball tracking, doubles positioning instincts (if you've played doubles), match endurance, and tactical thinking all carry over. A solid 4.0 tennis player will reach a respectable padel level (Playtomic 3.5–4.0) within 1–3 months of regular play. The skill floor is much higher than for someone who's never played a racket sport.",
+      },
+      {
+        title: "The grip — change it on day one",
+        body: "Tennis taught you the eastern forehand grip. In padel, switch to continental immediately. Eastern grip works for tennis forehand topspin and breaks every other shot in padel. Continental grip is the universal padel grip — forehand, backhand, volley, serve, overhead. Make the switch in your first session. It feels weird for two weeks. After that, you'll wonder why you ever held it the other way.",
+      },
+      {
+        title: "The swing — much shorter than tennis",
+        body: "Tennis rewards big takeaways and full follow-throughs. Padel doesn't have room for either. The court is half the size and the rallies are at the net more than the baseline — you don't have time for a full tennis swing. Shorten everything by 40%. Punchier contact, compact follow-through. Tennis players who try to swing through padel shots end up late and out of position.",
+      },
+      {
+        title: "The serve — forget your tennis serve",
+        body: "Tennis serve: overhead, full power, often a weapon. Padel serve: underhand, contact at or below your waist, must bounce in the diagonal box. Your tennis serve is illegal in padel. The padel serve is a setup, not a weapon — the goal is to push the receiver into a difficult return so your team can volley. Spend 20 minutes drilling underhand serves; it's the single biggest mechanical change tennis players need.",
+      },
+      {
+        title: "The walls — entirely new instinct",
+        body: "Tennis has no walls. Padel has glass walls behind you and on the sides, and they're part of the game. Balls that would be 'out' in tennis bounce off the glass and stay in play. The instinct most tennis players have is to chase the ball before it hits the wall — wrong. Let it hit the back glass and come back to you. Turn your body sideways toward the wall, then come back into the shot. This is the hardest unlearning for tennis players.",
+      },
+      {
+        title: "The doubles game — different from tennis doubles",
+        body: "Tennis doubles: one player at the net, one at the baseline. Padel doubles: both at the net or both at the back, never split. The instinct from tennis doubles to stagger positioning gets you killed in padel — your team gets attacked through the gap. Always move together: forward together when you have the chance to attack, back together when you're under pressure. Talk to your partner constantly.",
+      },
+      {
+        title: "Footwork — similar but with a wall behind you",
+        body: "Side-to-side movement, split-step at the right moment, light feet — all transferable from tennis. The new piece is footwork around the back glass. When the ball is coming off the back wall, you need to turn, face the wall briefly, and step around to hit. Tennis players who try to play this shot facing forward (the way you'd hit a baseline shot) miss-hit consistently. Drill the back-glass footwork pattern explicitly.",
+      },
+      {
+        title: "Common tennis-player mistakes in padel",
+        body: "Over-hitting on serve (it's underhand, save your power). Not using continental grip (every other shot suffers). Standing in no-man's-land like you would in tennis (you'll get smashed at). Trying to win points with winners instead of waiting for opponent mistakes (most padel points are decided by errors). Ignoring the back glass on defence (your wall is your friend). Playing tennis doubles positions instead of moving together.",
+      },
+      {
+        title: "How fast you'll be competitive",
+        body: "If you're a 3.5–4.0 tennis player, expect to be a respectable padel player (Playtomic 3.0–3.5) within 1 month of regular play. Reaching Playtomic 4.0+ takes 3–6 months. The athletic and instinctive base is there — the unlearning of tennis-specific instincts is what slows the transition. Players who deliberately drill the unfamiliar shots (serve, glass plays, bandeja) advance fastest.",
+      },
+    ],
+    keyTakeaways: [
+      "Most of tennis transfers — coordination, footwork, court awareness",
+      "Switch to continental grip immediately — eastern grip breaks padel",
+      "Shorten your swing by ~40% — padel doesn't have room for tennis takeaways",
+      "Underhand serve only — your tennis serve is illegal",
+      "Let balls hit the back glass — chasing them is the wrong instinct",
+      "Move with your partner — never split front/back like tennis doubles",
+      "Tennis 4.0 → competitive padel within 1–3 months of regular play",
+    ],
+    keywords: [
+      "padel for tennis players",
+      "tennis to padel transition",
+      "tennis player padel guide",
+      "switch from tennis to padel",
+      "padel vs tennis instincts",
+    ],
+    faq: [
+      {
+        q: "How quickly can a tennis player become good at padel?",
+        a: "A solid tennis player (USTA 3.5–4.0) typically reaches respectable padel level (Playtomic 3.0–3.5) within 1 month of regular play. The athletic base transfers fast; the tennis-specific instincts that need unlearning slow the transition.",
+      },
+      {
+        q: "Should I keep playing tennis while learning padel?",
+        a: "Yes. They're different enough that they don't interfere with each other much. Many serious players do both. Some tennis instincts will leak into your padel and vice versa — treat them as separate sports with shared fundamentals.",
+      },
+      {
+        q: "What's the hardest tennis instinct to unlearn?",
+        a: "Either the eastern forehand grip or the instinct to chase balls before they hit the back wall. Both feel natural from tennis and both work against you in padel. Drill the new behaviours deliberately for the first month.",
+      },
+      {
+        q: "Do tennis racket skills transfer at all?",
+        a: "Some technical skills transfer (volley footwork, lob touch). Others don't (full forehand swing, overhead serve mechanics). The cognitive skills — reading the ball, court awareness, doubles tactics — transfer more than the technical ones.",
+      },
+    ],
+    relatedFeature: "/features/ai-video-analysis",
+    relatedFeatureLabel: "Score your padel technique frame by frame",
+  },
+  "padel-partner-communication": {
+    slug: "padel-partner-communication",
+    h1: "Padel partner communication — what to say, when to say it",
+    title: "Padel Partner Communication: What to Say in Doubles | PadelUp",
+    description:
+      "Padel is doubles. The partner you don't talk to is the partner who'll let you down. Here's what to say, when to say it, and what to never say mid-match.",
+    intro:
+      "Padel is a doubles sport where two players move together as a single unit. The team that communicates wins matches against more talented teams that don't. Most amateur players massively under-communicate — they assume their partner can read minds, then resent them when something goes wrong. This guide is the practical communication playbook: what to call, when to call it, and what to never say.",
+    sections: [
+      {
+        title: "Why communication wins doubles matches",
+        body: "Two players covering a 20×10m court need to know what each other is doing in real time. Without communication: you both go for the same ball, or you both leave a ball, or you don't know whether your partner is at the net or back, or you don't know what tactic they're trying. With communication: you cover the court as a unit, you anticipate each other's positioning, you make tactical adjustments together. The technical level matters less than the coordination.",
+      },
+      {
+        title: "Calling balls — the basic vocabulary",
+        body: "'Mine' (you're taking it). 'Yours' (partner takes it). 'Leave it' (let the ball go — usually because it's about to land out). 'Out' (after the bounce, confirming you saw it land out). These are non-negotiable. Call them loudly and clearly the moment you can. Calling 'mine' the instant you decide is more useful than the most beautiful technique — it removes ambiguity.",
+      },
+      {
+        title: "Pre-point planning",
+        body: "Before serving (or returning), have a quick word with your partner. 'I'm serving wide to the backhand' lets your partner position to cover the cross-court return. 'I'll lob if they smash short' signals your defensive plan. These are 5-second tactical conversations between points — they don't slow the match and they coordinate two minds into one strategy.",
+      },
+      {
+        title: "Mid-set tactical updates",
+        body: "Patterns in your opponents emerge through a set. Share them. 'They're leaving the middle open' — now you both know to attack the middle. 'The left-side player has a weak backhand' — you both target it. 'They're crowding the net' — you both lob more. These observations are useless if only one of you sees them. Verbalise patterns the moment you spot them.",
+      },
+      {
+        title: "After-point feedback — what to say",
+        body: "Encouragement: 'good shot,' 'tough luck,' 'great effort.' Tactical info: 'they're standing back, let's attack short.' Specific calls: 'I should have come in faster.' These keep the team aligned and morale up. After-point silence is fine for a few points, but extended silence reads as either tilt or detachment — both kill teamwork.",
+      },
+      {
+        title: "After-point feedback — what NEVER to say",
+        body: "'You should have hit that.' 'Why did you go for that?' 'You always miss those.' Anything that puts the blame on your partner mid-match. Even if you're right, the message destroys morale and changes nothing about the next point. Save tactical feedback for changeovers or after the match. During play, keep it positive or keep it tactical — never personal.",
+      },
+      {
+        title: "The tone problem — positive vs corrective",
+        body: "How you say something matters more than what you say. 'Let's stay close to the net' (positive, future-focused) is different from 'You're standing too far back' (corrective, blame-focused). Same information, opposite effect. Tone that signals 'we're in this together' wins matches. Tone that signals 'I'm fixing your mistakes' loses them — even when the technical observation is correct.",
+      },
+      {
+        title: "Playing with strangers vs regular partners",
+        body: "Strangers: over-communicate. Tell them your strengths, ask theirs. Establish basic patterns (who serves first, who covers middle). Be relentlessly positive — they're judging you as a partner. Regular partners: shorthand develops over time. You can communicate with eye contact and quick gestures. But fall back on full verbal communication during high-stakes points or when something tactical changes.",
+      },
+      {
+        title: "Reading your partner's body language",
+        body: "Communication isn't just verbal. A partner with their head down, shoulders slumped, racket dragging is mentally checked out — call a quick timeout, fist-bump, and reset. A partner who's ready to go has light feet, eyes up, racket prepared. Match your energy to theirs intentionally. Doubles is two minds in one body — you have to actively maintain that connection through the match.",
+      },
+    ],
+    keyTakeaways: [
+      "Communication wins doubles matches — even against more talented teams",
+      "Call 'mine,' 'yours,' 'leave it,' 'out' loudly and immediately",
+      "Have 5-second tactical conversations between points",
+      "Share opponent patterns the moment you spot them",
+      "After-point: encouragement and tactics only — never blame",
+      "Match the tone to 'we're in this together,' not 'I'm correcting you'",
+      "Over-communicate with strangers; develop shorthand with regulars",
+    ],
+    keywords: [
+      "padel partner communication",
+      "padel doubles communication",
+      "padel team strategy",
+      "talking to padel partner",
+      "padel doubles tips",
+    ],
+    faq: [
+      {
+        q: "What if my partner doesn't talk back?",
+        a: "Some players are naturally quieter. Don't take it personally. Keep calling balls and offering tactical updates yourself — it benefits the team even if they don't reciprocate. If silence is paired with body language signs of frustration or detachment, address it at the changeover with a positive question ('what should we change?').",
+      },
+      {
+        q: "How do I tell my partner they made a mistake without sounding harsh?",
+        a: "Don't, mid-match. Save it for after. Mid-match, the only useful version is forward-looking and shared: 'Let's both step in more on volleys' rather than 'You stepped back on that one.' The information is the same; the framing is the difference between teamwork and resentment.",
+      },
+      {
+        q: "Should I tell my partner the score?",
+        a: "Yes — especially if they're the type who loses track. Call the score before each serve. It keeps both of you anchored and prevents the awkward 'wait, what's the score?' moment that breaks rhythm.",
+      },
+      {
+        q: "What if my partner won't stop coaching me?",
+        a: "Politely ask them to save tactical observations for the changeover. Explain that mid-match coaching makes you self-conscious and you play worse. Most partners adjust if asked directly. Some don't — at which point you find a different partner.",
+      },
+    ],
+    relatedFeature: "/features/24-7-chat",
+    relatedFeatureLabel: "Ask the AI coach about doubles tactics and partner dynamics",
   },
 };
 
