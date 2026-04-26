@@ -6,7 +6,8 @@ export type CompareSlug =
   | "vs-padel-coach"
   | "vs-oipadel"
   | "vs-pelota"
-  | "vs-padelio";
+  | "vs-padelio"
+  | "vs-pickleball";
 
 export interface CompareData {
   slug: CompareSlug;
@@ -684,6 +685,118 @@ export const COMPARISONS: Record<CompareSlug, CompareData> = {
       {
         q: "Which is easier to use during a match?",
         a: "Padelio — it runs in the background. PadelUp requires recording and uploading a clip, so it's more deliberate. The trade-off is depth of analysis.",
+      },
+    ],
+  },
+  "vs-pickleball": {
+    slug: "vs-pickleball",
+    competitor: "pickleball",
+    h1: "Padel vs pickleball — how the two sports compare for racket players",
+    title: "Padel vs Pickleball: Court, Equipment, Skill Curve, Growth | PadelUp",
+    description:
+      "Padel and pickleball are both fast-growing racket sports — but completely different games. Court, ball, gameplay, and culture all diverge. Here's the honest comparison.",
+    intro:
+      "Padel and pickleball are often grouped together as 'the fast-growing racket sports.' On growth, fair. As direct comparisons, they're not the same game. The court, the ball, the racket, the rallies, and the athletic demands all diverge. If you're choosing between them — or trying to decide whether to add the second to the first — here's the honest comparison.",
+    positioning:
+      "Pickleball: faster to learn, lower-impact, US-dominant. Padel: more athletic, more tactical, globally bigger. Different sports for different needs.",
+    heroScreenshot: "/screenshots/raw/home.png",
+    heroScreenshotAlt:
+      "PadelUp home screen showing AI padel coaching for racket-sport athletes",
+    table: [
+      {
+        feature: "Court size",
+        padelup: "20m × 10m, fully enclosed by glass walls",
+        competitor: "13.4m × 6.1m, open court",
+      },
+      {
+        feature: "Format",
+        padelup: "Always doubles",
+        competitor: "Singles or doubles",
+      },
+      {
+        feature: "Racket",
+        padelup: "Solid composite, perforated, 360–375g, no strings",
+        competitor: "Smooth solid paddle, ~225g, no strings",
+      },
+      {
+        feature: "Ball",
+        padelup: "Low-pressure rubber, similar to tennis ball",
+        competitor: "Hollow plastic with holes (wiffle-style)",
+      },
+      {
+        feature: "Walls in play",
+        padelup: "Yes — glass back walls, mesh sides, played after bounce",
+        competitor: "No",
+      },
+      {
+        feature: "Pace and athleticism",
+        padelup: "High-intensity, longer rallies, more court coverage",
+        competitor: "Reflex-based, lower-impact, less running",
+      },
+      {
+        feature: "Skill curve",
+        padelup: "Easy to start, high ceiling (bandeja, glass play, doubles tactics)",
+        competitor: "Very fast to learn, lower technical ceiling",
+      },
+      {
+        feature: "Cost to start",
+        padelup: "€100–250 for racket + court fees",
+        competitor: "Under $50 for paddle + free public courts",
+      },
+      {
+        feature: "Geographic strength",
+        padelup: "Spain, Italy, Argentina, Brazil, UK, Sweden",
+        competitor: "Dominant in the United States",
+      },
+      {
+        feature: "AI coaching",
+        padelup: "Frame-by-frame analysis, 8 shot types (PadelUp)",
+        competitor: "Limited padel-grade tooling for the sport",
+      },
+    ],
+    sections: [
+      {
+        title: "Where pickleball wins",
+        body: "Pickleball is easier to start. A complete beginner can play a competitive game in one or two sessions. The lower-impact play, smaller court, and slower ball make it accessible for older players, families, and people coming back to sport after a break. Pickleball's US dominance — over 70,000 courts and 24M+ players — means supply is everywhere. If you're in the US and want to play casually with low entry friction, pickleball is the obvious pick.",
+      },
+      {
+        title: "Where padel wins",
+        body: "Padel is more athletic, more tactical, and has a higher skill ceiling. The walls turn every defensive position into a potential attack. The shot variety — bandeja, víbora, glass shots, lob play — creates years of skill development room. The doubles-only format means you're always coordinating with a partner, which is a different cognitive sport. Globally, padel has 25M+ players to pickleball's largely-US base, and supply is dense across Europe, Latin America, and the Middle East.",
+      },
+      {
+        title: "Athletic transfer between the two",
+        body: "Hand-eye coordination, footwork, and racket-sport instincts all transfer in both directions. Tennis players adapt faster to padel; squash players adapt faster to pickleball at the kitchen line. The biggest unlearning when switching: pickleball's no-walls instinct doesn't help you in padel (you'll surrender easy back-glass plays), and padel's longer-rally pacing can leave you over-hitting in pickleball.",
+      },
+      {
+        title: "If you're choosing today",
+        body: "Geography first. If you're in the US and want easy supply: pickleball. If you're in Europe, Latin America, or the Middle East: padel will be more available. Athletic profile second. If you want a low-impact social sport you can play into your seventies: pickleball. If you want a more athletically demanding game with deep skill development: padel. Many serious racket-sport players end up playing both — they fill different needs.",
+      },
+    ],
+    verdict:
+      "Not a fair head-to-head — they're different sports for different needs. Pickleball is the faster on-ramp; padel is the deeper game. If you can play both, do both. If you have to pick one, pick the one your local supply makes easy.",
+    keywords: [
+      "padel vs pickleball",
+      "pickleball vs padel",
+      "padel pickleball difference",
+      "padel pickleball which to play",
+      "padel pickleball comparison",
+    ],
+    faq: [
+      {
+        q: "Is padel basically pickleball?",
+        a: "No. They're often grouped because both are growing fast and both are racket sports on smaller courts than tennis. Beyond that, they differ in court (enclosed vs open), ball (rubber vs plastic), gameplay (doubles vs flexible), and athletic profile (high-intensity vs lower-impact).",
+      },
+      {
+        q: "Which is harder to play well?",
+        a: "Pickleball is easier to start. Padel has a higher skill ceiling because of the wall play, doubles tactics, and shot variety. Both reward serious training; the depth of mastery is different.",
+      },
+      {
+        q: "Can I play both?",
+        a: "Yes — and many racket-sport athletes do. They fill different needs. Just expect a brief recalibration period when switching: pickleball's reaction speed is faster, padel's rallies are longer.",
+      },
+      {
+        q: "Which is growing faster?",
+        a: "Pickleball is growing faster in the US (+22.8% YoY in 2025). Padel is growing faster globally (+49% YoY in worldwide search interest). The geography determines which growth curve you'll feel locally.",
       },
     ],
   },

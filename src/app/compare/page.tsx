@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { Calendar, Video, UserRound, Layers, Brain, MessageCircle, BarChart3, Watch } from "lucide-react";
+import { Calendar, Video, UserRound, Layers, Brain, MessageCircle, BarChart3, Watch, Trophy } from "lucide-react";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import AppStoreBadge from "@/components/app-store-badge";
@@ -18,6 +18,7 @@ const COMPARE_ICONS: Record<CompareSlug, typeof Calendar> = {
   "vs-oipadel": MessageCircle,
   "vs-pelota": BarChart3,
   "vs-padelio": Watch,
+  "vs-pickleball": Trophy,
 };
 
 const PAGE_URL = `${BASE_URL}/compare`;

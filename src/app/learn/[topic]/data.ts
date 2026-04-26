@@ -19,7 +19,11 @@ export type LearnSlug =
   | "master-padel-technique-ai"
   | "advanced-padel-strategy-tactics"
   | "ai-padel-coaching-performance"
-  | "is-there-a-strava-of-padel";
+  | "is-there-a-strava-of-padel"
+  | "padel-rules-2026"
+  | "what-is-padel"
+  | "padel-vs-pickleball"
+  | "common-padel-mistakes";
 
 export interface LearnSection {
   title: string;
@@ -1607,6 +1611,331 @@ export const LEARN: Record<LearnSlug, LearnData> = {
     ],
     relatedFeature: "/features/ai-video-analysis",
     relatedFeatureLabel: "See PadelUp's AI video analysis in action",
+  },
+  "padel-rules-2026": {
+    slug: "padel-rules-2026",
+    h1: "The 2026 padel rules — every change explained",
+    title: "Padel Rules 2026: Every FIP Change Explained | PadelUp",
+    description:
+      "The FIP introduced major rule changes effective January 1, 2026 — STAR POINT scoring, serve trajectory restrictions, stricter time enforcement. Here's everything that changed and what it means for your game.",
+    intro:
+      "On January 1, 2026, the International Padel Federation (FIP) introduced the most significant rule changes the sport has seen in years. The STAR POINT, new service trajectory rules, stricter time enforcement, shorter warm-ups, and a mandatory heat protocol all went live the same day. Most player-facing summaries are in Spanish or French. This is the complete English explainer of what changed and why it matters at club level, not just professional.",
+    sections: [
+      {
+        title: "STAR POINT — the new tiebreaker scoring",
+        body: "The biggest user-facing change. The FIP officially introduced the STAR POINT, a new format for breaking ties at 40-40. Unlike the Classic Golden Point system, the STAR POINT only intervenes after several deuces in the same game. The rule is designed to make matches faster while still giving each game enough room for both teams to play their way through. Players now need to know whether their tournament uses Classic Golden Point or STAR POINT — they're applied differently and the receiving team's choice of side may differ.",
+      },
+      {
+        title: "Service trajectory — the 'imaginary line' rule",
+        body: "Before 2026, there was ambiguity about how high the ball could rise during the serve toss before contact. The FIP fixed this with an imaginary line extending the service line. The ball must not cross the service line — or its imaginary extension — before impact. The server's position itself is unchanged, but the ball's trajectory before contact is now strictly regulated. The change is mainly to simplify arbitration; in practice, most amateur players hit serves that already comply.",
+      },
+      {
+        title: "20-second between-points rule — now actually enforced",
+        body: "The 20-second rule between points has existed for years, but enforcement has been inconsistent. The 2026 rules explicitly tighten this. Tactical delays — bouncing the ball repeatedly, slow walks back to position, extended towel-offs between points — are now subject to faster warnings and point penalties. Club-level matches won't always have a chair umpire, but tournament play will be noticeably tighter.",
+      },
+      {
+        title: "Warm-up reduced from 5 minutes to 3",
+        body: "Pre-match warm-up time on court has been cut from five minutes to three. Restart warm-ups after long interruptions are also reduced. The change is designed to keep tournaments moving and reduce overall match length. The practical impact: arrive ready. Stretching, dynamic warm-up, and shadow swings should happen off-court before your three minutes start.",
+      },
+      {
+        title: "120-second rest at the end of each set",
+        body: "A maximum rest period of 120 seconds is now standard between sets. This is a hard cap, not a guideline. Hydration, towel work, and brief tactical conversation with your partner all need to happen inside that window.",
+      },
+      {
+        title: "Mandatory heat break protocol",
+        body: "In conditions of extreme heat, a mandatory five-minute break is now applied between the first and second set. This is a player-safety addition the FIP added in response to multiple cases of heat exhaustion at outdoor tournaments in 2024 and 2025. The threshold for triggering this break is set by the tournament referee using on-court temperature and humidity.",
+      },
+      {
+        title: "No eating or drinking between points",
+        body: "Eating and drinking between points is now explicitly prohibited. The practical window is changeovers — every odd game when sides switch. Quick sips during the 20 seconds between regular points are technically a violation. This is mostly relevant at sanctioned tournament level; club play will rarely enforce it.",
+      },
+      {
+        title: "What stayed the same",
+        body: "The court, the racket dimensions, the ball, the basic scoring system (15-30-40-game, best-of-three sets), and the underhand serve mechanics are all unchanged. The walls, the doubles-only format, and the back-glass play that defines padel are all exactly as they were. The 2026 changes are about tightening the format, not changing the fundamental game.",
+      },
+      {
+        title: "What this means for amateur players",
+        body: "If you play casually, most of these changes won't affect your weekly match. STAR POINT and the heat protocol are the two you'll notice. If you play in club leagues or tournaments, expect tighter enforcement of timing rules and a faster overall match pace. Get used to a 3-minute warm-up — it's the change most players have to actively adjust to.",
+      },
+    ],
+    keyTakeaways: [
+      "STAR POINT replaces some Classic Golden Point situations at 40-40",
+      "Service trajectory is now strictly bounded by an 'imaginary line' extension",
+      "Pre-match warm-up reduced from 5 minutes to 3",
+      "120-second hard cap on rest at end of each set",
+      "Mandatory 5-minute heat break in extreme conditions",
+      "Eating and drinking between points now prohibited (changeovers only)",
+    ],
+    keywords: [
+      "padel rules 2026",
+      "FIP padel rules 2026",
+      "new padel rules",
+      "padel star point rule",
+      "padel service rule 2026",
+      "padel rule changes",
+    ],
+    faq: [
+      {
+        q: "When did the new padel rules take effect?",
+        a: "The FIP's 2026 rule changes took effect on January 1, 2026. They apply globally to all FIP-sanctioned competitions and have been adopted by most national federations.",
+      },
+      {
+        q: "Does the STAR POINT replace Classic Golden Point everywhere?",
+        a: "No. Tournament organisers can still choose to use Classic Golden Point. STAR POINT is the new official option but adoption depends on the tournament. Always check the tournament rules before play.",
+      },
+      {
+        q: "Will my club enforce the 3-minute warm-up?",
+        a: "Casual club play typically doesn't enforce timing rules. League and tournament matches will. The 3-minute warm-up is most relevant when there's a chair umpire or scheduled court rotation.",
+      },
+      {
+        q: "What's the most important change for an intermediate player to know?",
+        a: "STAR POINT scoring. Knowing how the receiving team chooses sides at 40-40 affects your strategy on key points — especially if your tournament uses STAR POINT instead of Classic Golden Point.",
+      },
+    ],
+    relatedFeature: "/features/24-7-chat",
+    relatedFeatureLabel: "Ask the AI coach about any padel rule edge case",
+  },
+  "what-is-padel": {
+    slug: "what-is-padel",
+    h1: "What is padel? A complete guide to the world's fastest-growing sport",
+    title: "What is Padel? Complete Beginner's Guide to the Sport | PadelUp",
+    description:
+      "Padel is the world's fastest-growing racket sport — over 25 million players globally. It's tennis with walls, played in doubles, on a smaller court. Here's everything to know to start.",
+    intro:
+      "Padel went from a niche Spanish sport to over 25 million players worldwide in under a decade, according to the International Padel Federation. It's the fastest-growing racket sport on the planet — search interest rose 49% globally in just the last year. If you've heard the name and want a clear, complete answer to 'what is padel,' this is it.",
+    sections: [
+      {
+        title: "The short answer",
+        body: "Padel is a racket sport played in doubles on an enclosed court roughly half the size of a tennis court. The ball is similar to a tennis ball but with slightly less pressure. The racket is solid, perforated, and has no strings. The walls are part of the game — the ball can be played off the back glass after it bounces. Scoring uses tennis scoring (15, 30, 40, game, set), but the underhand serve and the wall play make the rallies feel completely different.",
+      },
+      {
+        title: "Where padel came from",
+        body: "Padel was invented in Acapulco, Mexico in 1969 by Enrique Corcuera, who built an enclosed court at his vacation home because the property wasn't big enough for a regulation tennis court. A Spanish friend, Alfonso de Hohenlohe, took the sport home to Marbella in 1974, where it caught on with the wealthy beach-club crowd. From Spain it spread to Argentina in the 1980s, then exploded across Europe and Latin America in the 2010s. The current global boom started around 2018.",
+      },
+      {
+        title: "Why padel is growing so fast",
+        body: "Three reasons. First, it's easier to start than tennis — beginners can sustain rallies in their first session. Second, it's social — always doubles, always with three other people, and matches are short enough to fit into a lunch hour. Third, the courts are cheap to build relative to tennis courts and can fit in spaces tennis can't, so supply has scaled with demand. Spain has over 20,000 courts. The UK went from a handful in 2018 to over 900 in 2026. The US doubled its court count between 2023 and 2024.",
+      },
+      {
+        title: "The court",
+        body: "The padel court is 20 metres long by 10 metres wide, divided by a net. The court is fully enclosed — back walls are made of glass (the cristal), and side walls are a mix of glass and metal mesh. Service boxes are marked at 6.95 metres from the net. The walls are a defining feature of the game: when a ball lands in your court and bounces off the back wall, it's still in play, and skilled players use the wall to defend, reset, and create attacking opportunities.",
+      },
+      {
+        title: "The basic shots",
+        body: "Forehand and backhand are the foundation, played similarly to tennis but with a shorter swing because of the smaller court. The lob is a key tactical shot — used to push opponents off the net. The smash and bandeja are the two attacking overheads — the smash is high-power, the bandeja is a controlled three-quarter overhead used to maintain net position. The víbora is a sliced spinning overhead. Glass play — playing the ball after it bounces off your own back wall — is the shot that has no equivalent in any other racket sport, and it's what makes padel feel different to play.",
+      },
+      {
+        title: "How padel differs from tennis, squash, and pickleball",
+        body: "Compared to tennis: smaller court, walls in play, doubles only, underhand serve, much shorter swings, easier to start. Compared to squash: bigger court, walls played indirectly (after the ground bounce), doubles instead of singles, slower ball, tactical instead of pure-pace. Compared to pickleball: bigger court, walls in play, more athletic, longer rallies, requires more strategy. Padel is closer in spirit to a chess game played at sprint pace than any other racket sport.",
+      },
+      {
+        title: "How to start playing",
+        body: "You need three things: a court (find one through Playtomic or a local club), three other players, and a racket. Most clubs rent rackets for a few euros if you don't have one. A first session typically costs €20–40 per court split between four players. A coaching session for absolute beginners — covering grip, serve, and basic positioning — is the fastest way to make your first matches enjoyable rather than frustrating.",
+      },
+      {
+        title: "How long it takes to get good",
+        body: "Most beginners can sustain rallies in their first hour on court. Three months of regular play (twice a week) gets you to a competent recreational level. Six to twelve months gets you to a level where you can play in club leagues. The hardest jump is from intermediate to advanced — that's where players plateau because they need objective technique feedback, not just more court time. AI coaching, video analysis, or a private coach is what gets most players past that plateau.",
+      },
+    ],
+    keyTakeaways: [
+      "Padel is doubles racket sport played on an enclosed 20×10m court with walls in play",
+      "Over 25 million global players in 2026, up from ~6 million in 2019",
+      "Easier to start than tennis — beginners rally in their first hour",
+      "Walls are integral — back-glass play has no equivalent in other racket sports",
+      "Spain leads, but the US, UK, and Indonesia are the fastest-growing markets right now",
+      "Three months of regular play gets you to recreational level",
+    ],
+    keywords: [
+      "what is padel",
+      "padel sport explained",
+      "padel for beginners",
+      "padel guide",
+      "introduction to padel",
+      "padel definition",
+    ],
+    faq: [
+      {
+        q: "Is padel the same as paddle tennis?",
+        a: "No. Paddle tennis (also called platform tennis or POP tennis) is a separate sport played mainly in the US, with different court dimensions and rules. Padel is the international sport invented in Mexico and dominant in Spain.",
+      },
+      {
+        q: "How is padel pronounced?",
+        a: "PAH-del (like 'paddle' but with the second syllable closer to 'el'). The Spanish pronunciation is closest to the original.",
+      },
+      {
+        q: "Can you play padel singles?",
+        a: "Singles padel exists but is rare. The court is built for doubles, and singles court dimensions and rules are different. Almost all recreational and competitive padel is doubles.",
+      },
+      {
+        q: "Is padel an Olympic sport?",
+        a: "Not yet. The FIP has been pushing for inclusion, and padel is a candidate sport for future Olympics, but it has not been confirmed for any specific Games at the time of writing.",
+      },
+    ],
+    relatedFeature: "/features/ai-video-analysis",
+    relatedFeatureLabel: "See your padel technique scored frame by frame",
+  },
+  "padel-vs-pickleball": {
+    slug: "padel-vs-pickleball",
+    h1: "Padel vs pickleball — the full 2026 comparison",
+    title: "Padel vs Pickleball: Differences, Growth, Which to Play in 2026 | PadelUp",
+    description:
+      "Padel and pickleball are both growing fast, but they're completely different sports. Court, equipment, gameplay, and culture all diverge. Here's the honest 2026 comparison.",
+    intro:
+      "Padel and pickleball are often mentioned in the same breath as 'the two fastest-growing racket sports.' Both are correct on growth — they're not correct as direct comparisons. The two sports differ in court, equipment, ball, gameplay, and culture. Here's what each is, how they actually compare, and how to choose if you're deciding between them.",
+    sections: [
+      {
+        title: "The short answer",
+        body: "Pickleball is faster to learn, lower-impact, and US-dominant. Padel is more athletic, more tactical, and globally bigger. Pickleball uses a perforated plastic ball and a paddle on a small open court. Padel uses a tennis-style ball and a solid composite racket on a larger enclosed court with glass walls. They're not competing for the same player — they appeal to different needs.",
+      },
+      {
+        title: "Court size and surface",
+        body: "Padel: 20m × 10m, fully enclosed by glass and mesh walls, played indoors or outdoors on artificial turf or carpet. Pickleball: 13.4m × 6.1m, open court, painted lines, played on hard surface (often a converted tennis or basketball court). The padel court is more than 2.5× the area, and the walls completely change how points develop.",
+      },
+      {
+        title: "Equipment differences",
+        body: "Padel racket: solid composite, perforated face, around 45cm long, no strings, weighs 360–375g. Pickleball paddle: smooth solid face (no holes), around 40cm long, much lighter (~225g), no strings. Padel ball: low-pressure rubber, similar to a tennis ball but slightly softer. Pickleball ball: hollow plastic with holes (like a wiffle ball). The equipment alone makes the two games feel completely different in your hand.",
+      },
+      {
+        title: "Gameplay and pace",
+        body: "Padel: always doubles, longer rallies (often 10–30+ shots), more athletic, requires court coverage and quick direction changes. Pickleball: singles or doubles, fast learning curve (you can rally in 30 minutes), reflex-based at the kitchen line, less running per point. Padel is more like a chess match played at sprint pace; pickleball is more like fast ping-pong on a court.",
+      },
+      {
+        title: "Skill curve",
+        body: "Pickleball is easier to start. A complete beginner can play a competitive game in one or two sessions. The skill ceiling is lower than padel — top-level pickleball is technical, but the variety of shots and tactical depth is narrower. Padel has a slightly higher entry barrier (the walls and underhand serve take a session to grasp) but a much higher ceiling — bandeja, víbora, glass play, and doubles positioning create years of skill development room.",
+      },
+      {
+        title: "US vs global growth",
+        body: "Pickleball: roughly 24.3 million Americans played in 2025, +22.8% year-over-year. The US has 70,641 pickleball courts and 16,210 facilities. Padel: approximately 1.1 million US players in 2025, with US court count doubling between 2023 and 2024 to 400+ courts at 70+ clubs. Globally the picture flips — padel has 25+ million players worldwide; pickleball is heavily concentrated in the US. Both are rising fast, but in different geographies.",
+      },
+      {
+        title: "Cost to play",
+        body: "Pickleball: a paddle costs $30–150, courts are often free at parks, balls are cheap. Total cost to start: under $50. Padel: a racket costs €100–300+, court rentals are typically €20–40 per hour split between four players, and most players use indoor or premium outdoor facilities. Total cost to start: €100–250. Padel is more expensive per session; pickleball is more accessible at the entry point.",
+      },
+      {
+        title: "Which one should you play?",
+        body: "Play pickleball if: you want a low-impact social sport, you're in the US where supply is dense, you want something easy to start, or you want a sport you can play into your seventies. Play padel if: you want a more athletic and tactically deeper game, you're in Europe or Latin America where supply is everywhere, you have a tennis or squash background, or you want a sport with significant skill development room. Many players who try both end up playing both.",
+      },
+    ],
+    keyTakeaways: [
+      "Padel and pickleball are different sports — court, ball, equipment, and pace all differ",
+      "Pickleball: easier to start, lower-impact, US-dominant (24.3M US players)",
+      "Padel: more athletic, more tactical, globally larger (25M+ worldwide)",
+      "Pickleball court is open and small; padel court is enclosed by glass walls",
+      "Pickleball uses a wiffle-style ball; padel uses a tennis-style ball",
+      "Cost: pickleball under $50 to start; padel €100–250 to start",
+    ],
+    keywords: [
+      "padel vs pickleball",
+      "pickleball vs padel",
+      "padel pickleball difference",
+      "padel or pickleball which to play",
+      "padel pickleball comparison 2026",
+    ],
+    faq: [
+      {
+        q: "Is padel basically pickleball?",
+        a: "No. They share the 'racket sport on a small court' family but differ in nearly every detail — court (enclosed vs open), ball (rubber vs plastic), gameplay (doubles vs flexible), athleticism (high vs low-impact). They're closer to being two distinct sports than variations of the same thing.",
+      },
+      {
+        q: "Which is harder, padel or pickleball?",
+        a: "Pickleball is easier to start. Padel has a higher skill ceiling because of the wall play, doubles tactics, and the variety of shot types (bandeja, víbora, glass shots). Both have advanced players who train extensively.",
+      },
+      {
+        q: "Can I switch between padel and pickleball?",
+        a: "Yes. Many players do. Hand-eye coordination, footwork, and racket-sport instincts all transfer. The biggest adjustments are the wall play (padel has it, pickleball doesn't) and the ball behaviour (rubber bounces vs plastic flutters).",
+      },
+      {
+        q: "Which is growing faster?",
+        a: "Pickleball is growing faster in the US specifically (+22.8% YoY in 2025). Padel is growing faster globally (+49% YoY in worldwide search interest). The US is the only major market where pickleball outpaces padel.",
+      },
+    ],
+    relatedFeature: "/features/ai-video-analysis",
+    relatedFeatureLabel: "Improve at padel with AI video analysis",
+  },
+  "common-padel-mistakes": {
+    slug: "common-padel-mistakes",
+    h1: "Common padel mistakes — fix these to break out of the beginner level",
+    title: "Common Padel Mistakes Beginners Make (and How to Fix Them) | PadelUp",
+    description:
+      "The mistakes that keep most padel players stuck at beginner-intermediate level — wrong grip, no serve-and-net, poor positioning. Here's what to fix and how.",
+    intro:
+      "Most padel players plateau at the same intermediate ceiling for the same reasons. The fixes aren't complicated. They're consistent. After thousands of recreational matches and weekly r/padel discussion threads, the same handful of mistakes show up over and over. Fix these and you'll move from getting outplayed by intermediates to outplaying them.",
+    sections: [
+      {
+        title: "Using the wrong grip",
+        body: "The single most common mistake. Beginners default to the eastern forehand grip they know from tennis, then try to use it for every shot. The correct default is the continental grip (the 'hammer' grip) for almost every shot in padel — forehand, backhand, volley, smash, and bandeja. The continental grip is what allows the wrist mobility and racket-face control padel needs. If you're switching grips between shots, you're losing reaction time and consistency.",
+      },
+      {
+        title: "Not serving and going to the net",
+        body: "Staying at the back of the court after your serve is a beginner habit that costs you matches. The serve in padel is a setup, not a weapon — the goal is to push the return high or weak so you can volley. Stay at the baseline after serving and you give the receiving team the entire court to attack. Always serve and move forward to the net.",
+      },
+      {
+        title: "Standing in no-man's-land",
+        body: "Two to three metres back from the net is the worst position on the court. Volleys land at your feet. Lobs go over your head. You can't attack and you can't defend. Make a decision: commit to the net (within one metre), or drop back to defend off the back glass. Never linger in between.",
+      },
+      {
+        title: "Body facing the net on overheads",
+        body: "Smashes, bandejas, and víboras require your body to be turned sideways before you hit, with your shoulder pointing toward the target. Most beginners face the net the entire time and try to overhead with their chest square — it kills power, control, and accuracy. Turn early. Hit through the contact. The good shoulder turn is the difference between a 5-out-of-10 bandeja and an 8-out-of-10 one.",
+      },
+      {
+        title: "Hitting short lobs",
+        body: "A short lob is an invitation for your opponent to smash you off the court. The whole point of a lob is to push the opposing team off the net so they can't attack — that requires depth and height. If your lob is below 4–5 metres of arc and lands inside the service box, it's not a lob, it's a free attacking ball. Better to hit a few lobs out long than to feed easy smashes.",
+      },
+      {
+        title: "Not stepping into volleys",
+        body: "Standing flat-footed and reaching for volleys is how you lose the net advantage you worked to gain. When an easy ball comes, step forward. Put your body weight into the volley. You take time away from your opponents and you put the ball where you want it. Static volleys end up floating back to the middle of the court, which is exactly where strong players will smash them.",
+      },
+      {
+        title: "Bad ball pressure",
+        body: "Padel balls lose pressure quickly — usually within 2–3 hours of play. Playing with dead balls means slower bounces, less wall rebound, and a completely different game from what you'll face at any decent level. Use new balls (or a pressure-restoring tube) for at least one session a week. Otherwise your timing calibrates to the wrong bounce and your real-match performance suffers.",
+      },
+      {
+        title: "Not communicating with your partner",
+        body: "Padel is a doubles game and the partner you don't talk to is the partner who'll let you down. Call who's taking the ball when there's any ambiguity ('mine' or 'yours'). Tell your partner where you're serving so they can position. Tell them what the opposing team is doing tactically ('they're staying at the back' or 'they're crowding the net'). Players who communicate constantly win matches against more talented teams that don't.",
+      },
+      {
+        title: "Practising your strengths instead of your weaknesses",
+        body: "Nobody wants to drill the shot they hate. So intermediate players keep hitting the shots they're already good at — usually forehands and basic volleys — and never fix the broken backhand, the missing bandeja, or the fragile defensive game. Real improvement comes from drilling the shots you avoid. The reason people don't is that there's no objective way to know which shot is actually the worst until they video-record themselves.",
+      },
+    ],
+    keyTakeaways: [
+      "Use the continental grip for almost every shot, not the eastern forehand",
+      "Always serve and move to the net — never stay back after the serve",
+      "Don't stand in no-man's-land — commit to net or back",
+      "Turn your body sideways before any overhead shot",
+      "Lobs need real depth and height — short lobs invite smashes",
+      "Step into volleys with body weight; don't stand flat-footed",
+      "Use balls with proper pressure",
+      "Talk to your partner constantly — call balls, share information",
+      "Drill your weakest shots, not your strongest",
+    ],
+    keywords: [
+      "common padel mistakes",
+      "padel beginner mistakes",
+      "padel mistakes to avoid",
+      "improve padel game",
+      "padel intermediate plateau",
+    ],
+    faq: [
+      {
+        q: "What's the single biggest mistake to fix first?",
+        a: "Grip. If you're not using the continental grip as your default, every other technical change you make is built on a broken foundation. Fix the grip first; everything else gets easier.",
+      },
+      {
+        q: "How do I know which mistake to work on?",
+        a: "Record a five-second clip of any shot. PadelUp's AI scores it across stance, grip, swing path, body position, and racket angle on a 0–10 scale. Your lowest score is your highest-priority fix. Self-assessment is consistently unreliable; objective feedback is the fastest way to know.",
+      },
+      {
+        q: "How long until these fixes show in matches?",
+        a: "Grip and positioning fixes typically show within two to three weeks of deliberate practice. Body-turn habits and overhead technique take longer — six to eight weeks of focused drilling. Communication is instant the moment you start doing it.",
+      },
+      {
+        q: "Why is the continental grip so important?",
+        a: "Padel involves rapid changes between shot types — a volley becomes a smash becomes a defensive lob becomes a glass-wall reset, all in three seconds. The continental grip works for all of these. Switching grips mid-rally costs reaction time and introduces errors.",
+      },
+    ],
+    relatedFeature: "/features/ai-video-analysis",
+    relatedFeatureLabel: "Get every mistake scored frame by frame",
   },
 };
 
