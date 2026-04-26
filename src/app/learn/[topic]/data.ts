@@ -29,7 +29,10 @@ export type LearnSlug =
   | "padel-grip-guide"
   | "padel-scoring-explained"
   | "padel-for-tennis-players"
-  | "padel-partner-communication";
+  | "padel-partner-communication"
+  | "padel-shoes-guide"
+  | "best-padel-rackets-2026"
+  | "padel-court-dimensions";
 
 export interface LearnSection {
   title: string;
@@ -2433,6 +2436,245 @@ export const LEARN: Record<LearnSlug, LearnData> = {
     ],
     relatedFeature: "/features/24-7-chat",
     relatedFeatureLabel: "Ask the AI coach about doubles tactics and partner dynamics",
+  },
+  "padel-shoes-guide": {
+    slug: "padel-shoes-guide",
+    h1: "Padel shoes guide — what to look for and which to avoid",
+    title: "Padel Shoes Guide: Sole, Support, Indoor vs Outdoor | PadelUp",
+    description:
+      "Padel shoes need lateral support, the right sole pattern (herringbone or omni), and durability for the constant lateral movement padel demands. Here's what to look for.",
+    intro:
+      "Most padel injuries are ankle and knee issues that come from the wrong shoes. Padel involves constant lateral movement, sudden direction changes, and sliding stops — running shoes can't handle any of it. This guide covers what padel shoes actually need, indoor vs outdoor sole patterns, the brands that work, and the mistakes that put people on the bench.",
+    sections: [
+      {
+        title: "Why running shoes don't work for padel",
+        body: "Running shoes are designed for forward motion. The sole is rounded, the lateral support is minimal, and the cushioning is built for repeated heel strikes — not lateral pivots. Wear them on a padel court for two months and you'll roll an ankle. The lateral movement padel demands needs a flat, stable platform with reinforced sides. Padel shoes (or court tennis shoes) are non-negotiable from day one.",
+      },
+      {
+        title: "Sole patterns — herringbone vs omni",
+        body: "Herringbone sole: angled grooves in a chevron pattern. Best for indoor or hard court surfaces. Provides maximum grip on smooth surfaces but can grip too aggressively on artificial turf, leading to ankle injuries. Omni sole (or 'omnicourt'): small dimples or studs in multiple directions. Best for outdoor artificial turf — provides controlled slide that lets your foot move slightly during direction changes. If your court is artificial grass with sand infill (most outdoor padel courts), omni is the safer choice.",
+      },
+      {
+        title: "Lateral support — the non-negotiable feature",
+        body: "Look for shoes with reinforced sidewalls and a low, stable platform. The shoe shouldn't compress when you push off sideways. A high stack height (thick midsole) is dangerous for padel — it raises your centre of gravity and makes ankle rolls more likely. Padel shoes are typically lower and flatter than running shoes for exactly this reason.",
+      },
+      {
+        title: "Durability — what wears out first",
+        body: "The toe drag area (where you pivot during serves and lunges) wears out first on most padel shoes. Premium shoes have reinforced toe caps. The inside of the heel near the achilles is the second wear spot — dragging during defensive footwork. Cheap shoes might last 3 months of regular play; quality padel shoes last 6–12 months.",
+      },
+      {
+        title: "Brands worth considering",
+        body: "Asics: Gel-Padel and Gel-Court Speed series — strong all-round, used by many pros. Wilson: Kaos and Rush series — durable, good value. Adidas: Adipower padel — premium, good lateral support. Babolat: Jet Premura and Movea series — lightweight, quick. Bullpadel: Hack and Vertex — comfortable, padel-specific design. Head: Sprint Pro padel — durable, mid-range price. Nike doesn't make padel-specific shoes; their tennis line works as a substitute but isn't optimised.",
+      },
+      {
+        title: "How to choose for your level",
+        body: "Beginner (first pair): Mid-range padel-specific shoes (€60–100). Look for omni sole if playing outdoor, herringbone if indoor. Don't spend €150+ before you know if you'll stick with the sport. Intermediate (regular play): €100–150 for shoes with better lateral support, durability, and comfort over long sessions. Advanced (competitive): €150–200+ for premium shoes with reinforced toe caps, optimised lateral support, and the best durability.",
+      },
+      {
+        title: "Common shoe mistakes",
+        body: "Wearing running shoes 'just for the first few sessions' — you can roll an ankle in the first hour. Buying shoes that are too tight or too loose — both increase injury risk. Wearing the same pair for both running and padel — the wear patterns conflict and shorten the lifespan of both. Replacing shoes too late — when the tread is worn smooth, grip drops and lateral injuries spike.",
+      },
+      {
+        title: "Indoor vs outdoor — when it matters",
+        body: "Most outdoor padel courts use artificial turf with sand infill. Outdoor shoes (omni sole) are designed for this surface. Most indoor padel courts use carpet or artificial turf without sand. Indoor shoes (herringbone sole) grip these surfaces better. Using indoor shoes outdoors is mildly risky (over-grip can roll an ankle); using outdoor shoes indoors works fine but you'll feel less grip. Most recreational players get one pair (omni for outdoor or hybrid) and it works for both.",
+      },
+    ],
+    keyTakeaways: [
+      "Never wear running shoes for padel — lateral injuries are inevitable",
+      "Omni sole for outdoor turf, herringbone for indoor courts",
+      "Look for low stack height, reinforced sidewalls, durable toe cap",
+      "Beginner pair: €60–100; intermediate: €100–150; advanced: €150–200+",
+      "Replace shoes when tread wears smooth — about every 6–12 months",
+      "One quality pair handles both indoor and outdoor for most recreational players",
+    ],
+    keywords: [
+      "padel shoes",
+      "best padel shoes",
+      "padel shoes guide",
+      "padel shoes for beginners",
+      "indoor outdoor padel shoes",
+    ],
+    faq: [
+      {
+        q: "Can I use tennis shoes for padel?",
+        a: "Yes, tennis shoes work — they're built for similar lateral movement. Padel-specific shoes are slightly better optimised (lower stack height, padel-court-tuned soles), but tennis shoes are the right substitute if you can't find padel shoes.",
+      },
+      {
+        q: "How long do padel shoes last?",
+        a: "Typical recreational play (1–3 sessions per week): 6–12 months for quality shoes, 3–6 months for cheap ones. Heavy players (4+ sessions per week) wear shoes out faster — every 3–6 months.",
+      },
+      {
+        q: "Are expensive padel shoes worth it?",
+        a: "For occasional play, no — a €60 pair handles 1–2 sessions per week fine. For frequent play (3+ sessions per week), the durability and support of €120+ shoes pays back over the year through fewer replacements and fewer injuries.",
+      },
+      {
+        q: "What sole do I need for indoor and outdoor courts?",
+        a: "Outdoor (artificial turf with sand): omni sole. Indoor (carpet or smooth turf): herringbone sole. If you play both regularly and only want one pair, omni works on both — slightly less grip indoors but no over-grip risk outdoors.",
+      },
+    ],
+    relatedFeature: "/features/training-plans",
+    relatedFeatureLabel: "Get a training plan that respects your body",
+  },
+  "best-padel-rackets-2026": {
+    slug: "best-padel-rackets-2026",
+    h1: "Best padel rackets 2026 — by level, style, and budget",
+    title: "Best Padel Rackets 2026: Top Picks by Level and Style | PadelUp",
+    description:
+      "The best padel rackets for 2026, organised by player level, playing style, and budget. Beginner to advanced, control to power, with specific examples per category.",
+    intro:
+      "There's no single 'best padel racket' — the right racket depends on your level, your playing style, and your budget. This is a 2026-current breakdown of what works, organised so you can find your category in 60 seconds. The brands and models change yearly; the underlying principles don't. If you want the principles, see the racket buying guide. If you want specific recommendations, this is the page.",
+    sections: [
+      {
+        title: "Best for absolute beginners (under €100)",
+        body: "Kuikma PR 560 (Decathlon) — round shape, soft EVA, excellent value at ~€60. Forgiving, durable enough for first year. Head Evo Sanyo / Evo Speed — similar profile, slightly higher price (~€80) with broader retail availability. Bullpadel Flow / Flow Pro — round, soft, comfortable feel. The pattern: round shape, soft EVA, low balance, fiberglass or mixed fibre face. Avoid diamond shapes and hard EVA at this stage.",
+      },
+      {
+        title: "Best premium beginner racket (€100–150)",
+        body: "Nox ML10 — the standout in this category. Designed by Miguel Lamperti as a premium beginner-to-intermediate racket. Round shape, low balance, soft feel, but uses better materials than entry-level rackets. The 'gateway drug' of premium padel rackets — many players buy it as their second racket and never feel the need to upgrade for years.",
+      },
+      {
+        title: "Best intermediate control racket (€120–200)",
+        body: "Babolat Air Veron — teardrop shape, mid balance, exceptional control. Used by Carolina Navarro on the WPT. Bullpadel Vertex 04 Control — solid control-focused option. Adidas Adipower Multiweight — adjustable balance via removable weights. The pattern: teardrop shape, mid balance (260–268mm), soft-to-medium EVA, mixed carbon fibre face. Designed for players who want consistent placement, not raw power.",
+      },
+      {
+        title: "Best intermediate power racket (€140–220)",
+        body: "Bullpadel Vertex 04 — teardrop with slight diamond influence, hard EVA, designed for aggressive play. Adidas Metalbone Soft — premium materials with slightly more forgiving feel than the standard Metalbone. Nox AT10 Genius — used by Agustín Tapia, accessible enough for strong intermediates. The pattern: teardrop or hybrid shape, mid-to-high balance, harder EVA, full carbon face.",
+      },
+      {
+        title: "Best advanced / competitive racket (€200–350+)",
+        body: "Bullpadel Hack 03 — used by Juan Lebrón. Diamond shape, high balance, hard EVA, maximum power. Punishing but rewarding for elite technique. Nox AT10 Genius 18K — the high-spec version of Tapia's racket. Adidas Metalbone HRD — diamond, high balance, designed for full-power smashes. Babolat Counter Veron — teardrop with diamond-style power. These rackets demand strong technique — they punish mistakes as much as they reward good shots.",
+      },
+      {
+        title: "Best for women's pro tour style",
+        body: "Babolat Air Veron — Carolina Navarro's racket. Star Vie Astrum — Bea González's racket profile, balanced control + power. Bullpadel Vertex 04 Woman — slightly lower balance and softer feel than the men's version. Most women's pro rackets emphasise control and quick reactions over raw power, which actually makes them excellent options for many men playing recreational doubles too.",
+      },
+      {
+        title: "Best for kids and juniors",
+        body: "Nox Junior series — purpose-built lighter rackets (~280–320g) for ages 6–12. Bullpadel Junior — similar profile, multiple sizes by age group. Adidas Adipower Junior — premium kids option. Junior rackets are shorter and lighter than adult rackets — using a full-size adult racket on a child causes wrist injury and bad technique habits.",
+      },
+      {
+        title: "Best value for money in 2026",
+        body: "Decathlon Kuikma series across the board. The PR 560 (€60), PR 590 (€80), and PR 990 (€120) all punch significantly above their price point. The PR 990 in particular competes with rackets in the €180+ range. Other strong value: Head Evo and Head Spark series, Bullpadel Vibora Comfort, basic Nox models. These are the rackets that give you serious quality without paying brand premium.",
+      },
+      {
+        title: "Rackets to avoid",
+        body: "Pro-level diamond-shape rackets if you're below intermediate (Bullpadel Hack, Adidas Metalbone HRD, Star Vie Brava series at full hardness). They punish weak technique and make recreational play frustrating. Generic 'padel racket' brands sold online for €30–50 — most use cheap fiberglass that delaminates within months. Tennis rackets adapted for padel (illegal in most tournaments and physically wrong shape).",
+      },
+    ],
+    keyTakeaways: [
+      "Beginners: round shape, soft EVA, €60–100",
+      "Premium beginner: Nox ML10 (€100–130) is the standout",
+      "Intermediate control: teardrop, mid balance, soft-medium EVA, €120–200",
+      "Intermediate power: teardrop/hybrid, harder EVA, full carbon, €140–220",
+      "Advanced: diamond, high balance, hard EVA, €200–350+",
+      "Best value: Kuikma series (Decathlon)",
+      "Avoid pro diamond rackets if you're below advanced level",
+    ],
+    keywords: [
+      "best padel rackets 2026",
+      "best padel rackets",
+      "top padel rackets",
+      "padel racket recommendations",
+      "padel racket reviews 2026",
+    ],
+    faq: [
+      {
+        q: "What's the single best padel racket overall?",
+        a: "There isn't one — the right racket depends on your level. For most recreational players, the Nox ML10 is the safest 'one racket for everyone' answer because it's premium-quality but designed to forgive technique mistakes.",
+      },
+      {
+        q: "Should I buy the racket Lebrón or Tapia uses?",
+        a: "Only if you're at advanced/competitive level. Pro rackets (Bullpadel Hack, Nox AT10 Genius) are diamond-shape, hard EVA, high balance — they punish anything below elite technique and reduce power for recreational players.",
+      },
+      {
+        q: "Where should I buy a padel racket?",
+        a: "Decathlon (best value), Padel Nuestro / Padel Market (broad range, EU shipping), Tennis-Point (good selection), local pro shops (best for trying before buying). Avoid Amazon for premium brands — counterfeits are common.",
+      },
+      {
+        q: "How often should I replace my racket?",
+        a: "1–3 years of regular play if undamaged. Cracks in the face propagate quickly and end the racket within weeks. If you can feel dead spots when hitting, the internal foam has failed and it's time to replace.",
+      },
+    ],
+    relatedFeature: "/features/24-7-chat",
+    relatedFeatureLabel: "Ask the AI coach for racket advice based on your specific game",
+  },
+  "padel-court-dimensions": {
+    slug: "padel-court-dimensions",
+    h1: "Padel court dimensions — exact measurements and what they mean",
+    title: "Padel Court Dimensions: Size, Walls, Lines, Net Height | PadelUp",
+    description:
+      "Official padel court dimensions: 20m × 10m, walls 3–4m high, net 88cm at the centre. Here's the complete spec including service lines, wall composition, and surface.",
+    intro:
+      "Padel court dimensions are standardised by the International Padel Federation (FIP). Every official court is the same — 20 metres long, 10 metres wide, with walls of specific heights and materials. Knowing the dimensions matters whether you're building a court, comparing facilities, or just trying to understand why padel feels different from other racket sports. Here's the complete spec.",
+    sections: [
+      {
+        title: "The basic dimensions",
+        body: "A padel court is 20 metres long and 10 metres wide. The court is divided exactly in half by a net at the 10-metre mark. Each half is 10 × 10 metres. The court is fully enclosed by walls — back walls behind each baseline, side walls along the lengths. The total area inside the walls is 200 square metres. For comparison, a tennis court is 23.77 × 10.97m (singles) or 23.77 × 10.97m + doubles alleys.",
+      },
+      {
+        title: "The wall heights",
+        body: "Back walls (behind each baseline): 3 metres high. The bottom 3 metres are glass (called 'cristal' in Spanish). Side walls: total height of 3 metres in the back zone, stepped down to 2 metres in the front zone, then no wall above the front 2 metres of the side. The side walls are a mix of glass (typically the back portion) and metal mesh (the front portion). The exact layout: glass for the first 4 metres of side wall length from each back wall, then mesh for the remaining 12 metres in the middle.",
+      },
+      {
+        title: "The net",
+        body: "Net height is 88 centimetres at the centre and 92 centimetres at the posts. The slight droop in the middle is intentional — the same as in tennis. The net runs across the full 10-metre width of the court at the midpoint. Posts at each end support the net at the side walls.",
+      },
+      {
+        title: "Service lines and zones",
+        body: "Service lines are 6.95 metres from the net, parallel to it. The area between the net and the service line on each side is the service zone. A line down the centre divides each service zone into two service boxes (left and right, also called the 'deuce' and 'advantage' boxes). The serve must land in the diagonally opposite service box. The lines from the service line back to the baseline (which is 3.05m further back) are not divided — that whole rear zone is one area.",
+      },
+      {
+        title: "The door (entry to the court)",
+        body: "Padel courts have one or two doors in the side walls — typically in the centre of each side, at the net line. The doors are around 1 metre wide and 2 metres tall. They function both as entry points and as part of the playing area — balls that hit the door frame stay in play if they bounce inside the court. Some older courts have only one door (one side); modern courts typically have two for accessibility.",
+      },
+      {
+        title: "The surface",
+        body: "Almost all padel courts use artificial turf, typically with sand infill. The turf is 12–15mm tall and the sand level is set so that 8–10mm of turf shows above the sand. Indoor courts may use carpet (lower-pile artificial turf without sand) for faster play. The surface affects how the ball bounces — sand-infilled outdoor courts produce slower, more controlled bounces; carpet indoor courts produce faster, more responsive bounces. Hard surfaces (concrete or asphalt) are not used for padel — they damage the ball and reduce wall play.",
+      },
+      {
+        title: "The lighting",
+        body: "Outdoor courts typically have 4–8 light poles around the perimeter for night play. Indoor courts use overhead lighting. FIP standards require minimum 500 lux for amateur play and 1000+ lux for tournament play. Lighting placement matters — poorly placed lights cause shadows on the court that affect ball tracking, especially on smashes and bandejas where you're looking up.",
+      },
+      {
+        title: "Why these dimensions matter",
+        body: "The 20×10m size is the result of decades of refinement. It's small enough to make doubles feel intimate and tactical, large enough to allow the long rallies and movement padel is known for. The wall heights are tuned so that competitive shots stay in play but pure power shots can clear the wall (going over the wall is 'out'). The 88cm net is high enough to require lift on most shots but low enough that volley exchanges are aggressive. Every dimension is intentional.",
+      },
+    ],
+    keyTakeaways: [
+      "Court size: 20m long × 10m wide, divided by a net at the 10m mark",
+      "Back walls: 3m high glass; side walls: 3m back, 2m front, mixed glass and mesh",
+      "Net height: 88cm at centre, 92cm at posts",
+      "Service line: 6.95m from the net on each side",
+      "Surface: artificial turf with sand infill (outdoor) or carpet (indoor)",
+      "FIP standardisation means every official court is identical",
+    ],
+    keywords: [
+      "padel court dimensions",
+      "padel court size",
+      "padel court measurements",
+      "padel net height",
+      "padel court layout",
+    ],
+    faq: [
+      {
+        q: "How big is a padel court compared to a tennis court?",
+        a: "A padel court is roughly 38% the size of a tennis court. Padel: 20×10m = 200m². Tennis (doubles): ~261m² of playing area. The difference plus the walls makes padel feel completely different.",
+      },
+      {
+        q: "Are all padel courts the same size?",
+        a: "Yes — official courts are standardised by the FIP at 20×10m. A handful of older recreational courts may differ slightly, but they're not used for competition.",
+      },
+      {
+        q: "How much space do I need to build a padel court?",
+        a: "Minimum 23×11m of clear space to fit the 20×10m court with a small perimeter for walls and entry. Add 2–4m height clearance above the walls for play. Most builders recommend at least 25×12m of plot space for comfortable installation.",
+      },
+      {
+        q: "Can a ball go over the back wall and stay in play?",
+        a: "No. If a ball clears the wall (or the lighting structure), it's out. The walls' 3-metre height is the boundary — anything that goes over it ends the point.",
+      },
+    ],
+    relatedFeature: "/features/ai-video-analysis",
+    relatedFeatureLabel: "See the court layout in PadelUp's analysis overlays",
   },
 };
 

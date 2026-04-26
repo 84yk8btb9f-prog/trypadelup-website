@@ -7,7 +7,10 @@ export type CompareSlug =
   | "vs-oipadel"
   | "vs-pelota"
   | "vs-padelio"
-  | "vs-pickleball";
+  | "vs-pickleball"
+  | "vs-badminton"
+  | "vs-racquetball"
+  | "vs-platform-tennis";
 
 export interface CompareData {
   slug: CompareSlug;
@@ -797,6 +800,307 @@ export const COMPARISONS: Record<CompareSlug, CompareData> = {
       {
         q: "Which is growing faster?",
         a: "Pickleball is growing faster in the US (+22.8% YoY in 2025). Padel is growing faster globally (+49% YoY in worldwide search interest). The geography determines which growth curve you'll feel locally.",
+      },
+    ],
+  },
+  "vs-badminton": {
+    slug: "vs-badminton",
+    competitor: "badminton",
+    h1: "Padel vs badminton — two racket sports compared",
+    title: "Padel vs Badminton: Court, Equipment, Pace, Skill Curve | PadelUp",
+    description:
+      "Padel and badminton both use rackets but they're completely different sports. Court, equipment, pace, and skill curve all diverge. Here's the honest comparison.",
+    intro:
+      "Badminton and padel both fall in the 'racket sport' category and that's where the resemblance ends. Court, equipment, ball/shuttlecock, indoor vs outdoor, athleticism — they diverge in nearly every detail. If you're choosing between them or considering adding the second to the first, here's the comparison.",
+    positioning:
+      "Badminton: faster reactions, lighter equipment, smaller court, indoor-only. Padel: heavier equipment, walls in play, mostly outdoors, longer rallies.",
+    heroScreenshot: "/screenshots/raw/home.png",
+    heroScreenshotAlt:
+      "PadelUp home screen showing AI padel coaching for racket sport players",
+    table: [
+      {
+        feature: "Court size",
+        padelup: "20m × 10m, fully enclosed by glass walls",
+        competitor: "13.4m × 6.1m (doubles), open court",
+      },
+      {
+        feature: "Format",
+        padelup: "Always doubles",
+        competitor: "Singles or doubles",
+      },
+      {
+        feature: "Racket",
+        padelup: "Solid composite, 360–375g, no strings",
+        competitor: "Strung racket, ultra-light (~85g)",
+      },
+      {
+        feature: "Object struck",
+        padelup: "Low-pressure rubber ball",
+        competitor: "Shuttlecock (feathered or plastic)",
+      },
+      {
+        feature: "Walls in play",
+        padelup: "Yes — back glass, side mesh",
+        competitor: "No",
+      },
+      {
+        feature: "Pace",
+        padelup: "Long rallies, ground-bounce based",
+        competitor: "Fast reactions, no bounce allowed",
+      },
+      {
+        feature: "Indoor / outdoor",
+        padelup: "Both — outdoors common",
+        competitor: "Indoor only (outdoor wind ruins shuttlecock)",
+      },
+      {
+        feature: "Power demand",
+        padelup: "Moderate — court coverage matters more",
+        competitor: "Wrist speed and explosive smashes",
+      },
+      {
+        feature: "Skill curve",
+        padelup: "Easy to start, deep tactical ceiling",
+        competitor: "Steep — wrist control takes time",
+      },
+    ],
+    sections: [
+      {
+        title: "Where badminton wins",
+        body: "Badminton is one of the fastest racket sports on earth — the shuttlecock leaves a smash at speeds over 400 km/h, the highest in any racket sport. The reactions, footwork, and explosive movement requirements are extreme. If you want a racket sport that rewards pure athletic speed and wrist quickness, badminton has no equal. It's also more accessible globally — courts are widely available in any indoor sports facility.",
+      },
+      {
+        title: "Where padel wins",
+        body: "Padel is more tactically deep, more social (always doubles), and uses outdoor space well. The walls add a strategic layer that no other racket sport has. The skill ceiling on shot variety (bandeja, víbora, glass play, lobs) is much higher than badminton's relatively narrow shot palette. Padel rallies last longer and reward positioning, communication, and patience as much as athletic ability.",
+      },
+      {
+        title: "What transfers between them",
+        body: "Footwork patterns, ball-tracking instincts, racket-sport coordination, and aerobic fitness all transfer. Badminton players who try padel adapt quickly to the volleys (similar to net play in badminton) but struggle with the ground-bounce timing and the slower padel ball — they tend to over-hit early. Padel players who try badminton have to dramatically increase their reaction speed and wrist usage.",
+      },
+      {
+        title: "Choosing between them",
+        body: "Choose badminton if: you want maximum athletic intensity per minute, you have access to indoor courts only, you prefer singles or want flexibility between singles and doubles. Choose padel if: you want a more tactical and social sport, you have access to outdoor courts, you prefer always-doubles play with longer rallies. Both reward serious training; they reward different things.",
+      },
+    ],
+    verdict:
+      "Badminton: explosive, indoor, fast reactions. Padel: tactical, outdoor, longer rallies, walls in play. They appeal to different athletic profiles. Pick the one that matches what you want from a sport.",
+    keywords: [
+      "padel vs badminton",
+      "badminton vs padel",
+      "padel badminton difference",
+      "padel badminton comparison",
+    ],
+    faq: [
+      {
+        q: "Is padel faster than badminton?",
+        a: "No. Badminton is significantly faster in raw reaction terms — shuttlecock smashes can exceed 400 km/h. Padel rallies last longer but the per-shot speed is lower. Different kinds of intensity.",
+      },
+      {
+        q: "Which is harder to learn?",
+        a: "Badminton has a steeper learning curve at the start because of the wrist control required. Padel is easier in the first hour but has a deeper tactical ceiling that takes years to master.",
+      },
+      {
+        q: "Can I play both?",
+        a: "Yes. The athletic base transfers, though the timing and technique are quite different. Many players add padel to a badminton background or vice versa for variety.",
+      },
+    ],
+  },
+  "vs-racquetball": {
+    slug: "vs-racquetball",
+    competitor: "racquetball",
+    h1: "Padel vs racquetball — walls, ball, and the doubles question",
+    title: "Padel vs Racquetball: Court, Walls, Ball, Pace Compared | PadelUp",
+    description:
+      "Padel and racquetball both have walls but the games are completely different. Court size, ball pressure, wall use, and singles vs doubles all diverge.",
+    intro:
+      "Both padel and racquetball use walls, both use solid rackets, both played indoors. From a distance they look related. Up close they're completely different sports. The wall logic, the ball, the court size, and the singles-vs-doubles structure all diverge. Here's the honest comparison.",
+    positioning:
+      "Racquetball: walls are the primary playing surface. Padel: walls are a secondary surface used after the ball bounces on the ground.",
+    heroScreenshot: "/screenshots/raw/home.png",
+    heroScreenshotAlt:
+      "PadelUp home screen showing AI padel coaching for racket sport athletes",
+    table: [
+      {
+        feature: "Court size",
+        padelup: "20m × 10m, partially open top",
+        competitor: "12.2m × 6.1m, fully enclosed (including ceiling)",
+      },
+      {
+        feature: "Format",
+        padelup: "Always doubles",
+        competitor: "Singles, doubles, or 'cutthroat' (3 players)",
+      },
+      {
+        feature: "Racket",
+        padelup: "Solid composite, ~45cm, no strings",
+        competitor: "Strung, shorter handle, much smaller frame",
+      },
+      {
+        feature: "Ball",
+        padelup: "Low-pressure rubber, similar to tennis",
+        competitor: "Hollow rubber, much bouncier, higher pressure",
+      },
+      {
+        feature: "Walls",
+        padelup: "Played AFTER ground bounce only",
+        competitor: "Played DIRECTLY off front wall — primary surface",
+      },
+      {
+        feature: "Serve",
+        padelup: "Underhand, bounced, into diagonal box",
+        competitor: "Bounced once, hit against front wall",
+      },
+      {
+        feature: "Indoor / outdoor",
+        padelup: "Both",
+        competitor: "Indoor only (sealed court)",
+      },
+      {
+        feature: "Pace",
+        padelup: "High intensity, longer rallies",
+        competitor: "Extremely high intensity, faster rallies",
+      },
+    ],
+    sections: [
+      {
+        title: "The wall logic is opposite",
+        body: "Racquetball: every shot must hit the front wall. The walls are the playing surface. Padel: the walls are bonus surfaces used after the ball bounces on the ground. A racquetball player's entire instinct — attack with the wall — works against them in padel, where you're looking for defensive resets off the back glass, not offensive front-wall play. The tactical instinct needs to invert.",
+      },
+      {
+        title: "Where racquetball wins",
+        body: "Pure intensity per minute. Racquetball is one of the most cardio-demanding sports, with rallies measured in seconds rather than tens of seconds. The court is sealed (including the ceiling), so there's nowhere for the ball to escape — every point is in play. If you want maximum aerobic load with a racket sport, racquetball is hard to beat.",
+      },
+      {
+        title: "Where padel wins",
+        body: "Tactical depth and the doubles social dimension. Padel's shot variety (bandeja, víbora, glass play) and the partner coordination required make it more of a chess game than racquetball's pure speed contest. Padel also works outdoors and in mixed-skill groups; racquetball requires a sealed indoor court and matched skill levels for good rallies.",
+      },
+      {
+        title: "What transfers between them",
+        body: "Court awareness, ball-tracking off surfaces, fast reflexes, and racket-sport coordination all transfer well. Racquetball players adapt quickly to padel volleys (the punching motion is similar) but have to dramatically slow down their wall instincts. Padel players moving to racquetball have to speed up their reactions significantly and learn to attack with the front wall.",
+      },
+    ],
+    verdict:
+      "Different wall logic, different formats, different pace. Racquetball: wall-attacking sprint sport. Padel: tactical doubles with walls as defensive resets. Hard to be great at both simultaneously — they reward opposite instincts.",
+    keywords: [
+      "padel vs racquetball",
+      "racquetball vs padel",
+      "padel racquetball difference",
+      "wall racket sports comparison",
+    ],
+    faq: [
+      {
+        q: "Are padel and racquetball the same sport?",
+        a: "No. Both have walls and solid rackets but the wall logic is opposite (padel uses walls after bounce; racquetball uses them directly), the ball is different, the court is different, and the formats differ.",
+      },
+      {
+        q: "Which is more athletically demanding?",
+        a: "Racquetball is more cardio-intense per minute. Padel is longer in match duration and rewards more tactical thinking. Different kinds of demand.",
+      },
+      {
+        q: "Can a racquetball player adapt to padel quickly?",
+        a: "Faster than someone with no racket-sport background but slower than a tennis or squash player. The instinct to attack with the wall has to be explicitly unlearned.",
+      },
+    ],
+  },
+  "vs-platform-tennis": {
+    slug: "vs-platform-tennis",
+    competitor: "platform tennis",
+    h1: "Padel vs platform tennis — two paddle-based sports compared",
+    title: "Padel vs Platform Tennis: Court, Equipment, Pace, Origin | PadelUp",
+    description:
+      "Padel and platform tennis (paddle tennis) are often confused. They're separate sports with different courts, rackets, and rules. Here's the honest comparison.",
+    intro:
+      "Padel and platform tennis (sometimes called paddle tennis or 'paddle' in the US) are often confused — both use solid paddles, both have walls, both are doubles-focused. They're separate sports with different origins, courts, and rules. Here's how they actually compare.",
+    positioning:
+      "Platform tennis: smaller US-developed winter sport with heated courts. Padel: international sport with global supply, played year-round in any climate.",
+    heroScreenshot: "/screenshots/raw/home.png",
+    heroScreenshotAlt:
+      "PadelUp home screen showing AI padel coaching",
+    table: [
+      {
+        feature: "Origin",
+        padelup: "Mexico (1969), grew through Spain",
+        competitor: "United States (1928), grew in Northeast",
+      },
+      {
+        feature: "Court size",
+        padelup: "20m × 10m, fully enclosed by glass walls",
+        competitor: "~13m × 6m, enclosed by metal screens",
+      },
+      {
+        feature: "Court surface",
+        padelup: "Artificial turf or carpet",
+        competitor: "Aluminium or wood, often heated",
+      },
+      {
+        feature: "Walls",
+        padelup: "Glass — clear visibility",
+        competitor: "Tight metal screens — opaque",
+      },
+      {
+        feature: "Format",
+        padelup: "Always doubles",
+        competitor: "Almost always doubles",
+      },
+      {
+        feature: "Racket",
+        padelup: "Solid composite, perforated, ~45cm",
+        competitor: "Smaller paddle, perforated face",
+      },
+      {
+        feature: "Ball",
+        padelup: "Low-pressure rubber, similar to tennis",
+        competitor: "Specific platform tennis ball, more depressurised",
+      },
+      {
+        feature: "Climate",
+        padelup: "Year-round in any climate",
+        competitor: "Designed for cold winter play (heated courts)",
+      },
+      {
+        feature: "Global presence",
+        padelup: "25M+ players worldwide",
+        competitor: "Mainly US Northeast, ~30K players",
+      },
+    ],
+    sections: [
+      {
+        title: "Where platform tennis wins",
+        body: "Cold-weather play. Platform tennis was designed in 1928 in the US Northeast specifically as a winter sport — the courts have heating systems beneath the surface to melt snow and the metal-screen walls are built to handle weather. If you live in a climate where padel courts close for winter, platform tennis is the alternative that lets you keep playing.",
+      },
+      {
+        title: "Where padel wins",
+        body: "Global supply, scale, and ecosystem. Padel has 25 million players worldwide; platform tennis has roughly 30,000. Padel courts are now in 90+ countries; platform tennis is largely confined to the US Northeast. The pro tours, equipment market, coaching infrastructure, and overall sport development are dramatically larger in padel.",
+      },
+      {
+        title: "What transfers between them",
+        body: "Tactical instincts, doubles positioning, paddle-handling skills, and walls-in-play awareness all transfer well between the two. Players who learn platform tennis first tend to adapt to padel quickly because the doubles tactics and screen/wall awareness are similar. The padel ball's pressure, court size, and glass walls require some recalibration.",
+      },
+      {
+        title: "Choosing between them",
+        body: "Choose platform tennis if: you live in a cold climate (US Northeast or similar) and want a winter racket sport. Choose padel if: you want a sport with global supply, deep professional infrastructure, and year-round play in normal conditions. Both are excellent for the specific contexts they serve.",
+      },
+    ],
+    verdict:
+      "Different sports for different conditions. Platform tennis is the cold-weather paddle sport with a tight US footprint. Padel is the global doubles paddle sport with year-round supply. Most players outside the US Northeast will find padel more accessible.",
+    keywords: [
+      "padel vs platform tennis",
+      "platform tennis vs padel",
+      "padel paddle tennis difference",
+      "padel APTA platform tennis",
+    ],
+    faq: [
+      {
+        q: "Is platform tennis the same as paddle tennis?",
+        a: "Platform tennis (the cold-weather sport with heated courts) is sometimes called 'paddle tennis,' but there's also a separate sport called 'paddle tennis' or 'POP tennis' that's different from both platform tennis and padel. The naming confusion is real and unfortunate.",
+      },
+      {
+        q: "Can you play padel on a platform tennis court?",
+        a: "Not really. The courts are different sizes, the wall materials are different (glass vs metal mesh), and the dimensions don't match official padel specs. They're separate facilities.",
+      },
+      {
+        q: "Which sport has more international presence?",
+        a: "Padel by far. Platform tennis is heavily concentrated in the US Northeast. Padel has 25M+ players across 90+ countries with major professional circuits.",
       },
     ],
   },

@@ -120,8 +120,8 @@ const CATEGORIES: Category[] = [
     ],
   },
   {
-    title: "From PadelUp",
-    description: "Our own guides for players at every level.",
+    title: "Free tools",
+    description: "Interactive tools — no signup required.",
     items: [
       {
         name: "Padel level test",
@@ -130,16 +130,40 @@ const CATEGORIES: Category[] = [
           "10 questions. Find your level on the 1–7 scale in under 2 minutes.",
       },
       {
+        name: "Padel score keeper",
+        url: "/score-keeper",
+        description:
+          "Track points, games, sets and deuce situations live during a match. Supports advantage, golden point, and STAR POINT scoring.",
+      },
+      {
+        name: "Padel racket finder",
+        url: "/racket-finder",
+        description:
+          "5 questions about your level and style. Get a racket recommendation matched to shape, balance, and hardness.",
+      },
+    ],
+  },
+  {
+    title: "From PadelUp",
+    description: "Our own guides for players at every level.",
+    items: [
+      {
         name: "Learn padel — guides & technique",
         url: "/learn",
         description:
-          "20 guides covering rules, shot technique, tactics, training, and AI coaching.",
+          "30+ guides covering rules, shot technique, tactics, training, and AI coaching.",
       },
       {
         name: "AI padel coaching — how it works",
         url: "/learn/ai-padel-coaching",
         description:
           "What AI video analysis actually does, how training plans are built, and where it fits alongside a human coach.",
+      },
+      {
+        name: "Padel rules 2026",
+        url: "/learn/padel-rules-2026",
+        description:
+          "STAR POINT, service trajectory, time enforcement, heat protocol — every FIP rule change effective January 1, 2026.",
       },
     ],
   },
