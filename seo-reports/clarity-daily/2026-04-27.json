@@ -1,0 +1,122 @@
+{
+  "captured_at": "2026-04-27T04:05:05.584919+00:00",
+  "window": "last 24h (numOfDays=1)",
+  "metrics": [
+    {
+      "metricName": "DeadClickCount",
+      "information": [
+        {
+          "sessionsCount": "1",
+          "sessionsWithMetricPercentage": 0,
+          "sessionsWithoutMetricPercentage": 100,
+          "pagesViews": "0",
+          "subTotal": "0",
+          "Url": "https://www.trypadelup.com/learn/padel-court-dimensions"
+        }
+      ]
+    },
+    {
+      "metricName": "ExcessiveScroll",
+      "information": [
+        {
+          "sessionsCount": "1",
+          "sessionsWithMetricPercentage": 0,
+          "sessionsWithoutMetricPercentage": 100,
+          "pagesViews": "0",
+          "subTotal": "0",
+          "Url": "https://www.trypadelup.com/learn/padel-court-dimensions"
+        }
+      ]
+    },
+    {
+      "metricName": "RageClickCount",
+      "information": [
+        {
+          "sessionsCount": "1",
+          "sessionsWithMetricPercentage": 0,
+          "sessionsWithoutMetricPercentage": 100,
+          "pagesViews": "0",
+          "subTotal": "0",
+          "Url": "https://www.trypadelup.com/learn/padel-court-dimensions"
+        }
+      ]
+    },
+    {
+      "metricName": "QuickbackClick",
+      "information": [
+        {
+          "sessionsCount": "1",
+          "sessionsWithMetricPercentage": 0,
+          "sessionsWithoutMetricPercentage": 100,
+          "pagesViews": "0",
+          "subTotal": "0",
+          "Url": "https://www.trypadelup.com/learn/padel-court-dimensions"
+        }
+      ]
+    },
+    {
+      "metricName": "ScriptErrorCount",
+      "information": [
+        {
+          "sessionsCount": "1",
+          "sessionsWithMetricPercentage": 0,
+          "sessionsWithoutMetricPercentage": 100,
+          "pagesViews": "0",
+          "subTotal": "0",
+          "Url": "https://www.trypadelup.com/learn/padel-court-dimensions"
+        }
+      ]
+    },
+    {
+      "metricName": "ErrorClickCount",
+      "information": [
+        {
+          "sessionsCount": "1",
+          "sessionsWithMetricPercentage": 0,
+          "sessionsWithoutMetricPercentage": 100,
+          "pagesViews": "0",
+          "subTotal": "0",
+          "Url": "https://www.trypadelup.com/learn/padel-court-dimensions"
+        }
+      ]
+    },
+    {
+      "metricName": "ScrollDepth",
+      "information": [
+        {
+          "averageScrollDepth": 18,
+          "Url": "https://www.trypadelup.com/learn/padel-court-dimensions"
+        }
+      ]
+    },
+    {
+      "metricName": "Traffic",
+      "information": [
+        {
+          "totalSessionCount": "1",
+          "totalBotSessionCount": "0",
+          "distinctUserCount": "1",
+          "pagesPerSessionPercentage": 1,
+          "Url": "https://www.trypadelup.com/learn/padel-court-dimensions"
+        },
+        {
+          "totalSessionCount": "0",
+          "totalBotSessionCount": "1",
+          "distinctUserCount": "1",
+          "pagesPerSessionPercentage": 1,
+          "Url": "https://www.trypadelup.com/"
+        }
+      ]
+    },
+    {
+      "metricName": "EngagementTime",
+      "information": [
+        {
+          "totalTime": "5",
+          "activeTime": "5",
+          "Url": "https://www.trypadelup.com/learn/padel-court-dimensions"
+        }
+      ]
+    }
+  ]
+}
