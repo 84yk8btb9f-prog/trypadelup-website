@@ -1,5 +1,12 @@
 // JSON-LD structured data for SEO
-// Injected into <head> via layout.tsx
+// Injected into <head> via layout.tsx — runs on EVERY page.
+//
+// IMPORTANT: page-scoped schemas (FAQPage, HowTo, Article) must NOT live here.
+// Google treats two FAQPage scripts on one page as a duplicate and disables
+// rich results for both. Page-scoped schemas belong in the page component.
+//
+// Safe to keep here (entity-level, repeats fine across pages):
+//   Organization, WebSite, MobileApplication
 
 import { APP_IS_LIVE, APP_STORE_URL, BASE_URL } from "@/lib/config";
 
@@ -96,7 +103,10 @@ const mobileAppSchema = {
   ],
 };
 
-const faqSchema = {
+// Exported for use on the homepage only — NOT auto-rendered globally.
+// Pages with their own FAQs (learn, compare, level-test, etc.) define
+// their own FAQPage schema. The homepage owns the brand-level FAQs.
+export const homeFaqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: [
@@ -181,10 +191,6 @@ export default function StructuredData() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(mobileAppSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
     </>
   );

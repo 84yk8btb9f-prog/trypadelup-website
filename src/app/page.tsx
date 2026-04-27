@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import Navbar from "@/components/navbar";
 import { BASE_URL } from "@/lib/config";
+import { homeFaqSchema } from "@/components/structured-data";
 
 export const metadata: Metadata = {
   alternates: { canonical: BASE_URL },
@@ -20,6 +21,10 @@ const FinalCta = dynamic(() => import("@/components/sections/final-cta-section")
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeFaqSchema) }}
+      />
       <Navbar />
       <main className="flex-1 overflow-x-clip">
         <HeroSection />
