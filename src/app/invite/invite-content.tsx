@@ -1,6 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
+import { Gift } from "lucide-react";
 
 const highlights = [
   "AI video analysis — get personalized technique coaching",
@@ -16,14 +17,14 @@ export default function InviteContent() {
     <div className="w-full max-w-lg mx-auto py-16 flex flex-col items-center gap-8 text-center">
       {/* Icon */}
       <div
-        className="w-20 h-20 rounded-2xl flex items-center justify-center text-4xl"
+        className="w-20 h-20 rounded-2xl flex items-center justify-center"
         style={{
-          backgroundColor: "rgba(57, 255, 125, 0.1)",
+          backgroundColor: "rgba(57, 255, 125, 0.08)",
           border: "1px solid rgba(57, 255, 125, 0.2)",
-          boxShadow: "0 0 40px rgba(57, 255, 125, 0.1)",
+          boxShadow: "0 0 40px rgba(57, 255, 125, 0.08)",
         }}
       >
-        🎾
+        <Gift size={32} strokeWidth={1.75} color="#39ff7d" />
       </div>
 
       {/* Headline */}
@@ -36,8 +37,10 @@ export default function InviteContent() {
           className="text-base leading-relaxed"
           style={{ color: "rgba(240, 244, 248, 0.65)" }}
         >
-          Your friend wants you to join them on PadelUp. Sign up and you&apos;ll
-          both receive{" "}
+          Your friend wants you to join them on PadelUp. Sign up and you both
+          get{" "}
+          <span className="font-semibold text-white">1 week free</span>
+          {" + "}
           <span className="font-semibold text-white">100 XP</span> to kickstart
           your padel journey.
         </p>
@@ -67,7 +70,7 @@ export default function InviteContent() {
           className="text-xs"
           style={{ color: "rgba(240, 244, 248, 0.4)" }}
         >
-          Enter this code in the app to claim your 100 XP bonus
+          Enter this code in the app to claim your 1 week free + 100 XP
         </p>
       </div>
 
@@ -128,7 +131,7 @@ export default function InviteContent() {
           className="text-xs text-center"
           style={{ color: "rgba(240, 244, 248, 0.35)" }}
         >
-          Free to download · 3-day free trial · Available on iOS
+          Free to download · 1 week free with your code · iOS
         </p>
       </div>
     </div>
