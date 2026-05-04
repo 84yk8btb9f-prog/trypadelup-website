@@ -338,6 +338,131 @@ def pull_clarity():
 
 
 # ---------------------------------------------------------------------------
+# Google Suggest — trending padel queries (dependency-free; no API key)
+# ---------------------------------------------------------------------------
+SUGGEST_DIR = REPO_ROOT / "seo-reports" / "suggest-snapshots"
+SUGGEST_DIR.mkdir(parents=True, exist_ok=True)
+
+# Seed terms — Google's autocomplete completes from each seed, surfacing what
+# people are actively searching. Pick seeds broad enough to capture the niche
+# but specific enough to avoid noise.
+SUGGEST_SEEDS = [
+    "padel",
+    "padel tips",
+    "padel coach",
+    "padel app",
+    "padel training",
+    "padel rules",
+    "padel racket",
+    "best padel",
+    "how to padel",
+    "padel vs",
+]
+
+
+def _suggest_one(seed: str) -> list[str]:
+    """Hit Google's public suggest endpoint. Returns a list of suggestion strings."""
+    qs = urllib.parse.urlencode({"client": "firefox", "q": seed, "hl": "en"})
+    url = f"https://suggestqueries.google.com/complete/search?{qs}"
+    status, body = http("GET", url,
+                        headers={"User-Agent": "PadelUp-SEO-Report/1.0"},
+                        timeout=15)
+    if status != 200:
+        errors.append(f"Suggest '{seed}' HTTP {status}: {str(body)[:120]}")
+        return []
+    try:
+        data = json.loads(body)
+        return [s for s in (data[1] if len(data) > 1 else []) if isinstance(s, str)]
+    except Exception as e:
+        errors.append(f"Suggest '{seed}' parse: {e}")
+        return []
+
+
+def pull_suggest():
+    """Fetch suggestions for each seed. Persist this week's snapshot.
+    Diff against most recent prior snapshot to flag NEW queries."""
+    current: dict[str, list[str]] = {}
+    for seed in SUGGEST_SEEDS:
+        current[seed] = _suggest_one(seed)
+        time.sleep(0.4)
+
+    if not any(current.values()):
+        return None
+
+    # Load most recent prior snapshot for diffing.
+    prior_files = sorted(SUGGEST_DIR.glob("*.json"))
+    prior_files = [p for p in prior_files if p.stem != TODAY]
+    prior: dict[str, list[str]] = {}
+    if prior_files:
+        try:
+            prior = json.loads(prior_files[-1].read_text(encoding="utf-8"))
+        except Exception as e:
+            errors.append(f"Suggest prior snapshot parse: {e}")
+
+    # Persist current snapshot for next run.
+    try:
+        (SUGGEST_DIR / f"{TODAY}.json").write_text(
+            json.dumps(current, indent=2, ensure_ascii=False), encoding="utf-8")
+    except Exception as e:
+        errors.append(f"Suggest snapshot write: {e}")
+
+    # Compute new queries (in current, not in prior — across all seeds).
+    prior_flat = {q.lower() for qs in prior.values() for q in qs}
+    new_queries: list[tuple[str, str]] = []  # (seed, suggestion)
+    for seed, sugs in current.items():
+        for s in sugs:
+            if s.lower() not in prior_flat:
+                new_queries.append((seed, s))
+
+    return {
+        "current": current,
+        "new_queries": new_queries,
+        "had_prior": bool(prior),
+    }
+
+
+# ---------------------------------------------------------------------------
+# Reddit — r/padel hot posts (content-idea signal)
+# ---------------------------------------------------------------------------
+def _reddit_hot(subreddit: str, limit: int = 10) -> list[dict]:
+    url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit={limit}"
+    status, body = http("GET", url,
+                        headers={"User-Agent": "PadelUp-SEO-Report/1.0 (content research)"},
+                        timeout=20)
+    if status != 200:
+        errors.append(f"Reddit r/{subreddit} HTTP {status}: {str(body)[:120]}")
+        return []
+    try:
+        data = json.loads(body)
+        return [c["data"] for c in (data.get("data", {}).get("children") or []) if c.get("data")]
+    except Exception as e:
+        errors.append(f"Reddit r/{subreddit} parse: {e}")
+        return []
+
+
+def pull_reddit():
+    posts: list[dict] = []
+    for sub in ("padel", "padelinternational"):
+        rows = _reddit_hot(sub, limit=10)
+        # Skip stickied mod posts — they're not organic content signal.
+        rows = [r for r in rows if not r.get("stickied")]
+        for r in rows:
+            posts.append({
+                "subreddit": sub,
+                "title": r.get("title") or "",
+                "permalink": "https://www.reddit.com" + (r.get("permalink") or ""),
+                "score": int(r.get("score") or 0),
+                "comments": int(r.get("num_comments") or 0),
+                "url": r.get("url") or "",
+                "self_text_short": (r.get("selftext") or "")[:200],
+            })
+    if not posts:
+        return None
+    posts.sort(key=lambda p: p["score"], reverse=True)
+    return posts[:12]
+
+
+# ---------------------------------------------------------------------------
 # SerpAPI — rank tracking
 # ---------------------------------------------------------------------------
 def serpapi_rank(keyword: str):
@@ -577,6 +702,59 @@ def render_clarity(clarity):
     return "\n".join(lines)
 
 
+def render_suggest(sg):
+    lines = ["## Trending padel searches (Google Suggest)\n"]
+    if not sg or not sg.get("current"):
+        lines.append("(no data yet)\n")
+        return "\n".join(lines)
+
+    if not sg.get("had_prior"):
+        lines.append("_No prior snapshot to diff against — this week's snapshot is the baseline. From next week, this section will list NEW queries that weren't suggested before._")
+        lines.append("")
+    elif sg.get("new_queries"):
+        lines.append("### NEW this week (not in last week's snapshot)")
+        lines.append("Content-idea candidates — Google is actively suggesting these to users this week.")
+        lines.append("")
+        # Dedupe across seeds.
+        seen = set()
+        for seed, q in sg["new_queries"]:
+            key = q.lower()
+            if key in seen:
+                continue
+            seen.add(key)
+            lines.append(f"- **{q}**  ·  seed: `{seed}`")
+        lines.append("")
+    else:
+        lines.append("_No new queries vs last week — suggestions are stable._")
+        lines.append("")
+
+    lines.append("### All current suggestions (by seed)")
+    lines.append("")
+    for seed, sugs in (sg.get("current") or {}).items():
+        if not sugs:
+            continue
+        joined = ", ".join(f"`{s}`" for s in sugs[:8])
+        lines.append(f"- **{seed}** → {joined}")
+    lines.append("")
+    return "\n".join(lines)
+
+
+def render_reddit(posts):
+    lines = ["## Reddit — r/padel + r/padelinternational hot posts\n"]
+    if not posts:
+        lines.append("(no data)\n")
+        return "\n".join(lines)
+    lines.append("Sorted by upvotes. Use as content-idea signal — pain points, questions, debates the community cares about right now.")
+    lines.append("")
+    lines.append("| Sub | Score | Comments | Title |")
+    lines.append("|---|---|---|---|")
+    for p in posts:
+        title = (p["title"] or "").replace("|", "\\|")[:120]
+        lines.append(f"| r/{p['subreddit']} | {p['score']} | {p['comments']} | [{title}]({p['permalink']}) |")
+    lines.append("")
+    return "\n".join(lines)
+
+
 def render_ranks(ranks, prior_ranks):
     lines = ["## Rank tracking (Google, United States)\n"]
     lines.append("| # | Keyword | Pos | Δ |")
@@ -653,6 +831,10 @@ def main():
     clarity = pull_clarity()
     print("Pulling SerpAPI ranks...")
     ranks = pull_ranks()
+    print("Pulling Google Suggest...")
+    suggest = pull_suggest()
+    print("Pulling Reddit...")
+    reddit = pull_reddit()
 
     front = (
         "---\n"
@@ -677,6 +859,8 @@ def main():
         f"{render_bing(bing)}\n"
         f"{render_clarity(clarity)}\n"
         f"{render_ranks(ranks, prior_ranks)}\n"
+        f"{render_suggest(suggest)}\n"
+        f"{render_reddit(reddit)}\n"
         f"{render_actions(gsc, ranks)}\n"
         f"{render_errors()}"
     )
