@@ -426,6 +426,9 @@ def pull_suggest():
 # ---------------------------------------------------------------------------
 REDDIT_CLIENT_ID = os.environ.get("REDDIT_CLIENT_ID", "")
 REDDIT_CLIENT_SECRET = os.environ.get("REDDIT_CLIENT_SECRET", "")
+REDDIT_USERNAME = os.environ.get("REDDIT_USERNAME", "padelup")
+# Reddit's required UA format: <platform>:<app-id>:<version> (by /u/<username>)
+REDDIT_USER_AGENT = f"script:padelup-seo-report:v1.0 (by /u/{REDDIT_USERNAME})"
 _reddit_token_cache: dict = {}
 
 
@@ -442,7 +445,7 @@ def _reddit_token() -> str | None:
         headers={
             "Authorization": f"Basic {auth}",
             "Content-Type": "application/x-www-form-urlencoded",
-            "User-Agent": "PadelUp-SEO-Report/1.0 by u/padelup",
+            "User-Agent": REDDIT_USER_AGENT,
         },
         body="grant_type=client_credentials",
         timeout=20,
@@ -468,7 +471,7 @@ def _reddit_hot(subreddit: str, limit: int = 10) -> list[dict]:
         status, body = http("GET", url,
                             headers={
                                 "Authorization": f"Bearer {token}",
-                                "User-Agent": "PadelUp-SEO-Report/1.0 by u/padelup",
+                                "User-Agent": REDDIT_USER_AGENT,
                             },
                             timeout=20)
     else:
