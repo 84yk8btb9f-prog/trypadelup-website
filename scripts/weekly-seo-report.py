@@ -422,6 +422,78 @@ def pull_suggest():
 
 
 # ---------------------------------------------------------------------------
+# YouTube Suggest — trending padel video queries (dependency-free; no API key)
+# ---------------------------------------------------------------------------
+YT_SUGGEST_DIR = REPO_ROOT / "seo-reports" / "yt-suggest-snapshots"
+YT_SUGGEST_DIR.mkdir(parents=True, exist_ok=True)
+
+# YouTube users phrase queries differently — heavier on tutorial/how-to/best.
+YT_SUGGEST_SEEDS = [
+    "padel",
+    "padel tutorial",
+    "padel tips",
+    "how to padel",
+    "padel technique",
+    "padel drills",
+    "best padel",
+    "padel for beginners",
+    "padel bandeja",
+    "padel smash",
+]
+
+
+def _yt_suggest_one(seed: str) -> list[str]:
+    """YouTube autocomplete via the same suggest endpoint with ds=yt."""
+    qs = urllib.parse.urlencode({"client": "firefox", "ds": "yt", "q": seed, "hl": "en"})
+    url = f"https://suggestqueries.google.com/complete/search?{qs}"
+    status, body = http("GET", url,
+                        headers={"User-Agent": "PadelUp-SEO-Report/1.0"},
+                        timeout=15)
+    if status != 200:
+        errors.append(f"YT Suggest '{seed}' HTTP {status}: {str(body)[:120]}")
+        return []
+    try:
+        data = json.loads(body)
+        return [s for s in (data[1] if len(data) > 1 else []) if isinstance(s, str)]
+    except Exception as e:
+        errors.append(f"YT Suggest '{seed}' parse: {e}")
+        return []
+
+
+def pull_yt_suggest():
+    current: dict[str, list[str]] = {}
+    for seed in YT_SUGGEST_SEEDS:
+        current[seed] = _yt_suggest_one(seed)
+        time.sleep(0.4)
+    if not any(current.values()):
+        return None
+    prior_files = sorted(YT_SUGGEST_DIR.glob("*.json"))
+    prior_files = [p for p in prior_files if p.stem != TODAY]
+    prior: dict[str, list[str]] = {}
+    if prior_files:
+        try:
+            prior = json.loads(prior_files[-1].read_text(encoding="utf-8"))
+        except Exception as e:
+            errors.append(f"YT Suggest prior snapshot parse: {e}")
+    try:
+        (YT_SUGGEST_DIR / f"{TODAY}.json").write_text(
+            json.dumps(current, indent=2, ensure_ascii=False), encoding="utf-8")
+    except Exception as e:
+        errors.append(f"YT Suggest snapshot write: {e}")
+    prior_flat = {q.lower() for qs in prior.values() for q in qs}
+    new_queries: list[tuple[str, str]] = []
+    for seed, sugs in current.items():
+        for s in sugs:
+            if s.lower() not in prior_flat:
+                new_queries.append((seed, s))
+    return {
+        "current": current,
+        "new_queries": new_queries,
+        "had_prior": bool(prior),
+    }
+
+
+# ---------------------------------------------------------------------------
 # Reddit — r/padel hot posts (content-idea signal)
 # ---------------------------------------------------------------------------
 REDDIT_CLIENT_ID = os.environ.get("REDDIT_CLIENT_ID", "")
@@ -798,18 +870,50 @@ def render_suggest(sg):
     return "\n".join(lines)
 
 
+def render_yt_suggest(yt):
+    lines = ["## Trending padel videos (YouTube Suggest)\n"]
+    if not yt or not yt.get("current"):
+        lines.append("(no data yet)\n")
+        return "\n".join(lines)
+    if not yt.get("had_prior"):
+        lines.append("_Baseline snapshot — diff begins next week._")
+        lines.append("")
+    elif yt.get("new_queries"):
+        lines.append("### NEW this week (YouTube)")
+        lines.append("Video-content candidates — what people are actively searching on YouTube this week.")
+        lines.append("")
+        seen = set()
+        for seed, q in yt["new_queries"]:
+            key = q.lower()
+            if key in seen:
+                continue
+            seen.add(key)
+            lines.append(f"- **{q}**  ·  seed: `{seed}`")
+        lines.append("")
+    else:
+        lines.append("_No new queries vs last week — suggestions are stable._")
+        lines.append("")
+    lines.append("### All current YouTube suggestions (by seed)")
+    lines.append("")
+    for seed, sugs in (yt.get("current") or {}).items():
+        if not sugs:
+            continue
+        joined = ", ".join(f"`{s}`" for s in sugs[:8])
+        lines.append(f"- **{seed}** → {joined}")
+    lines.append("")
+    return "\n".join(lines)
+
+
 def render_reddit(posts):
+    # Reddit deferred — their Data API now requires explicit approval ahead of
+    # app creation, which isn't worth the friction for ~2 calls/week of internal
+    # research. Section is kept dormant: code lights up automatically if
+    # REDDIT_CLIENT_ID/SECRET ever get configured.
+    if not posts and not (REDDIT_CLIENT_ID and REDDIT_CLIENT_SECRET):
+        return ""  # Hide the section entirely while no credentials are set.
     lines = ["## Reddit — r/padel + r/padelinternational hot posts\n"]
     if not posts:
-        if not (REDDIT_CLIENT_ID and REDDIT_CLIENT_SECRET):
-            lines.append(
-                "_Reddit's public JSON API blocks GitHub Actions IPs. Set up a Reddit "
-                "'script' app at https://www.reddit.com/prefs/apps and add "
-                "`REDDIT_CLIENT_ID` + `REDDIT_CLIENT_SECRET` to the repo secrets. "
-                "Once configured, this section shows the top 10 hot posts per sub._\n"
-            )
-        else:
-            lines.append("(no data — see Notes / errors)\n")
+        lines.append("(no data — see Notes / errors)\n")
         return "\n".join(lines)
     lines.append("Sorted by upvotes. Use as content-idea signal — pain points, questions, debates the community cares about right now.")
     lines.append("")
@@ -900,6 +1004,8 @@ def main():
     ranks = pull_ranks()
     print("Pulling Google Suggest...")
     suggest = pull_suggest()
+    print("Pulling YouTube Suggest...")
+    yt_suggest = pull_yt_suggest()
     print("Pulling Reddit...")
     reddit = pull_reddit()
 
@@ -927,6 +1033,7 @@ def main():
         f"{render_clarity(clarity)}\n"
         f"{render_ranks(ranks, prior_ranks)}\n"
         f"{render_suggest(suggest)}\n"
+        f"{render_yt_suggest(yt_suggest)}\n"
         f"{render_reddit(reddit)}\n"
         f"{render_actions(gsc, ranks)}\n"
         f"{render_errors()}"
