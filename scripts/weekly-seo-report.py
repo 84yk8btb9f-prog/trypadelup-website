@@ -424,13 +424,69 @@ def pull_suggest():
 # ---------------------------------------------------------------------------
 # Reddit — r/padel hot posts (content-idea signal)
 # ---------------------------------------------------------------------------
-def _reddit_hot(subreddit: str, limit: int = 10) -> list[dict]:
-    url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit={limit}"
-    status, body = http("GET", url,
-                        headers={"User-Agent": "PadelUp-SEO-Report/1.0 (content research)"},
-                        timeout=20)
+REDDIT_CLIENT_ID = os.environ.get("REDDIT_CLIENT_ID", "")
+REDDIT_CLIENT_SECRET = os.environ.get("REDDIT_CLIENT_SECRET", "")
+_reddit_token_cache: dict = {}
+
+
+def _reddit_token() -> str | None:
+    """Get OAuth token via 'script' app credentials. Cached per-process."""
+    if _reddit_token_cache.get("token"):
+        return _reddit_token_cache["token"]
+    if not (REDDIT_CLIENT_ID and REDDIT_CLIENT_SECRET):
+        return None
+    import base64
+    auth = base64.b64encode(f"{REDDIT_CLIENT_ID}:{REDDIT_CLIENT_SECRET}".encode()).decode()
+    status, body = http(
+        "POST", "https://www.reddit.com/api/v1/access_token",
+        headers={
+            "Authorization": f"Basic {auth}",
+            "Content-Type": "application/x-www-form-urlencoded",
+            "User-Agent": "PadelUp-SEO-Report/1.0 by u/padelup",
+        },
+        body="grant_type=client_credentials",
+        timeout=20,
+    )
     if status != 200:
-        errors.append(f"Reddit r/{subreddit} HTTP {status}: {str(body)[:120]}")
+        errors.append(f"Reddit OAuth HTTP {status}: {str(body)[:160]}")
+        return None
+    try:
+        token = json.loads(body).get("access_token")
+        _reddit_token_cache["token"] = token
+        return token
+    except Exception as e:
+        errors.append(f"Reddit OAuth parse: {e}")
+        return None
+
+
+def _reddit_hot(subreddit: str, limit: int = 10) -> list[dict]:
+    """Try OAuth-authed call first (datacenter-friendly), fall back to public
+    JSON with browser-like UA."""
+    token = _reddit_token()
+    if token:
+        url = f"https://oauth.reddit.com/r/{subreddit}/hot?limit={limit}&raw_json=1"
+        status, body = http("GET", url,
+                            headers={
+                                "Authorization": f"Bearer {token}",
+                                "User-Agent": "PadelUp-SEO-Report/1.0 by u/padelup",
+                            },
+                            timeout=20)
+    else:
+        # Fallback: public JSON with realistic UA. Often blocked from GH Actions IPs.
+        url = f"https://old.reddit.com/r/{subreddit}/hot.json?limit={limit}&raw_json=1"
+        status, body = http("GET", url,
+                            headers={
+                                "User-Agent": (
+                                    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                                    "AppleWebKit/537.36 (KHTML, like Gecko) "
+                                    "Chrome/126.0.0.0 Safari/537.36"
+                                ),
+                                "Accept": "application/json, text/javascript, */*",
+                            },
+                            timeout=20)
+    if status != 200:
+        snippet = str(body)[:160].replace("\n", " ")
+        errors.append(f"Reddit r/{subreddit} HTTP {status}: {snippet}")
         return []
     try:
         data = json.loads(body)
@@ -742,7 +798,15 @@ def render_suggest(sg):
 def render_reddit(posts):
     lines = ["## Reddit — r/padel + r/padelinternational hot posts\n"]
     if not posts:
-        lines.append("(no data)\n")
+        if not (REDDIT_CLIENT_ID and REDDIT_CLIENT_SECRET):
+            lines.append(
+                "_Reddit's public JSON API blocks GitHub Actions IPs. Set up a Reddit "
+                "'script' app at https://www.reddit.com/prefs/apps and add "
+                "`REDDIT_CLIENT_ID` + `REDDIT_CLIENT_SECRET` to the repo secrets. "
+                "Once configured, this section shows the top 10 hot posts per sub._\n"
+            )
+        else:
+            lines.append("(no data — see Notes / errors)\n")
         return "\n".join(lines)
     lines.append("Sorted by upvotes. Use as content-idea signal — pain points, questions, debates the community cares about right now.")
     lines.append("")
