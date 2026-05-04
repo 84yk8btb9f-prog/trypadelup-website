@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import AppStoreBadge from "@/components/app-store-badge";
+import AppStoreLink from "@/components/app-store-link";
 import { cn } from "@/lib/utils";
 import { APP_STORE_URL } from "@/lib/config";
 
@@ -122,13 +123,13 @@ export default function Navbar() {
             {link.label}
           </Link>
         ))}
-        <a
+        <AppStoreLink
           href={APP_STORE_URL}
           className="mt-4 rounded-full bg-[#00E676] px-8 py-3.5 text-base font-semibold text-[#050505]"
-          onClick={() => setMenuOpen(false)}
+          onClickExtra={() => setMenuOpen(false)}
         >
           Download on the App Store
-        </a>
+        </AppStoreLink>
       </div>
     </header>
   );

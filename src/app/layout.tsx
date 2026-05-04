@@ -3,6 +3,7 @@ import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import StructuredData from "@/components/structured-data";
+import { LaunchModalProvider } from "@/components/launch-modal";
 import { APP_IS_LIVE, APP_STORE_ID, BASE_URL } from "@/lib/config";
 
 export const viewport: Viewport = {
@@ -156,7 +157,7 @@ export default function RootLayout({
         <StructuredData />
       </head>
       <body className="min-h-full flex flex-col bg-[#050505] text-[#f0f4f8]">
-        {children}
+        <LaunchModalProvider>{children}</LaunchModalProvider>
         <Analytics />
         <Script id="microsoft-clarity" strategy="afterInteractive">
           {`(function(c,l,a,r,i,t,y){

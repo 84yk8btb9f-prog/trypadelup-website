@@ -1,4 +1,8 @@
+"use client";
+
 import Image from "next/image";
+import { APP_IS_LIVE } from "@/lib/config";
+import { useLaunchModal } from "@/components/launch-modal";
 
 interface AppStoreBadgeProps {
   href: string;
@@ -7,11 +11,21 @@ interface AppStoreBadgeProps {
 }
 
 export default function AppStoreBadge({ href, className = "", height = "h-12" }: AppStoreBadgeProps) {
+  const { open } = useLaunchModal();
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!APP_IS_LIVE) {
+      e.preventDefault();
+      open();
+    }
+  };
+
   return (
     <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
+      href={APP_IS_LIVE ? href : "#"}
+      onClick={handleClick}
+      target={APP_IS_LIVE ? "_blank" : undefined}
+      rel={APP_IS_LIVE ? "noopener noreferrer" : undefined}
       className={`inline-block transition-all duration-300 hover:scale-105 hover:opacity-85 active:scale-95 ${className}`}
       aria-label="Download on the App Store"
     >

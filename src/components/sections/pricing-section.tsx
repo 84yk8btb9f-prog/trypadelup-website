@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { APP_STORE_URL } from "@/lib/config";
+import AppStoreLink from "@/components/app-store-link";
 
 const monthlyFeatures = [
   "Unlimited Video Analysis",
@@ -67,12 +68,12 @@ export default function PricingSection() {
               ))}
             </ul>
 
-            <a
+            <AppStoreLink
               href={APP_STORE_URL}
-              className="w-full rounded-xl bg-white/[0.06] border border-white/[0.08] py-3.5 text-center text-sm font-semibold text-white transition-colors hover:bg-white/[0.1]"
+              className="w-full rounded-xl bg-white/[0.06] border border-white/[0.08] py-3.5 text-center text-sm font-semibold text-white transition-colors hover:bg-white/[0.1] block"
             >
               Start Monthly Plan
-            </a>
+            </AppStoreLink>
 
             <p className="mt-3 flex items-center justify-center gap-1.5 text-xs text-white/40">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#00E676] animate-pulse" />
@@ -120,12 +121,12 @@ export default function PricingSection() {
               ))}
             </ul>
 
-            <a
+            <AppStoreLink
               href={APP_STORE_URL}
-              className="w-full rounded-xl bg-[#00E676] py-3.5 text-center text-sm font-semibold text-[#050505] transition-all hover:shadow-[0_0_24px_rgba(0,230,118,0.2)]"
+              className="w-full rounded-xl bg-[#00E676] py-3.5 text-center text-sm font-semibold text-[#050505] transition-all hover:shadow-[0_0_24px_rgba(0,230,118,0.2)] block"
             >
               Start Yearly Plan
-            </a>
+            </AppStoreLink>
 
             <p className="mt-3 flex items-center justify-center gap-1.5 text-xs text-white/40">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#00E676] animate-pulse" />

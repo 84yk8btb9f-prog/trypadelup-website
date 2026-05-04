@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "motion/react";
 import { APP_STORE_URL } from "@/lib/config";
+import AppStoreLink from "@/components/app-store-link";
 
 export default function FinalCta() {
   return (
@@ -25,7 +26,7 @@ export default function FinalCta() {
             Upload a clip. See what you&apos;ve been missing. Improve where it counts.
           </p>
           <div className="mt-10">
-            <a
+            <AppStoreLink
               href={APP_STORE_URL}
               className="inline-flex items-center gap-2 rounded-full bg-[#050505] px-8 py-4 text-base font-semibold text-white transition-all hover:bg-[#1a1a1a] hover:shadow-xl"
             >
@@ -33,7 +34,7 @@ export default function FinalCta() {
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-            </a>
+            </AppStoreLink>
           </div>
         </motion.div>
       </div>
