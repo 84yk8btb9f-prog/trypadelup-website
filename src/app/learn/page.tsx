@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { BookOpen, GitCompareArrows, Zap, Bot, Video, ScanSearch, Swords, MapPin, TrendingUp, Move, Footprints, RotateCcw, Users, AlertCircle, Cpu, Trophy, Eye, Layers, Target, BarChart3, Compass, Sparkles, HelpCircle, Activity, XCircle, Play, ShoppingBag, Hand, Hash, ArrowRightLeft, MessagesSquare, PersonStanding, Award, Ruler } from "lucide-react";
+import { BookOpen, GitCompareArrows, Zap, Bot, Video, ScanSearch, Swords, MapPin, TrendingUp, Move, Footprints, RotateCcw, Users, AlertCircle, Cpu, Trophy, Eye, Layers, Target, BarChart3, Compass, Sparkles, HelpCircle, Activity, XCircle, Play, ShoppingBag, Hand, Hash, ArrowRightLeft, MessagesSquare, PersonStanding, Award, Ruler, Anchor } from "lucide-react";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import AppStoreBadge from "@/components/app-store-badge";
@@ -40,6 +40,7 @@ const ICONS: Record<LearnSlug, typeof BookOpen> = {
   "padel-grip-guide": Hand,
   "padel-scoring-explained": Hash,
   "padel-for-tennis-players": ArrowRightLeft,
+  "padel-stance-tennis-players": Anchor,
   "padel-partner-communication": MessagesSquare,
   "padel-shoes-guide": PersonStanding,
   "best-padel-rackets-2026": Award,

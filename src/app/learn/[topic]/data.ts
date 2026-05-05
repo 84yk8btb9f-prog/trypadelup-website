@@ -29,6 +29,7 @@ export type LearnSlug =
   | "padel-grip-guide"
   | "padel-scoring-explained"
   | "padel-for-tennis-players"
+  | "padel-stance-tennis-players"
   | "padel-partner-communication"
   | "padel-shoes-guide"
   | "best-padel-rackets-2026"
@@ -130,9 +131,9 @@ export const LEARN: Record<LearnSlug, LearnData> = {
   "padel-vs-tennis": {
     slug: "padel-vs-tennis",
     h1: "Padel vs tennis — which is harder, which is easier to start",
-    title: "Padel vs Tennis — Differences, Similarities, and Which to Play",
+    title: "Padel vs Tennis: Is Padel Easier? What Tennis Players Need to Know",
     description:
-      "Padel vs tennis, from a player's perspective. Court, racket, scoring, technique crossovers, and which sport rewards which type of athlete.",
+      "Tennis player considering padel? Short answer: yes, padel is easier to start. Walls slow the game down, your technique transfers — with adjustments.",
     intro:
       "Padel looks like tennis on a smaller court with walls. It isn't. The scoring is shared, the stance is familiar, and the ball is tennis-ish — but the rallies, the court geometry, and the fundamental tactical logic are a different game. Here's how they actually compare.",
     sections: [
@@ -1707,9 +1708,9 @@ export const LEARN: Record<LearnSlug, LearnData> = {
   "what-is-padel": {
     slug: "what-is-padel",
     h1: "What is padel? A complete guide to the world's fastest-growing sport",
-    title: "What is Padel? Complete Beginner's Guide to the Sport | PadelUp",
+    title: "What Is Padel? The Sport Explained in Plain Terms | PadelUp",
     description:
-      "Padel is the world's fastest-growing racket sport — over 25 million players globally. It's tennis with walls, played in doubles, on a smaller court. Here's everything to know to start.",
+      "Padel is tennis with walls, played in doubles on a smaller enclosed court. Solid racket, no strings, walls are in play. Over 25 million players globally.",
     intro:
       "Padel went from a niche Spanish sport to over 25 million players worldwide in under a decade, according to the International Padel Federation. It's the fastest-growing racket sport on the planet — search interest rose 49% globally in just the last year. If you've heard the name and want a clear, complete answer to 'what is padel,' this is it.",
     sections: [
@@ -1786,9 +1787,9 @@ export const LEARN: Record<LearnSlug, LearnData> = {
   "padel-vs-pickleball": {
     slug: "padel-vs-pickleball",
     h1: "Padel vs pickleball — the full 2026 comparison",
-    title: "Padel vs Pickleball: Differences, Growth, Which to Play in 2026 | PadelUp",
+    title: "Padel vs Pickleball 2026: Which Is Growing Faster? | PadelUp",
     description:
-      "Padel and pickleball are both growing fast, but they're completely different sports. Court, equipment, gameplay, and culture all diverge. Here's the honest 2026 comparison.",
+      "Padel is bigger globally. Pickleball is bigger in the US. They're not the same sport. Here's the honest 2026 breakdown of court, equipment, and growth.",
     intro:
       "Padel and pickleball are often mentioned in the same breath as 'the two fastest-growing racket sports.' Both are correct on growth — they're not correct as direct comparisons. The two sports differ in court, equipment, ball, gameplay, and culture. Here's what each is, how they actually compare, and how to choose if you're deciding between them.",
     sections: [
@@ -2114,9 +2115,9 @@ export const LEARN: Record<LearnSlug, LearnData> = {
   "padel-grip-guide": {
     slug: "padel-grip-guide",
     h1: "Padel grip guide — the only grip you need to learn first",
-    title: "Padel Grip Guide: Continental Grip and Why It's the Answer | PadelUp",
+    title: "Padel Continental Grip: When to Use It and When to Switch | PadelUp",
     description:
-      "There's only one grip you need for the first six months of padel — the continental grip. Here's how to find it, why it works, and the grip mistakes that hold most beginners back.",
+      "The continental grip is the right starting point for every padel shot. Here's how to find it, when to switch, and the grip mistakes that cap most players.",
     intro:
       "Most padel mistakes start at the grip. The wrong grip makes every shot harder. The right grip makes every shot easier. There's basically one grip to learn for the first six months: the continental grip. This guide covers how to find it, why it works for every shot, and the grip mistakes that quietly cap most players at intermediate forever.",
     sections: [
@@ -2353,6 +2354,91 @@ export const LEARN: Record<LearnSlug, LearnData> = {
     ],
     relatedFeature: "/features/ai-video-analysis",
     relatedFeatureLabel: "Score your padel technique frame by frame",
+  },
+  "padel-stance-tennis-players": {
+    slug: "padel-stance-tennis-players",
+    h1: "Padel stance for tennis players: open, closed, and why it's different",
+    title: "Padel Stance for Tennis Players Explained | PadelUp",
+    description:
+      "Open stance, closed stance, split-step — padel changes the rules. Here's how padel footing differs from tennis, and what to drill first if you're making the switch.",
+    intro:
+      "In tennis, you have time to set your feet. In padel, you usually don't. The court is smaller, the walls add unpredictable angles, and every point is doubles — which means there's always a lane to cover. These constraints don't just change what stance you use; they change what stance is for. If you're a tennis player stepping onto a padel court, understanding this shift early saves you months of bad habits.",
+    sections: [
+      {
+        title: "Why padel stance is different from tennis",
+        body: "Tennis is played on a 26×8m singles court with time to recover between shots. Padel is 20×10m — doubles only, with walls that redirect the ball at angles you didn't plan for. You have less distance to cover but less time to cover it. The back walls behind you mean the ball can come from directions that don't exist in tennis. All of this changes the geometry of stance: you need to be ready for width, depth, and wall angles simultaneously. A closed, side-on stance optimised for one direction works fine in tennis. It leaves you exposed in padel.",
+      },
+      {
+        title: "Open, closed, and neutral stance — the quick reference",
+        body: "Open stance: chest and hips face the net. You contact the ball in front of your body, stepping into it with the same-side foot. Fast to hit from, fast to recover. Closed stance: side-on to the net, non-dominant shoulder pointing toward the ball. Classic tennis groundstroke position. Takes longer to set and recover. Neutral stance: feet roughly parallel, split between open and closed. Functional in most situations. In padel, open is the default for mid-court and net play. Closed appears on specific back-wall situations. Neutral is your ready position between shots.",
+      },
+      {
+        title: "What works in tennis but hurts you in padel",
+        body: "Heavy closed stances cost you recovery time on a small court. When you turn fully side-on to rip a forehand, you've committed your weight in one direction — and then you have to get back to a central position before the opponent's next shot. On a tennis baseline, there's room for that. In padel there often isn't. The same goes for big takebacks: pulling the racket back like a full forehand swing means you're late when the ball comes faster than expected off a wall. Wide split steps are another problem — a tennis-style wide landing puts you out of position for wall coverage.",
+      },
+      {
+        title: "The default padel stance: athletic-ready, slightly open",
+        body: "Feet shoulder-width apart, knees soft and bent, weight forward on the balls of your feet. Racket up — not down by your hip, not dangling. The slight open bias means your chest is roughly 45° to the net rather than fully side-on. This lets you push left or right with equal speed, reach a wall-rebound with a quick turn, and hit across your body without a long setup. Think of it as a goalkeeper's set position: ready for anything, committed to nothing. This is where you should be between every shot.",
+      },
+      {
+        title: "When to actually use a closed stance in padel",
+        body: "Closed stances do appear in padel — just in specific situations. A hard low forehand at the back glass often benefits from a closed setup: you need to generate pace on a ball that's bounced awkwardly off the wall, and closing your stance creates hip rotation. Deep defensive shots where you have time to set are another case. But these are deliberate choices for specific balls, not your default. In tennis, closed is the baseline. In padel, closed is the exception.",
+      },
+      {
+        title: "Split-step timing in padel",
+        body: "The split-step exists in both sports — but the timing is different. In tennis, you split as the opponent begins their swing. In padel, that timing still applies for shots from the back of the court, but when the ball is coming off the back wall, you need to split earlier — as the opponent contacts the ball — because the wall redirect gives you almost no extra reaction time. If you're using tennis split-step timing for wall-rebounds, you'll be rooted too often. Land lighter, land sooner, recover faster. Padel split-steps should feel quicker and more frequent than tennis.",
+      },
+      {
+        title: "Three stance mistakes tennis players make in padel",
+        body: "First: closing the stance for every shot. If you're playing every ball side-on, you're leaving recovery lanes open and arriving late. Open stance is faster to hit from and faster to recover from in most padel situations. Second: not splitting before opponent contact when the ball is coming off the back wall. The wall redirect compresses your reaction window — you need to have completed your split by the time the ball leaves the opponent's racket. Third: standing too tall. Tennis players sometimes play with knees straighter than padel demands. Padel requires a deeper, sustained knee bend — your base needs to be lower than it feels natural coming from tennis.",
+      },
+      {
+        title: "Drills to retrain your stance",
+        body: "Drill 1 — Shadow footwork: without a ball, practice moving to a cone and resetting to your athletic-ready position. Focus on landing open with knees bent. Drill 2 — Wall feed reaction: have a partner feed balls into the back glass. Your job is to split before contact, read the wall angle, and return to position after each shot. Drill 3 — Closed-to-open conversion: hit a few balls closed-stance deliberately, then consciously open up your hip and chest on the next few. Trains you to feel the difference and choose intentionally. Drill 4 — Split-step clock: on every rally, count your splits. You should split at every opponent contact — if you're missing any, you're standing too still. Drill 5 — Knee bend hold: at the end of each point, hold your knee bend position for two seconds before standing. Builds the habit of staying lower throughout a rally.",
+      },
+    ],
+    keyTakeaways: [
+      "Padel's smaller court and back walls make closed stances costly — open is faster to recover from",
+      "The default padel stance is athletic-ready, slightly open: knees bent, weight forward, racket up",
+      "Closed stance appears in specific padel situations (hard back-wall forehands) but is not the baseline",
+      "Split-step timing is different in padel — split earlier when the ball is coming off the back glass",
+      "Standing too tall is a common tennis-player mistake — padel needs a deeper, sustained knee bend",
+      "Closing stance on every shot leaves recovery lanes open; open stance keeps all options available",
+      "Drilling wall-feed reactions and shadow footwork is the fastest way to retrain your default stance",
+    ],
+    keywords: [
+      "open stance padel",
+      "split stance padel",
+      "padel stance for tennis players",
+      "padel stance vs tennis stance",
+      "padel footing",
+      "padel footwork tennis players",
+      "padel open stance vs closed stance",
+    ],
+    faq: [
+      {
+        q: "Should I use an open or closed stance in padel?",
+        a: "Open stance is the default for most padel situations. It's faster to set and faster to recover from. Closed stance appears on specific shots — usually hard low forehands at the back glass — but it's the exception, not the rule. If you're coming from tennis where closed is your baseline, deliberately train the open stance first.",
+      },
+      {
+        q: "Why does my tennis stance feel wrong on a padel court?",
+        a: "Because padel's constraints are different. The court is smaller, recovery time is shorter, and the walls add angles that don't exist in tennis. A closed stance that worked fine on a tennis baseline costs you recovery time in padel. The stance that feels wrong is probably the one you're holding too long after contact.",
+      },
+      {
+        q: "What is the split-step in padel?",
+        a: "A small hop that lands you in a balanced, knees-bent ready position as the opponent contacts the ball. It primes your body to push left or right the moment you read the ball direction. In padel, split as the opponent contacts the ball — and split earlier than you would in tennis when the ball is coming off a back wall, because the redirect compresses your reaction window.",
+      },
+      {
+        q: "How is padel footwork different from tennis footwork?",
+        a: "Most of the fundamentals transfer: lateral movement, split-step, light feet. The new piece is wall footwork. When the ball is coming off the back glass, you need to turn toward the wall, step around it, and come back into the shot — a pattern that doesn't exist in tennis. Padel also demands a lower knee bend and more frequent splits because the court is smaller and rallies move faster.",
+      },
+      {
+        q: "Can I keep my tennis stance habits when starting padel?",
+        a: "Some of them. The athletic ready position, the split-step, lateral movement — these transfer. The closed-stance default and the wide, heavy split-step do not. The single most useful change is consciously opening your hip and chest after each contact instead of holding a closed position. It feels unnatural for the first few weeks; after that it's automatic.",
+      },
+    ],
+    relatedFeature: "/features/ai-video-analysis",
+    relatedFeatureLabel: "See your stance and footwork scored frame by frame",
   },
   "padel-partner-communication": {
     slug: "padel-partner-communication",
@@ -2601,9 +2687,9 @@ export const LEARN: Record<LearnSlug, LearnData> = {
   "padel-court-dimensions": {
     slug: "padel-court-dimensions",
     h1: "Padel court dimensions — exact measurements and what they mean",
-    title: "Padel Court Dimensions: Size, Walls, Lines, Net Height | PadelUp",
+    title: "Padel Court Dimensions 2026: 20×10m, Wall Heights, Net Spec | PadelUp",
     description:
-      "Official padel court dimensions: 20m × 10m, walls 3–4m high, net 88cm at the centre. Here's the complete spec including service lines, wall composition, and surface.",
+      "Official FIP spec: 20m × 10m court, back walls 4m high, side walls 3m, net 88cm at centre. Complete 2026 dimensions — size, service lines, wall materials.",
     intro:
       "Padel court dimensions are standardised by the International Padel Federation (FIP). Every official court is the same — 20 metres long, 10 metres wide, with walls of specific heights and materials. Knowing the dimensions matters whether you're building a court, comparing facilities, or just trying to understand why padel feels different from other racket sports. Here's the complete spec.",
     sections: [
