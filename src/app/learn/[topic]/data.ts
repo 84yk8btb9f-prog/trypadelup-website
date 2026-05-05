@@ -33,7 +33,9 @@ export type LearnSlug =
   | "padel-partner-communication"
   | "padel-shoes-guide"
   | "best-padel-rackets-2026"
-  | "padel-court-dimensions";
+  | "padel-court-dimensions"
+  | "best-padel-clubs-athens"
+  | "padel-in-greece";
 
 export interface LearnSection {
   title: string;
@@ -2761,6 +2763,173 @@ export const LEARN: Record<LearnSlug, LearnData> = {
     ],
     relatedFeature: "/features/ai-video-analysis",
     relatedFeatureLabel: "See the court layout in PadelUp's analysis overlays",
+  },
+  "best-padel-clubs-athens": {
+    slug: "best-padel-clubs-athens",
+    h1: "Where to play padel in Athens: a guide to the scene",
+    title: "Best Padel Clubs in Athens 2026: Where to Play | PadelUp",
+    description:
+      "Athens is the heart of Greece's padel boom. Here's where to play — Marousi, Glyfada, Goudi, Kifisia — plus how to book courts, find partners, and pick a club.",
+    intro:
+      "Athens has gone padel-mad. Courts that didn't exist four years ago are now booked solid on weekday evenings. The city's combination of year-round sunshine, strong doubles culture, and growing middle class hit the padel sweet spot — and the sport has spread fast. This guide won't give you a fake ranked list of 'top clubs' we haven't visited. Instead: a honest picture of the Athens padel scene by neighbourhood, how to book courts, how to find a partner, and what it actually costs.",
+    sections: [
+      {
+        title: "The padel boom in Athens",
+        body: "Padel arrived in Greece later than in Spain or Italy, but it's making up for lost time. From a handful of courts in 2020, Athens now has dozens of facilities scattered across the city and suburbs. The sport fits Greek social habits perfectly — it's doubles-only, social, not too physically demanding compared to singles tennis, and you can play well into the evening with court lighting. Corporate tournaments, club leagues, and beginner clinics have all appeared in the last two years. If you're visiting Athens or just moved here, you're arriving at the right moment.",
+      },
+      {
+        title: "Where the courts are — by neighbourhood",
+        body: "Athens padel is spread across several distinct areas, each with a different character. Marousi (Maroussi), in the northern suburbs, has emerged as one of the denser padel zones — newer multi-court facilities, easy access from the city centre, and a mix of recreational and competitive players. Glyfada, on the southern coast, has a cluster of outdoor and indoor courts popular with the beach crowd and expat community. Goudi, closer to the city centre, sits near the old Olympic sports complex area — courts here tend to be more central and accessible by public transport. Kifisia, in the affluent northern suburbs, has a newer crop of well-maintained facilities catering to a more established club scene. Search Playtomic by neighbourhood to see current court availability in each area — it's the most reliable live picture of what's open.",
+      },
+      {
+        title: "How to book a court",
+        body: "Playtomic is the dominant booking platform in Greece, as across southern Europe. Most serious Athens padel clubs list their courts there — you can filter by location, date, and surface type, see real-time availability, and pay in-app. Create an account, search 'Athens' or a specific neighbourhood, and you'll see the density of courts near you. Some clubs also use their own Instagram pages or WhatsApp groups for booking, particularly smaller or newer facilities not yet on Playtomic. The Greek Padel Federation (Ελληνική Ομοσπονδία Padel) publishes a directory of affiliated clubs — worth checking if you want official registered facilities. Booking 48 hours in advance is usually enough for weekday sessions; weekend peak hours fill up faster, especially Saturday morning.",
+      },
+      {
+        title: "Finding a partner",
+        body: "No regular partner isn't a problem in Athens. Playtomic has a matchmaking feature — you post a slot, indicate your level, and other players in the area can join. Most clubs also have informal WhatsApp groups for social play and last-minute partner searches. Show up at a club, be friendly, and you'll find someone. The padel community in Athens is still small enough that regulars notice new faces. Beginner clinics are another option — most facilities run weekly group sessions where you'll naturally meet players at your level.",
+      },
+      {
+        title: "Costs and what to expect",
+        body: "Court hire in Athens runs roughly €15–30 per hour off-peak (weekday mornings and early afternoons) and €30–50 per hour during peak times (weekday evenings, weekend mornings). These are indicative ranges — actual prices vary by facility, surface quality, and whether the court is indoor or outdoor. Divide by four players for the per-person cost: €5–12 per session is typical. Some clubs charge a small membership or monthly fee on top of court hire. Balls are usually included in the court rate or sold at the club for €5–10. Bring water — some facilities charge more for court-side drinks than you'd expect.",
+      },
+      {
+        title: "Equipment — rent or bring?",
+        body: "Most Athens padel clubs rent rackets, usually at €5–10 per session. If you're trying the sport for the first time, rent first. If you're playing regularly, buying your own racket (€60–150 for a solid beginner-intermediate option) makes economic sense within a few months. Padel shoes are the non-negotiable — running shoes on a padel court are a ankle injury waiting to happen. Court surface in Athens is predominantly panoramic glass (the enclosed three-glass-wall design standard across southern Europe), usually with artificial turf and sand infill. An omni-sole or specifically padel-rated shoe is the right choice for these surfaces.",
+      },
+      {
+        title: "How to improve once you find your club",
+        body: "Finding a good court gets you playing. Getting better is a different question. Most improvement happens away from match play — in focused practice on specific shots, video review of your patterns, and honest feedback on what's actually broken. PadelUp's AI video analysis works from a standard smartphone recording of your play session: upload the video, get a frame-by-frame breakdown of your technique, positioning, and decision-making. No coach on court required. The combination of regular club play in Athens and structured video feedback is the fastest route from beginner to competitive.",
+      },
+    ],
+    keyTakeaways: [
+      "Athens has a growing and active padel scene concentrated in Marousi, Glyfada, Goudi, and Kifisia",
+      "Playtomic is the main booking platform — use it to find courts and playing partners",
+      "Off-peak court hire runs roughly €15–30/hour; peak times €30–50/hour (indicative)",
+      "Most clubs rent rackets; padel-specific shoes are non-negotiable from session one",
+      "Playtomic matchmaking and club WhatsApp groups are the fastest way to find partners",
+      "Court surfaces are predominantly panoramic glass with artificial turf — omni-sole shoes are appropriate",
+      "The Greek Padel Federation directory lists officially affiliated clubs for reference",
+    ],
+    keywords: [
+      "padel athens",
+      "padel marousi",
+      "padel glyfada",
+      "padel goudi",
+      "padel kifisia",
+      "padel place marousi",
+      "best padel clubs athens",
+      "where to play padel athens",
+      "padel courts athens",
+    ],
+    faq: [
+      {
+        q: "Where is the best padel club in Athens?",
+        a: "The right club depends on where you live, your level, and whether you want casual social play or structured competition. Rather than picking one, search Playtomic for Athens — filter by your neighbourhood, check court availability and user reviews, and try two or three before settling. Marousi and Glyfada have the highest concentration of courts; Goudi is the most central.",
+      },
+      {
+        q: "How much does padel cost in Athens?",
+        a: "Indicative range: €15–30 per hour off-peak, €30–50 per hour at peak times (weekday evenings, weekend mornings). Split four ways, that's €5–12 per person per session. Prices vary by facility — newer, better-equipped clubs charge more. Racket rental adds €5–10 if you don't own one.",
+      },
+      {
+        q: "Do I need to book in advance?",
+        a: "For weekday mornings and afternoons, 24 hours is usually enough. For peak slots — weekday evenings and Saturday mornings — book 48–72 hours ahead. Popular courts fill fast during these windows. Playtomic shows real-time availability so you can see what's open instantly.",
+      },
+      {
+        q: "Can I rent rackets at Athens padel clubs?",
+        a: "Yes, most established clubs offer racket hire for €5–10 per session. If you're just starting out, renting is the smart move. Once you're playing weekly, buying your own racket (€60–150 for a solid entry-to-intermediate option) pays for itself quickly.",
+      },
+      {
+        q: "What's the best time of year to play padel in Athens?",
+        a: "Athens has around 300 days of sunshine per year, so outdoor play is possible most of the year. Spring (March–May) and autumn (September–November) are the most comfortable temperature-wise. Summer is popular for early morning or evening sessions when it cools down. Indoor courts make year-round play viable regardless of conditions.",
+      },
+    ],
+    relatedFeature: "/features/ai-video-analysis",
+    relatedFeatureLabel: "Analyse your game with AI — wherever you play in Athens",
+  },
+  "padel-in-greece": {
+    slug: "padel-in-greece",
+    h1: "Padel in Greece: the sport's fastest-growing racket game",
+    title: "Padel in Greece 2026: Where to Play & What's Growing | PadelUp",
+    description:
+      "Greece is one of padel's fastest-growing markets. Athens leads, Thessaloniki and the islands are catching up. Here's the full picture for 2026.",
+    intro:
+      "Padel is sweeping across southern Europe, and Greece is deep in the wave. The sport arrived later than in Spain or Italy, but the growth curve since 2022 has been steep. Climate, culture, and a doubles-loving sporting tradition made Greece a natural fit. This is the full picture: where the game is growing, which cities have infrastructure, what the federation looks like, and how to get started if you're new to the country or the sport.",
+    sections: [
+      {
+        title: "Why Greece is padel-mad",
+        body: "Three things aligned at once. The climate is obvious — outdoor courts are usable for most of the year across mainland Greece and the islands. The culture is less obvious but more important: Greeks love doubles sport. Football, basketball, and beach volleyball have always been social, team-based activities. Padel slots into exactly that pattern — four players, social, not brutally demanding on fitness, playable well into middle age. The third factor is the expat and tourist effect: Spanish and Italian visitors brought the sport with them, and locals picked it up. Once courts existed, demand built on itself.",
+      },
+      {
+        title: "Athens — where it all started",
+        body: "Athens is the padel capital of Greece by a significant margin. The city has the densest concentration of courts, the most established club scene, and the highest number of competitive players. Facilities are concentrated in Marousi, Glyfada, Goudi, and Kifisia — a mix of newer multi-court complexes and smaller clubs embedded in sports centres. For a detailed breakdown of where to play in Athens, including booking tips, costs, and neighbourhood-by-neighbourhood guidance, see our full Athens padel guide.",
+      },
+      {
+        title: "Thessaloniki, Patras — the second wave",
+        body: "Greece's second city is catching up. Thessaloniki has seen a meaningful increase in padel infrastructure since 2023, with several facilities now operating across the city. The social scene is still building — fewer organised leagues and club events than Athens — but the courts are there and usage is growing. Patras, on the western coast, has a smaller but active padel community. As in Athens, Playtomic is the most reliable tool for finding courts in both cities. The Greek Padel Federation's directory lists affiliated clubs nationally.",
+      },
+      {
+        title: "Coastal and island padel",
+        body: "Seasonal but real. Mykonos, Santorini, and other Cyclades islands have seen padel courts appear at high-end resorts and sports facilities — mostly aimed at tourists, open during the summer season (May–October). Crete has a more permanent padel scene, with year-round courts in Heraklion and a few resort-based facilities on the island's northern coast. Corfu and Rhodes have isolated facilities. If you're travelling to the Greek islands and want to play, check resort sports offerings directly or search Playtomic with the island name — availability changes seasonally.",
+      },
+      {
+        title: "The federation and the competitive scene",
+        body: "The Hellenic Padel Federation (Ελληνική Ομοσπονδία Padel) is the governing body for the sport in Greece. It organises national championships, registers clubs, and manages Greece's relationship with the International Padel Federation (FIP). The competitive scene is small but growing — national rankings exist, club tournaments run throughout the year, and Greece now sends players to international federation events. For recreational players, the federation's club directory is a useful starting point for finding registered facilities. For competitive players, it's the entry point to the national circuit.",
+      },
+      {
+        title: "Equipment — what's available locally",
+        body: "Padel equipment availability in Greece has improved significantly. Athens sports shops stock padel rackets from the main brands (Babolat, Head, Bullpadel, Wilson) and padel-specific shoes from Asics, Adidas, and others. Thessaloniki has similar retail coverage. On the islands, availability is patchier — bring your own equipment or buy before you travel. Online retailers shipping to Greece cover most gaps. Balls are available at courts or in sports shops; most clubs sell them at the front desk.",
+      },
+      {
+        title: "Getting started in Greece",
+        body: "If you're new to padel and in Greece, the entry path is straightforward. Install Playtomic, search your city or area, and find a court with beginner availability. Most clubs run introductory group sessions — show up, pay the hourly rate, and you'll get enough orientation to play. Court surfaces across Greece are predominantly panoramic glass with artificial turf and sand infill — standard southern European padel. Padel-specific or omni-sole shoes are the right footwear. Rackets are rentable at most established facilities. Once you're playing regularly, video analysis with an app like PadelUp lets you improve faster than match play alone — the gap between 'playing often' and 'playing well' closes quickly with structured feedback on your actual technique.",
+      },
+    ],
+    keyTakeaways: [
+      "Greece's padel court count reportedly tripled between 2022 and 2025 — one of Europe's fastest growth rates",
+      "Athens is the dominant padel city; Marousi, Glyfada, Goudi, and Kifisia have the most courts",
+      "Thessaloniki and Patras have a growing second-wave scene with established facilities",
+      "Island padel exists seasonally — Cyclades resorts operate May–October; Crete has year-round courts",
+      "The Hellenic Padel Federation (Ελληνική Ομοσπονδία Padel) governs competitive play nationally",
+      "Playtomic is the primary booking platform across all Greek cities",
+      "Equipment is available in Athens and Thessaloniki sports shops; bring your own for island trips",
+    ],
+    keywords: [
+      "padel greece",
+      "padel in greece",
+      "padel thessaloniki",
+      "padel athens",
+      "padel patras",
+      "padel crete",
+      "padel cyclades",
+      "padel mykonos",
+      "hellenic padel federation",
+      "ελληνική ομοσπονδία padel",
+    ],
+    faq: [
+      {
+        q: "Where is padel most popular in Greece?",
+        a: "Athens by a clear margin. The city has the most courts, the most active club scene, and the strongest competitive infrastructure. Within Athens, Marousi and Glyfada have the highest concentration of facilities. Thessaloniki is a distant second, with Patras and Heraklion (Crete) also having established venues.",
+      },
+      {
+        q: "How fast is padel growing in Greece?",
+        a: "Fast. Estimated figures suggest the number of padel courts in Greece roughly tripled between 2022 and 2025, though exact national data is hard to pin down. The sport went from niche to mainstream in Athens in around three years — beginner clinics, club tournaments, and corporate events are now common. The growth trend is consistent with padel's broader European trajectory, where markets that discovered the sport later are catching up quickly.",
+      },
+      {
+        q: "Are there padel courts on the Greek islands?",
+        a: "Yes, though availability is seasonal. Several Cyclades islands — including Mykonos and Santorini — have courts at resorts and sports facilities operating during the summer season (roughly May to October). Crete has more permanent infrastructure with year-round courts. Corfu and Rhodes have isolated facilities. Search Playtomic with the island name or check resort sports offerings directly.",
+      },
+      {
+        q: "What's the Hellenic Padel Federation?",
+        a: "The Hellenic Padel Federation (Ελληνική Ομοσπονδία Padel) is Greece's national governing body for padel. It organises national championships, registers clubs, and represents Greece in the International Padel Federation (FIP). For players looking to compete formally or find officially affiliated clubs, the federation's website and club directory are the authoritative starting point.",
+      },
+      {
+        q: "Is padel more popular than tennis in Greece?",
+        a: "Not yet, but it's closing the gap in participation growth rate. Tennis still has a larger installed base of courts, established clubs, and competitive infrastructure. But padel's growth since 2022 has significantly outpaced tennis among new recreational players. The sport's lower barrier to entry — shorter learning curve, smaller court, easier to play socially — is driving adoption in the same demographic that used to pick tennis.",
+      },
+    ],
+    relatedFeature: "/features/ai-video-analysis",
+    relatedFeatureLabel: "Improve your game wherever you play in Greece",
   },
 };
 
