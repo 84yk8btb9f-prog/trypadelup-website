@@ -1,0 +1,17 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["X4MFMK5QG7.com.nikolassapalidis.padelup"],
+        "components": [
+          { "/": "/invite/*", "comment": "Referral deep links" },
+          { "/": "/ref/*",    "comment": "Legacy referral deep links" },
+          { "/": "/share/*",  "comment": "Share deep links" }
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": ["X4MFMK5QG7.com.nikolassapalidis.padelup"]
+  }
+}

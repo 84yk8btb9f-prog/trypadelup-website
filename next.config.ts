@@ -30,6 +30,14 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        // AASA must be served as application/json for Universal Links to work
+        source: "/.well-known/apple-app-site-association",
+        headers: [
+          { key: "Content-Type", value: "application/json" },
+          { key: "Cache-Control", value: "public, max-age=3600" },
+        ],
+      },
+      {
         // Cache fonts from public dir
         source: "/fonts/(.*)",
         headers: [
