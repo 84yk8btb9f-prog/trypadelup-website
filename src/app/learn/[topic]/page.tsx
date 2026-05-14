@@ -12,8 +12,8 @@ import { LEARN, LEARN_SLUGS, type LearnSlug, type LearnData } from "./data";
 import { APP_STORE_URL, BASE_URL } from "@/lib/config";
 
 const PUBLISHED_AT = "2025-01-15";
-const UPDATED_AT = "2026-04-25";
-const UPDATED_AT_DISPLAY = "April 25, 2026";
+const UPDATED_AT = "2026-05-14";
+const UPDATED_AT_DISPLAY = "May 14, 2026";
 
 function slugify(text: string): string {
   return text
