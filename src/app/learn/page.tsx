@@ -47,6 +47,7 @@ const ICONS: Record<LearnSlug, typeof BookOpen> = {
   "padel-court-dimensions": Ruler,
   "best-padel-clubs-athens": Building2,
   "padel-in-greece": Globe,
+  "best-ai-padel-coaching-app-2026": ScanSearch,
 };
 
 const PAGE_URL = `${BASE_URL}/learn`;

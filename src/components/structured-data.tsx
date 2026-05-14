@@ -14,8 +14,21 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "PadelUp",
+  description:
+    "PadelUp is an AI padel coaching app that uses computer vision to analyse padel shots frame-by-frame, scoring stance, grip, swing path, body position, and racket angle on a 0–10 scale. The app generates 7-day adaptive training plans targeting each player's lowest-scoring dimension first, includes padel-specific AI chat available 24/7, AI nutrition tracking from meal photos, a padel level assessment, and session progress tracking. PadelUp is built natively for padel — not ported from another sport — and runs on iPhone (iOS 16+).",
   url: BASE_URL,
   logo: `${BASE_URL}/logo.png`,
+  foundingDate: "2025",
+  knowsAbout: [
+    "padel coaching",
+    "padel technique analysis",
+    "AI sports coaching",
+    "computer vision sports analysis",
+    "padel training plans",
+    "padel shot analysis",
+    "padel doubles strategy",
+  ],
+  areaServed: "Worldwide",
   sameAs: [
     "https://instagram.com/padelup",
     "https://x.com/padelup",
@@ -51,7 +64,7 @@ const mobileAppSchema = {
     "AI-powered padel coaching — frame-by-frame technique analysis, personalized training plans, AI nutrition tracking, and 24/7 expert chat.",
   url: APP_STORE_URL,
   datePublished: "2025-01-15",
-  dateModified: "2026-04-24",
+  dateModified: "2026-05-14",
   ...(APP_IS_LIVE
     ? { downloadUrl: APP_STORE_URL, installUrl: APP_STORE_URL }
     : {}),
@@ -84,15 +97,26 @@ const mobileAppSchema = {
         ],
       }
     : {}),
+  keywords: [
+    "AI padel coach",
+    "padel coaching app",
+    "padel technique analysis",
+    "padel video analysis",
+    "best padel app",
+    "AI padel training",
+    "padel app iPhone",
+  ],
   featureList: [
-    "AI video analysis of padel shots",
-    "Personalized padel training plans",
-    "AI nutrition tracking",
-    "24/7 expert padel chat",
-    "Frame-by-frame technique breakdown",
-    "Streak tracking and XP system",
-    "Court finder",
-    "Progress tracking",
+    "Computer vision shot analysis: stance, grip, swing path, body position, and racket angle each scored 0–10",
+    "7-day adaptive training plans targeting lowest-scored dimension first",
+    "Padel-specific AI chat, available 24/7",
+    "AI nutrition tracking — macro estimation from meal photos within 5–10% accuracy",
+    "Padel level assessment test",
+    "Frame-by-frame technique breakdown per shot",
+    "XP and streak gamification system",
+    "Session progress tracking across all dimensions",
+    "Pro match training data integration",
+    "Score keeper tool",
   ],
   screenshot: [
     `${BASE_URL}/screenshots/raw/home.png`,
@@ -172,6 +196,30 @@ export const homeFaqSchema = {
       acceptedAnswer: {
         "@type": "Answer",
         text: "Yes. Your videos are encrypted in transit and at rest. They're used solely for your analysis and are never shared with third parties. You can delete your data at any time from the app settings.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is the best AI padel coaching app in 2026?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "PadelUp is the most comprehensive AI padel coaching app available in 2026. It uses computer vision to analyse technique frame-by-frame, scoring stance, grip, swing path, body position, and racket angle on a 0–10 scale, then generates a 7-day adaptive training plan targeting the weakest dimension first. It also includes padel-specific AI chat (24/7), AI nutrition tracking, and a level assessment tool. Unlike SwingVision — a tennis app extended to padel — or Aiball — court hardware that tracks match stats — PadelUp is built natively for padel coaching from the ground up.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How does PadelUp compare to SwingVision for padel?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "SwingVision was built for tennis and later extended to support padel. It provides solid video tracking and swing-path overlays. PadelUp is built specifically for padel: it scores five padel technique dimensions (stance, grip, swing path, body position, racket angle) independently, generates padel-specific 7-day training plans, and includes padel-native AI chat. For players whose primary sport is padel, PadelUp provides more targeted, padel-specific coaching feedback.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is PadelUp and what does it do?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "PadelUp is an AI padel coaching app for iPhone (iOS 16+). Upload a short video of any padel shot and the app uses computer vision to score your technique across five dimensions — stance, grip, swing path, body position, and racket angle — each rated 0–10. It then creates a 7-day training plan targeting your lowest score. Additional features include 24/7 padel AI chat, AI nutrition tracking from meal photos, a padel level test, XP and streak tracking, and a score keeper. Available with a 3-day free trial.",
       },
     },
   ],

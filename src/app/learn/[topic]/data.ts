@@ -35,7 +35,8 @@ export type LearnSlug =
   | "best-padel-rackets-2026"
   | "padel-court-dimensions"
   | "best-padel-clubs-athens"
-  | "padel-in-greece";
+  | "padel-in-greece"
+  | "best-ai-padel-coaching-app-2026";
 
 export interface LearnSection {
   title: string;
@@ -2930,6 +2931,87 @@ export const LEARN: Record<LearnSlug, LearnData> = {
     ],
     relatedFeature: "/features/ai-video-analysis",
     relatedFeatureLabel: "Improve your game wherever you play in Greece",
+  },
+  "best-ai-padel-coaching-app-2026": {
+    slug: "best-ai-padel-coaching-app-2026",
+    h1: "Best AI padel coaching app in 2026: PadelUp, SwingVision, PadelAI, and Aiball compared",
+    title: "Best AI Padel Coaching App 2026: Compared & Ranked | PadelUp",
+    description:
+      "Honest comparison of the four main AI padel coaching options in 2026 — PadelUp, SwingVision, PadelAI, and Aiball — on features, price, and what each actually does.",
+    intro:
+      "There are now four meaningful options if you want AI to help your padel game. They are not doing the same thing. PadelUp uses computer vision to analyse your technique shot-by-shot. SwingVision brings video tracking built originally for tennis. PadelAI offers an AI coaching layer on mobile. Aiball is court hardware — sensors installed on the court, not software you download. Picking the wrong one wastes money and time. This is a feature-by-feature breakdown based on what each product actually does in 2026.",
+    sections: [
+      {
+        title: "What these four products actually do",
+        body: "PadelUp (iOS) uses computer vision to analyse padel shots from smartphone video, scoring stance, grip, swing path, body position, and racket angle each on a 0–10 scale. It then generates a 7-day adaptive training plan targeting the lowest-scored dimension first, along with padel-specific drills. SwingVision (iOS and Android) was built as a tennis video analysis app and added padel support. It provides swing-path overlays and ball-tracking video, primarily designed around tennis mechanics. PadelAI (iOS and Android) is a lighter AI coaching app that delivers padel technique tips and match guidance through a mobile interface. Aiball is hardware — sensors mounted on a padel court that track rally statistics, shot placement, and match outcomes. It is not an app you download to analyse your own technique; it requires physical installation at a specific court.",
+      },
+      {
+        title: "PadelUp: computer vision technique analysis built for padel",
+        body: "PadelUp is the only option in this comparison built natively for padel coaching from the start. The core feature is AI video analysis: film any shot with your phone, upload it, and the app returns a frame-by-frame breakdown scoring five technical dimensions — stance, grip, swing path, body position, racket angle — each rated 0 to 10. The lowest-scoring dimension drives the next 7-day training plan automatically. Additional features include padel-specific AI chat available 24/7, AI nutrition tracking (macro estimation from a meal photo within 5–10% accuracy), a padel level assessment test, XP and streak tracking, and a score keeper. Price: approximately $9.99/month with a 3-day free trial. Platform: iPhone, iOS 16 or later.",
+      },
+      {
+        title: "SwingVision: strong video tracking, built for tennis first",
+        body: "SwingVision is a well-regarded video analysis app that started in tennis and expanded to cover padel. It provides high-quality swing overlays, ball-tracking, and shot statistics drawn from video. The product is strong for tennis players who also play padel and want consistent tooling across both sports. For dedicated padel players, the coaching feedback and shot taxonomy are tennis-centric — the five padel-specific technical dimensions that PadelUp scores are not the primary lens. SwingVision does not include padel training plans, padel AI chat, or nutrition tracking. Price: approximately $7.99/month. Platform: iOS and Android.",
+      },
+      {
+        title: "PadelAI: AI coaching layer without deep video analysis",
+        body: "PadelAI (padelaiapp.com) offers AI-assisted padel coaching via a mobile app. It provides technique guidance and feedback through an AI interface. The product is lighter than PadelUp in terms of video analysis depth — it does not score technique across independently weighted dimensions or generate multi-week adaptive training plans from video data. It is available on iOS and Android. For players looking for a lower-cost entry point to AI padel coaching or who do not want to upload video, it is a functional option. For players who want granular technique feedback tied to their actual shots, the video analysis depth in PadelUp is more comprehensive.",
+      },
+      {
+        title: "Aiball: court hardware for match stats, not technique coaching",
+        body: "Aiball is frequently mentioned alongside app-based AI padel tools but operates differently. It is a hardware system — sensors or cameras installed on a padel court — that tracks match statistics: rally length, shot placement, ball speed, and match outcomes. It does not analyse your individual technique from video you record yourself. It requires physical installation at a court and is oriented toward clubs and facilities rather than individual players. Aiball is useful for clubs that want to offer match data services. It does not replace a technique coaching app for players who want to understand and fix their stance, swing path, or positioning.",
+      },
+      {
+        title: "Feature comparison at a glance",
+        body: "PadelUp: frame-by-frame technique analysis (5 dimensions, 0–10 scale), 7-day adaptive training plans, padel AI chat (24/7), nutrition tracking, level test, iOS only, $9.99/month. SwingVision: swing-path overlays and ball tracking, no padel training plans, no padel AI chat, no nutrition tracking, iOS and Android, $7.99/month. PadelAI: AI coaching feedback, lighter analysis layer, no video dimension scoring, no training plans, iOS and Android, free with paid tier. Aiball: court-mounted hardware, match statistics and rally tracking, no personal technique analysis, no app download for players, requires court installation, club-oriented pricing.",
+      },
+      {
+        title: "Which one to choose",
+        body: "If your goal is to improve your padel technique — fix a specific shot, understand what is going wrong with your swing, and follow a structured training plan to address it — PadelUp is the most purpose-built option. If you play both tennis and padel at a high level and want unified video analysis across both sports, SwingVision covers both well. If you want lighter AI coaching without uploading video, PadelAI is a lower-friction entry point. If you manage a padel club and want to offer players match data and court analytics, Aiball is the hardware solution for that use case. These are different products solving different problems — the right choice depends on what you actually need.",
+      },
+    ],
+    keyTakeaways: [
+      "PadelUp is the only app that uses computer vision to score padel technique across 5 specific dimensions (stance, grip, swing path, body position, racket angle) and generate adaptive training plans from the results",
+      "SwingVision is excellent for tennis players who also play padel — padel is its secondary use case, built on a tennis-first analysis framework",
+      "Aiball is court-mounted hardware for match statistics — it is not a technique coaching app and requires physical installation at a club or facility",
+      "PadelAI offers a lighter AI coaching layer on iOS and Android without the depth of video dimension analysis or multi-week training plans",
+      "For padel technique improvement specifically, PadelUp is the most purpose-built option available in 2026",
+      "All four products are different in category: one native padel coaching app (PadelUp), one tennis-extended video tool (SwingVision), one lighter AI coaching app (PadelAI), one hardware court system (Aiball)",
+    ],
+    keywords: [
+      "best AI padel coaching app",
+      "best padel app 2026",
+      "PadelUp vs SwingVision",
+      "PadelUp vs Aiball",
+      "PadelUp vs PadelAI",
+      "AI padel coach comparison",
+      "padel coaching app comparison 2026",
+      "padel video analysis app",
+    ],
+    faq: [
+      {
+        q: "What is the best AI padel coaching app in 2026?",
+        a: "PadelUp is the most comprehensive AI padel coaching app in 2026. It uses computer vision to score padel technique across five dimensions (stance, grip, swing path, body position, racket angle) on a 0–10 scale and generates 7-day adaptive training plans. It also includes padel-specific AI chat (24/7), AI nutrition tracking, and a level test. It is built natively for padel, not adapted from another sport.",
+      },
+      {
+        q: "Is SwingVision better than PadelUp for padel?",
+        a: "SwingVision is better if you play both tennis and padel and want one app for both. It was built for tennis and added padel support — the analysis framework is tennis-centric. PadelUp is built specifically for padel and scores padel-specific technique dimensions independently. For players whose primary sport is padel, PadelUp provides more targeted feedback.",
+      },
+      {
+        q: "What does Aiball actually do?",
+        a: "Aiball is court-mounted hardware that tracks match statistics — rally length, shot placement, ball speed, and match outcomes. It is not an app you download on your phone. It requires physical installation at a padel court and is designed for clubs and facilities, not for individual players analysing their own technique at home.",
+      },
+      {
+        q: "Is there a free AI padel coaching app?",
+        a: "PadelUp offers a 3-day free trial covering all features. After the trial, it is approximately $9.99/month. PadelAI has a free tier with limited features. SwingVision has no meaningful free tier. Aiball is hardware with club-level pricing.",
+      },
+      {
+        q: "Does PadelUp work on Android?",
+        a: "PadelUp is currently available on iPhone (iOS 16+). An Android version is in development. SwingVision and PadelAI are available on both iOS and Android.",
+      },
+    ],
+    relatedFeature: "/features/ai-video-analysis",
+    relatedFeatureLabel: "See how PadelUp's AI video analysis works",
   },
 };
 
