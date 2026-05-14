@@ -2608,7 +2608,7 @@ export const LEARN: Record<LearnSlug, LearnData> = {
     h1: "Best padel rackets 2026 — by level, style, and budget",
     title: "Best Padel Rackets 2026: Top Picks by Level and Style | PadelUp",
     description:
-      "The best padel rackets for 2026, organised by player level, playing style, and budget. Beginner to advanced, control to power, with specific examples per category.",
+      "Best padel rackets for beginners, intermediate, and advanced players in 2026. Ranked by level and playing style — find your pick in 60 seconds.",
     intro:
       "There's no single 'best padel racket' — the right racket depends on your level, your playing style, and your budget. This is a 2026-current breakdown of what works, organised so you can find your category in 60 seconds. The brands and models change yearly; the underlying principles don't. If you want the principles, see the racket buying guide. If you want specific recommendations, this is the page.",
     sections: [

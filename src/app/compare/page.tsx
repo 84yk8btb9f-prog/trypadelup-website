@@ -27,21 +27,22 @@ const COMPARE_ICONS: Record<CompareSlug, typeof Calendar> = {
 const PAGE_URL = `${BASE_URL}/compare`;
 
 export const metadata: Metadata = {
-  title: "PadelUp vs Alternatives — Playtomic, SwingVision, Private Coach",
+  title: "Playtomic Alternatives 2026: Padel Apps Compared | PadelUp",
   description:
-    "Honest, side-by-side comparisons of PadelUp against the tools players actually use — Playtomic for booking, SwingVision for tennis-ported AI, and private coaches.",
+    "Looking for a Playtomic alternative? Compare PadelUp, SwingVision, and private coaching side-by-side — features, price, and what each actually does.",
   alternates: { canonical: PAGE_URL },
   keywords: [
-    "PadelUp vs",
+    "playtomic alternative",
+    "playtomic alternatives",
+    "playtomic competitors",
     "padel app comparison",
-    "padel coaching alternatives",
     "best padel app",
   ],
   openGraph: {
     url: PAGE_URL,
-    title: "PadelUp vs Alternatives — Honest Comparisons",
+    title: "Playtomic Alternatives 2026: Padel Apps Compared | PadelUp",
     description:
-      "Where PadelUp wins. Where it doesn't. Side-by-side vs Playtomic, SwingVision, and private coaching.",
+      "Looking for a Playtomic alternative? See how PadelUp, SwingVision, and private coaching compare side-by-side.",
   },
 };
 
